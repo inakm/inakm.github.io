@@ -3,546 +3,505 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjani Kumar Mishra | Finance Portfolio</title>
+    <title>Anjani Kumar Mishra | Finance & Fintech Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-color: #0f6e36; /* Resume Green */
-            --dark-color: #1a1a1a;
-            --light-color: #f4f7f6;
-            --text-color: #333;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
+            /* --- YOUR BRAND PALETTE --- */
+            --charcoal-blue: #464655; /* Background */
+            --grey-olive: #94958b;    /* Accents */
+            --pale-slate: #b7b6c1;    /* Muted Text */
+            --lavender: #d5cfe1;      /* Secondary Text/Borders */
+            --lavender-veil: #eddfefff; /* Main Text / High Contrast */
+            
+            /* Gradients based on your specs */
+            --gradient-main: linear-gradient(135deg, #464655, #94958b);
+            --gradient-glow: radial-gradient(circle at center, #94958b33, transparent);
+
+            --font-display: 'Anton', sans-serif;
+            --font-body: 'Manrope', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--charcoal-blue);
+            color: var(--lavender-veil);
+            font-family: var(--font-body);
             overflow-x: hidden;
+            width: 100%;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
 
-        ul {
-            list-style: none;
-        }
+        /* --- TYPOGRAPHY UTILITIES --- */
+        .display-text { font-family: var(--font-display); text-transform: uppercase; line-height: 0.9; }
+        .mono { font-family: monospace; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; color: var(--grey-olive); }
 
-        /* --- NAVIGATION --- */
-        nav {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
+        /* --- HERO SECTION (NO PHOTO) --- */
+        .hero-container {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 6rem 1rem;
-            background: linear-gradient(135deg, var(--primary-color), #2c3e50);
-            color: var(--white);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .hero p {
-            max-width: 600px;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            background: var(--white);
-            color: var(--primary-color);
-            border-radius: 5px;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: var(--dark-color);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        /* --- SECTIONS GENERAL --- */
-        section {
-            padding: 4rem 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
             position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-        }
-
-        /* --- EDUCATION & EXPERIENCE --- */
-        .timeline-item {
-            background: var(--white);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--primary-color);
-            transition: var(--transition);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: var(--gradient-glow);
         }
 
-        .timeline-item:hover {
-            transform: translateY(-5px);
+        /* Abstract Background Line */
+        .hero-line {
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background: rgba(148, 149, 139, 0.2);
+            left: 50%;
+            top: 0;
         }
 
-        .timeline-header {
+        .hero-name {
+            font-size: 12vw;
+            text-align: center;
+            z-index: 2;
+            color: var(--lavender-veil);
+            mix-blend-mode: hard-light;
+        }
+
+        .hero-role {
+            font-size: 3vw;
+            color: var(--grey-olive);
+            margin-top: -1vw;
+            margin-bottom: 4rem;
+            letter-spacing: 0.5rem;
+        }
+
+        /* Status Badge - Top Right */
+        .status-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border: 1px solid var(--grey-olive);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(70, 70, 85, 0.8);
+            backdrop-filter: blur(5px);
         }
 
-        .timeline-header h3 {
-            color: var(--dark-color);
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #4cd137; /* Bright green for status */
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4cd137;
+            animation: pulse 2s infinite;
         }
 
-        .timeline-header span {
-            color: var(--primary-color);
-            font-weight: bold;
+        /* ACCA Badge - Floating */
+        .acca-badge {
+            position: absolute;
+            bottom: 15%;
+            left: 5%;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--lavender);
+            color: var(--charcoal-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-15deg);
+            z-index: 5;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
         }
 
-        .institution {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 1rem;
-            display: block;
+        .acca-badge:hover { transform: rotate(0deg) scale(1.1); }
+        .acca-title { font-weight: 800; font-size: 1.5rem; }
+        .acca-stat { font-family: var(--font-display); font-size: 4rem; line-height: 1; }
+        .acca-sub { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Resume Button */
+        .resume-btn {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 40px;
+            background: var(--lavender-veil);
+            color: var(--charcoal-blue);
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+        .resume-btn:hover {
+            background: var(--grey-olive);
+            color: white;
+            box-shadow: 0 0 20px rgba(148, 149, 139, 0.4);
         }
 
-        .timeline-content ul {
-            list-style: disc;
-            padding-left: 1.5rem;
+        /* --- SECTIONS --- */
+        section {
+            padding: 6rem 10%;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* --- SKILLS & INTERESTS --- */
-        .skills-grid {
+        .section-header {
+            font-size: 4rem;
+            color: var(--grey-olive);
+            margin-bottom: 3rem;
+        }
+
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        /* --- ABOUT --- */
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--pale-slate);
+        }
+        .highlight { color: var(--lavender-veil); font-weight: 600; border-bottom: 1px solid var(--grey-olive); }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
-
-        .skill-category {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            border-bottom: 1px solid #eee;
+        
+        .skill-col h3 {
+            color: var(--lavender);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--grey-olive);
             padding-bottom: 0.5rem;
         }
 
-        .tag-container {
+        .skill-tag {
+            display: inline-block;
+            margin: 0 5px 10px 0;
+            padding: 8px 16px;
+            border: 1px solid var(--grey-olive);
+            color: var(--lavender-veil);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--grey-olive);
+            color: var(--charcoal-blue);
+        }
+
+        /* --- PROJECTS --- */
+        .project-card {
+            background: rgba(0,0,0,0.2);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid var(--grey-olive);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover { transform: translateX(10px); background: rgba(0,0,0,0.3); }
+
+        .p-category { font-size: 0.75rem; text-transform: uppercase; color: var(--lavender); letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
+        .p-title { font-size: 1.8rem; margin-bottom: 0.5rem; font-family: var(--font-display); }
+        .p-desc { color: var(--pale-slate); margin-bottom: 1rem; }
+        .p-link { color: var(--grey-olive); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
+
+        /* --- CERTIFICATIONS --- */
+        .cert-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cert-list span { color: var(--pale-slate); }
+        .cert-list strong { color: var(--lavender-veil); font-size: 1.1rem; }
+
+        /* --- FOOTER / SOCIALS --- */
+        footer {
+            padding: 6rem 10%;
+            background: #1a1a20; /* Slightly darker than charcoal */
+            text-align: center;
+        }
+
+        .social-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: #e8f5e9;
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* --- PROJECTS & CERTIFICATIONS --- */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            color: var(--dark-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .card h4 {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* --- CONTACT --- */
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
             gap: 1.5rem;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 3rem;
         }
 
         .social-btn {
-            background: #0077b5;
-            color: white;
             padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 10px;
+            border: 1px solid var(--lavender);
+            color: var(--lavender);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            background: var(--dark-color);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+        .social-btn:hover {
+            background: var(--lavender);
+            color: var(--charcoal-blue);
+            box-shadow: 0 0 15px var(--lavender);
         }
 
-        /* --- ANIMATION CLASSES --- */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
+        @keyframes pulse {
+            0% { opacity: 1; box-shadow: 0 0 0 0 rgba(76, 209, 55, 0.7); }
+            70% { opacity: 1; box-shadow: 0 0 0 10px rgba(76, 209, 55, 0); }
+            100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76, 209, 55, 0); }
         }
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 0;
-                background: var(--white);
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+            .skills-container { grid-template-columns: 1fr; }
+            .hero-name { font-size: 18vw; }
+            .hero-role { font-size: 1rem; }
+            .acca-badge { width: 120px; height: 120px; bottom: 120px; left: 50%; transform: translateX(-50%) rotate(0deg); }
+            .acca-stat { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">A.K. Mishra</div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span>&#9776;</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <!-- HERO SECTION -->
-    <header id="home" class="hero">
-        <h1>Anjani Kumar Mishra</h1>
-        <h2>Finance Student | B.Com (Hons) + ACCA</h2>
-        <p>Passionate about finance, investments, and data-driven decision-making. Skilled in financial analysis, reporting, and accounting.</p>
-        <a href="#contact" class="btn">Get in Touch</a>
+    <header class="hero-container">
+        <!-- Status -->
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            OPEN FOR INTERNSHIPS / JOBS
+        </div>
+
+        <div class="hero-line"></div>
+
+        <h1 class="hero-name display-text">Anjani Kumar<br>Mishra</h1>
+        <p class="hero-role display-text">Finance • Fintech • Analysis</p>
+
+        <!-- ACCA Badge -->
+        <div class="acca-badge">
+            <span class="acca-title">ACCA</span>
+            <span class="acca-stat">7/13</span>
+            <span class="acca-sub">Cleared</span>
+        </div>
+
+        <!-- Resume Link -->
+        <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing" target="_blank" class="resume-btn">
+            Download Resume
+        </a>
     </header>
 
-    <!-- EDUCATION SECTION -->
-    <section id="education" class="hidden">
-        <h2 class="section-title">Education</h2>
-        
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <h3>Bachelor of Commerce (Honors) Integrated with ACCA</h3>
-                <span>2023 - 2026</span>
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="grid-2">
+            <div>
+                <span class="mono">01. Profile</span>
             </div>
-            <span class="institution">GITAM UNIVERSITY, Hyderabad</span>
-            <div class="timeline-content">
-                <p><strong>CGPA:</strong> 7.04/10 (4th SEM)</p>
-                <p>Proficient in IFRS, financial analysis, auditing, & global accounting standards.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <h3>Intermediate (CBSE) in Commerce stream</h3>
-                <span>2021 - 2023</span>
-            </div>
-            <span class="institution">CREANE MEMORIAL HIGH SCHOOL</span>
-            <div class="timeline-content">
-                <p><strong>Score:</strong> 79%</p>
-                <p>Focus on Accountancy, Business Studies, & Economics.</p>
+            <div class="about-text">
+                <p>
+                    I am a <span class="highlight">Commerce Undergraduate (Fresher)</span> with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University, Hyderabad. 
+                </p>
+                <br>
+                <p>
+                    Fluent in English and Hindi, I aim to combine <span class="highlight">analytical skills</span> with practical solutions. Beyond traditional finance, I am deeply passionate about <strong>Fintech, Crypto Development, Blockchain, and DeFi.</strong>
+                </p>
+                <br>
+                <div style="margin-top: 1rem;">
+                    <span class="mono">Age: 20 | He/Him | Hyderabad, India</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="hidden">
-        <h2 class="section-title">Internships</h2>
-        
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <h3>Finance Intern</h3>
-                <span>May - July 2025</span>
+    <section id="experience">
+        <div class="grid-2">
+            <div>
+                <span class="mono">02. Experience</span>
+                <h2 class="section-header display-text">Work</h2>
             </div>
-            <span class="institution">Tech Mindsparc Innovations</span>
-            <div class="timeline-content">
-                <ul>
-                    <li>Assisted in brand management & corporate finance reporting.</li>
-                    <li>Analyzed market trends & prepared financial reports using Excel.</li>
-                    <li><strong>Skills Used:</strong> Financial Analysis, Financial Reporting, Data Entry, Data Analysis.</li>
-                </ul>
+            <div>
+                <div class="project-card" style="background: transparent; border-left: none; padding-left: 0;">
+                    <span class="mono">May - July 2025</span>
+                    <h3 class="p-title">Tech Mindsparc Innovations</h3>
+                    <p class="p-category">Finance Intern</p>
+                    <ul style="color: var(--pale-slate); margin-left: 1rem; list-style: disc;">
+                        <li>Managed and analyzed financial data for corporate reporting.</li>
+                        <li>Sharpened practical knowledge of Excel, reporting tools, and portfolio management.</li>
+                        <li>Gained hands-on experience in brand management.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- PROJECTS SECTION -->
-    <section id="projects" class="hidden">
-        <h2 class="section-title">Academic Projects</h2>
-        <div class="card">
-            <h3>Entrepreneurial Project: GatiGo</h3>
-            <h4>App-based ride-sharing venture</h4>
-            <div class="timeline-content">
-                <ul>
-                    <li>Spearheaded the development & launch of GatiGo in Hyderabad designed to reduce traffic, pollution, and commuter costs.</li>
-                    <li>Developed comprehensive business plan including market analysis, financial models, & operational strategy.</li>
-                </ul>
+    <section id="projects">
+        <div class="grid-2">
+            <div>
+                <span class="mono">03. Portfolio</span>
+                <h2 class="section-header display-text">Builds</h2>
+            </div>
+            <div>
+                <!-- Personal 1 -->
+                <div class="project-card">
+                    <span class="p-category">Personal Project | AI/Tech</span>
+                    <h3 class="p-title">FoilAI</h3>
+                    <p class="p-desc">Front-end user interface for an AI image generator platform. Optimized for UX and integrated AI-driven features for artists and developers.</p>
+                    <a href="https://foilai.in" target="_blank" class="p-link">Visit Project ↗</a>
+                </div>
+
+                <!-- Personal 2 -->
+                <div class="project-card">
+                    <span class="p-category">Personal Project | Crypto</span>
+                    <h3 class="p-title">iCryptos Dashboard</h3>
+                    <p class="p-desc">A comprehensive dashboard for discovering the latest in crypto earning, investment, and airdrops. Curated specifically for the crypto community.</p>
+                    <a href="https://ttearncrypto.github.io/dashboards/" target="_blank" class="p-link">View Dashboard ↗</a>
+                </div>
+
+                <!-- Academic -->
+                <div class="project-card">
+                    <span class="p-category">Academic | Entrepreneurship</span>
+                    <h3 class="p-title">GatiGo</h3>
+                    <p class="p-desc">App-based ride-sharing venture designed to reduce traffic and pollution in Hyderabad. Developed full business plan and financial modeling.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS & CERTIFICATIONS SECTION -->
-    <section id="skills" class="hidden">
-        <h2 class="section-title">Skills & Certifications</h2>
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="grid-2">
+            <div>
+                <span class="mono">04. Expertise</span>
+                <h2 class="section-header display-text">Skills</h2>
+            </div>
+            <div class="skills-container">
+                <!-- Tech Skills -->
+                <div class="skill-col">
+                    <h3>Technical</h3>
+                    <div class="skill-tag">Financial Analysis</div>
+                    <div class="skill-tag">Accounting Principles</div>
+                    <div class="skill-tag">Data Reporting</div>
+                    <div class="skill-tag">MS Excel</div>
+                    <div class="skill-tag">IFRS</div>
+                    <div class="skill-tag">Blockchain/DeFi</div>
+                    <div class="skill-tag">Trading Strategies</div>
+                    <div class="skill-tag">Equity Trading</div>
+                    <div class="skill-tag">Crypto Dev</div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-col">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tag">Self-Motivation</div>
+                    <div class="skill-tag">Adaptability</div>
+                    <div class="skill-tag">Analytical Thinking</div>
+                    <div class="skill-tag">Communication</div>
+                    <div class="skill-tag">Patience</div>
+                    <div class="skill-tag">Problem Solving</div>
+                </div>
+            </div>
+        </div>
         
-        <div class="skills-grid">
-            <!-- Technical Skills -->
-            <div class="skill-category">
-                <h3>Technical Skills</h3>
-                <div class="tag-container">
-                    <span class="tag">Financial Analysis</span>
-                    <span class="tag">Accounting Principles</span>
-                    <span class="tag">Data Reporting</span>
-                    <span class="tag">MS Excel</span>
-                    <span class="tag">IFRS</span>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <div class="skill-category">
-                <h3>Soft Skills</h3>
-                <div class="tag-container">
-                    <span class="tag">Self-Motivation</span>
-                    <span class="tag">Adaptability</span>
-                    <span class="tag">Patience</span>
-                    <span class="tag">Analytical Thinking</span>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="skill-category">
-                <h3>Certifications</h3>
-                <ul style="list-style: none; line-height: 2;">
-                    <li>✅ ACCA (7 out of 13 cleared)</li>
-                    <li>✅ Bloomberg Market Concepts (BMC)</li>
-                    <li>✅ Risk Management in Personal Finance</li>
-                    <li>✅ Fundamentals of Investing</li>
-                </ul>
-            </div>
-
-            <!-- Interests -->
-            <div class="skill-category">
-                <h3>Interests</h3>
-                <div class="tag-container">
-                    <span class="tag">Stock Market</span>
-                    <span class="tag">Business Strategy</span>
-                    <span class="tag">Blogging</span>
-                    <span class="tag">Traveling</span>
-                </div>
-            </div>
+        <!-- Languages -->
+        <div style="margin-top: 3rem;">
+            <span class="mono">Languages: English (Professional) • Hindi (Native)</span>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="hidden">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-container">
-            <div class="contact-item">
-                <span>📍</span>
-                <p>Hyderabad, India</p>
-            </div>
-            <div class="contact-item">
-                <span>📧</span>
-                <p><a href="mailto:inakm@proton.me">inakm@proton.me</a></p>
-            </div>
-            <div class="contact-item">
-                <span>📞</span>
-                <p><a href="tel:+918340356159">+91-83403-56159</a></p>
-            </div>
-            <a href="https://linkedin.com/in/inakmm" target="_blank" class="social-btn">View LinkedIn Profile</a>
-        </div>
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+        <h2 class="section-header display-text" style="font-size: 3rem;">Certifications</h2>
+        <ul class="cert-list">
+            <li>
+                <strong>Global Trading Challenge (Bloomberg)</strong>
+                <span>Issued Nov 2025</span>
+            </li>
+            <li>
+                <strong>Bloomberg Market Concepts (BMC)</strong>
+                <span>Completed</span>
+            </li>
+            <li>
+                <strong>Mindfulness & Well-being (Rice University)</strong>
+                <span>Issued Mar 2025</span>
+            </li>
+            <li>
+                <strong>Fundamentals of Investing (SoFi)</strong>
+                <span>Issued Oct 2024</span>
+            </li>
+            <li>
+                <strong>Risk Management in Personal Finance</strong>
+                <span>Issued Oct 2024</span>
+            </li>
+        </ul>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 Anjani Kumar Mishra. All Rights Reserved.</p>
+        <h2 class="display-text" style="color: var(--lavender-veil); margin-bottom: 2rem;">Let's Connect</h2>
+        
+        <div class="social-grid">
+            <a href="https://linkedin.com/in/inakmm" target="_blank" class="social-btn">LinkedIn</a>
+            <a href="https://github.com/inakm" target="_blank" class="social-btn">GitHub</a>
+            <a href="https://www.instagram.com/in_akmm" target="_blank" class="social-btn">Instagram</a>
+            <a href="mailto:inakm@proton.me" class="social-btn">Email</a>
+            <a href="https://discord.com/users/in_akm" target="_blank" class="social-btn">Discord</a>
+        </div>
+
+        <div class="social-grid" style="gap: 1rem;">
+            <a href="https://www.buymeacoffee.com/inakm" target="_blank" class="social-btn" style="border-color: #FFDD00; color: #FFDD00;">Buy Me A Coffee</a>
+            <a href="https://ko-fi.com/in_akm" target="_blank" class="social-btn" style="border-color: #29abe0; color: #29abe0;">Ko-fi</a>
+            <a href="https://linktr.ee/in_akm" target="_blank" class="social-btn" style="border-color: #43E660; color: #43E660;">LinkTree</a>
+            <a href="https://www.reddit.com/user/in_akm" target="_blank" class="social-btn" style="border-color: #FF4500; color: #FF4500;">Reddit</a>
+        </div>
+
+        <p class="mono" style="margin-top: 2rem;">© 2025 Anjani Kumar Mishra. Built with Code.</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Smooth Scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Scroll Animation (Intersection Observer)
-        const observerOptions = {
-            threshold: 0.2
-        };
-
+        // Simple Interaction: Fade in elements on scroll
+        const observerOptions = { threshold: 0.1 };
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
     </script>
 </body>
 </html>
