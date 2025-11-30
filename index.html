@@ -1,507 +1,559 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anjani Kumar Mishra | Finance & Fintech Portfolio</title>
     
-    <!-- Google Fonts -->
+    <!-- Meta Tags -->
+    <meta name="description" content="Portfolio of Anjani Kumar Mishra - Finance Student, Fintech Enthusiast. Specializing in Financial Analysis, Blockchain, and AI Tools.">
+    
+    <!-- Google Fonts: Anton (Old Display) & Manrope (Body/Numbers) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'], // For financial data look
+                    },
+                    colors: {
+                        brand: {
+                            stormy: '#006466',
+                            dark: '#065a60',
+                            charcoal: '#1b3a4b',
+                            deepSpace: '#212f45',
+                            midnight: '#312244',
+                            deepPurple: '#4d194d',
+                            lavender: '#d5cfe1', 
+                            white: '#ffffff',
+                        }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            /* --- YOUR BRAND PALETTE --- */
-            --charcoal-blue: #464655; /* Background */
-            --grey-olive: #94958b;    /* Accents */
-            --pale-slate: #b7b6c1;    /* Muted Text */
-            --lavender: #d5cfe1;      /* Secondary Text/Borders */
-            --lavender-veil: #eddfefff; /* Main Text / High Contrast */
-            
-            /* Gradients based on your specs */
-            --gradient-main: linear-gradient(135deg, #464655, #94958b);
-            --gradient-glow: radial-gradient(circle at center, #94958b33, transparent);
-
-            --font-display: 'Anton', sans-serif;
-            --font-body: 'Manrope', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html { scroll-behavior: smooth; }
-
+        /* Finance / Brutalist Aesthetics */
         body {
-            background-color: var(--charcoal-blue);
-            color: var(--lavender-veil);
-            font-family: var(--font-body);
+            background-color: #1a1a1d;
+            background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
+            color: #eddfefff;
             overflow-x: hidden;
-            width: 100%;
         }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        ul { list-style: none; }
-
-        /* --- TYPOGRAPHY UTILITIES --- */
-        .display-text { font-family: var(--font-display); text-transform: uppercase; line-height: 0.9; }
-        .mono { font-family: monospace; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; color: var(--grey-olive); }
-
-        /* --- HERO SECTION (NO PHOTO) --- */
-        .hero-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            background: var(--gradient-glow);
+        .bg-grid {
+            background-size: 50px 50px;
+            background-position: center;
         }
 
-        /* Abstract Background Line */
-        .hero-line {
-            position: absolute;
-            height: 100%;
-            width: 1px;
-            background: rgba(148, 149, 139, 0.2);
-            left: 50%;
-            top: 0;
+        /* 3D Hard Shadows for Finance Look */
+        .card-3d {
+            background: rgba(33, 47, 69, 0.6);
+            border: 1px solid rgba(148, 149, 139, 0.3);
+            box-shadow: 8px 8px 0px rgba(0, 100, 102, 0.4);
+            transition: all 0.2s ease;
+        }
+        .card-3d:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px rgba(0, 100, 102, 0.6);
+            background: rgba(33, 47, 69, 0.8);
         }
 
-        .hero-name {
-            font-size: 12vw;
-            text-align: center;
-            z-index: 2;
-            color: var(--lavender-veil);
-            mix-blend-mode: hard-light;
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1b3a4b; }
+        ::-webkit-scrollbar-thumb { background: #94958b; border: 2px solid #1b3a4b; }
+
+        /* Modal Animation */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
         }
-
-        .hero-role {
-            font-size: 3vw;
-            color: var(--grey-olive);
-            margin-top: -1vw;
-            margin-bottom: 4rem;
-            letter-spacing: 0.5rem;
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
         }
-
-        /* Status Badge - Top Right */
-        .status-badge {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            border: 1px solid var(--grey-olive);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            background: rgba(70, 70, 85, 0.8);
-            backdrop-filter: blur(5px);
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
         }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #4cd137; /* Bright green for status */
-            border-radius: 50%;
-            box-shadow: 0 0 10px #4cd137;
-            animation: pulse 2s infinite;
-        }
-
-        /* ACCA Badge - Floating */
-        .acca-badge {
-            position: absolute;
-            bottom: 15%;
-            left: 5%;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: var(--lavender);
-            color: var(--charcoal-blue);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: rotate(-15deg);
-            z-index: 5;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-
-        .acca-badge:hover { transform: rotate(0deg) scale(1.1); }
-        .acca-title { font-weight: 800; font-size: 1.5rem; }
-        .acca-stat { font-family: var(--font-display); font-size: 4rem; line-height: 1; }
-        .acca-sub { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Resume Button */
-        .resume-btn {
-            position: absolute;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 40px;
-            background: var(--lavender-veil);
-            color: var(--charcoal-blue);
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 4px;
-        }
-        .resume-btn:hover {
-            background: var(--grey-olive);
-            color: white;
-            box-shadow: 0 0 20px rgba(148, 149, 139, 0.4);
-        }
-
-        /* --- SECTIONS --- */
-        section {
-            padding: 6rem 10%;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .section-header {
-            font-size: 4rem;
-            color: var(--grey-olive);
-            margin-bottom: 3rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-        }
-
-        /* --- ABOUT --- */
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--pale-slate);
-        }
-        .highlight { color: var(--lavender-veil); font-weight: 600; border-bottom: 1px solid var(--grey-olive); }
-
-        /* --- SKILLS --- */
-        .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        
-        .skill-col h3 {
-            color: var(--lavender);
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--grey-olive);
-            padding-bottom: 0.5rem;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            margin: 0 5px 10px 0;
-            padding: 8px 16px;
-            border: 1px solid var(--grey-olive);
-            color: var(--lavender-veil);
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--grey-olive);
-            color: var(--charcoal-blue);
-        }
-
-        /* --- PROJECTS --- */
-        .project-card {
-            background: rgba(0,0,0,0.2);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 3px solid var(--grey-olive);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover { transform: translateX(10px); background: rgba(0,0,0,0.3); }
-
-        .p-category { font-size: 0.75rem; text-transform: uppercase; color: var(--lavender); letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
-        .p-title { font-size: 1.8rem; margin-bottom: 0.5rem; font-family: var(--font-display); }
-        .p-desc { color: var(--pale-slate); margin-bottom: 1rem; }
-        .p-link { color: var(--grey-olive); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
-
-        /* --- CERTIFICATIONS --- */
-        .cert-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .cert-list span { color: var(--pale-slate); }
-        .cert-list strong { color: var(--lavender-veil); font-size: 1.1rem; }
-
-        /* --- FOOTER / SOCIALS --- */
-        footer {
-            padding: 6rem 10%;
-            background: #1a1a20; /* Slightly darker than charcoal */
-            text-align: center;
-        }
-
-        .social-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .social-btn {
-            padding: 10px 20px;
-            border: 1px solid var(--lavender);
-            color: var(--lavender);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .social-btn:hover {
-            background: var(--lavender);
-            color: var(--charcoal-blue);
-            box-shadow: 0 0 15px var(--lavender);
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; box-shadow: 0 0 0 0 rgba(76, 209, 55, 0.7); }
-            70% { opacity: 1; box-shadow: 0 0 0 10px rgba(76, 209, 55, 0); }
-            100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76, 209, 55, 0); }
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
-            .skills-container { grid-template-columns: 1fr; }
-            .hero-name { font-size: 18vw; }
-            .hero-role { font-size: 1rem; }
-            .acca-badge { width: 120px; height: 120px; bottom: 120px; left: 50%; transform: translateX(-50%) rotate(0deg); }
-            .acca-stat { font-size: 3rem; }
+        .modal.active .modal-content {
+            transform: scale(1);
         }
     </style>
 </head>
-<body>
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+
+    <!-- FLOATING HEADER -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="bg-brand-deepSpace/80 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 flex justify-between items-center shadow-2xl">
+            <!-- Click Name to Open Profile Modal -->
+            <button onclick="toggleModal()" class="text-xl font-display uppercase tracking-wider text-white hover:text-brand-stormy transition-colors">
+                AKM<span class="text-brand-stormy">.</span>
+            </button>
+            
+            <div class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="#about" class="hover:text-white transition-colors">Profile</a>
+                <a href="#experience" class="hover:text-white transition-colors">Work</a>
+                <a href="#projects" class="hover:text-white transition-colors">Builds</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+            </div>
+
+            <a href="mailto:inakm@proton.me" class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg">
+                Let's Talk
+            </a>
+        </div>
+    </nav>
 
     <!-- HERO SECTION -->
-    <header class="hero-container">
-        <!-- Status -->
-        <div class="status-badge">
-            <div class="status-dot"></div>
-            OPEN FOR INTERNSHIPS / JOBS
+    <header class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
+        
+        <!-- Status Badge -->
+        <div class="absolute top-32 md:top-36 right-6 md:right-10 flex items-center gap-3 bg-brand-deepSpace px-5 py-2 border border-brand-stormy shadow-[4px_4px_0px_#006466] animate-float z-30">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span class="text-xs font-mono font-bold text-white uppercase">OPEN FOR ROLES</span>
         </div>
 
-        <div class="hero-line"></div>
+        <!-- Main Typography -->
+        <div class="text-center z-10 relative">
+            <h1 class="text-[14vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
+                Anjani Kumar
+            </h1>
+            <h1 class="text-[14vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-[-1vw] drop-shadow-2xl">
+                Mishra
+            </h1>
+            
+            <p class="mt-8 text-xl font-mono text-brand-lavender border-y border-white/10 py-2 inline-block">
+                FINANCE <span class="text-brand-stormy">::</span> FINTECH <span class="text-brand-stormy">::</span> AI TOOLS
+            </p>
 
-        <h1 class="hero-name display-text">Anjani Kumar<br>Mishra</h1>
-        <p class="hero-role display-text">Finance • Fintech • Analysis</p>
+            <div class="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing" target="_blank" class="px-8 py-3 bg-transparent border border-white text-white font-mono text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white]">
+                    <i class="fa-solid fa-file-invoice mr-2"></i> Download Resume
+                </a>
+                
+                <a href="https://linkedin.com/in/inakmm" target="_blank" class="px-8 py-3 bg-[#0077b5] text-white font-mono text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)]">
+                    <i class="fa-brands fa-linkedin mr-2"></i> Connect
+                </a>
+            </div>
+        </div>
 
         <!-- ACCA Badge -->
-        <div class="acca-badge">
-            <span class="acca-title">ACCA</span>
-            <span class="acca-stat">7/13</span>
-            <span class="acca-sub">Cleared</span>
+        <div class="absolute bottom-24 left-10 md:left-20 w-auto p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b]">
+            <span class="block text-brand-stormy font-display text-2xl">ACCA</span>
+            <span class="block text-4xl font-mono font-bold text-white">7/13</span>
+            <span class="block text-xs font-mono uppercase text-gray-400">Papers Cleared</span>
         </div>
 
-        <!-- Resume Link -->
-        <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing" target="_blank" class="resume-btn">
-            Download Resume
-        </a>
+        <!-- Bottom Marquee -->
+        <div class="absolute bottom-0 left-0 w-full bg-brand-deepSpace border-t border-white/20 py-4 overflow-hidden z-20">
+            <div class="animate-marquee whitespace-nowrap flex gap-12 items-center font-mono text-sm">
+                <span class="text-brand-lavender">/// FINANCIAL ANALYSIS</span>
+                <span class="text-brand-stormy">/// RISK MANAGEMENT</span>
+                <span class="text-brand-lavender">/// DATA REPORTING</span>
+                <span class="text-brand-stormy">/// MARKET STRATEGY</span>
+                <span class="text-brand-lavender">/// CRYPTO DEV</span>
+                <span class="text-brand-stormy">/// BLOCKCHAIN & DEFI</span>
+                <span class="text-brand-lavender">/// ALGO TRADING</span>
+                <span class="text-brand-stormy">/// AI TOOLS</span>
+            </div>
+        </div>
     </header>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <div class="grid-2">
-            <div>
-                <span class="mono">01. Profile</span>
+    <!-- CONTENT WRAPPER -->
+    <main class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+
+        <!-- PROFILE SECTION -->
+        <section id="about" class="mb-32">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl">01.</span>
+                <h2 class="text-4xl font-display uppercase">Profile Summary</h2>
             </div>
-            <div class="about-text">
-                <p>
-                    I am a <span class="highlight">Commerce Undergraduate (Fresher)</span> with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University, Hyderabad. 
-                </p>
-                <br>
-                <p>
-                    Fluent in English and Hindi, I aim to combine <span class="highlight">analytical skills</span> with practical solutions. Beyond traditional finance, I am deeply passionate about <strong>Fintech, Crypto Development, Blockchain, and DeFi.</strong>
-                </p>
-                <br>
-                <div style="margin-top: 1rem;">
-                    <span class="mono">Age: 20 | He/Him | Hyderabad, India</span>
+
+            <div class="card-3d p-8 md:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <p class="text-lg text-gray-200 leading-relaxed font-body mb-4">
+                            I am a <strong class="text-white">Commerce Undergraduate (Fresher)</strong> with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University, Hyderabad, I’ve developed strong skills in financial analysis, reporting, and accounting.
+                        </p>
+                        <p class="text-lg text-gray-200 leading-relaxed font-body mb-4">
+                            Fluent in English and Hindi, I aim to grow into a finance professional who can combine analytical skills with practical solutions to create real impact.
+                        </p>
+                        <p class="text-lg text-brand-lavender leading-relaxed font-body">
+                            I am also deeply passionate about <strong class="text-brand-stormy">Fintech, Crypto Development, Blockchain, and DeFi</strong>, bridging the gap between traditional finance and the future of money.
+                        </p>
+                    </div>
+                    <div class="font-mono text-sm text-gray-400 space-y-4 border-l border-white/10 pl-6">
+                        <div>
+                            <span class="block text-brand-stormy text-xs mb-1">LOCATION</span>
+                            <span class="text-white">Hyderabad, India</span>
+                        </div>
+                        <div>
+                            <span class="block text-brand-stormy text-xs mb-1">AGE / PRONOUNS</span>
+                            <span class="text-white">20 / He/Him</span>
+                        </div>
+                        <div>
+                            <span class="block text-brand-stormy text-xs mb-1">STATUS</span>
+                            <span class="text-green-400 font-bold">Open for Internships / Jobs</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience">
-        <div class="grid-2">
-            <div>
-                <span class="mono">02. Experience</span>
-                <h2 class="section-header display-text">Work</h2>
+        <!-- WORK HISTORY -->
+        <section id="experience" class="mb-32">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl">02.</span>
+                <h2 class="text-4xl font-display uppercase">Work History</h2>
             </div>
-            <div>
-                <div class="project-card" style="background: transparent; border-left: none; padding-left: 0;">
-                    <span class="mono">May - July 2025</span>
-                    <h3 class="p-title">Tech Mindsparc Innovations</h3>
-                    <p class="p-category">Finance Intern</p>
-                    <ul style="color: var(--pale-slate); margin-left: 1rem; list-style: disc;">
+            
+            <div class="card-3d p-8">
+                <div class="flex flex-col md:flex-row justify-between border-b border-gray-600 pb-4 mb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Tech Mindsparc Innovations</h3>
+                        <p class="text-brand-stormy font-mono text-sm uppercase">Finance Intern</p>
+                    </div>
+                    <span class="mt-2 md:mt-0 font-mono text-gray-400">MAY 2025 - JULY 2025</span>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <ul class="space-y-2 text-gray-300 font-body text-sm list-disc list-inside">
                         <li>Managed and analyzed financial data for corporate reporting.</li>
                         <li>Sharpened practical knowledge of Excel, reporting tools, and portfolio management.</li>
                         <li>Gained hands-on experience in brand management.</li>
                     </ul>
+                    <div class="bg-black/20 p-4 border border-white/5 font-mono text-xs">
+                        <p class="text-gray-500 mb-2">// SKILL SET</p>
+                        <p class="text-brand-lavender">Financial Analysis, Reporting, Data Entry, Corporate Finance</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <div class="grid-2">
-            <div>
-                <span class="mono">03. Portfolio</span>
-                <h2 class="section-header display-text">Builds</h2>
+        <!-- EDUCATION -->
+        <section id="education" class="mb-32">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl">03.</span>
+                <h2 class="text-4xl font-display uppercase">Education</h2>
             </div>
-            <div>
-                <!-- Personal 1 -->
-                <div class="project-card">
-                    <span class="p-category">Personal Project | AI/Tech</span>
-                    <h3 class="p-title">FoilAI</h3>
-                    <p class="p-desc">Front-end user interface for an AI image generator platform. Optimized for UX and integrated AI-driven features for artists and developers.</p>
-                    <a href="https://foilai.in" target="_blank" class="p-link">Visit Project ↗</a>
+
+            <div class="space-y-6">
+                <!-- Edu Item 1 -->
+                <div class="border-l-2 border-brand-stormy pl-6 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-stormy"></div>
+                    <h3 class="text-2xl font-bold text-white">Bachelor of Commerce (Honors) + ACCA</h3>
+                    <p class="text-brand-lavender font-mono text-sm mb-2">GITAM UNIVERSITY • 2023 - 2026</p>
+                    <p class="text-gray-400 text-sm">Proficient in IFRS, financial analysis, auditing, & global accounting standards.</p>
+                    <p class="text-brand-stormy font-mono text-sm mt-2 font-bold">CGPA: 7.04/10 (4th SEM)</p>
                 </div>
 
-                <!-- Personal 2 -->
-                <div class="project-card">
-                    <span class="p-category">Personal Project | Crypto</span>
-                    <h3 class="p-title">iCryptos Dashboard</h3>
-                    <p class="p-desc">A comprehensive dashboard for discovering the latest in crypto earning, investment, and airdrops. Curated specifically for the crypto community.</p>
-                    <a href="https://ttearncrypto.github.io/dashboards/" target="_blank" class="p-link">View Dashboard ↗</a>
-                </div>
-
-                <!-- Academic -->
-                <div class="project-card">
-                    <span class="p-category">Academic | Entrepreneurship</span>
-                    <h3 class="p-title">GatiGo</h3>
-                    <p class="p-desc">App-based ride-sharing venture designed to reduce traffic and pollution in Hyderabad. Developed full business plan and financial modeling.</p>
+                <!-- Edu Item 2 -->
+                <div class="border-l-2 border-gray-600 pl-6 relative">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600"></div>
+                    <h3 class="text-2xl font-bold text-white">Intermediate (CBSE) Commerce</h3>
+                    <p class="text-brand-lavender font-mono text-sm mb-2">CREANE MEMORIAL HIGH SCHOOL • 2021 - 2023</p>
+                    <p class="text-gray-400 text-sm">Focus on Accountancy, Business Studies, & Economics.</p>
+                    <p class="text-brand-stormy font-mono text-sm mt-2 font-bold">Score: 79%</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-        <div class="grid-2">
-            <div>
-                <span class="mono">04. Expertise</span>
-                <h2 class="section-header display-text">Skills</h2>
+        <!-- PORTFOLIO -->
+        <section id="projects" class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2">04. Portfolio</span>
+                    <h2 class="text-5xl font-display uppercase text-white">Builds</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-gray-400 text-xs">SELECTED WORKS 2023-2025</p>
+                </div>
             </div>
-            <div class="skills-container">
-                <!-- Tech Skills -->
-                <div class="skill-col">
-                    <h3>Technical</h3>
-                    <div class="skill-tag">Financial Analysis</div>
-                    <div class="skill-tag">Accounting Principles</div>
-                    <div class="skill-tag">Data Reporting</div>
-                    <div class="skill-tag">MS Excel</div>
-                    <div class="skill-tag">IFRS</div>
-                    <div class="skill-tag">Blockchain/DeFi</div>
-                    <div class="skill-tag">Trading Strategies</div>
-                    <div class="skill-tag">Equity Trading</div>
-                    <div class="skill-tag">Crypto Dev</div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="card-3d p-6 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-mono text-xs text-brand-stormy border border-brand-stormy px-2 py-1">AI / TECH</span>
+                        <a href="https://foilai.in" target="_blank" class="text-white hover:text-brand-stormy"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-2">FoilAI</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Front-end UI for an AI image generator platform. Optimized for UX and integrated AI-driven features for artists.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
+                        REACT JS • API • UI/UX
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card-3d p-6 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-mono text-xs text-purple-400 border border-purple-400 px-2 py-1">WEB3 / CRYPTO</span>
+                        <a href="https://ttearncrypto.github.io/dashboards/" target="_blank" class="text-white hover:text-brand-stormy"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-2">iCryptos Dash</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">Comprehensive dashboard for tracking crypto earnings, airdrops, and investments. Real-time data visualization.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
+                        HTML/CSS • ANALYTICS
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card-3d p-6 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="font-mono text-xs text-blue-400 border border-blue-400 px-2 py-1">ACADEMIC</span>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-2">GatiGo</h3>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow">App-based ride-sharing business plan for Hyderabad. Includes financial modeling to reduce commuter costs.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
+                        STRATEGY • MODELING
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS & INTERESTS -->
+        <section id="skills" class="mb-32">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl">05.</span>
+                <h2 class="text-4xl font-display uppercase">Expertise & Interests</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Technical -->
+                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-chart-pie text-brand-stormy mr-2"></i> Technical Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Financial Analysis</span>
+                        <span class="skill-tag">Accounting Principles</span>
+                        <span class="skill-tag">Data Reporting</span>
+                        <span class="skill-tag">MS Excel</span>
+                        <span class="skill-tag">IFRS</span>
+                    </div>
                 </div>
 
                 <!-- Soft Skills -->
-                <div class="skill-col">
-                    <h3>Soft Skills</h3>
-                    <div class="skill-tag">Self-Motivation</div>
-                    <div class="skill-tag">Adaptability</div>
-                    <div class="skill-tag">Analytical Thinking</div>
-                    <div class="skill-tag">Communication</div>
-                    <div class="skill-tag">Patience</div>
-                    <div class="skill-tag">Problem Solving</div>
+                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-users text-brand-stormy mr-2"></i> Soft Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Self-Motivation</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Patience</span>
+                        <span class="skill-tag">Analytical Thinking</span>
+                    </div>
+                </div>
+
+                <!-- AI & Emerging Tech -->
+                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-robot text-brand-stormy mr-2"></i> AI & Tech</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">AI Tools Proficiency</span>
+                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Prompt Engineering</span>
+                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Crypto Development</span>
+                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Blockchain Analysis</span>
+                    </div>
+                </div>
+                
+                <!-- Interests (Spans full width on mobile, part of grid on desktop) -->
+                <div class="lg:col-span-3 bg-brand-deepSpace/20 p-6 border border-white/5 mt-4">
+                     <h3 class="text-sm font-mono text-gray-400 mb-3">// PERSONAL INTERESTS</h3>
+                     <div class="flex flex-wrap gap-4 text-white font-display text-lg tracking-wide">
+                        <span>STOCK MARKET & INVESTMENTS</span> <span class="text-brand-stormy">•</span>
+                        <span>BUSINESS STRATEGY</span> <span class="text-brand-stormy">•</span>
+                        <span>BLOGGING & WRITING</span> <span class="text-brand-stormy">•</span>
+                        <span>TRAVELING & EXPLORING CULTURES</span>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section id="certifications" class="mb-32">
+            <span class="text-brand-stormy font-mono text-xl block mb-4">06. Credentials</span>
+            <div class="space-y-4 font-mono text-sm border-t border-white/10 pt-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
+                    <span class="font-bold text-white">Bloomberg Global Trading Challenge</span>
+                    <span class="text-brand-stormy">Issued Nov 2025</span>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
+                    <span class="font-bold text-white">Bloomberg Market Concepts (BMC)</span>
+                    <span class="text-green-500">Completed</span>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
+                    <span class="font-bold text-white">Mindfulness & Well-being (Rice Univ)</span>
+                    <span class="text-gray-400">Issued Mar 2025</span>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
+                    <span class="font-bold text-white">Fundamentals of Investing (SoFi)</span>
+                    <span class="text-gray-400">Issued Oct 2024</span>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
+                    <span class="font-bold text-white">Risk Management in Personal Finance</span>
+                    <span class="text-gray-400">Issued Oct 2024</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-stormy">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start mb-16 gap-10">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-display uppercase mb-6">Connect</h3>
+                    
+                    <!-- Social Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs">
+                        <a href="https://linkedin.com/in/inakmm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-[#0077b5] hover:border-[#0077b5] transition-colors">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://x.com/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-black hover:border-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i> Twitter/X
+                        </a>
+                        <a href="https://github.com/inakm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-gray-800 transition-colors">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.instagram.com/in_akmm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-pink-600 transition-colors">
+                            <i class="fa-brands fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.buymeacoffee.com/inakm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-yellow-400 hover:text-black transition-colors">
+                            <i class="fa-solid fa-mug-hot"></i> BuyCoffee
+                        </a>
+                        <a href="https://ko-fi.com/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-blue-400 transition-colors">
+                            <i class="fa-solid fa-heart"></i> Ko-fi
+                        </a>
+                        <a href="https://www.reddit.com/user/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-orange-500 transition-colors">
+                            <i class="fa-brands fa-reddit"></i> Reddit
+                        </a>
+                        <a href="http://inakm.sayout.net" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-teal-600 transition-colors">
+                            <i class="fa-solid fa-comment-dots"></i> Sayout
+                        </a>
+                        <button onclick="copyDiscord()" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-[#5865F2] transition-colors text-left">
+                            <i class="fa-brands fa-discord"></i> Copy Discord
+                        </button>
+                    </div>
+                    
+                    <a href="https://linktr.ee/in_akm" target="_blank" class="inline-block mt-4 text-brand-stormy font-mono text-sm hover:underline">View All Links via Linktree ↗</a>
+                </div>
+
+                <div class="w-full md:w-1/2 flex flex-col items-start md:items-end">
+                    <a href="mailto:inakm@proton.me" class="text-2xl md:text-3xl font-display uppercase hover:text-brand-stormy transition-colors">
+                        inakm@proton.me
+                    </a>
+                    <p class="text-gray-500 font-mono text-sm mt-2">HYDERABAD, INDIA</p>
+                </div>
+            </div>
+
+            <!-- NAME FOOTER (Click opens Modal) -->
+            <div class="border-t border-gray-800 pt-8 pb-4">
+                <button onclick="toggleModal()" class="w-full text-[12vw] leading-none font-display text-center text-[#222] hover:text-[#333] select-none transition-colors">
+                    AKM
+                </button>
+            </div>
+
+            <!-- Open Source Note -->
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs font-mono text-gray-500 pt-8">
+                <p>&copy; 2025 Anjani Kumar Mishra. All Rights Reserved.</p>
+                <a href="https://github.com/inakm/inakm.github.io" target="_blank" class="hover:text-brand-stormy mt-2 md:mt-0">
+                    <i class="fa-brands fa-github-alt"></i> OPEN SOURCE PROJECT
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROFILE MODAL -->
+    <div id="profileModal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="modal-content bg-[#1a1a1d] border-2 border-brand-stormy w-full max-w-lg p-8 relative shadow-[10px_10px_0px_#006466]">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            
+            <h2 class="text-3xl font-display uppercase text-white mb-2">Anjani Kumar Mishra</h2>
+            <p class="font-mono text-brand-stormy text-sm mb-6">HE/HIM | AGE: 20 | FRESHER</p>
+            
+            <div class="space-y-4 text-gray-300 font-body leading-relaxed">
+                <p>
+                    I am a commerce undergraduate with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University.
+                </p>
+                <p>
+                    I enjoy working with numbers and making sense of financial data. Fluent in English and Hindi.
+                </p>
+                <div class="bg-brand-deepSpace p-4 border border-white/10 mt-4">
+                    <h3 class="font-mono text-xs text-brand-stormy uppercase mb-2">Tech Interest</h3>
+                    <p class="text-sm">Passionate about Fintech, Crypto Development, Blockchain & DeFi. Proficient in using <span class="text-white font-bold">AI Technologies & AI Tools</span> for productivity and analysis.</p>
                 </div>
             </div>
         </div>
-        
-        <!-- Languages -->
-        <div style="margin-top: 3rem;">
-            <span class="mono">Languages: English (Professional) • Hindi (Native)</span>
-        </div>
-    </section>
+    </div>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certs">
-        <h2 class="section-header display-text" style="font-size: 3rem;">Certifications</h2>
-        <ul class="cert-list">
-            <li>
-                <strong>Global Trading Challenge (Bloomberg)</strong>
-                <span>Issued Nov 2025</span>
-            </li>
-            <li>
-                <strong>Bloomberg Market Concepts (BMC)</strong>
-                <span>Completed</span>
-            </li>
-            <li>
-                <strong>Mindfulness & Well-being (Rice University)</strong>
-                <span>Issued Mar 2025</span>
-            </li>
-            <li>
-                <strong>Fundamentals of Investing (SoFi)</strong>
-                <span>Issued Oct 2024</span>
-            </li>
-            <li>
-                <strong>Risk Management in Personal Finance</strong>
-                <span>Issued Oct 2024</span>
-            </li>
-        </ul>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <h2 class="display-text" style="color: var(--lavender-veil); margin-bottom: 2rem;">Let's Connect</h2>
-        
-        <div class="social-grid">
-            <a href="https://linkedin.com/in/inakmm" target="_blank" class="social-btn">LinkedIn</a>
-            <a href="https://github.com/inakm" target="_blank" class="social-btn">GitHub</a>
-            <a href="https://www.instagram.com/in_akmm" target="_blank" class="social-btn">Instagram</a>
-            <a href="mailto:inakm@proton.me" class="social-btn">Email</a>
-            <a href="https://discord.com/users/in_akm" target="_blank" class="social-btn">Discord</a>
-        </div>
-
-        <div class="social-grid" style="gap: 1rem;">
-            <a href="https://www.buymeacoffee.com/inakm" target="_blank" class="social-btn" style="border-color: #FFDD00; color: #FFDD00;">Buy Me A Coffee</a>
-            <a href="https://ko-fi.com/in_akm" target="_blank" class="social-btn" style="border-color: #29abe0; color: #29abe0;">Ko-fi</a>
-            <a href="https://linktr.ee/in_akm" target="_blank" class="social-btn" style="border-color: #43E660; color: #43E660;">LinkTree</a>
-            <a href="https://www.reddit.com/user/in_akm" target="_blank" class="social-btn" style="border-color: #FF4500; color: #FF4500;">Reddit</a>
-        </div>
-
-        <p class="mono" style="margin-top: 2rem;">© 2025 Anjani Kumar Mishra. Built with Code.</p>
-    </footer>
-
+    <!-- SCRIPTS & Helper CSS Class -->
+    <style>
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            font-family: 'Courier New', monospace;
+            color: #d5cfe1;
+            border-radius: 2px;
+            display: inline-block;
+        }
+    </style>
     <script>
-        // Simple Interaction: Fade in elements on scroll
-        const observerOptions = { threshold: 0.1 };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+        function toggleModal() {
+            const modal = document.getElementById('profileModal');
+            modal.classList.toggle('active');
+        }
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.8s ease-out';
-            observer.observe(section);
-        });
+        function copyDiscord() {
+            navigator.clipboard.writeText('in_akm').then(() => {
+                alert("Discord Username '@in_akm' copied to clipboard!");
+            });
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('profileModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
