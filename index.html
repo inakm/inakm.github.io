@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anjani Kumar Mishra | My Personal Finance & Fintech Portfolio Website</title>
+    <title>Anjani Kumar Mishra | Finance & Fintech Portfolio</title>
     
     <!-- Meta Tags -->
     <meta name="description" content="Portfolio of Anjani Kumar Mishra - Finance Student, Fintech Enthusiast. Specializing in Financial Analysis, Blockchain, and AI Tools.">
@@ -32,10 +32,10 @@
     }
     </script>
     
-    <!-- Google Fonts: Anton (Old Display) & Manrope (Body/Numbers) -->
+    <!-- Google Fonts: Display Swap for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,35 +49,38 @@
                     fontFamily: {
                         display: ['Anton', 'sans-serif'],
                         body: ['Manrope', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'], // For financial data look
+                        mono: ['Courier New', 'monospace'], // Financial Data Look
                     },
                     colors: {
                         brand: {
                             stormy: '#006466',
-                            dark: '#065a60',
+                            darkTeal: '#065a60',
+                            darkTeal2: '#0b525b',
                             charcoal: '#1b3a4b',
                             deepSpace: '#212f45',
+                            indigo: '#272640',
                             midnight: '#312244',
                             deepPurple: '#4d194d',
                             lavender: '#d5cfe1', 
                             white: '#ffffff',
+                            highlight: '#48cae4' // New high contrast highlight
                         }
                     },
                     backgroundImage: {
                         'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
                     },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
                         'float': 'float 6s ease-in-out infinite',
+                        'scroll-loop': 'scrollLoop 30s linear infinite',
                     },
                     keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-15px)' },
+                        },
+                        scrollLoop: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }, // Moves exactly half way
                         }
                     }
                 }
@@ -86,11 +89,11 @@
     </script>
 
     <style>
-        /* Finance / Brutalist Aesthetics */
+        /* Base Finance Aesthetics */
         body {
             background-color: #1a1a1d;
             background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
-            color: #eddfefff;
+            color: #d5cfe1;
             overflow-x: hidden;
         }
 
@@ -99,159 +102,216 @@
             background-position: center;
         }
 
-        /* 3D Hard Shadows for Finance Look */
+        /* 3D Hard Shadows */
         .card-3d {
-            background: rgba(33, 47, 69, 0.6);
+            background: rgba(33, 47, 69, 0.7);
             border: 1px solid rgba(148, 149, 139, 0.3);
-            box-shadow: 8px 8px 0px rgba(0, 100, 102, 0.4);
+            box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.5);
             transition: all 0.2s ease;
+            will-change: transform;
         }
         .card-3d:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px rgba(0, 100, 102, 0.6);
-            background: rgba(33, 47, 69, 0.8);
+            box-shadow: 10px 10px 0px rgba(0, 100, 102, 0.8);
+            background: rgba(33, 47, 69, 0.9);
+            border-color: #d5cfe1;
         }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1b3a4b; }
-        ::-webkit-scrollbar-thumb { background: #94958b; border: 2px solid #1b3a4b; }
+        ::-webkit-scrollbar-thumb { background: #006466; border: 2px solid #1b3a4b; border-radius: 4px; }
 
         /* Modal Animation */
         .modal {
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+            pointer-events: none;
         }
         .modal.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: auto;
         }
         .modal-content {
-            transform: scale(0.9);
+            transform: scale(0.95);
             transition: transform 0.3s ease;
         }
         .modal.active .modal-content {
             transform: scale(1);
         }
+
+        /* Heatmap Styles */
+        .heatmap-cell {
+            width: 100%;
+            height: 28px; /* Bigger for visibility */
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            transition: background-color 0.8s ease-out;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        /* Gradient mapping for confidence */
+        .heatmap-active-1 { background-color: #144552; }
+        .heatmap-active-2 { background-color: #065a60; }
+        .heatmap-active-3 { background-color: #006466; }
+        .heatmap-active-4 { background-color: #2a9d8f; }
+        .heatmap-active-5 { background-color: #48cae4; box-shadow: 0 0 8px #48cae4; }
+
+        /* Animation Trigger Class */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Shortcut Key Styling */
+        .kbd-shortcut {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #48cae4;
+        }
     </style>
 </head>
-<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white" id="top">
 
     <!-- FLOATING HEADER -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-        <div class="bg-brand-deepSpace/80 backdrop-blur-xl border border-white/20 rounded-full px-6 py-3 flex justify-between items-center shadow-2xl">
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-6 py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
             <!-- Click Name to Open Profile Modal -->
-            <button onclick="toggleModal()" class="text-xl font-display uppercase tracking-wider text-white hover:text-brand-stormy transition-colors">
-                AKM<span class="text-brand-stormy">.</span>
+            <button onclick="toggleModal()" class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2" aria-label="Open Profile Modal">
+                AKM<span class="text-brand-stormy group-hover:text-white">.</span>
             </button>
             
-            <div class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-brand-lavender">
-                <a href="#about" class="hover:text-white transition-colors">Profile</a>
-                <a href="#experience" class="hover:text-white transition-colors">Work</a>
-                <a href="#projects" class="hover:text-white transition-colors">Builds</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="#about" class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Profile</a>
+                <a href="#experience" class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Work</a>
+                <a href="#skills" class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Expertise</a>
+                <a href="#projects" class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Builds</a>
             </div>
 
-            <a href="mailto:inakm@proton.me" class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg">
+            <a href="mailto:inakm@proton.me" class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap focus:ring-2 focus:ring-offset-2 focus:ring-brand-stormy" aria-label="Send Email">
                 Let's Talk
             </a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
+    <header class="relative min-h-[95vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
         
         <!-- Status Badge -->
-        <div class="absolute top-32 md:top-36 right-6 md:right-10 flex items-center gap-3 bg-brand-deepSpace px-5 py-2 border border-brand-stormy shadow-[4px_4px_0px_#006466] animate-float z-30">
+        <div class="absolute top-32 md:top-40 right-4 md:right-10 flex items-center gap-3 bg-brand-deepSpace px-5 py-2 border border-brand-stormy shadow-[4px_4px_0px_#006466] animate-float z-30">
             <span class="relative flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
-            <span class="text-xs font-mono font-bold text-white uppercase">OPEN FOR ROLES</span>
+            <span class="text-xs font-mono font-bold text-white uppercase tracking-wider">OPEN FOR ROLES</span>
         </div>
 
         <!-- Main Typography -->
         <div class="text-center z-10 relative">
-            <h1 class="text-[14vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
+            <h1 class="text-[15vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
                 Anjani Kumar
             </h1>
-            <h1 class="text-[14vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-[-1vw] drop-shadow-2xl">
+            <h1 class="text-[15vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-[-1vw] drop-shadow-2xl">
                 Mishra
             </h1>
             
-            <p class="mt-8 text-xl font-mono text-brand-lavender border-y border-white/10 py-2 inline-block">
-                FINANCE <span class="text-brand-stormy">::</span> FINTECH <span class="text-brand-stormy">::</span> ANALYSIS
+            <p class="mt-8 text-lg md:text-2xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
+                FINANCE <span class="text-brand-stormy px-2">::</span> FINTECH <span class="text-brand-stormy px-2">::</span> ANALYSIS
             </p>
 
-            <div class="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center">
-                <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing" target="_blank" class="px-8 py-3 bg-transparent border border-white text-white font-mono text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white]">
-                    <i class="fa-solid fa-file-invoice mr-2"></i> Download My Resume
+            <div class="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-md md:max-w-none mx-auto">
+                <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing" target="_blank" class="w-full md:w-auto px-8 py-4 bg-transparent border border-white text-white font-mono text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white] text-center focus:ring-2 focus:ring-white">
+                    <i class="fa-solid fa-file-invoice mr-2"></i> Download CV
                 </a>
                 
-                <a href="https://linkedin.com/in/inakmm" target="_blank" class="px-8 py-3 bg-[#0077b5] text-white font-mono text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)]">
+                <a href="https://linkedin.com/in/inakmm" target="_blank" class="w-full md:w-auto px-8 py-4 bg-[#0077b5] text-white font-mono text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)] text-center focus:ring-2 focus:ring-[#0077b5]">
                     <i class="fa-brands fa-linkedin mr-2"></i> Connect
                 </a>
             </div>
         </div>
 
         <!-- ACCA Badge -->
-        <div class="absolute bottom-24 left-10 md:left-20 w-auto p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b]">
-            <span class="block text-brand-stormy font-display text-2xl">ACCA</span>
-            <span class="block text-4xl font-mono font-bold text-white">7/13</span>
-            <span class="block text-xs font-mono uppercase text-gray-400">Papers Cleared</span>
+        <div class="absolute bottom-24 left-4 md:left-20 w-auto p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b] max-w-[150px] md:max-w-none">
+            <span class="block text-brand-stormy font-display text-2xl md:text-3xl">ACCA</span>
+            <span class="block text-4xl md:text-5xl font-mono font-bold text-white">7/13</span>
+            <span class="block text-xs font-mono uppercase text-gray-300 mt-1">Papers Cleared</span>
         </div>
 
-        <!-- Bottom Marquee -->
+        <!-- FIXED Bottom Marquee -->
         <div class="absolute bottom-0 left-0 w-full bg-brand-deepSpace border-t border-white/20 py-4 overflow-hidden z-20">
-            <div class="animate-marquee whitespace-nowrap flex gap-12 items-center font-mono text-sm">
-                <span class="text-brand-lavender">/// FINANCIAL ANALYSIS</span>
-                <span class="text-brand-stormy">/// RISK MANAGEMENT</span>
-                <span class="text-brand-lavender">/// DATA REPORTING</span>
-                <span class="text-brand-stormy">/// MARKET STRATEGY</span>
-                <span class="text-brand-lavender">/// CRYPTO DEV</span>
-                <span class="text-brand-stormy">/// BLOCKCHAIN & DEFI</span>
-                <span class="text-brand-lavender">/// ALGO TRADING</span>
-                <span class="text-brand-stormy">/// AI TOOLS</span>
+            <!-- Container needs width: max-content to ensure items sit side-by-side, then duplicated -->
+            <div class="flex w-max animate-scroll-loop hover:pause">
+                <!-- Original Content -->
+                <div class="flex items-center gap-12 px-6">
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// FINANCIAL ANALYSIS</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// DATA REPORTING</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// CRYPTO DEV</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN & DEFI</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// ALGO TRADING</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
+                </div>
+                <!-- Duplicate Content (For smooth loop) -->
+                <div class="flex items-center gap-12 px-6">
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// FINANCIAL ANALYSIS</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// DATA REPORTING</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// CRYPTO DEV</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN & DEFI</span>
+                    <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// ALGO TRADING</span>
+                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- CONTENT WRAPPER -->
-    <main class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-20 relative z-10">
 
         <!-- PROFILE SECTION -->
-        <section id="about" class="mb-32">
+        <section id="about" class="mb-32 reveal-on-scroll">
             <div class="flex items-center gap-4 mb-8">
-                <span class="text-brand-stormy font-mono text-xl">01.</span>
-                <h2 class="text-4xl font-display uppercase">Profile Summary</h2>
+                <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">01.</span>
+                <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Profile Summary</h2>
             </div>
 
-            <div class="card-3d p-8 md:p-10">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card-3d p-6 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div class="md:col-span-2">
-                        <p class="text-lg text-gray-200 leading-relaxed font-body mb-4">
-                            I am a <strong class="text-white">Commerce Undergraduate (Fresher)</strong> with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University, Hyderabad, I’ve developed strong skills in financial analysis, reporting, and accounting.
+                        <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-body mb-6">
+                            I am a <strong class="text-white border-b-2 border-brand-stormy">Commerce Undergraduate (Fresher)</strong> with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University, Hyderabad, I’ve developed strong skills in financial analysis, reporting, and accounting.
                         </p>
-                        <p class="text-lg text-gray-200 leading-relaxed font-body mb-4">
+                        <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-body mb-6">
                             Fluent in English and Hindi, I aim to grow into a finance professional who can combine analytical skills with practical solutions to create real impact.
                         </p>
-                        <p class="text-lg text-brand-lavender leading-relaxed font-body">
-                            Beyond the balance sheets, I am also deeply passionate about <strong class="text-brand-stormy">Fintech, Crypto Development, Blockchain, and DeFi</strong>, bridging the gap between traditional finance and the future of money.
+                        <p class="text-lg md:text-xl text-brand-lavender leading-relaxed font-body">
+                            Beyond the balance sheets, I am also deeply passionate about <strong class="text-brand-highlight">Fintech, Crypto Development, and DeFi</strong>, bridging the gap between traditional finance and the future of money.
                         </p>
                     </div>
-                    <div class="font-mono text-sm text-gray-400 space-y-4 border-l border-white/10 pl-6">
+                    <div class="font-mono text-sm text-gray-300 space-y-6 border-l border-white/20 pl-8 h-fit">
                         <div>
-                            <span class="block text-brand-stormy text-xs mb-1">LOCATION</span>
-                            <span class="text-white">Hyderabad, India</span>
+                            <span class="block text-brand-stormy text-xs font-bold mb-1">LOCATION</span>
+                            <span class="text-white text-lg">Hyderabad, India</span>
                         </div>
                         <div>
-                            <span class="block text-brand-stormy text-xs mb-1">AGE / PRONOUNS</span>
-                            <span class="text-white">20 / He/Him</span>
+                            <span class="block text-brand-stormy text-xs font-bold mb-1">AGE / PRONOUNS</span>
+                            <span class="text-white text-lg">20 / He/Him</span>
                         </div>
                         <div>
-                            <span class="block text-brand-stormy text-xs mb-1">STATUS</span>
-                            <span class="text-green-400 font-bold">Open for Internships / Jobs</span>
+                            <span class="block text-brand-stormy text-xs font-bold mb-1">STATUS</span>
+                            <span class="text-green-400 font-bold text-lg animate-pulse">Open for Internships / Jobs</span>
                         </div>
                     </div>
                 </div>
@@ -259,139 +319,97 @@
         </section>
 
         <!-- WORK HISTORY -->
-        <section id="experience" class="mb-32">
+        <section id="experience" class="mb-32 reveal-on-scroll">
             <div class="flex items-center gap-4 mb-8">
-                <span class="text-brand-stormy font-mono text-xl">02.</span>
-                <h2 class="text-4xl font-display uppercase">Work History</h2>
+                <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">02.</span>
+                <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Work History</h2>
             </div>
             
-            <div class="card-3d p-8">
-                <div class="flex flex-col md:flex-row justify-between border-b border-gray-600 pb-4 mb-4">
+            <div class="card-3d p-8 md:p-10">
+                <div class="flex flex-col md:flex-row justify-between border-b border-gray-500/50 pb-6 mb-6">
                     <div>
-                        <h3 class="text-2xl font-bold text-white">Finance Intern</h3>
-                        <p class="text-brand-stormy font-mono text-sm uppercase">Tech Mindsparc Innovations</p>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Finance Intern</h3>
+                        <p class="text-brand-highlight font-mono text-sm md:text-base uppercase tracking-wider">Tech Mindsparc Innovations</p>
                     </div>
-                    <span class="mt-2 md:mt-0 font-mono text-gray-400">MAY - JULY 2025</span>
+                    <span class="mt-2 md:mt-0 font-mono text-gray-300 text-sm md:text-base font-bold">MAY - JULY 2025</span>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <ul class="space-y-2 text-gray-300 font-body text-sm list-disc list-inside">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <ul class="space-y-4 text-gray-200 font-body text-base md:text-lg list-disc list-inside marker:text-brand-stormy">
                         <li>Managed and analyzed financial data for corporate reporting.</li>
                         <li>Sharpened practical knowledge of Excel, reporting tools, and portfolio management.</li>
                         <li>Gained hands-on experience in brand management.</li>
                     </ul>
-                    <div class="bg-black/20 p-4 border border-white/5 font-mono text-xs">
-                        <p class="text-gray-500 mb-2">// SKILL SET</p>
-                        <p class="text-brand-lavender">Financial Analysis, Reporting, Data Entry, Corporate Finance</p>
+                    <div class="bg-black/30 p-6 border border-white/10 font-mono text-xs md:text-sm">
+                        <p class="text-gray-400 mb-3">// TECHNOLOGIES & TOOLS</p>
+                        <p class="text-brand-lavender leading-loose text-base">
+                            <span class="bg-brand-stormy/20 px-2 py-1 rounded">Financial Analysis</span>
+                            <span class="bg-brand-stormy/20 px-2 py-1 rounded">Reporting</span>
+                            <span class="bg-brand-stormy/20 px-2 py-1 rounded">Data Entry</span>
+                            <span class="bg-brand-stormy/20 px-2 py-1 rounded">Corporate Finance</span>
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section id="education" class="mb-32">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="text-brand-stormy font-mono text-xl">03.</span>
-                <h2 class="text-4xl font-display uppercase">Education</h2>
+        <!-- COMBINED SKILLS & EXPERTISE (Heatmap + Cards) -->
+        <section id="skills" class="mb-32 reveal-on-scroll">
+            <div class="flex justify-between items-end mb-8">
+                <div class="flex items-center gap-4">
+                    <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">03.</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Expertise Matrix</h2>
+                </div>
+                <span class="text-xs font-mono text-gray-400 hidden md:inline-block">CONFIDENCE INDEX [1-5]</span>
             </div>
 
-            <div class="space-y-6">
-                <!-- Edu Item 1 -->
-                <div class="border-l-2 border-brand-stormy pl-6 relative">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-stormy"></div>
-                    <h3 class="text-2xl font-bold text-white">Bachelor of Commerce (Hons) + ACCA</h3>
-                    <p class="text-brand-lavender font-mono text-sm mb-2">GITAM UNIVERSITY • 2023 - 2026</p>
-                    <p class="text-gray-400 text-sm">Proficient in IFRS, financial analysis, auditing, & global accounting standards.</p>
-                    <p class="text-brand-stormy font-mono text-sm mt-2 font-bold">CGPA: 7.04/10 (4th SEM)</p>
-                </div>
-
-                <!-- Edu Item 2 -->
-                <div class="border-l-2 border-gray-600 pl-6 relative">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600"></div>
-                    <h3 class="text-2xl font-bold text-white">Intermediate (CBSE) Commerce</h3>
-                    <p class="text-brand-lavender font-mono text-sm mb-2">CREANE MEMORIAL HIGH SCHOOL • 2021 - 2023</p>
-                    <p class="text-gray-400 text-sm">Focus on Accountancy, Business Studies, & Economics.</p>
-                    <p class="text-brand-stormy font-mono text-sm mt-2 font-bold">Score: 79%</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO -->
-        <section id="projects" class="mb-32">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
-                <div>
-                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2">04. Portfolio</span>
-                    <h2 class="text-5xl font-display uppercase text-white">My Builds</h2>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <p class="text-right font-mono text-gray-400 text-xs">SELECTED WORKS 2023-2025</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Part 1: Heatmap (Hard Skills) -->
+            <div class="card-3d p-6 md:p-8 overflow-hidden mb-10" id="heatmap-container">
+                <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2 font-mono"><i class="fa-solid fa-chart-simple text-brand-stormy mr-2"></i> Technical Proficiency</h3>
                 
-                <!-- Project 1 -->
-                <div class="card-3d p-6 flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="font-mono text-xs text-brand-stormy border border-brand-stormy px-2 py-1">AI / TECH</span>
-                        <a href="https://foilai.in" target="_blank" class="text-white hover:text-brand-stormy"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <div class="grid gap-6">
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Financial Analysis</div>
+                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="5">
+                            <div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-display uppercase mb-2">FoilAI</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow">Front-end UI for an AI image generator platform. Optimized for UX and integrated AI-driven features for artists.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
-                        REACT JS • API • UI/UX
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">MS Excel / Modeling</div>
+                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="5">
+                            <div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="card-3d p-6 flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="font-mono text-xs text-purple-400 border border-purple-400 px-2 py-1">WEB3 / CRYPTO</span>
-                        <a href="https://ttearncrypto.github.io/dashboards/" target="_blank" class="text-white hover:text-brand-stormy"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">IFRS / Accounting</div>
+                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="4">
+                            <div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-display uppercase mb-2">iCryptos Dash</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow">Comprehensive dashboard for tracking crypto earnings, airdrops, and investments. Real-time data visualization.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
-                        HTML/CSS • ANALYTICS
+                    <!-- Row 4 -->
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Blockchain / DeFi</div>
+                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="4">
+                            <div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="card-3d p-6 flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="font-mono text-xs text-blue-400 border border-blue-400 px-2 py-1">ACADEMIC</span>
-                    </div>
-                    <h3 class="text-2xl font-display uppercase mb-2">GatiGo</h3>
-                    <p class="text-gray-400 text-sm mb-6 flex-grow">App-based ride-sharing business plan for Hyderabad. Includes financial modeling to reduce commuter costs.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender">
-                        STRATEGY • MODELING
+                     <!-- Row 5 -->
+                     <div class="grid grid-cols-12 gap-4 items-center">
+                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Frontend Dev</div>
+                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="3">
+                            <div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div><div class="flex-1 heatmap-cell"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- SKILLS & INTERESTS -->
-        <section id="skills" class="mb-32">
-            <div class="flex items-center gap-4 mb-8">
-                <span class="text-brand-stormy font-mono text-xl">05.</span>
-                <h2 class="text-4xl font-display uppercase">Expertise & Interests</h2>
-            </div>
-
+            <!-- Part 2: Interests & Soft Skills (Cards) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Technical -->
-                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
-                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-chart-pie text-brand-stormy mr-2"></i> Technical Skills</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">Financial Analysis</span>
-                        <span class="skill-tag">Accounting Principles</span>
-                        <span class="skill-tag">Data Reporting</span>
-                        <span class="skill-tag">MS Excel</span>
-                        <span class="skill-tag">IFRS</span>
-                    </div>
-                </div>
-
                 <!-- Soft Skills -->
-                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
+                <div class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-users text-brand-stormy mr-2"></i> Soft Skills</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-tag">Self-Motivation</span>
@@ -401,53 +419,151 @@
                     </div>
                 </div>
 
-                <!-- AI & Emerging Tech -->
-                <div class="bg-brand-deepSpace/40 p-6 border border-white/10">
+                <!-- AI & Tech -->
+                <div class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-robot text-brand-stormy mr-2"></i> AI & Tech</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">AI Tools Proficiency</span>
-                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Prompt Engineering</span>
-                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Crypto Development</span>
-                        <span class="skill-tag bg-brand-stormy/20 border-brand-stormy">Blockchain Analysis</span>
+                        <span class="skill-tag border-brand-stormy/50 text-white">Prompt Engineering</span>
+                        <span class="skill-tag border-brand-stormy/50 text-white">Crypto Dev</span>
+                        <span class="skill-tag border-brand-stormy/50 text-white">AI Tools</span>
+                        <span class="skill-tag border-brand-stormy/50 text-white">Blockchain Analysis</span>
                     </div>
                 </div>
-                
-                <!-- Interests (Spans full width on mobile, part of grid on desktop) -->
-                <div class="lg:col-span-3 bg-brand-deepSpace/20 p-6 border border-white/5 mt-4">
-                     <h3 class="text-sm font-mono text-gray-400 mb-3">// PERSONAL INTERESTS</h3>
-                     <div class="flex flex-wrap gap-4 text-white font-display text-lg tracking-wide">
-                        <span>STOCK MARKET & INVESTMENTS</span> <span class="text-brand-stormy">•</span>
-                        <span>BUSINESS STRATEGY</span> <span class="text-brand-stormy">•</span>
-                        <span>BLOGGING & WRITING</span> <span class="text-brand-stormy">•</span>
-                        <span>TRAVELING & EXPLORING CULTURES</span>
+
+                <!-- Interests (Full Width) -->
+                 <div class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
+                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-compass text-brand-stormy mr-2"></i> Interests</h3>
+                     <div class="flex flex-wrap gap-3 font-mono text-sm text-brand-lavender">
+                        <span>STOCK MARKET</span> •
+                        <span>BLOGGING</span> •
+                        <span>TRAVEL</span> •
+                        <span>CULTURES</span>
                      </div>
                 </div>
             </div>
         </section>
 
-        <!-- CERTIFICATIONS -->
-        <section id="certifications" class="mb-32">
-            <span class="text-brand-stormy font-mono text-xl block mb-4">06. Credentials</span>
-            <div class="space-y-4 font-mono text-sm border-t border-white/10 pt-4">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
-                    <span class="font-bold text-white">Bloomberg Global Trading Challenge</span>
-                    <span class="text-brand-stormy">Issued Nov 2025</span>
+        <!-- EDUCATION -->
+        <section id="education" class="mb-32 reveal-on-scroll">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">04.</span>
+                <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Education</h2>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Edu Item 1 -->
+                <div class="border-l-4 border-brand-stormy pl-8 relative py-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-brand-stormy shadow-[0_0_15px_#006466]"></div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white">Bachelor of Commerce (Hons) + ACCA</h3>
+                    <p class="text-brand-highlight font-mono text-sm md:text-base mb-2 font-bold">GITAM UNIVERSITY • 2023 - 2026</p>
+                    <p class="text-gray-300 text-lg">Proficient in IFRS, financial analysis, auditing, & global accounting standards.</p>
+                    <p class="text-white font-mono text-base mt-2 font-bold bg-brand-stormy/20 inline-block px-2">CGPA: 7.04/10 (4th SEM)</p>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
-                    <span class="font-bold text-white">Bloomberg Market Concepts (BMC)</span>
-                    <span class="text-green-500">Completed</span>
+
+                <!-- Edu Item 2 -->
+                <div class="border-l-4 border-gray-600 pl-8 relative py-2">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-gray-600"></div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white">Intermediate (CBSE) Commerce</h3>
+                    <p class="text-brand-highlight font-mono text-sm md:text-base mb-2 font-bold">CREANE MEMORIAL HIGH SCHOOL • 2021 - 2023</p>
+                    <p class="text-gray-300 text-lg">Focus on Accountancy, Business Studies, & Economics.</p>
+                    <p class="text-white font-mono text-base mt-2 font-bold bg-gray-700/50 inline-block px-2">Score: 79%</p>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
-                    <span class="font-bold text-white">Mindfulness & Well-being (Rice Univ)</span>
-                    <span class="text-gray-400">Issued Mar 2025</span>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="projects" class="mb-32 reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">05. Portfolio</span>
+                    <h2 class="text-5xl font-display uppercase text-white">My Builds</h2>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
-                    <span class="font-bold text-white">Fundamentals of Investing (SoFi)</span>
-                    <span class="text-gray-400">Issued Oct 2024</span>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">SELECTED WORKS 2023-2025</p>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-2 border-b border-white/5 hover:bg-white/5 px-2 transition-colors">
-                    <span class="font-bold text-white">Risk Management in Personal Finance</span>
-                    <span class="text-gray-400">Issued Oct 2024</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">AI / TECH</span>
+                        <a href="https://foilai.in" target="_blank" aria-label="Visit FoilAI" class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 group-hover:text-brand-highlight transition-colors">FoilAI</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">Front-end UI for an AI image generator platform. Optimized for UX and integrated AI-driven features for artists.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                        REACT JS • API • UI/UX
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-deepPurple border border-brand-deepPurple px-2 py-1 bg-brand-deepPurple/10">WEB3 / CRYPTO</span>
+                        <a href="https://ttearncrypto.github.io/dashboards/" target="_blank" aria-label="Visit iCryptos" class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 group-hover:text-brand-deepPurple transition-colors">iCryptos Dash</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">Comprehensive dashboard for tracking crypto earnings, airdrops, and investments. Real-time data visualization.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                        HTML/CSS • ANALYTICS
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-blue-400 border border-blue-400 px-2 py-1 bg-blue-400/10">ACADEMIC</span>
+                        <!-- No link provided in original, kept static -->
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 group-hover:text-blue-400 transition-colors">GatiGo</h3>
+                    <p class="text-gray-300 text-base mb-6 flex-grow leading-relaxed">App-based ride-sharing business plan for Hyderabad. Includes financial modeling to reduce commuter costs.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                        STRATEGY • MODELING
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CREDENTIALS (CERTIFICATIONS) -->
+        <section id="certifications" class="mb-32 reveal-on-scroll">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">06.</span>
+                <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Credentials</h2>
+            </div>
+            
+            <div class="card-3d p-6 md:p-8">
+                <div class="space-y-4 font-mono text-sm md:text-base">
+                    <!-- Cert 1 -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Global Trading Challenge</span>
+                        <span class="text-brand-highlight mt-1 md:mt-0">Issued Nov 2025</span>
+                    </div>
+                    <!-- Cert 2 -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Market Concepts (BMC)</span>
+                        <span class="text-green-400 font-bold mt-1 md:mt-0"><i class="fa-solid fa-check mr-2"></i>Completed</span>
+                    </div>
+                    <!-- Cert 3 -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Mindfulness & Well-being (Rice Univ)</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Mar 2025</span>
+                    </div>
+                    <!-- Cert 4 -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Fundamentals of Investing (SoFi)</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
+                    </div>
+                    <!-- Cert 5 -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Risk Management in Personal Finance</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -460,53 +576,53 @@
             
             <div class="flex flex-col md:flex-row justify-between items-start mb-16 gap-10">
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-2xl font-display uppercase mb-6">Connect</h3>
+                    <h3 class="text-3xl font-display uppercase mb-8 text-white">Connect</h3>
                     
                     <!-- Social Grid -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs">
-                        <a href="https://linkedin.com/in/inakmm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-[#0077b5] hover:border-[#0077b5] transition-colors">
-                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs text-gray-300">
+                        <a href="https://linkedin.com/in/inakmm" target="_blank" aria-label="LinkedIn" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-linkedin text-lg"></i> LinkedIn
                         </a>
-                        <a href="https://x.com/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-black hover:border-white transition-colors">
-                            <i class="fa-brands fa-x-twitter"></i> Twitter/X
+                        <a href="https://x.com/in_akm" target="_blank" aria-label="Twitter X" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-black hover:text-white hover:border-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-x-twitter text-lg"></i> Twitter/X
                         </a>
-                        <a href="https://github.com/inakm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-gray-800 transition-colors">
-                            <i class="fa-brands fa-github"></i> GitHub
+                        <a href="https://github.com/inakm" target="_blank" aria-label="GitHub" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-gray-800 hover:text-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-github text-lg"></i> GitHub
                         </a>
-                        <a href="https://www.instagram.com/in_akmm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-pink-600 transition-colors">
-                            <i class="fa-brands fa-instagram"></i> Instagram
+                        <a href="https://www.instagram.com/in_akmm" target="_blank" aria-label="Instagram" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-pink-600 hover:text-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-instagram text-lg"></i> Instagram
                         </a>
-                        <a href="https://www.buymeacoffee.com/inakm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-yellow-400 hover:text-black transition-colors">
-                            <i class="fa-solid fa-mug-hot"></i> BuyCoffee
+                        <a href="https://www.buymeacoffee.com/inakm" target="_blank" aria-label="Buy Me A Coffee" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-yellow-400 hover:text-black transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-solid fa-mug-hot text-lg"></i> BuyCoffee
                         </a>
-                        <a href="https://ko-fi.com/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-blue-400 transition-colors">
-                            <i class="fa-solid fa-heart"></i> Ko-fi
+                        <a href="https://ko-fi.com/in_akm" target="_blank" aria-label="Ko-Fi" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-blue-400 hover:text-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-solid fa-heart text-lg"></i> Ko-fi
                         </a>
-                        <a href="https://www.reddit.com/user/in_akm" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-orange-500 transition-colors">
-                            <i class="fa-brands fa-reddit"></i> Reddit
+                        <a href="https://www.reddit.com/user/in_akm" target="_blank" aria-label="Reddit" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-orange-500 hover:text-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-reddit text-lg"></i> Reddit
                         </a>
-                        <a href="http://inakm.sayout.net" target="_blank" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-teal-600 transition-colors">
-                            <i class="fa-solid fa-comment-dots"></i> Sayout
+                        <a href="http://inakm.sayout.net" target="_blank" aria-label="SayOut" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-teal-600 hover:text-white transition-colors bg-brand-deepSpace/20">
+                            <i class="fa-solid fa-comment-dots text-lg"></i> Sayout
                         </a>
-                        <button onclick="copyDiscord()" class="flex items-center gap-2 p-3 border border-white/10 hover:bg-[#5865F2] transition-colors text-left">
-                            <i class="fa-brands fa-discord"></i> Discord
+                        <button onclick="copyDiscord()" aria-label="Copy Discord ID" class="flex items-center gap-2 p-4 border border-white/10 hover:bg-[#5865F2] hover:text-white transition-colors text-left w-full bg-brand-deepSpace/20">
+                            <i class="fa-brands fa-discord text-lg"></i> Discord
                         </button>
                     </div>
                     
-                    <a href="https://linktr.ee/in_akm" target="_blank" class="inline-block mt-4 text-brand-stormy font-mono text-sm hover:underline">View All Links via Linktree ↗</a>
+                    <a href="https://linktr.ee/in_akm" target="_blank" class="inline-block mt-6 text-brand-highlight font-mono text-sm hover:underline font-bold">View All Links via Linktree ↗</a>
                 </div>
 
                 <div class="w-full md:w-1/2 flex flex-col items-start md:items-end">
-                    <a href="mailto:inakm@proton.me" class="text-2xl md:text-3xl font-display uppercase hover:text-brand-stormy transition-colors">
+                    <a href="mailto:inakm@proton.me" class="text-3xl md:text-5xl font-display uppercase text-white hover:text-brand-stormy transition-colors break-all">
                         inakm@proton.me
                     </a>
-                    <p class="text-gray-500 font-mono text-sm mt-2">HYDERABAD, INDIA</p>
+                    <p class="text-gray-400 font-mono text-base mt-2">HYDERABAD, INDIA</p>
                 </div>
             </div>
 
             <!-- NAME FOOTER (Click opens Modal) -->
             <div class="border-t border-gray-800 pt-8 pb-4">
-                <button onclick="toggleModal()" class="w-full text-[12vw] leading-none font-display text-center text-[#222] hover:text-[#333] select-none transition-colors">
+                <button onclick="toggleModal()" aria-label="Open Profile Modal" class="w-full text-[12vw] leading-none font-display text-center text-[#222] hover:text-[#333] select-none transition-colors">
                     AKM
                 </button>
             </div>
@@ -514,69 +630,155 @@
             <!-- Open Source Note -->
             <div class="flex flex-col md:flex-row justify-between items-center text-xs font-mono text-gray-500 pt-8">
                 <p>&copy; 2025 Anjani Kumar Mishra. All Rights Reserved.</p>
-                <a href="https://github.com/inakm/inakm.github.io" target="_blank" class="hover:text-brand-stormy mt-2 md:mt-0">
-                    <i class="fa-brands fa-github-alt"></i> OPEN SOURCE PROJECT
-                </a>
+                <div class="flex gap-4 items-center mt-4 md:mt-0">
+                   
+                    <a href="https://github.com/inakm/inakm.github.io" target="_blank" class="hover:text-brand-stormy">
+                        <i class="fa-brands fa-github-alt"></i> OPEN SOURCE PROJECT
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- PROFILE MODAL -->
-    <div id="profileModal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="modal-content bg-[#1a1a1d] border-2 border-brand-stormy w-full max-w-lg p-8 relative shadow-[10px_10px_0px_#006466]">
-            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white">
-                <i class="fa-solid fa-xmark text-2xl"></i>
+    <div id="profileModal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="modal-content bg-[#1a1a1d] border-2 border-brand-stormy w-full max-w-lg p-8 relative shadow-[12px_12px_0px_#006466]">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors" aria-label="Close Modal">
+                <i class="fa-solid fa-xmark text-3xl"></i>
             </button>
             
-            <h2 class="text-3xl font-display uppercase text-white mb-2">Anjani Kumar Mishra (AKM)</h2>
-            <p class="font-mono text-brand-stormy text-sm mb-6">HE/HIM | AGE: 20 | FRESHER</p>
+            <h2 class="text-4xl font-display uppercase text-white mb-2">Anjani Kumar Mishra (AKM)</h2>
+            <p class="font-mono text-brand-highlight text-sm mb-6 border-b border-white/10 pb-4">HE/HIM | AGE: 20 | FRESHER</p>
             
-            <div class="space-y-4 text-gray-300 font-body leading-relaxed">
+            <div class="space-y-4 text-gray-300 font-body text-lg leading-relaxed">
                 <p>
                     I am a commerce undergraduate with a keen interest in finance and investments. Currently pursuing my B.Com at GITAM University.
                 </p>
                 <p>
                     I enjoy working with numbers and making sense of financial data. Fluent in English and Hindi.
                 </p>
-                <div class="bg-brand-deepSpace p-4 border border-white/10 mt-4">
-                    <h3 class="font-mono text-xs text-brand-stormy uppercase mb-2">Tech Interest</h3>
-                    <p class="text-sm">Passionate about Fintech, Crypto Development, Blockchain & DeFi. Proficient in using <span class="text-white font-bold">AI Technologies & AI Tools</span> for productivity and analysis.</p>
+                <div class="bg-brand-deepSpace p-5 border border-white/10 mt-6">
+                    <h3 class="font-mono text-xs text-brand-stormy uppercase mb-2 font-bold tracking-widest">Tech Interest</h3>
+                    <p class="text-base">Passionate about Fintech, Crypto Development, Blockchain & DeFi. Proficient in using <span class="text-white font-bold">AI Technologies & AI Tools</span> for productivity and analysis.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPTS & Helper CSS Class -->
     <style>
+        /* Helper CSS for skill tags */
         .skill-tag {
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-family: 'Courier New', monospace;
             color: #d5cfe1;
             border-radius: 2px;
             display: inline-block;
         }
     </style>
+
+    <!-- LOGIC SCRIPT -->
     <script>
+        // 1. Modal Logic
         function toggleModal() {
             const modal = document.getElementById('profileModal');
             modal.classList.toggle('active');
+            
+            if (modal.classList.contains('active')) {
+                // Lock body scroll
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         }
 
+        // Close on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('profileModal');
+            if (event.target == modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // 2. Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // ESC to close modal
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('profileModal');
+                if (modal.classList.contains('active')) {
+                    toggleModal();
+                }
+            }
+            // CMD/CTRL + K to Open Modal
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                const modal = document.getElementById('profileModal');
+                if (!modal.classList.contains('active')) {
+                    toggleModal();
+                }
+            }
+            // Shift + ? for Help (simple alert)
+            if (e.key === '?' && e.shiftKey) {
+                alert("Keyboard Shortcuts:\n\nESC - Close Modal\nCtrl/Cmd + K - Open Profile\nJ - Scroll Down (Default Browser)\nK - Scroll Up (Default Browser)");
+            }
+        });
+
+        // 3. Copy to Clipboard
         function copyDiscord() {
             navigator.clipboard.writeText('in_akm').then(() => {
                 alert("My Discord Username '@in_akm' copied to your clipboard!");
             });
         }
 
-        // Close modal on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('profileModal');
-            if (event.target == modal) {
-                modal.classList.remove('active');
-            }
+        // 4. Scroll & Animation Observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        // Trigger Heatmap Animation if the intersecting element contains the heatmap
+                        if(entry.target.querySelector('#heatmap-container') || entry.target.id === 'skills') {
+                            animateHeatmap();
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const scrollElements = document.querySelectorAll('.reveal-on-scroll');
+            scrollElements.forEach(el => observer.observe(el));
+        });
+
+        // 5. Heatmap Animation Logic
+        function animateHeatmap() {
+            const rows = document.querySelectorAll('[data-level]');
+            rows.forEach((row, index) => {
+                const level = parseInt(row.getAttribute('data-level'));
+                const cells = row.querySelectorAll('.heatmap-cell');
+                
+                // Staggered animation per row
+                setTimeout(() => {
+                    cells.forEach((cell, i) => {
+                        // Light up cells based on confidence level
+                        setTimeout(() => {
+                            if (i < level) {
+                                cell.classList.add(`heatmap-active-${i + 1}`);
+                            }
+                        }, i * 150); // Speed of cell filling
+                    });
+                }, index * 200); // Speed of row sequence
+            });
         }
     </script>
 </body>
