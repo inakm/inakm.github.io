@@ -1,1 +1,548 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjani Kumar Mishra | Finance Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0f6e36; /* Resume Green */
+            --dark-color: #1a1a1a;
+            --light-color: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 1rem;
+            background: linear-gradient(135deg, var(--primary-color), #2c3e50);
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: var(--white);
+            color: var(--primary-color);
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--dark-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 4rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* --- EDUCATION & EXPERIENCE --- */
+        .timeline-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-header h3 {
+            color: var(--dark-color);
+        }
+
+        .timeline-header span {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .institution {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .timeline-content ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        /* --- SKILLS & INTERESTS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #e8f5e9;
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- PROJECTS & CERTIFICATIONS --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card h4 {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .social-btn {
+            background: #0077b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* --- ANIMATION CLASSES --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">A.K. Mishra</div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span>&#9776;</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="hero">
+        <h1>Anjani Kumar Mishra</h1>
+        <h2>Finance Student | B.Com (Hons) + ACCA</h2>
+        <p>Passionate about finance, investments, and data-driven decision-making. Skilled in financial analysis, reporting, and accounting.</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </header>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="hidden">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>Bachelor of Commerce (Honors) Integrated with ACCA</h3>
+                <span>2023 - 2026</span>
+            </div>
+            <span class="institution">GITAM UNIVERSITY, Hyderabad</span>
+            <div class="timeline-content">
+                <p><strong>CGPA:</strong> 7.04/10 (4th SEM)</p>
+                <p>Proficient in IFRS, financial analysis, auditing, & global accounting standards.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>Intermediate (CBSE) in Commerce stream</h3>
+                <span>2021 - 2023</span>
+            </div>
+            <span class="institution">CREANE MEMORIAL HIGH SCHOOL</span>
+            <div class="timeline-content">
+                <p><strong>Score:</strong> 79%</p>
+                <p>Focus on Accountancy, Business Studies, & Economics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="hidden">
+        <h2 class="section-title">Internships</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>Finance Intern</h3>
+                <span>May - July 2025</span>
+            </div>
+            <span class="institution">Tech Mindsparc Innovations</span>
+            <div class="timeline-content">
+                <ul>
+                    <li>Assisted in brand management & corporate finance reporting.</li>
+                    <li>Analyzed market trends & prepared financial reports using Excel.</li>
+                    <li><strong>Skills Used:</strong> Financial Analysis, Financial Reporting, Data Entry, Data Analysis.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="hidden">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="card">
+            <h3>Entrepreneurial Project: GatiGo</h3>
+            <h4>App-based ride-sharing venture</h4>
+            <div class="timeline-content">
+                <ul>
+                    <li>Spearheaded the development & launch of GatiGo in Hyderabad designed to reduce traffic, pollution, and commuter costs.</li>
+                    <li>Developed comprehensive business plan including market analysis, financial models, & operational strategy.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & CERTIFICATIONS SECTION -->
+    <section id="skills" class="hidden">
+        <h2 class="section-title">Skills & Certifications</h2>
+        
+        <div class="skills-grid">
+            <!-- Technical Skills -->
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <div class="tag-container">
+                    <span class="tag">Financial Analysis</span>
+                    <span class="tag">Accounting Principles</span>
+                    <span class="tag">Data Reporting</span>
+                    <span class="tag">MS Excel</span>
+                    <span class="tag">IFRS</span>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="tag-container">
+                    <span class="tag">Self-Motivation</span>
+                    <span class="tag">Adaptability</span>
+                    <span class="tag">Patience</span>
+                    <span class="tag">Analytical Thinking</span>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="skill-category">
+                <h3>Certifications</h3>
+                <ul style="list-style: none; line-height: 2;">
+                    <li>✅ ACCA (7 out of 13 cleared)</li>
+                    <li>✅ Bloomberg Market Concepts (BMC)</li>
+                    <li>✅ Risk Management in Personal Finance</li>
+                    <li>✅ Fundamentals of Investing</li>
+                </ul>
+            </div>
+
+            <!-- Interests -->
+            <div class="skill-category">
+                <h3>Interests</h3>
+                <div class="tag-container">
+                    <span class="tag">Stock Market</span>
+                    <span class="tag">Business Strategy</span>
+                    <span class="tag">Blogging</span>
+                    <span class="tag">Traveling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="hidden">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <span>📍</span>
+                <p>Hyderabad, India</p>
+            </div>
+            <div class="contact-item">
+                <span>📧</span>
+                <p><a href="mailto:inakm@proton.me">inakm@proton.me</a></p>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <p><a href="tel:+918340356159">+91-83403-56159</a></p>
+            </div>
+            <a href="https://linkedin.com/in/inakmm" target="_blank" class="social-btn">View LinkedIn Profile</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Anjani Kumar Mishra. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
