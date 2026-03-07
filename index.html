@@ -244,18 +244,19 @@
         /* Mobile Responsive Overrides */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 16vw !important;
-                line-height: 1;
+                font-size: 14vw !important;
+                line-height: 1.1;
+                margin-bottom: 2vw;
             }
+        }
 
-            .card-3d {
-                box-shadow: 4px 4px 0px rgba(0, 100, 102, 0.5);
-            }
+        .card-3d {
+            box-shadow: 4px 4px 0px rgba(0, 100, 102, 0.5);
+        }
 
-            .card-3d:hover {
-                transform: none;
-                box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.8);
-            }
+        .card-3d:hover {
+            transform: none;
+            box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.8);
         }
 
         /* Back to Top Button */
@@ -298,7 +299,7 @@
     <!-- FLOATING HEADER -->
     <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
         <div
-            class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-6 py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
             <!-- Click Name to Open Profile Modal -->
             <button onclick="toggleModal()"
                 class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2"
@@ -347,7 +348,7 @@
                 Anjani Kumar
             </h1>
             <h1
-                class="hero-title text-[15vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-[-1vw] drop-shadow-2xl">
+                class="hero-title text-[15vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
                 Mishra
             </h1>
 
@@ -372,9 +373,9 @@
             </div>
         </div>
 
-        <!-- ACCA Badge -->
+        <!-- ACCA Badge (Desktop: Absolute, Mobile: In-flow) -->
         <div
-            class="absolute bottom-24 left-4 md:left-20 w-auto p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b] max-w-[150px] md:max-w-none">
+            class="md:absolute md:bottom-24 md:left-20 w-max p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b] mt-10 md:mt-0">
             <span class="block text-brand-stormy font-display text-2xl md:text-3xl">ACCA</span>
             <span class="block text-4xl md:text-5xl font-mono font-bold text-white">8/13</span>
             <span class="block text-xs font-mono uppercase text-gray-300 mt-1">Papers Cleared</span>
@@ -451,7 +452,7 @@
                         </div>
                         <div>
                             <span class="block text-brand-stormy text-xs font-bold mb-1">AGE / PRONOUNS</span>
-                            <span class="text-white text-lg">20 / He/Him</span>
+                            <span class="text-white text-lg">20 / He / Him</span>
                         </div>
                         <div>
                             <span class="block text-brand-stormy text-xs font-bold mb-1">STATUS</span>
@@ -714,7 +715,7 @@
                 <div>
                     <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">05.
                         Portfolio</span>
-                    <h2 class="text-5xl font-display uppercase text-white">My Builds</h2>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">My Builds</h2>
                 </div>
                 <div class="mt-4 md:mt-0">
                     <p class="text-right font-mono text-brand-lavender text-xs">SELECTED WORKS 2023-2025</p>
@@ -826,7 +827,7 @@
                 <div>
                     <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">06.
                         Research</span>
-                    <h2 class="text-5xl font-display uppercase text-white">Academic Insights</h2>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">Academic Insights</h2>
                 </div>
                 <div class="mt-4 md:mt-0">
                     <p class="text-right font-mono text-brand-lavender text-xs">COLLEGE PRESENTATIONS & REPORTS</p>
@@ -1086,7 +1087,7 @@
 
     <!-- BACK TO TOP -->
     <button id="backToTop" onclick="scrollToTop()"
-        class="bg-brand-highlight text-brand-deepSpace w-12 h-12 rounded shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 transition-all border-2 border-brand-deepSpace"
+        class="bg-brand-highlight text-brand-deepSpace w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 transition-all border-2 border-brand-deepSpace"
         aria-label="Back to top">
         <i class="fa-solid fa-chevron-up text-xl"></i>
     </button>
