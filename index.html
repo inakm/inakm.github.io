@@ -244,8 +244,8 @@
         /* Mobile Responsive Overrides */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 14vw !important;
-                line-height: 1.1;
+                font-size: 12vw !important;
+                line-height: 1.2;
                 margin-bottom: 2vw;
             }
         }
@@ -330,9 +330,9 @@
     <!-- HERO SECTION -->
     <header class="relative min-h-[95vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
 
-        <!-- Status Badge -->
+        <!-- Status Badge (Flow on Mobile) -->
         <div
-            class="absolute top-32 md:top-40 right-4 md:right-10 flex items-center gap-3 bg-brand-deepSpace px-5 py-2 border border-brand-stormy shadow-[4px_4px_0px_#006466] animate-float z-30">
+            class="md:absolute md:top-40 md:right-10 flex items-center gap-3 bg-brand-deepSpace px-5 py-2 border border-brand-stormy shadow-[4px_4px_0px_#006466] animate-float z-30 mb-8 md:mb-0">
             <span class="relative flex h-3 w-3">
                 <span
                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -353,13 +353,13 @@
             </h1>
 
             <p
-                class="mt-8 text-lg md:text-2xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
+                class="mt-6 md:mt-8 text-base md:text-2xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
                 FINANCE <span class="text-brand-stormy px-2">::</span> FINTECH <span
                     class="text-brand-stormy px-2">::</span> ANALYSIS
             </p>
 
             <div
-                class="mt-12 flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-md md:max-w-none mx-auto">
+                class="mt-10 md:mt-12 flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-md md:max-w-none mx-auto">
                 <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing"
                     target="_blank"
                     class="w-full md:w-auto px-8 py-4 bg-transparent border border-white text-white font-mono text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white] text-center focus:ring-2 focus:ring-white">
@@ -375,10 +375,10 @@
 
         <!-- ACCA Badge (Desktop: Absolute, Mobile: In-flow) -->
         <div
-            class="md:absolute md:bottom-24 md:left-20 w-max p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b] mt-10 md:mt-0">
-            <span class="block text-brand-stormy font-display text-2xl md:text-3xl">ACCA</span>
-            <span class="block text-4xl md:text-5xl font-mono font-bold text-white">8/13</span>
-            <span class="block text-xs font-mono uppercase text-gray-300 mt-1">Papers Cleared</span>
+            class="md:absolute md:bottom-24 md:left-20 w-max p-4 border border-brand-lavender bg-brand-deepSpace/90 backdrop-blur z-20 shadow-[8px_8px_0px_#94958b] mt-12 md:mt-0">
+            <span class="block text-brand-stormy font-display text-xl md:text-3xl">ACCA</span>
+            <span class="block text-3xl md:text-5xl font-mono font-bold text-white">8/13</span>
+            <span class="block text-[10px] md:text-xs font-mono uppercase text-gray-300 mt-1">Papers Cleared</span>
         </div>
 
         <!-- FIXED Bottom Marquee -->
