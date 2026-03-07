@@ -876,7 +876,10 @@
                         height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                         class="rounded-lg border border-white/10" allowfullscreen></iframe>
                 </div>
+            </div>
 
+            <!-- HIDDEN WRAPPER FOR EXTRA ITEMS -->
+            <div id="extra-presentations" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
                 <!-- SlideShare Embed 2 -->
                 <div class="card-3d p-4 bg-brand-deepSpace/20 overflow-hidden">
                     <h3 class="text-lg font-bold text-white mb-4 px-2 font-mono"><i
@@ -918,70 +921,79 @@
                 </div>
             </div>
 
-            <!-- CREDENTIALS (CERTIFICATIONS) -->
-            <section id="certifications" class="mb-32 reveal-on-scroll">
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">06.</span>
-                    <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Credentials</h2>
-                </div>
+            <!-- LOAD MORE BUTTON -->
+            <div class="flex justify-center mt-12">
+                <button id="load-more-btn" onclick="togglePresentations()"
+                    class="bg-brand-stormy/20 text-brand-highlight px-10 py-4 rounded-full text-sm font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all uppercase tracking-widest shadow-lg hover:shadow-brand-stormy/20">
+                    Load More Insights
+                </button>
+            </div>
+        </section>
 
-                <div class="card-3d p-6 md:p-8">
-                    <div class="space-y-4 font-mono text-sm md:text-base">
+        <!-- CREDENTIALS (CERTIFICATIONS) -->
+        <section id="certifications" class="mb-32 reveal-on-scroll">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">06.</span>
+                <h2 class="text-4xl md:text-5xl font-display uppercase tracking-wide">Credentials</h2>
+            </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded group">
-                            <div class="flex flex-col">
-                                <span class="font-bold text-white text-lg">Bloomberg Market Concepts (BMC)</span>
-                                <span class="text-xs text-gray-400 uppercase tracking-tighter">Issued on Mar 2026</span>
-                            </div>
-                            <a href="https://portal.bloombergforeducation.com/certificates/vsqjkT7qeRWmpcTEtXSeM8e1"
-                                target="_blank"
-                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all mt-2 md:mt-0">
-                                View Certificate <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
-                            </a>
+            <div class="card-3d p-6 md:p-8">
+                <div class="space-y-4 font-mono text-sm md:text-base">
+
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded group">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-white text-lg">Bloomberg Market Concepts (BMC)</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-tighter">Issued on Mar 2026</span>
                         </div>
+                        <a href="https://portal.bloombergforeducation.com/certificates/vsqjkT7qeRWmpcTEtXSeM8e1"
+                            target="_blank"
+                            class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all mt-2 md:mt-0">
+                            View Certificate <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Bloomberg Researching and Adopting ESG</span>
-                            <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
-                                    class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Researching and Adopting ESG</span>
+                        <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
+                                class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Bloomberg Global Trading Challenge</span>
-                            <span class="text-gray-400 mt-1 md:mt-0">Issued Nov 2025</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Global Trading Challenge</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Nov 2025</span>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Bloomberg Finance Fundamentals Certificate</span>
-                            <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
-                                    class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Finance Fundamentals Certificate</span>
+                        <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
+                                class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Bloomberg Spreadsheet Analysis Certificate</span>
-                            <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
-                                    class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Spreadsheet Analysis Certificate</span>
+                        <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
+                                class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Fundamentals of Investing (SoFi)</span>
-                            <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Fundamentals of Investing (SoFi)</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
+                    </div>
 
-                        <div
-                            class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                            <span class="font-bold text-white text-lg">Risk Management in Personal Finance</span>
-                            <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
-                        </div>
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Risk Management in Personal Finance</span>
+                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
     </main>
 
@@ -1242,6 +1254,20 @@
                     });
                 }, index * 200); // Speed of row sequence
             });
+        }
+
+        function togglePresentations() {
+            const extra = document.getElementById('extra-presentations');
+            const btn = document.getElementById('load-more-btn');
+            if (extra.classList.contains('hidden')) {
+                extra.classList.remove('hidden');
+                btn.textContent = 'Show Less';
+            } else {
+                extra.classList.add('hidden');
+                btn.textContent = 'Load More Insights';
+                // Scroll back to the start of the section for better UX
+                document.getElementById('presentations').scrollIntoView({ behavior: 'smooth' });
+            }
         }
     </script>
 </body>
