@@ -124,6 +124,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'scroll-loop': 'scrollLoop 30s linear infinite',
+                        'fade-in-down': 'fadeInDown 0.3s ease-out forwards',
                     },
                     keyframes: {
                         float: {
@@ -132,7 +133,11 @@
                         },
                         scrollLoop: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }, // Moves exactly half way
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -290,6 +295,51 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 200px;
+            background: rgba(33, 47, 69, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0;
+            z-index: 100;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeInDown 0.3s ease-out forwards;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #d5cfe1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(0, 100, 102, 0.3);
+            color: #48cae4;
+            padding-left: 1.75rem;
+        }
     </style>
 </head>
 
@@ -315,8 +365,17 @@
                     class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Work</a>
                 <a href="#skills"
                     class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Expertise</a>
-                <a href="#projects"
-                    class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight">Builds</a>
+                <div class="dropdown">
+                    <button class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight uppercase tracking-widest flex items-center gap-1">
+                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#projects" class="dropdown-item">Portfolio</a>
+                        <a href="page/projects/bql.html" class="dropdown-item">BQL Analysis</a>
+                        <a href="page/projects/gatigo.html" class="dropdown-item">GatiGo</a>
+                        <a href="https://foilai.in/" target="_blank" class="dropdown-item">FoilAI</a>
+                    </div>
+                </div>
             </div>
 
             <a href="mailto:inakm@proton.me"
@@ -430,19 +489,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div class="md:col-span-2">
                         <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-body mb-6">
-                            I am a <strong class="text-white border-b-2 border-brand-stormy">Commerce Undergraduate
-                                (Fresher)</strong> with a keen interest in finance and investments. Currently pursuing
-                            my B.Com at GITAM University, Hyderabad, I’ve developed strong skills in financial analysis,
-                            reporting, and accounting.
+                            I am a <strong class="text-white border-b-2 border-brand-stormy">B.Com (Hons) student</strong> at Gandhi Institute of Technology and Management (GITAM) University and an <strong class="text-brand-highlight">ACCA Trainee</strong> with 8 out of 13 papers already completed. My goal is to take complicated financial data and turn it into clear plans that help businesses grow.
                         </p>
                         <p class="text-lg md:text-xl text-gray-200 leading-relaxed font-body mb-6">
-                            Fluent in English and Hindi, I aim to grow into a finance professional who can combine
-                            analytical skills with practical solutions to create real impact.
+                            During my time at Mindsparc Innovations, I built 3-year financial models, used SQL and Power Query to organize data, and learned how to predict future trends rather than just looking at the past. While I am well-trained in traditional accounting, I am also very passionate about the future of money—specifically <strong class="text-brand-highlight">Fintech, Crypto, and DeFi</strong>.
                         </p>
                         <p class="text-lg md:text-xl text-brand-lavender leading-relaxed font-body">
-                            Beyond the balance sheets, I am also deeply passionate about <strong
-                                class="text-brand-highlight">Fintech, Crypto Development, and DeFi</strong>, bridging
-                            the gap between traditional finance and the future of money.
+                            I am now looking for an entry-level role in <strong class="text-white">FP&A or Finance Operations</strong>. I want to bring my technical skills to a great team while I finish my journey to becoming a fully qualified ACCA professional.
                         </p>
                     </div>
                     <div class="font-mono text-sm text-gray-300 space-y-6 border-l border-white/20 pl-8 h-fit">
@@ -795,6 +848,26 @@
                     </div>
                 </div>
 
+                <!-- Project: BQL Analysis -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span
+                            class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">FINANCE
+                            / DATA</span>
+                        <a href="page/projects/bql.html" aria-label="Visit BQL Analysis"
+                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <h3
+                        class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">
+                        BQL Analysis</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">A collection of Bloomberg Query Language (BQL) projects showcasing advanced financial data retrieval and analysis in Excel.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                        BQL • BLOOMBERG • EXCEL
+                    </div>
+                </div>
+
                 <!-- Project: Financial Reporting -->
                 <div class="card-3d p-8 flex flex-col h-full group">
                     <div class="flex justify-between items-start mb-6">
@@ -976,7 +1049,8 @@
 
                     <div
                         class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                        <span class="font-bold text-white text-lg">Bloomberg Spreadsheet Analysis Certificate</span>
+                        <span class="font-bold text-white text-lg">Bloomberg Spreadsheet Analysis(BQL)
+                            Certificate</span>
                         <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
                                 class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
                     </div>
@@ -1203,6 +1277,10 @@
                             <a href="https://ko-fi.com/in_akm" target="_blank"
                                 class="bg-blue-400 text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-heart"></i> Ko-fi
+                            </a>
+                            <a href="https://referrals.xero.com/6e4vdvidng7g" target="_blank"
+                                class="bg-[#13b5ea] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-calculator"></i> Xero
                             </a>
                         </div>
                     </div>

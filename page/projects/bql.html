@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BQL Analysis | Anjani Kumar Mishra</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../mypfpf.png">
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Bloomberg Query Language (BQL) projects and financial analysis by Anjani Kumar Mishra.">
+    <meta name="keywords"
+        content="BQL, Bloomberg Query Language, Financial Analysis, Excel, Anjani Kumar Mishra, AKM">
+    <meta name="author" content="Anjani Kumar Mishra">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            stormy: '#006466',
+                            darkTeal: '#065a60',
+                            darkTeal2: '#0b525b',
+                            charcoal: '#1b3a4b',
+                            deepSpace: '#212f45',
+                            indigo: '#272640',
+                            midnight: '#312244',
+                            deepPurple: '#4d194d',
+                            lavender: '#d5cfe1',
+                            white: '#ffffff',
+                            highlight: '#48cae4'
+                        }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-down': 'fadeInDown 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #1a1a1d;
+            background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
+            color: #d5cfe1;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-size: 50px 50px;
+            background-position: center;
+        }
+
+        .card-3d {
+            background: rgba(33, 47, 69, 0.7);
+            border: 1px solid rgba(148, 149, 139, 0.3);
+            box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .card-3d:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px rgba(0, 100, 102, 0.8);
+            background: rgba(33, 47, 69, 0.9);
+            border-color: #d5cfe1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1b3a4b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #006466;
+            border: 2px solid #1b3a4b;
+            border-radius: 4px;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 60;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(20px);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 200px;
+            background: rgba(33, 47, 69, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0;
+            z-index: 100;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeInDown 0.3s ease-out forwards;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #d5cfe1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(0, 100, 102, 0.3);
+            color: #48cae4;
+            padding-left: 1.75rem;
+        }
+    </style>
+</head>
+
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+
+    <!-- FLOATING HEADER -->
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div
+            class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            <a href="../../index.html"
+                class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
+                AKM<span class="text-brand-stormy group-hover:text-white">.</span>
+            </a>
+
+            <div
+                class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="../../index.html#about" class="hover:text-white transition-colors">Profile</a>
+                <a href="../../index.html#experience" class="hover:text-white transition-colors">Work</a>
+                <a href="../../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
+                <div class="dropdown">
+                    <button class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight uppercase tracking-widest flex items-center gap-1">
+                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="../../index.html#projects" class="dropdown-item">Portfolio</a>
+                        <a href="bql.html" class="dropdown-item">BQL Analysis</a>
+                        <a href="gatigo.html" class="dropdown-item">GatiGo</a>
+                        <a href="https://foilai.in/" target="_blank" class="dropdown-item">FoilAI</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="mailto:inakm@proton.me"
+                class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap">
+                Let's Talk
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32">
+        <div class="text-center z-10 relative">
+            <h1
+                class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
+                BQL Analysis
+            </h1>
+            <h1
+                class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
+                Showcase
+            </h1>
+
+            <p class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
+                BLOOMBERG QUERY LANGUAGE <span class="text-brand-stormy px-2">::</span> FINANCIAL DATA SCIENCE
+            </p>
+        </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-20 relative z-10">
+
+        <!-- PROJECTS GRID -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">01. Bloomberg Analysis</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">BQL Projects</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">EXCEL-BASED ANALYSIS</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- File 1 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">SECTOR PERFORMANCE</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Sector Performance</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Analyzing historical forecasted sector performance using BQL to identify trends and deviations.</p>
+                    <a href="../../myprojects/BQL/Analyzing Historical Forecasted Sector Performance.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 2 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">MULTI-REGION</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Regional Results</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Detailed analysis of results across GB, US, CA, and AU markets using Bloomberg queries.</p>
+                    <a href="../../myprojects/BQL/Analyzing Mia's Results GB US CA AU.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 3 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">ECONOMICS</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Inflation & Unemployment</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Assessing the correlation between inflation and unemployment rates using real-time Bloomberg data.</p>
+                    <a href="../../myprojects/BQL/Assessing Inflation and Unemployment.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 4 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">CALENDAR</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Economic Calendar</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">A dynamic economic calendar powered by BQL to track upcoming market-moving events.</p>
+                    <a href="../../myprojects/BQL/Economic Calendar (1).xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 5 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">EQUITY SCREENING</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Revenue Growth Search</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Identifying companies with strong revenue growth by modifying complex BQL queries.</p>
+                    <a href="../../myprojects/BQL/Identify Companies with Strong Revenue Growth - Modify the Query.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 6 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">VALUATION</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Undervalued Stocks</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Using BQL to screen for undervalued stocks based on fundamental valuation metrics.</p>
+                    <a href="../../myprojects/BQL/Identifying Undervalued Stocks.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 7 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">HISTORICAL DATA</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Historical Growth</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Advanced BQL query modification for retrieving and analyzing historical revenue growth trends.</p>
+                    <a href="../../myprojects/BQL/Modify the Query for Historical Revenue Growth.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 8 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">SCREENING</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Investment Screening</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Refining investment screening processes using customized Bloomberg Query Language parameters.</p>
+                    <a href="../../myprojects/BQL/Task 1 Refining Investment Screening with BQL.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+                <!-- File 9 -->
+                <div class="card-3d p-8 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">STRATEGY</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Strategy Adaptation</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">Adapting BQL queries to suit different investment strategies and market conditions.</p>
+                    <a href="../../myprojects/BQL/Task 3 Adapting BQL Queries for Different Strategies.xlsx" class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download XLSX
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-stormy">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
+            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
+            
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/inakm" target="_blank" class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:inakm@proton.me" class="text-gray-400 hover:text-brand-stormy transition-colors text-2xl">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
+                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" onclick="scrollToTop()"
+        class="bg-brand-highlight text-brand-deepSpace w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 transition-all border-2 border-brand-deepSpace"
+        aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up text-xl"></i>
+    </button>
+
+    <script>
+        // Scroll Logic
+        const btt = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                btt.classList.add('show');
+            } else {
+                btt.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
