@@ -316,7 +316,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             padding: 0.5rem 0;
             z-index: 100;
-            margin-top: 0.5rem;
+            /* REFINED: Removed margin-top to prevent hover glitch gap */
         }
 
         .dropdown:hover .dropdown-content {
@@ -339,6 +339,79 @@
             background: rgba(0, 100, 102, 0.3);
             color: #48cae4;
             padding-left: 1.75rem;
+        }
+
+        /* Bento Grid & Glassmorphism */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .glass-bento {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-bento:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(72, 202, 228, 0.4);
+            transform: translateY(-5px) scale(1.01);
+        }
+
+        .glass-bento-inset {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .bento-tag {
+            background: rgba(72, 202, 228, 0.1);
+            color: #48cae4;
+            border: 1px solid rgba(72, 202, 228, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .bento-tag.active {
+            background: #48cae4;
+            color: #212f45;
+            border-color: #48cae4;
+            box-shadow: 0 0 15px rgba(72, 202, 228, 0.4);
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Reveal Animation Styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -428,8 +501,9 @@
 
                 <a href="https://linkedin.com/in/inakmm" target="_blank"
                     class="w-full md:w-auto px-8 py-4 bg-[#0077b5] text-white font-mono text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)] text-center focus:ring-2 focus:ring-[#0077b5]">
-                    <i class="fa-brands fa-linkedin mr-2"></i> Connect with Me
+                    <i class="fa-brands fa-linkedin mr-2"></i> Connect
                 </a>
+
             </div>
         </div>
 
@@ -1017,7 +1091,51 @@
             </div>
         </section>
 
-        <!-- CREDENTIALS (CERTIFICATIONS) -->
+    <!-- ARTICLES SECTION -->
+    <section id="articles" class="mb-32 reveal-on-scroll px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-3 font-bold">06. Insights & Writing</span>
+                    <h2 class="text-5xl md:text-7xl font-display uppercase text-white leading-none">Insights &<br><span class="text-brand-highlight">Articles</span></h2>
+                </div>
+                <div class="flex flex-wrap gap-4 mt-8 md:mt-0 items-center">
+                    <div class="flex items-center gap-4 bg-brand-deepSpace/40 border border-white/10 rounded-full px-4 py-2">
+                        <span class="text-[9px] font-mono text-brand-stormy uppercase font-bold">Sort</span>
+                        <select id="sortOrder" onchange="applyFilters()" class="bg-transparent text-white font-mono text-[10px] focus:outline-none cursor-pointer">
+                            <option value="newest" class="bg-brand-deepSpace text-white">Latest</option>
+                            <option value="oldest" class="bg-brand-deepSpace text-white">Oldest</option>
+                        </select>
+                    </div>
+                    <div class="relative group">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-stormy group-focus-within:text-brand-highlight transition-colors"></i>
+                        <input type="text" id="articleSearch" oninput="applyFilters()" placeholder="Search articles..."
+                            class="bg-brand-deepSpace/40 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white font-mono text-xs focus:border-brand-highlight focus:outline-none transition-all w-64">
+                    </div>
+                    <button onclick="exportToCSV()" class="font-mono text-[10px] text-brand-lavender border border-white/10 px-5 py-3 rounded-full hover:border-brand-highlight hover:text-white transition-all uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-file-export"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <div id="articleGrid" class="bento-grid mb-16">
+                <!-- Loading State (will be replaced by Bento items) -->
+                <div class="col-span-4 py-32 text-center">
+                    <div class="inline-block animate-spin rounded-full h-16 w-16 border-4 border-brand-stormy/20 border-t-brand-highlight mb-6"></div>
+                    <p class="text-brand-lavender font-mono text-sm animate-pulse uppercase tracking-[0.4em]">Initializing Bento Engine...</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <button id="loadMoreArticles" onclick="loadMore()" class="hidden group relative px-12 py-5 bg-transparent border border-brand-stormy text-white font-mono text-sm uppercase rounded-full overflow-hidden transition-all hover:border-brand-highlight">
+                    <span class="relative z-10 font-bold tracking-[0.2em]">View Older Insights</span>
+                    <div class="absolute inset-0 bg-brand-highlight translate-y-full group-hover:translate-y-0 transition-transform duration-500 opacity-10"></div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS (CERTIFICATIONS) -->
         <section id="certifications" class="mb-32 reveal-on-scroll">
             <div class="flex items-center gap-4 mb-8">
                 <span class="text-brand-stormy font-mono text-xl md:text-2xl font-bold">07.</span>
@@ -1307,6 +1425,10 @@
                                 class="bg-[#13b5ea] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-calculator"></i> Xero
                             </a>
+                            <a href="https://wellfound.com/l/2C7zVG" target="_blank"
+                                class="bg-[#ff4b2b] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-angellist"></i> Wellfound
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1331,8 +1453,25 @@
 
             <div class="flex flex-col md:flex-row justify-between items-center text-xs font-mono text-gray-500 pt-8">
                 <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://linkedin.com/in/inakmm" target="_blank"
+                        class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/inakm" target="_blank"
+                        class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
+                        <i class="fa-brands fa-github text-xl"></i>
+                    </a>
+                    <a href="https://wellfound.com/u/anjani-kumar-mishra-5" target="_blank"
+                        class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
+                        <i class="fa-brands fa-angellist text-xl"></i>
+                    </a>
+                    <a href="https://x.com/in_akm" target="_blank"
+                        class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
+                        <i class="fa-brands fa-x-twitter text-xl"></i>
+                    </a>
+                </div>
                 <div class="flex gap-4 items-center mt-4 md:mt-0">
-
                     <a href="https://github.com/inakm/inakm.github.io" target="_blank" class="hover:text-brand-stormy">
                         <i class="fa-brands fa-github-alt"></i> OPEN SOURCE PROJECT
                     </a>
@@ -1526,6 +1665,265 @@
                 document.getElementById('presentations').scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        // ==========================================
+        // DYNAMIC ARTICLE FEED SYSTEM (BLOGGER)
+        // ==========================================
+        const CONFIG = {
+            feeds: [
+                { url: "https://cryptoradarnews.blogspot.com/feeds/posts/default?alt=json-in-script", name: "Crypto Radar News", icon: "fa-bitcoin-sign" },
+                { url: "https://tontufmoney-news.blogspot.com/feeds/posts/default?alt=json-in-script", name: "TONTUF Money", icon: "fa-money-bill-trend-up" }
+            ],
+            itemsPerLoad: 6
+        };
+
+        let state = {
+            rawData: [],
+            filteredData: [],
+            watchlist: JSON.parse(localStorage.getItem('akm_article_watchlist')) || [],
+            activeTag: 'all',
+            limit: CONFIG.itemsPerLoad
+        };
+
+        // JSONP Fetcher with Timeout & Error Handling
+        function fetchSource(url) {
+            return new Promise((resolve) => {
+                const timeout = setTimeout(() => {
+                    console.warn(`Fetch timeout for ${url}`);
+                    cleanup();
+                    resolve([]); // Return empty array on timeout
+                }, 10000); // 10s timeout
+
+                const callbackName = 'blogger_cb_' + Math.random().toString(36).substr(2, 9);
+                
+                const cleanup = () => {
+                    clearTimeout(timeout);
+                    if (window[callbackName]) delete window[callbackName];
+                    if (script && script.parentNode) script.parentNode.removeChild(script);
+                };
+
+                window[callbackName] = (data) => {
+                    cleanup();
+                    if (data && data.feed && data.feed.entry) {
+                        resolve(data.feed.entry);
+                    } else {
+                        resolve([]);
+                    }
+                };
+
+                const script = document.createElement('script');
+                script.id = callbackName;
+                script.src = `${url}&callback=${callbackName}`;
+                script.onerror = () => {
+                    console.error(`Script error for ${url}`);
+                    cleanup();
+                    resolve([]);
+                };
+                document.body.appendChild(script);
+            });
+        }
+
+        function processEntry(entry, sourceName) {
+            try {
+                if (!entry || !entry.link || !entry.title) return null;
+                const alternateLink = entry.link.find(l => l.rel === 'alternate');
+                if (!alternateLink) return null;
+
+                return {
+                    id: entry.id ? entry.id.$t : Math.random().toString(36),
+                    title: entry.title.$t,
+                    url: alternateLink.href,
+                    date: entry.published ? new Date(entry.published.$t) : new Date(),
+                    source: sourceName,
+                    tags: entry.category ? entry.category.map(c => c.term) : ['Finance']
+                };
+            } catch (e) {
+                console.error("Error processing entry:", e);
+                return null;
+            }
+        }
+
+        async function initArticles() {
+            try {
+                const results = await Promise.all(CONFIG.feeds.map(f => fetchSource(f.url)));
+                state.rawData = results.flatMap((entries, i) => 
+                    entries ? entries.map(e => processEntry(e, CONFIG.feeds[i].name)).filter(e => e !== null) : []
+                );
+                
+                if (state.rawData.length > 0) {
+                    state.rawData.sort((a, b) => b.date - a.date);
+                    renderFilters();
+                    applyFilters();
+                } else {
+                    const grid = document.getElementById('articleGrid');
+                    if (grid) grid.innerHTML = '<div class="col-span-4 py-20 text-center text-gray-400 font-mono uppercase">Sync Failed: Feeds Unreachable or Offline.</div>';
+                }
+            } catch (err) {
+                console.error("Article Init Error:", err);
+                const grid = document.getElementById('articleGrid');
+                if (grid) grid.innerHTML = '<div class="col-span-4 py-20 text-center text-red-400 font-mono uppercase">Engine Initialization Error.</div>';
+            }
+        }
+
+        function renderFilters() {
+            const tags = ['all', ...new Set(state.rawData.flatMap(article => article.tags))];
+            const container = document.getElementById('tagFilters');
+            if (container) {
+                container.innerHTML = tags.map(tag => `
+                    <button onclick="setTag('${tag}')" class="bento-tag ${state.activeTag === tag ? 'active' : ''}">
+                        ${tag}
+                    </button>
+                `).join('');
+            }
+            // Also update the bento categories card if it exists
+            const bentoCat = document.getElementById('bentoCategories');
+            if (bentoCat) {
+                bentoCat.innerHTML = tags.map(tag => `
+                    <button onclick="setTag('${tag}')" class="bento-tag ${state.activeTag === tag ? 'active' : ''}">
+                        ${tag}
+                    </button>
+                `).join('');
+            }
+        }
+
+        function setTag(tag) {
+            state.activeTag = tag;
+            state.limit = CONFIG.itemsPerLoad;
+            renderFilters();
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchEl = document.getElementById('articleSearch');
+            const sortEl = document.getElementById('sortOrder');
+            
+            if (!searchEl || !sortEl) return; // Prevent crashes if elements are not in DOM yet
+
+            const search = searchEl.value.toLowerCase();
+            const sort = sortEl.value;
+
+            state.filteredData = state.rawData.filter(a => {
+                const matchesSearch = a.title.toLowerCase().includes(search);
+                const matchesTag = state.activeTag === 'all' || a.tags.includes(state.activeTag);
+                return matchesSearch && matchesTag;
+            });
+
+            if (sort === 'oldest') state.filteredData.sort((a, b) => a.date - b.date);
+            else state.filteredData.sort((a, b) => b.date - a.date);
+
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('articleGrid');
+            const dataToShow = state.filteredData.slice(0, state.limit);
+            
+            if (dataToShow.length === 0) {
+                grid.innerHTML = '<div class="col-span-full py-20 text-center font-mono text-white/40 uppercase">No articles found in current view segment.</div>';
+                return;
+            }
+
+            let html = '';
+            dataToShow.forEach((article, index) => {
+                // Determine card type based on index
+                let type = 'compact';
+                if (index === 0) type = 'featured';
+                
+                html += createCard(article, type);
+
+                // Inject Categories card after the featured card
+                if (index === 0) {
+                    html += `
+                        <div class="glass-bento col-span-2 row-span-1 p-8 flex flex-col justify-center">
+                            <h3 class="font-display text-2xl text-white uppercase mb-6 flex items-center gap-3">
+                                <i class="fa-solid fa-shapes text-brand-highlight"></i> Top Categories
+                            </h3>
+                            <div id="bentoCategories" class="flex flex-wrap gap-2">
+                                <!-- Tags re-injected here -->
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            grid.innerHTML = html;
+            renderFilters(); // Re-render tags in the new bento categories box
+            
+            const loadBtn = document.getElementById('loadMoreArticles');
+            if (state.limit < state.filteredData.length) loadBtn.classList.remove('hidden');
+            else loadBtn.classList.add('hidden');
+        }
+
+        function createCard(article, type) {
+            const isSaved = state.watchlist.some(w => w.id === article.id);
+            const isFeatured = type === 'featured';
+            
+            return `
+                <div class="glass-bento ${isFeatured ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'} p-8 flex flex-col group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-[10px] font-bold text-brand-stormy bg-brand-stormy/10 px-3 py-1 rounded-full uppercase tracking-widest">${article.source}</span>
+                        <button onclick="toggleSave('${article.id}')" class="text-2xl ${isSaved ? 'text-brand-highlight' : 'text-white/10 hover:text-white'} transition-colors">
+                            <i class="${isSaved ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
+                        </button>
+                    </div>
+
+                    ${isFeatured ? `
+                        <div class="mb-6 overflow-hidden rounded-3xl h-48 bg-gradient-to-br from-brand-stormy/20 to-brand-highlight/20 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500">
+                            <i class="fa-solid fa-newspaper text-6xl text-brand-highlight/30"></i>
+                        </div>
+                    ` : ''}
+
+                    <a href="${article.url}" target="_blank" class="block group/link">
+                        <h3 class="${isFeatured ? 'text-4xl' : 'text-xl'} font-display uppercase text-white group-hover:text-brand-highlight transition-all mb-4 leading-tight tracking-tight">
+                            ${article.title}
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </h3>
+                    </a>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        ${article.tags.slice(0, 3).map(tag => `<span class="text-[10px] text-brand-lavender opacity-60 font-mono">#${tag}</span>`).join('')}
+                    </div>
+
+                    <div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center text-xs font-mono text-gray-500">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar"></i> ${article.date.toLocaleDateString()}
+                        </span>
+                        <span class="text-brand-highlight font-bold group-hover:translate-x-1 transition-transform">DETAILS //</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSave(id) {
+            const index = state.watchlist.findIndex(w => w.id === id);
+            if (index > -1) state.watchlist.splice(index, 1);
+            else state.watchlist.push(state.rawData.find(a => a.id === id));
+            
+            localStorage.setItem('akm_article_watchlist', JSON.stringify(state.watchlist));
+            renderGrid();
+        }
+
+        function loadMore() {
+            state.limit += CONFIG.itemsPerLoad;
+            renderGrid();
+        }
+
+        function exportToCSV() {
+            if (state.watchlist.length === 0) {
+                alert("Watchlist is empty. Bookmark articles to export.");
+                return;
+            }
+            const csv = ["Title,Source,URL,Date", ...state.watchlist.map(a => `"${a.title}","${a.source}","${a.url}","${a.date.toISOString()}"`)].join("\n");
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'akm-article-watchlist.csv';
+            a.click();
+        }
+
+        // Trigger Fetch
+        if (document.getElementById('articleGrid')) initArticles();
     </script>
 </body>
 
