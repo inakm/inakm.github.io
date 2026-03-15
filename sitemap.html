@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - Anjani Kumar Mishra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="mypfpf.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            deepSpace: '#0b0c10',
+                            stormy: '#006466',
+                            highlight: '#02e2b0',
+                            lavender: '#8e9aaf',
+                            charcoal: '#1a1a1d',
+                            accentAlt: '#01837a'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                        body: ['Manrope', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0c10;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-body selection:bg-brand-stormy selection:text-white p-8 md:p-16">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html"
+            class="inline-flex items-center gap-2 text-brand-lavender hover:text-white font-mono text-xs uppercase mb-12 transition-colors">
+            <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+        </a>
+
+        <h1 class="text-4xl md:text-6xl font-display uppercase tracking-wider mb-2">HTML Sitemap</h1>
+        <p class="font-mono text-brand-highlight text-sm mb-12">OVERVIEW OF ALL DIRECTORIES & PAGES</p>
+
+        <ul class="space-y-6">
+            <li>
+                <a href="index.html"
+                    class="text-2xl font-display uppercase hover:text-brand-highlight transition-colors flex items-center gap-4">
+                    <i class="fa-solid fa-house text-xl w-6"></i> Homepage
+                </a>
+            </li>
+            <li>
+                <a href="page/projects/index.html"
+                    class="text-2xl font-display uppercase hover:text-brand-highlight transition-colors flex items-center gap-4">
+                    <i class="fa-solid fa-folder text-xl w-6"></i> Projects Overview / List
+                </a>
+                <ul class="ml-10 mt-4 space-y-4 border-l border-brand-stormy/30 pl-6">
+                    <li>
+                        <a href="page/projects/bql.html"
+                            class="text-xl font-display uppercase hover:text-brand-highlight transition-colors flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-file-excel text-lg w-5"></i> BQL Analysis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="page/projects/gatigo.html"
+                            class="text-xl font-display uppercase hover:text-brand-highlight transition-colors flex items-center gap-3 text-gray-300">
+                            <i class="fa-solid fa-chart-line text-lg w-5"></i> GatiGo (DCF Model)
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="mt-20 pt-8 border-t border-white/10 text-xs font-mono text-gray-500 flex justify-between">
+            <span>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</span>
+            <a href="sitemap.xml" class="hover:text-brand-highlight">XML Sitemap</a>
+        </div>
+    </div>
+</body>
+
+</html>

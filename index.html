@@ -413,6 +413,64 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 45;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transform: translateY(-20px);
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 55;
+        }
+
+        .hamburger-icon span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        .hamburger-icon.open span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
     </style>
 </head>
 
@@ -452,13 +510,51 @@
                 </div>
             </div>
 
-            <a href="mailto:inakm@proton.me"
-                class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap focus:ring-2 focus:ring-offset-2 focus:ring-brand-stormy"
-                aria-label="Send Email">
-                Let's Talk
-            </a>
+            <div class="flex items-center gap-4 z-50">
+                <a href="mailto:inakm@proton.me"
+                    class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap focus:ring-2 focus:ring-offset-2 focus:ring-brand-stormy"
+                    aria-label="Send Email">
+                    Let's Talk
+                </a>
+                
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" class="md:hidden hamburger-icon ml-2" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
+        <nav class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full">
+            <a href="#about" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Profile</span>
+            </a>
+            <a href="#experience" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Work</span>
+            </a>
+            <a href="#skills" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Expertise</span>
+            </a>
+            <a href="#projects" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Portfolio</span>
+            </a>
+            <a href="page/projects/bql.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">BQL Analysis</span>
+            </a>
+            
+            <div class="h-px w-24 bg-white/20 my-4"></div>
+            
+            <a href="mailto:inakm@proton.me"
+                class="bg-white text-brand-deepSpace px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg"
+                onclick="toggleMobileMenu()">
+                Let's Talk
+            </a>
+        </nav>
+    </div>
 
     <!-- HERO SECTION -->
     <header class="relative min-h-[95vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
@@ -524,27 +620,27 @@
                 <div class="flex items-center gap-12 px-6">
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// FINANCIAL
                         ANALYSIS</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// DATA REPORTING</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// CRYPTO DEV</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN &
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN &
                         DEFI</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// ALGO TRADING</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
                 </div>
 
                 <div class="flex items-center gap-12 px-6">
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// FINANCIAL
                         ANALYSIS</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// RISK MANAGEMENT</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// DATA REPORTING</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// MARKET STRATEGY</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// CRYPTO DEV</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN &
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// BLOCKCHAIN &
                         DEFI</span>
                     <span class="text-brand-lavender font-mono text-sm md:text-base font-bold">/// ALGO TRADING</span>
-                    <span class="text-brand-stormy font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
+                    <span class="text-brand-highlight font-mono text-sm md:text-base font-bold">/// AI TOOLS</span>
                 </div>
             </div>
         </div>
@@ -868,8 +964,8 @@
                         <span
                             class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">FINANCE
                             / STARTUP</span>
-                        <a href="#" class="text-white hover:text-brand-highlight text-xl transition-colors">
-                            <i class="fa-solid fa-chart-line"></i>
+                        <a href="#" aria-label="View GatiGo Project Details" class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
                         </a>
                     </div>
                     <h3
@@ -961,8 +1057,8 @@
                         <span
                             class="font-mono text-xs font-bold text-brand-highlight border border-brand-highlight px-2 py-1 bg-brand-highlight/10">FINANCIAL
                             REPORTING</span>
-                        <a href="#" class="text-white hover:text-brand-highlight text-xl transition-colors">
-                            <i class="fa-solid fa-file-contract"></i>
+                        <a href="#" aria-label="View Financial Reporting Project Details" class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
                         </a>
                     </div>
                     <h3
@@ -1033,7 +1129,7 @@
                     <h3 class="text-lg font-bold text-white mb-4 px-2 font-mono"><i
                             class="fa-solid fa-person-chalkboard text-brand-stormy mr-2"></i> Goods & Services Tax (GST)
                     </h3>
-                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/Bs1rQzjQ8u6TuE" width="100%"
+                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/Bs1rQzjQ8u6TuE" title="Goods & Services Tax (GST) Presentation" width="100%"
                         height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                         class="rounded-lg border border-white/10" allowfullscreen></iframe>
                 </div>
@@ -1046,7 +1142,7 @@
                     <h3 class="text-lg font-bold text-white mb-4 px-2 font-mono"><i
                             class="fa-solid fa-person-chalkboard text-brand-stormy mr-2"></i> Adani Power PM
                         Presentation</h3>
-                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/hSkEJevuhNTW9P" width="100%"
+                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/hSkEJevuhNTW9P" title="Adani Power PM Presentation" width="100%"
                         height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                         class="rounded-lg border border-white/10" allowfullscreen></iframe>
                 </div>
@@ -1056,7 +1152,7 @@
                     <h3 class="text-lg font-bold text-white mb-4 px-2 font-mono"><i
                             class="fa-solid fa-person-chalkboard text-brand-stormy mr-2"></i> SBI Governance (Public
                         Sector)</h3>
-                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/1smeLqDIyaNrP1" width="100%"
+                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/1smeLqDIyaNrP1" title="SBI Governance (Public Sector) Presentation" width="100%"
                         height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                         class="rounded-lg border border-white/10" allowfullscreen></iframe>
                 </div>
@@ -1066,7 +1162,7 @@
                     <h3 class="text-lg font-bold text-white mb-4 px-2 font-mono"><i
                             class="fa-solid fa-person-chalkboard text-brand-stormy mr-2"></i> Advocacy Threat in
                         Auditing</h3>
-                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/qdhpbT9hN5y804" width="100%"
+                    <iframe src="https://www.slideshare.net/slideshow/embed_code/key/qdhpbT9hN5y804" title="Advocacy Threat in Auditing Presentation" width="100%"
                         height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                         class="rounded-lg border border-white/10" allowfullscreen></iframe>
                 </div>
@@ -1102,7 +1198,8 @@
                 <div class="flex flex-wrap gap-4 mt-8 md:mt-0 items-center">
                     <div class="flex items-center gap-4 bg-brand-deepSpace/40 border border-white/10 rounded-full px-4 py-2">
                         <span class="text-[9px] font-mono text-brand-stormy uppercase font-bold">Sort</span>
-                        <select id="sortOrder" onchange="applyFilters()" class="bg-transparent text-white font-mono text-[10px] focus:outline-none cursor-pointer">
+                        <label for="sortOrder" class="sr-only">Sort Articles</label>
+                        <select id="sortOrder" aria-label="Sort Articles" onchange="applyFilters()" class="bg-transparent text-white font-mono text-[10px] focus:outline-none cursor-pointer">
                             <option value="newest" class="bg-brand-deepSpace text-white">Latest</option>
                             <option value="oldest" class="bg-brand-deepSpace text-white">Oldest</option>
                         </select>
@@ -1227,125 +1324,75 @@
                     Intelligence // Augmented
                 </div>
 
-                <div class="grid grid-cols-2 lg:grid-cols-5 border-l border-t border-white/10 mb-12">
-                    <!-- Tool 1: Claude -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idW5s392j1/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1738315809101"
-                                alt="Claude"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Claude</span>
+                <!-- Redesigned Grid -->
+                <div class="grid grid-cols-2 lg:grid-cols-5 border-l border-t border-white/5 relative bg-[#0b0c10]">
+                    <!-- Claude -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idW5s392j1/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1738315809101"
+                            alt="Claude Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 2: NotebookLM -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/id2pBkns4V/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1766389160288"
-                                alt="NotebookLM"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">NotebookLM</span>
+                    <!-- NotebookLM -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/id2pBkns4V/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1766389160288"
+                            alt="NotebookLM Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 3: DeepSeek -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idC_7w82en/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1766410489022"
-                                alt="DeepSeek"
-                                class="h-auto max-h-10 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">DeepSeek</span>
+                    <!-- DeepSeek -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idC_7w82en/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1766410489022"
+                            alt="DeepSeek Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 4: Perplexity -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idNdawywEZ/w/3176/h/800/theme/dark/idQE22oxKf.png?c=1bxid64Mup7aczewSAYMX&t=1754453427391"
-                                alt="Perplexity"
-                                class="h-auto max-h-8 w-auto max-w-[140px] object-contain transition-all duration-300 group-hover:scale-110 invert brightness-[2]">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Perplexity</span>
+                    <!-- Perplexity -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idNdawywEZ/w/3176/h/800/theme/dark/idQE22oxKf.png?c=1bxid64Mup7aczewSAYMX&t=1754453427391"
+                            alt="Perplexity Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-6 w-auto max-w-[120px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100 invert brightness-[2]">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 5: Microsoft Copilot -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.worldvectorlogo.com/logos/microsoft-copilot-logo.svg"
-                                alt="Microsoft Copilot"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Copilot</span>
+                    <!-- Copilot -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.worldvectorlogo.com/logos/microsoft-copilot-logo.svg"
+                            alt="Microsoft Copilot Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
                     </div>
-
-                    <!-- Tool 6: Manus AI -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idMAZO4Jfk/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1769402794862"
-                                alt="Manus AI"
-                                class="h-auto max-h-10 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110 invert brightness-[2]">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Manus
-                            AI</span>
+                    <!-- Manus AI -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idMAZO4Jfk/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1769402794862"
+                            alt="Manus AI Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100 invert brightness-[2]">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 7: Workiva -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idN0IKRQcy/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667654433529"
-                                alt="Workiva"
-                                class="h-auto max-h-10 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Workiva</span>
+                    <!-- Workiva -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idN0IKRQcy/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667654433529"
+                            alt="Workiva Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 8: Alteryx -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/id9_d11aqZ/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667654409228"
-                                alt="Alteryx"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Alteryx</span>
+                    <!-- Alteryx -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/id9_d11aqZ/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667654409228"
+                            alt="Alteryx Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 9: ChatGPT -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.worldvectorlogo.com/logos/chatgpt-3.svg" alt="ChatGPT"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110 invert brightness-[1.8]">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">ChatGPT</span>
+                    <!-- ChatGPT -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.worldvectorlogo.com/logos/chatgpt-3.svg" 
+                            alt="ChatGPT Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100 invert brightness-[1.8]">
+                        <div class="absolute -bottom-[3px] -right-[3px] text-white/30 text-xs opacity-0 lg:opacity-100">+</div>
                     </div>
-
-                    <!-- Tool 10: Grok -->
-                    <div
-                        class="group flex flex-col items-center gap-4 w-full p-10 border-r border-b border-white/10 bg-white/[0.01] hover:bg-white/[0.03] transition-colors relative">
-                        <div class="h-16 w-full flex items-center justify-center">
-                            <img src="https://cdn.brandfetch.io/idCAJV1zJ2/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1752981642115"
-                                alt="Grok"
-                                class="h-auto max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 group-hover:scale-110 invert brightness-[2]">
-                        </div>
-                        <span
-                            class="text-[9px] font-mono text-gray-600 uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity">Grok</span>
+                    <!-- Grok -->
+                    <div class="flex items-center justify-center p-8 border-r border-b border-white/5 bg-[#0b0c10] hover:bg-white/[0.02] transition-colors h-32 relative group">
+                        <img src="https://cdn.brandfetch.io/idCAJV1zJ2/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1752981642115"
+                            alt="Grok Logo" width="120" height="40" loading="lazy"
+                            class="h-auto max-h-8 w-auto max-w-[100px] object-contain transition-opacity duration-300 opacity-60 group-hover:opacity-100 invert brightness-[2]">
                     </div>
                 </div>
 
@@ -1408,27 +1455,36 @@
                         </button>
                     </div>
 
-                    <div class="mt-12 p-6 border border-brand-highlight/20 bg-brand-highlight/5 rounded-lg">
-                        <h4 class="text-white font-display uppercase text-sm mb-3">Support My Work</h4>
-                        <p class="text-gray-400 text-xs mb-4 leading-relaxed font-mono">If you find my builds helpful,
-                            consider supporting my journey in finance & fintech.</p>
-                        <div class="flex gap-4">
-                            <a href="https://www.buymeacoffee.com/inakm" target="_blank"
-                                class="bg-yellow-400 text-black px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-mug-hot"></i> Coffee
-                            </a>
-                            <a href="https://ko-fi.com/in_akm" target="_blank"
-                                class="bg-blue-400 text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-heart"></i> Ko-fi
-                            </a>
-                            <a href="https://referrals.xero.com/6e4vdvidng7g" target="_blank"
-                                class="bg-[#13b5ea] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-calculator"></i> Xero
-                            </a>
-                            <a href="https://wellfound.com/l/2C7zVG" target="_blank"
-                                class="bg-[#ff4b2b] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
-                                <i class="fa-brands fa-angellist"></i> Wellfound
-                            </a>
+                    <div class="mt-12 flex flex-col xl:flex-row gap-6">
+                        <div class="p-6 border border-brand-highlight/20 bg-brand-highlight/5 rounded-lg flex-1">
+                            <h4 class="text-white font-display uppercase text-sm mb-3">Support My Work</h4>
+                            <p class="text-gray-400 text-xs mb-4 leading-relaxed font-mono">If you find my builds helpful,
+                                consider supporting my journey in finance & fintech.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://www.buymeacoffee.com/inakm" target="_blank"
+                                    class="bg-[#FFDD00] text-black px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-mug-hot"></i> Coffee
+                                </a>
+                                <a href="https://ko-fi.com/in_akm" target="_blank"
+                                    class="bg-[#29abe0] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform text-shadow-sm">
+                                    <i class="fa-solid fa-heart"></i> Ko-fi
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border border-brand-stormy/30 bg-brand-stormy/5 rounded-lg flex-1">
+                            <h4 class="text-white font-display text-sm mb-3" style="text-transform: none;">Use my referral link (I earn commissions from you using :)) )</h4>
+                            <p class="text-gray-400 text-xs mb-4 leading-relaxed font-mono">Sign up and get exclusive benefits on these platforms.</p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://referrals.xero.com/6e4vdvidng7g" target="_blank"
+                                    class="bg-[#13b5ea] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-calculator"></i> Xero
+                                </a>
+                                <a href="https://wellfound.com/l/2C7zVG" target="_blank"
+                                    class="bg-[#e63e21] text-white px-4 py-2 rounded font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                    <i class="fa-brands fa-angellist"></i> Wellfound
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1454,21 +1510,21 @@
             <div class="flex flex-col md:flex-row justify-between items-center text-xs font-mono text-gray-500 pt-8">
                 <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
                 <div class="flex gap-4">
-                    <a href="https://linkedin.com/in/inakmm" target="_blank"
+                    <a href="https://linkedin.com/in/inakmm" target="_blank" aria-label="LinkedIn Profile"
                         class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
-                        <i class="fa-brands fa-linkedin text-xl"></i>
+                        <i class="fa-brands fa-linkedin text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="https://github.com/inakm" target="_blank"
+                    <a href="https://github.com/inakm" target="_blank" aria-label="GitHub Profile"
                         class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
-                        <i class="fa-brands fa-github text-xl"></i>
+                        <i class="fa-brands fa-github text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wellfound.com/u/anjani-kumar-mishra-5" target="_blank"
+                    <a href="https://wellfound.com/u/anjani-kumar-mishra-5" target="_blank" aria-label="Wellfound Profile"
                         class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
-                        <i class="fa-brands fa-angellist text-xl"></i>
+                        <i class="fa-brands fa-angellist text-xl" aria-hidden="true"></i>
                     </a>
-                    <a href="https://x.com/in_akm" target="_blank"
+                    <a href="https://x.com/in_akm" target="_blank" aria-label="Twitter X Profile"
                         class="sleek-social-box p-3 rounded-xl text-brand-lavender hover:text-white">
-                        <i class="fa-brands fa-x-twitter text-xl"></i>
+                        <i class="fa-brands fa-x-twitter text-xl" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="flex gap-4 items-center mt-4 md:mt-0">
@@ -1862,7 +1918,7 @@
                 <div class="glass-bento ${isFeatured ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'} p-8 flex flex-col group">
                     <div class="flex justify-between items-start mb-6">
                         <span class="text-[10px] font-bold text-brand-stormy bg-brand-stormy/10 px-3 py-1 rounded-full uppercase tracking-widest">${article.source}</span>
-                        <button onclick="toggleSave('${article.id}')" class="text-2xl ${isSaved ? 'text-brand-highlight' : 'text-white/10 hover:text-white'} transition-colors">
+                        <button onclick="toggleSave('${article.id}')" aria-label="${isSaved ? 'Remove' : 'Save'} ${article.title.replace(/"/g, '&quot;')}" class="text-2xl ${isSaved ? 'text-brand-highlight' : 'text-white/10 hover:text-white'} transition-colors">
                             <i class="${isSaved ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
                         </button>
                     </div>
@@ -1924,6 +1980,27 @@
 
         // Trigger Fetch
         if (document.getElementById('articleGrid')) initArticles();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        function toggleMobileMenu() {
+            if(!mobileMenuBtn || !mobileMenu) return;
+            const isOpen = mobileMenuBtn.classList.toggle('open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            mobileMenu.classList.toggle('active');
+            
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
     </script>
 </body>
 
