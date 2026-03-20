@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVNL Showcase | Anjani Kumar Mishra</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../mypfpf.png">
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="RVNL (Rail Vikas Nigam Limited) financial models, analysis, and stock performance by Anjani Kumar Mishra.">
+    <meta name="keywords"
+        content="RVNL, Rail Vikas Nigam Limited, PSU, Railways, Financial Analyst, Dashboards, Excel, Anjani Kumar Mishra, AKM">
+    <meta name="author" content="Anjani Kumar Mishra">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            stormy: '#006466',
+                            darkTeal: '#065a60',
+                            darkTeal2: '#0b525b',
+                            charcoal: '#1b3a4b',
+                            deepSpace: '#212f45',
+                            indigo: '#272640',
+                            midnight: '#312244',
+                            deepPurple: '#4d194d',
+                            lavender: '#d5cfe1',
+                            white: '#ffffff',
+                            highlight: '#48cae4',
+                            rvnlorange: '#f37021', // approximate color for RVNL branding
+                            rvnlblue: '#003366'
+                        }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-down': 'fadeInDown 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #1a1a1d;
+            background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
+            color: #d5cfe1;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-size: 50px 50px;
+            background-position: center;
+        }
+
+        .card-3d {
+            background: rgba(33, 47, 69, 0.7);
+            border: 1px solid rgba(148, 149, 139, 0.3);
+            box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .card-3d:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px rgba(0, 100, 102, 0.8);
+            background: rgba(33, 47, 69, 0.9);
+            border-color: #d5cfe1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1b3a4b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #006466;
+            border: 2px solid #1b3a4b;
+            border-radius: 4px;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 60;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(20px);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 200px;
+            background: rgba(33, 47, 69, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0;
+            z-index: 100;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeInDown 0.3s ease-out forwards;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #d5cfe1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(0, 100, 102, 0.3);
+            color: #48cae4;
+            padding-left: 1.75rem;
+        }
+    </style>
+</head>
+
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+
+    <!-- FLOATING HEADER -->
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div
+            class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            <a href="../../index.html"
+                class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
+                AKM<span class="text-brand-stormy group-hover:text-white">.</span>
+            </a>
+
+            <div
+                class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="../../index.html#about" class="hover:text-white transition-colors">Profile</a>
+                <a href="../../index.html#experience" class="hover:text-white transition-colors">Work</a>
+                <a href="../../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
+                <div class="dropdown">
+                    <button
+                        class="hover:text-white transition-colors focus:outline-none focus:text-brand-highlight uppercase tracking-widest flex items-center gap-1">
+                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="../../index.html#projects" class="dropdown-item">Portfolio</a>
+                        <a href="bql.html" class="dropdown-item">BQL Analysis</a>
+                        <a href="gatigo.html" class="dropdown-item">GatiGo</a>
+                        <a href="rvnl.html" class="dropdown-item">RVNL</a>
+                        <a href="https://foilai.in/" target="_blank" class="dropdown-item">FoilAI</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="mailto:inakm@proton.me"
+                class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap">
+                Let's Talk
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32">
+        <div class="text-center z-10 relative">
+            <h1
+                class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
+                RVNL
+            </h1>
+            <h1
+                class="text-[10vw] md:text-[6vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-stormy via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
+                SHOWCASE
+            </h1>
+
+            <p
+                class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
+                RAIL INFRASTRUCTURE <span class="text-brand-stormy px-2">::</span> FINANCIAL PERFORMANCE
+            </p>
+
+            <div class="mt-8 flex justify-center items-center gap-2 font-mono text-xs">
+                <span class="text-gray-400 uppercase tracking-widest">Financial Models & Analysis</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-20 relative z-10">
+
+        <!-- ABOUT SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">01.
+                        Company Profile</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">About RVNL</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">NEW DELHI, INDIA</p>
+                </div>
+            </div>
+
+            <div
+                class="card-3d p-8 md:p-12 mb-8 border-l-4 border-l-brand-highlight flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-2 border-brand-stormy/50">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/RvnlLOGO.png" alt="RVNL Logo"
+                            class="max-w-full h-auto object-contain drop-shadow-md">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-3xl font-display uppercase mb-2 text-white text-center md:text-left">Expediting Rail
+                        Infrastructure Development</h3>
+
+                    <p class="text-gray-300 font-body leading-relaxed text-lg mt-6 text-justify">
+                        Rail Vikas Nigam Limited (RVNL) is a premier <strong>Navratna Central Public Sector Undertaking
+                            (PSU)</strong> under India's Ministry of Railways, established in 2003 to expedite rail
+                        infrastructure development. It acts as a project implementation agency for doubling, new lines,
+                        gauge conversion, and metro projects, with a strong, growing presence in international
+                        infrastructure projects.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STOCK CHART SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">02.
+                        Market Performance</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">Stock Chart</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">NSE:RVNL</p>
+                </div>
+            </div>
+
+            <div class="card-3d p-4 md:p-4 h-[600px] mb-6 rounded-xl overflow-hidden border border-white/20">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container" style="height:100%;width:100%">
+                    <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                                "autosize": true,
+                                    "symbol": "NSE:RVNL",
+                                        "interval": "D",
+                                            "timezone": "Asia/Kolkata",
+                                                "theme": "dark",
+                                                    "style": "1",
+                                                        "locale": "in",
+                                                            "enable_publishing": false,
+                                                                "backgroundColor": "rgba(33, 47, 69, 1)",
+                                                                    "gridColor": "rgba(255, 255, 255, 0.06)",
+                                                                        "hide_top_toolbar": false,
+                                                                            "hide_legend": false,
+                                                                                "save_image": false,
+                                                                                    "container_id": "tradingview_chart"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </section>
+
+        <!-- ANNUAL REPORTS SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">03.
+                        Corporate Filings</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">Annual Reports</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">SOURCE: BSE INDIA</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- FY 2025 -->
+                <a href="https://www.bseindia.com/xml-data/corpfiling/AttachHis/0f8d2869-2f18-4d96-96a5-489d94fddc4c.pdf"
+                    target="_blank"
+                    class="card-3d p-8 flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-transform">
+                    <i
+                        class="fa-solid fa-file-pdf text-4xl text-brand-highlight mb-4 group-hover:text-white transition-colors"></i>
+                    <h3 class="text-2xl font-display uppercase text-white mb-2">FY 2024-25</h3>
+                    <p class="text-gray-400 font-mono text-xs tracking-widest uppercase">Annual Report</p>
+                </a>
+
+                <!-- FY 2024 -->
+                <a href="https://www.bseindia.com/xml-data/corpfiling/AttachHis/ee25e54e-de34-4e9a-827f-ecf0583c8eca.pdf"
+                    target="_blank"
+                    class="card-3d p-8 flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-transform">
+                    <i
+                        class="fa-solid fa-file-pdf text-4xl text-brand-highlight mb-4 group-hover:text-white transition-colors"></i>
+                    <h3 class="text-2xl font-display uppercase text-white mb-2">FY 2023-24</h3>
+                    <p class="text-gray-400 font-mono text-xs tracking-widest uppercase">Annual Report</p>
+                </a>
+
+                <!-- FY 2023 -->
+                <a href="https://www.bseindia.com/xml-data/corpfiling/AttachHis/863b7010-2b00-4526-8fe1-cf3c55395b1f.pdf"
+                    target="_blank"
+                    class="card-3d p-8 flex flex-col items-center justify-center text-center group hover:-translate-y-2 transition-transform">
+                    <i
+                        class="fa-solid fa-file-pdf text-4xl text-brand-highlight mb-4 group-hover:text-white transition-colors"></i>
+                    <h3 class="text-2xl font-display uppercase text-white mb-2">FY 2022-23</h3>
+                    <p class="text-gray-400 font-mono text-xs tracking-widest uppercase">Annual Report</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- FINANCIAL MODELS SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-2 font-bold">04.
+                        Analysis</span>
+                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">Financial Models</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-right font-mono text-brand-lavender text-xs">EXCEL DASHBOARDS</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+
+                <!-- Model 1 -->
+                <div class="card-3d p-8 flex flex-col group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6 z-10 relative">
+                        <span
+                            class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">FINANCIALS</span>
+                        <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
+                    </div>
+
+                    <h3
+                        class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight z-10 relative">
+                        Business Performance</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body z-10 relative">
+                        Comprehensive financial business performance model for Rail Vikas Nigam Limited (RVNL).</p>
+                    <a href="../../myprojects/RVNL/RVNL_Business_Performance.xlsx" download
+                        class="mt-auto bg-brand-stormy text-white px-6 py-3 rounded text-center font-mono text-xs uppercase hover:bg-brand-highlight hover:text-brand-deepSpace transition-colors z-10 relative"
+                        aria-label="Download RVNL Business Performance">
+                        <i class="fa-solid fa-download mr-2"></i> Download Model
+                    </a>
+                </div>
+
+                <!-- Coming Soon Model -->
+                <div
+                    class="card-3d p-8 flex flex-col justify-center items-center group relative overflow-hidden bg-transparent border-dashed border border-white/20 opacity-70 hover:opacity-100 transition-opacity w-full h-full min-h-[250px]">
+                    <div class="rounded-full bg-brand-stormy/20 w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hourglass-half text-brand-highlight text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-display uppercase mb-2 text-white text-center">More Models</h3>
+                    <p
+                        class="text-brand-highlight font-mono text-sm uppercase tracking-widest text-center font-bold animate-pulse">
+                        Coming Soon</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCLAIMER -->
+        <section class="mb-8 card-3d p-6 border-l-4 border-l-brand-highlight bg-brand-indigo/60">
+            <h4 class="text-brand-highlight font-mono text-sm tracking-widest uppercase font-bold mb-3">Disclaimer</h4>
+            <p class="text-white font-body text-base leading-relaxed mb-2 font-medium">
+                This data is compiled strictly for academic research and educational purposes. It does not constitute
+                financial advice, investment recommendations, or an endorsement of any particular security or strategy.
+                All analysis is based on historical or simulated data and should not be used as a basis for real-world
+                financial decisions.
+            </p>
+            <p class="text-gray-400 font-body text-xs leading-relaxed mt-4 border-t border-white/10 pt-3">
+                Designed & Developed by <a href="https://inakm.github.io"
+                    class="text-brand-highlight hover:text-white font-bold transition-colors">@inAKM</a>.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-stormy">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
+            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
+
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/inakmm" target="_blank"
+                    class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/inakm" target="_blank"
+                    class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:inakm@proton.me"
+                    class="text-gray-400 hover:text-brand-stormy transition-colors text-2xl">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
+                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" onclick="scrollToTop()"
+        class="bg-brand-highlight text-brand-deepSpace w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 transition-all border-2 border-brand-deepSpace"
+        aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up text-xl"></i>
+    </button>
+
+    <script>
+        // Scroll Logic
+        const btt = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                btt.classList.add('show');
+            } else {
+                btt.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
