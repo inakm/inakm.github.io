@@ -1,0 +1,4 @@
+# AKM Portfolio
+Anjani Kumar Mishra (AKM) is a Finance Analyst & Fintech Developer based in Hyderabad, India.
+He specializes in ACCA, Financial Modeling, Bloomberg Query Language (BQL), Blockchain/Crypto, and AI Tools.
+Contact him at inakm@proton.me or visit his portfolio at https://inakm.github.io.

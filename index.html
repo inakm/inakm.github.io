@@ -83,8 +83,16 @@
     }
     </script>
 
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO & Discovery Links -->
+    <link rel="canonical" href="https://inakm.github.io/">
+    <link rel="search" type="application/opensearchdescription+xml" title="AKM Portfolio Search" href="/opensearch.xml">
+    <link rel="author" href="/humans.txt">
+    <link rel="alternate" type="text/plain" title="LLM Context" href="/llms.txt">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
     <!-- Google Fonts: Display Swap for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -409,9 +417,30 @@
             transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .reveal-on-scroll.is-visible {
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-on-scroll.is-visible,
+        .reveal-left.is-visible,
+        .reveal-right.is-visible,
+        .reveal-scale.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate(0) scale(1);
         }
 
         /* Mobile Menu Styles */
@@ -599,18 +628,17 @@
             </p>
 
             <div
-                class="mt-10 md:mt-12 flex flex-col md:flex-row gap-6 justify-center items-center w-full max-w-md md:max-w-none mx-auto">
+                class="mt-8 md:mt-12 flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center w-[90%] md:w-auto mx-auto">
                 <a href="https://drive.google.com/file/d/1lfowyB4QG25FwX2K9iMTIhRji6DtFB2l/view?usp=sharing"
                     target="_blank"
-                    class="w-full md:w-auto px-8 py-4 bg-transparent border border-white text-white font-mono text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white] text-center focus:ring-2 focus:ring-white">
+                    class="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 bg-transparent border border-white text-white font-mono text-xs md:text-sm uppercase hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_white] text-center focus:ring-2 focus:ring-white">
                     <i class="fa-solid fa-file-invoice mr-2"></i> Download My CV
                 </a>
 
                 <a href="https://linkedin.com/in/inakmm" target="_blank"
-                    class="w-full md:w-auto px-8 py-4 bg-[#0077b5] text-white font-mono text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)] text-center focus:ring-2 focus:ring-[#0077b5]">
+                    class="w-full md:w-auto px-6 md:px-8 py-3 md:py-4 bg-[#0077b5] text-white font-mono text-xs md:text-sm uppercase hover:bg-[#006097] transition-all shadow-[4px_4px_0px_rgba(255,255,255,0.2)] text-center focus:ring-2 focus:ring-[#0077b5]">
                     <i class="fa-brands fa-linkedin mr-2"></i> Connect
                 </a>
-
             </div>
         </div>
 
@@ -803,72 +831,34 @@
                 <span class="text-xs font-mono text-gray-400 hidden md:inline-block">CONFIDENCE INDEX [1-5]</span>
             </div>
 
-            <!-- Part 1: Heatmap (Hard Skills) -->
-            <div class="card-3d p-6 md:p-8 overflow-hidden mb-10" id="heatmap-container">
-                <h3 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-2 font-mono"><i
-                        class="fa-solid fa-chart-simple text-brand-stormy mr-2"></i> Technical Proficiency</h3>
+            <!-- Part 1: Core Competencies -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                <div class="card-3d p-6 md:p-8 reveal-left">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-book text-brand-stormy mr-2"></i> Accounting & Reporting</h3>
+                    <p class="font-body text-gray-300 leading-relaxed">
+                        Financial Statements, Journal Entries, Ledger Accounting, Accounts Payable, Vendor Reconciliation, Cost Stock Ledger (CSL), IFRS, IAS, GAAP
+                    </p>
+                </div>
 
-                <div class="grid gap-6">
-                    <!-- Row 1 -->
-                    <div class="grid grid-cols-12 gap-4 items-center">
-                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Financial
-                            Analysis</div>
-                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="5">
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                        </div>
-                    </div>
-                    <!-- Row 2 -->
-                    <div class="grid grid-cols-12 gap-4 items-center">
-                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">MS Excel /
-                            Modeling</div>
-                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="5">
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                        </div>
-                    </div>
-                    <!-- Row 3 -->
-                    <div class="grid grid-cols-12 gap-4 items-center">
-                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">IFRS /
-                            Accounting</div>
-                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="4">
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                        </div>
-                    </div>
-                    <!-- Row 4 -->
-                    <div class="grid grid-cols-12 gap-4 items-center">
-                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Blockchain /
-                            DeFi</div>
-                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="4">
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                        </div>
-                    </div>
-                    <!-- Row 5 -->
-                    <div class="grid grid-cols-12 gap-4 items-center">
-                        <div class="col-span-5 md:col-span-3 text-white font-mono text-sm md:text-base">Frontend Dev
-                        </div>
-                        <div class="col-span-7 md:col-span-9 flex gap-1 h-8" data-level="3">
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                            <div class="flex-1 heatmap-cell"></div>
-                        </div>
-                    </div>
+                <div class="card-3d p-6 md:p-8 reveal-right">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-chart-line text-brand-stormy mr-2"></i> Financial Analysis</h3>
+                    <p class="font-body text-gray-300 leading-relaxed">
+                        Variance Analysis, Trend Analysis, Cost Tracking, KPI Reporting, Financial Modeling, Ratio Analysis
+                    </p>
+                </div>
+
+                <div class="card-3d p-6 md:p-8 reveal-left">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-wrench text-brand-stormy mr-2"></i> Tools & Technology</h3>
+                    <p class="font-body text-gray-300 leading-relaxed">
+                        Advanced MS Excel (Pivot Tables, XLOOKUP, Financial Models), Word, Outlook, Bloomberg Terminal (BQL), SQL (Basic), Google Sheets, ERP Exposure
+                    </p>
+                </div>
+
+                <div class="card-3d p-6 md:p-8 reveal-right">
+                    <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i class="fa-solid fa-gears text-brand-stormy mr-2"></i> Operations & Controls</h3>
+                    <p class="font-body text-gray-300 leading-relaxed">
+                        Data Validation, Internal Controls (ICoFR), Documentation Accuracy, Process Optimization, Workflow Automation
+                    </p>
                 </div>
             </div>
 
@@ -876,7 +866,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <div
-                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
+                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors reveal-left">
                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i
                             class="fa-solid fa-users text-brand-stormy mr-2"></i> Soft Skills</h3>
                     <div class="flex flex-wrap gap-2">
@@ -889,7 +879,7 @@
 
 
                 <div
-                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
+                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors reveal-scale">
                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i
                             class="fa-solid fa-robot text-brand-stormy mr-2"></i> AI & Tech</h3>
                     <div class="flex flex-wrap gap-2">
@@ -904,7 +894,7 @@
 
 
                 <div
-                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors">
+                    class="bg-brand-deepSpace/40 p-6 border border-white/10 hover:border-brand-stormy transition-colors reveal-right">
                     <h3 class="text-xl font-bold text-white mb-4 border-b border-brand-stormy pb-2"><i
                             class="fa-solid fa-compass text-brand-stormy mr-2"></i> Interests</h3>
                     <div class="flex flex-wrap gap-3 font-mono text-sm text-brand-lavender">
@@ -974,15 +964,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Project: GatiGo -->
-                <div class="card-3d p-8 flex flex-col h-full group">
+                <a href="https://inakm.github.io/page/projects/gatigo.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
                             class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">FINANCE
                             / STARTUP</span>
-                        <a href="#" aria-label="View GatiGo Project Details"
-                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                        <div class="text-white hover:text-brand-highlight group-hover:text-brand-highlight text-xl transition-colors">
                             <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                        </a>
+                        </div>
                     </div>
                     <h3
                         class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">
@@ -996,21 +985,20 @@
                         <li>Documented end-to-end payment workflows and approval checkpoints to improve process
                             transparency.</li>
                     </ul>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
                         DCF MODELING • PRICING STRATEGY • WORKFLOW DESIGN
                     </div>
-                </div>
+                </a>
 
                 <!-- Project: iCryptos Dash -->
-                <div class="card-3d p-8 flex flex-col h-full group">
+                <a href="https://ttearncrypto.github.io/dashboards" target="_blank" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
                             class="font-mono text-xs font-bold text-brand-highlight border border-brand-highlight px-2 py-1 bg-brand-highlight/10">WEB3
                             / FINTECH</span>
-                        <a href="https://ttearncrypto.github.io/dashboards" target="_blank" aria-label="Visit iCryptos"
-                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                        <div class="text-white hover:text-brand-highlight group-hover:text-brand-highlight text-xl transition-colors">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
+                        </div>
                     </div>
                     <h3
                         class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">
@@ -1018,21 +1006,20 @@
                     <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">Comprehensive
                         dashboard for tracking crypto earnings, airdrops, and investments. Real-time data visualization
                         of decentralized asset portfolios.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
                         DASHBOARD • CRYPTO • ANALYTICS
                     </div>
-                </div>
+                </a>
 
                 <!-- Project: FoilAI -->
-                <div class="card-3d p-8 flex flex-col h-full group">
+                <a href="https://foilai.in/" target="_blank" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
                             class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">AI
                             / TECH</span>
-                        <a href="https://foilai.in/" target="_blank" aria-label="Visit FoilAI"
-                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                        <div class="text-white hover:text-brand-highlight group-hover:text-brand-highlight text-xl transition-colors">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
+                        </div>
                     </div>
                     <h3
                         class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">
@@ -1040,21 +1027,20 @@
                     <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">Front-end UI
                         for an AI image generator platform. Optimized for UX and integrated AI-driven features for
                         artists.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
                         REACT JS • API • UI/UX
                     </div>
-                </div>
+                </a>
 
                 <!-- Project: BQL Analysis -->
-                <div class="card-3d p-8 flex flex-col h-full group">
+                <a href="page/projects/bql.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
                             class="font-mono text-xs font-bold text-brand-stormy border border-brand-stormy px-2 py-1 bg-brand-stormy/10">FINANCE
                             / DATA</span>
-                        <a href="page/projects/bql.html" aria-label="Visit BQL Analysis"
-                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                        <div class="text-white hover:text-brand-highlight group-hover:text-brand-highlight text-xl transition-colors">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
+                        </div>
                     </div>
                     <h3
                         class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">
@@ -1062,35 +1048,33 @@
                     <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">A collection
                         of Bloomberg Query Language (BQL) projects showcasing advanced financial data retrieval and
                         analysis in Excel.</p>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
                         BQL • BLOOMBERG • EXCEL
                     </div>
-                </div>
+                </a>
 
-                <!-- Project: Financial Reporting -->
-                <div class="card-3d p-8 flex flex-col h-full group">
+                <!-- Project: RVNL Analysis -->
+                <a href="https://inakm.github.io/page/projects/rvnl.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
-                            class="font-mono text-xs font-bold text-brand-highlight border border-brand-highlight px-2 py-1 bg-brand-highlight/10">FINANCIAL
-                            REPORTING</span>
-                        <a href="#" aria-label="View Financial Reporting Project Details"
-                            class="text-white hover:text-brand-highlight text-xl transition-colors">
+                            class="font-mono text-xs font-bold text-brand-highlight border border-brand-highlight px-2 py-1 bg-brand-highlight/10">EQUITY
+                            RESEARCH</span>
+                        <div class="text-white hover:text-brand-highlight group-hover:text-brand-highlight text-xl transition-colors">
                             <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
-                        </a>
+                        </div>
                     </div>
                     <h3
                         class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight text-shadow-sm">
-                        Financial Reporting & Analysis</h3>
+                        Rail Vikas Nigam Ltd (RVNL)</h3>
                     <ul
                         class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed list-disc list-inside space-y-2 font-body font-medium">
-                        <li>Prepared detailed financial statements and conducted liquidity, profitability, and
-                            efficiency ratio analysis using Excel to evaluate business performance.</li>
-                        <li>Analyzed trends and variances to provide actionable insights for management review.</li>
+                        <li>Comprehensive equity research and financial modeling of RVNL's business operations.</li>
+                        <li>Analyzed annual reports and business performance metrics.</li>
                     </ul>
-                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold">
-                        RATIO ANALYSIS • EXCEL • REPORTING
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                        FINANCE • RESEARCH • EXCEL
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -1280,7 +1264,14 @@
 
                     <div
                         class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                        <span class="font-bold text-white text-lg">Bloomberg Researching and Adopting ESG</span>
+                        <span class="font-bold text-white text-lg">Bloomberg Finance Fundamentals (BFF)</span>
+                        <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
+                                class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
+                    </div>
+
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
+                        <span class="font-bold text-white text-lg">Bloomberg Environmental Social Governance</span>
                         <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
                                 class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
                     </div>
@@ -1288,7 +1279,13 @@
                     <div
                         class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
                         <span class="font-bold text-white text-lg">Bloomberg Global Trading Challenge</span>
-                        <span class="text-gray-400 mt-1 md:mt-0">Issued Nov 2025</span>
+                        <div class="flex gap-2 mt-2 md:mt-0">
+                            <a href="https://portal.bloombergforeducation.com/trading_challenges/certificates/uJDR3EfrYRxTJdbfEmqvccL2"
+                                target="_blank" aria-label="Verify Global Trading Challenge"
+                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
+                                Verify <i class="fa-solid fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <div
@@ -1298,10 +1295,6 @@
                             <span class="text-xs text-gray-400 uppercase tracking-tighter">Issued on Mar 2026</span>
                         </div>
                         <div class="flex gap-2 mt-2 md:mt-0">
-                            <a href="assets/cert/BMC.pdf" target="_blank" aria-label="View BMC Certificate PDF"
-                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
-                                View PDF <i class="fa-solid fa-file-pdf ml-1" aria-hidden="true"></i>
-                            </a>
                             <a href="https://portal.bloombergforeducation.com/certificates/vsqjkT7qeRWmpcTEtXSeM8e1"
                                 target="_blank" aria-label="Verify BMC Certificate"
                                 class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
@@ -1318,10 +1311,6 @@
                             <span class="text-xs text-gray-400 uppercase tracking-tighter">Issued on Mar 2026</span>
                         </div>
                         <div class="flex gap-2 mt-2 md:mt-0">
-                            <a href="assets/cert/BQL_cert.pdf" target="_blank" aria-label="View BQL Certificate PDF"
-                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
-                                View PDF <i class="fa-solid fa-file-pdf ml-1" aria-hidden="true"></i>
-                            </a>
                             <a href="https://portal.bloombergforeducation.com/certificates/AzPaSZJBqqzNLHgZts3iPK4m"
                                 target="_blank" aria-label="Verify BQL Certificate"
                                 class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
@@ -1333,13 +1322,25 @@
                     <div
                         class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
                         <span class="font-bold text-white text-lg">Fundamentals of Investing (SoFi)</span>
-                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
+                        <div class="flex gap-2 mt-2 md:mt-0">
+                            <a href="https://www.coursera.org/account/accomplishments/records/CK1JKI3U4D9X"
+                                target="_blank" aria-label="Verify Fundamentals of Investing"
+                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
+                                Verify <i class="fa-solid fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <div
                         class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
                         <span class="font-bold text-white text-lg">Risk Management in Personal Finance</span>
-                        <span class="text-gray-400 mt-1 md:mt-0">Issued Oct 2024</span>
+                        <div class="flex gap-2 mt-2 md:mt-0">
+                            <a href="https://www.coursera.org/account/accomplishments/records/OCOSFAZP5LXG"
+                                target="_blank" aria-label="Verify Risk Management"
+                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
+                                Verify <i class="fa-solid fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1708,7 +1709,7 @@
                 });
             }, observerOptions);
 
-            const scrollElements = document.querySelectorAll('.reveal-on-scroll');
+            const scrollElements = document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale');
             scrollElements.forEach(el => observer.observe(el));
 
             // Back to Top Visibility

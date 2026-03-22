@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -175,6 +175,22 @@
             color: #48cae4;
             padding-left: 1.75rem;
         }
+        .mobile-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(33, 47, 69, 0.98); backdrop-filter: blur(20px);
+            z-index: 45; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; opacity: 0; visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: scale(1.05);
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; transform: scale(1); }
+        .hamburger-icon {
+            display: flex; flex-direction: column; justify-content: space-around; width: 24px; height: 20px;
+            background: transparent; border: none; cursor: pointer; padding: 0; z-index: 55;
+        }
+        .hamburger-icon span { width: 24px; height: 2px; background: white; transition: all 0.3s linear; position: relative; transform-origin: 1px; }
+        .hamburger-icon.open span:nth-child(1) { transform: rotate(45deg); }
+        .hamburger-icon.open span:nth-child(2) { opacity: 0; }
+        .hamburger-icon.open span:nth-child(3) { transform: rotate(-45deg); }
     </style>
 </head>
 
@@ -207,12 +223,32 @@
                 </div>
             </div>
 
-            <a href="mailto:inakm@proton.me"
-                class="bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap">
-                Let's Talk
-            </a>
+            <div class="flex items-center gap-4 z-50">
+                <a href="mailto:inakm@proton.me"
+                    class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg whitespace-nowrap">
+                    Let's Talk
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden hamburger-icon ml-2" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
+        <nav class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full">
+            <a href="../../index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Home</span>
+            </a>
+            <a href="../../index.html#projects" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Portfolio</span>
+            </a>
+            <a href="mailto:inakm@proton.me" class="bg-white text-brand-deepSpace px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-brand-stormy hover:text-white transition-all shadow-lg mt-4" onclick="toggleMobileMenu()">
+                Let's Talk
+            </a>
+        </nav>
+    </div>
 
     <!-- HERO SECTION -->
     <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32">
@@ -493,6 +529,17 @@
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            if (menu && btn) {
+                menu.classList.toggle('active');
+                btn.classList.toggle('open');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            }
         }
     </script>
 </body>

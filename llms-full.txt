@@ -1,0 +1,94 @@
+# AKM Portfolio - Comprehensive Context
+
+## Personal Identity
+**Name:** Anjani Kumar Mishra (AKM)
+**Role:** Finance Analyst, FP&A Enthusiast & Fintech Developer
+**Location:** Hyderabad, India
+**Age:** 20 (Born ~2006)
+**Pronouns:** He/Him
+**Objective:** Seeking entry-level roles or internships in FP&A (Financial Planning & Analysis) or Finance Operations.
+**Contact:** inakm@proton.me
+**Websites/Links:**
+- Portfolio: https://inakm.github.io
+- LinkedIn: https://linkedin.com/in/inakmm
+- Twitter/X: https://x.com/in_akm
+- GitHub: https://github.com/inakm
+- Discord: @in_akm
+
+## Educational Background
+**1. Association of Chartered Certified Accountants (ACCA)**
+- Status: Ongoing (Trainee)
+- Progress: Applied Knowledge completed; Applied Skills (8 out of 13 papers cleared).
+
+**2. Bachelor of Commerce (Hons)**
+- Institution: Gandhi Institute of Technology and Management (GITAM) University (2023 - 2026)
+- Focus: IFRS, financial analysis, auditing, and global accounting standards.
+
+**3. Intermediate (CBSE) Commerce**
+- Institution: Creane Memorial High School (2021 - 2023)
+- Subjects: Accountancy, Business Studies, Economics.
+
+## Professional Experience
+**Mindsparc Innovations Pvt. Ltd.**
+- Role: Finance & Operations Intern
+- Timeline: May 2025 - July 2025
+- Responsibilities:
+  - Transaction-level data validation for consistency across recurring finance operations.
+  - Generating Excel-based financial summaries for management review and variance checks.
+  - Auditing datasets for logical consistency before reporting cycles.
+  - Maintaining finance documentation for audit readiness.
+
+**F9XR Team**
+- Role: Founding Member
+- Timeline: 2024 - Present
+- Description: AI-Powered Web Design & Local SEO Growth Agency building tailored architectures for Salons, Clinics, and Global Brands.
+
+## Hard Skills & Technical Expertise
+- **Core Finance:** Financial Analysis, Discounted Cash Flow (DCF) Modeling, MS Excel, Power Query, Accounting, IFRS Standards, Variance Checks, Audit Readiness, Risk Management, Ratio Analysis.
+- **Fintech & Data:** Bloomberg Query Language (BQL) in Excel, Crypto Development, Decentralized Finance (DeFi) mechanics.
+- **Tools & Platforms:** Bloomberg Terminal, Generative AI (Prompt Engineering), NotebookLM, DeepSeek, Claude, Workiva, Alteryx, ChatGPT.
+- **Software/Coding:** Frontend web development (HTML/CSS/Tailwind JS/React), API integrations, Local SEO optimization.
+
+## Soft Skills & Philosophy
+- **Key Traits:** Self-Motivation, Adaptability, Patience, Analytical Thinking.
+- **Interests:** Stock Market, Blogging, Travel, Cultures.
+- **Philosophy:** AKM aims to bridge traditional corporate finance frameworks with modern decentralized technology. He focuses on taking complicated financial data and transforming it into clear, actionable strategies that drive business growth. 
+
+## Detailed Project Portfolio (Selected Works)
+**1. GatiGo**
+- Category: Finance / Startup
+- Description: A 3-year Discounted Cash Flow (DCF) model integrating sensitivity analysis. AKM designed cost structures, pricing assumptions, and expense tracking. Documented end-to-end payment workflows and approval pipelines.
+- URL: https://inakm.github.io/page/projects/gatigo.html
+
+**2. Rail Vikas Nigam Ltd (RVNL) Analysis**
+- Category: Equity Research
+- Description: Comprehensive equity research and financial modeling of RVNL's business operations. Deep dive into annual reports and performance metrics.
+- URL: https://inakm.github.io/page/projects/rvnl.html
+
+**3. iCryptos Dash**
+- Category: Web3 / Fintech
+- Description: Dashboard for tracking crypto earnings, airdrops, and investments globally. Real-time data visualization of asset portfolios.
+
+**4. FoilAI**
+- Category: AI / Tech
+- Description: Front-end engineering for a generative AI image platform tailored toward artists, focusing entirely on an intuitive UI/UX.
+
+**5. BQL Analysis Hub**
+- Category: Finance / Data
+- Description: Compilation of Bloomberg Query Language (BQL) projects that showcase advanced financial data retrieval and dynamic manipulation natively in MS Excel.
+
+## Credentials & Certifications
+- Bloomberg Finance Fundamentals (BFF) - Ongoing
+- Bloomberg Environmental Social Governance - Ongoing
+- Bloomberg Global Trading Challenge (Nov 2025)
+- Bloomberg Market Concepts (BMC) (Mar 2026)
+- Bloomberg Spreadsheet Analysis (BQL) Certificate (Mar 2026)
+- Fundamentals of Investing - SoFi (Oct 2024)
+- Risk Management in Personal Finance - SoFi (Oct 2024)
+
+## Writing & Academia
+- Published multiple internal academic case studies on platforms like Scribd and SlideShare (e.g. SBI Governance Report, Adani Power Performance Management, Business Takeovers, Goods & Services Tax, Advocacy Threats).
+- Has dynamic blogs connected via Blogger API for "Crypto Radar News" and "TONTUF Money".
+
+## SEO & Accessibility Configurations
+This profile architecture uses strict semantic HTML, OpenSearch descriptors, robots.txt routing, and is heavily optimized for LLM crawlers via this text endpoint.
