@@ -111,21 +111,23 @@
                         body: ['Manrope', 'sans-serif'],
                         mono: ['Courier New', 'monospace'], // Financial Data Look
                     },
-                    colors: {
-                        brand: {
-                            stormy: '#006466',
-                            darkTeal: '#065a60',
-                            darkTeal2: '#0b525b',
-                            charcoal: '#1b3a4b',
-                            deepSpace: '#212f45',
-                            indigo: '#272640',
-                            midnight: '#312244',
-                            deepPurple: '#4d194d',
-                            lavender: '#d5cfe1',
-                            white: '#ffffff',
-                            highlight: '#48cae4' // New high contrast highlight
-                        }
-                    },
+                        colors: {
+                            brand: {
+                                stormy: '#006466',
+                                darkTeal: '#065a60',
+                                darkTeal2: '#0b525b',
+                                charcoal: '#1b3a4b',
+                                deepSpace: '#212f45',
+                                indigo: '#272640',
+                                midnight: '#312244',
+                                deepPurple: '#4d194d',
+                                lavender: '#d5cfe1',
+                                white: '#ffffff',
+                                highlight: '#48cae4', // New high contrast highlight
+                                fhelGreen: '#2a9d8f', // For FHEL
+                                accaRed: '#e63946'    // For ACCA
+                            }
+                        },
                     backgroundImage: {
                         'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
                     },
@@ -534,6 +536,10 @@
                         <a href="#projects" class="dropdown-item">Portfolio</a>
                         <a href="page/projects/bql.html" class="dropdown-item">BQL Analysis</a>
                         <a href="page/projects/gatigo.html" class="dropdown-item">GatiGo</a>
+                        <a href="page/projects/rvnl.html" class="dropdown-item">RVNL</a>
+                        <a href="page/projects/fhel.html" class="dropdown-item">FHEL</a>
+                        <a href="page/projects/acca-fm.html" class="dropdown-item">ACCA FM</a>
+                        <a href="page/projects/citi-forage.html" class="dropdown-item">Citi Experience</a>
                         <a href="https://foilai.in/" target="_blank" class="dropdown-item">FoilAI</a>
                     </div>
                 </div>
@@ -560,7 +566,7 @@
     <!-- MOBILE MENU OVERLAY -->
     <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
         <nav
-            class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full">
+            class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full overflow-y-auto max-h-[80vh] py-8">
             <a href="#about" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
                 onclick="toggleMobileMenu()">
                 <span class="group-hover:text-white z-10 relative">Profile</span>
@@ -584,6 +590,31 @@
                 class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
                 onclick="toggleMobileMenu()">
                 <span class="group-hover:text-white z-10 relative">BQL Analysis</span>
+            </a>
+            <a href="page/projects/gatigo.html"
+                class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
+                onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">GatiGo</span>
+            </a>
+            <a href="page/projects/rvnl.html"
+                class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
+                onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">RVNL</span>
+            </a>
+            <a href="page/projects/fhel.html"
+                class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
+                onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">FHEL</span>
+            </a>
+            <a href="page/projects/acca-fm.html"
+                class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
+                onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">ACCA FM</span>
+            </a>
+            <a href="page/projects/citi-forage.html"
+                class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group"
+                onclick="toggleMobileMenu()">
+                <span class="group-hover:text-white z-10 relative">Citi Experience</span>
             </a>
 
             <div class="h-px w-24 bg-white/20 my-4"></div>
@@ -1109,7 +1140,7 @@
                 </a>
 
                 <!-- Project: RVNL Analysis -->
-                <a href="https://inakm.github.io/page/projects/rvnl.html"
+                <a href="page/projects/rvnl.html"
                     class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                     <div class="flex justify-between items-start mb-6">
                         <span
@@ -1131,6 +1162,51 @@
                     <div
                         class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
                         FINANCE • RESEARCH • EXCEL
+                    </div>
+                </a>
+
+                <!-- Project: Citi Virtual Experience -->
+                <a href="page/projects/citi-forage.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-[#003b70] border border-[#003b70] px-2 py-1 bg-[#003b70]/20">FP&A INTERN</span>
+                        <div class="text-white group-hover:text-[#003b70] text-xl transition-colors">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">Citi Experience</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">Virtual FP&A financial modeling, RWA methodology, and corporate reporting tasks via Forage.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                        CITI • FINANCING • INTERNSHIP
+                    </div>
+                </a>
+
+                <!-- Project: FHEL -->
+                <a href="page/projects/fhel.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-fhelGreen border border-brand-fhelGreen px-2 py-1 bg-brand-fhelGreen/20">LOGISTICS DATA</span>
+                        <div class="text-white group-hover:text-brand-fhelGreen text-xl transition-colors">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">FHEL</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">Financial health analysis and modeling for Fresh and Healthy Enterprises Limited (FHEL).</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                        HEALTH • ANALYSIS • LOGISTICS
+                    </div>
+                </a>
+
+                <!-- Project: ACCA FM -->
+                <a href="page/projects/acca-fm.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs font-bold text-brand-accaRed border border-brand-accaRed px-2 py-1 bg-brand-accaRed/20">FINANCIAL MANAGEMENT</span>
+                        <div class="text-white group-hover:text-brand-accaRed text-xl transition-colors">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">ACCA FM</h3>
+                    <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">Practice Excel files and progress tracking for ACCA FM (F9) exam curriculum.</p>
+                    <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                        EXAM KIT • WORKBOOK • EXCEL
                     </div>
                 </a>
             </div>
@@ -1336,10 +1412,18 @@
                     </div>
 
                     <div
-                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded">
-                        <span class="font-bold text-white text-lg">Bloomberg Finance Fundamentals (BFF)</span>
-                        <span class="text-brand-highlight flex items-center gap-2 mt-1 md:mt-0"><span
-                                class="w-2 h-2 rounded-full bg-brand-highlight animate-pulse"></span> Ongoing</span>
+                        class="flex flex-col md:flex-row justify-between items-start md:items-center py-4 border-b border-white/10 hover:bg-white/5 px-4 transition-colors rounded group">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-white text-lg">Bloomberg Finance Fundamentals (BFF)</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-tighter">Issued on Mar 2026</span>
+                        </div>
+                        <div class="flex gap-2 mt-2 md:mt-0">
+                            <a href="https://portal.bloombergforeducation.com/certificates/dCmbfWNMcZSa93ASPL96XbMP"
+                                target="_blank" aria-label="Verify BFF Certificate"
+                                class="bg-brand-stormy/20 text-brand-highlight px-4 py-2 rounded-full text-xs font-bold border border-brand-stormy/30 hover:bg-brand-stormy hover:text-white transition-all">
+                                Verify <i class="fa-solid fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <div
