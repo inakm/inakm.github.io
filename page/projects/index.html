@@ -161,7 +161,14 @@
 
     <!-- CONTENT WRAPPER -->
     <main class="max-w-7xl mx-auto px-4 md:px-6 py-10 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start" id="portfolio-filters">
+            <button class="filter-btn active bg-brand-stormy text-white px-5 py-2 rounded font-mono text-xs uppercase font-bold tracking-wider transition-all" data-filter="all">All</button>
+            <button class="filter-btn bg-black/30 border border-white/10 text-brand-lavender hover:border-brand-highlight hover:text-white px-5 py-2 rounded font-mono text-xs uppercase font-bold tracking-wider transition-all" data-filter="excel">Finance / Excel</button>
+            <button class="filter-btn bg-black/30 border border-white/10 text-brand-lavender hover:border-brand-highlight hover:text-white px-5 py-2 rounded font-mono text-xs uppercase font-bold tracking-wider transition-all" data-filter="web">Web / UI</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="mybuild-grid">
 
             <!-- Project: GatiGo -->
             <a href="gatigo.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
@@ -289,6 +296,51 @@
             </a>
 
         </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const grid = document.getElementById("mybuild-grid");
+                    const order = ["GatiGo", "RVNL", "FHEL", "BQL Analysis", "Citi Experience", "ACCA FM", "iCryptos Dash", "FoilAI"];
+                    const cards = Array.from(grid.children);
+                    
+                    // Categorize on the fly based on known web tools 
+                    cards.forEach(card => {
+                        const title = card.querySelector("h3").textContent.trim();
+                        if (["iCryptos Dash", "FoilAI"].includes(title)) {
+                            card.setAttribute("data-category", "web");
+                        } else {
+                            card.setAttribute("data-category", "excel");
+                        }
+                    });
+
+                    // Reorder
+                    order.forEach(title => {
+                        const card = cards.find(c => c.querySelector("h3") && c.querySelector("h3").textContent.trim() === title);
+                        if (card) grid.appendChild(card);
+                    });
+
+                    // Filtering Logic
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            document.querySelectorAll('.filter-btn').forEach(b => {
+                                b.classList.remove('bg-brand-stormy', 'text-white');
+                                b.classList.add('bg-black/30', 'border-white/10', 'text-brand-lavender');
+                            });
+                            btn.classList.add('bg-brand-stormy', 'text-white');
+                            btn.classList.remove('bg-black/30', 'border-white/10', 'text-brand-lavender');
+                            
+                            const filter = btn.getAttribute('data-filter');
+                            Array.from(grid.children).forEach(item => {
+                                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                                    item.style.display = 'flex';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+                });
+            </script>
     </main>
 
     <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-stormy mt-20">
