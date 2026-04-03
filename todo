@@ -12,34 +12,9 @@ https://land-book.com/websites/92484-langchain-observe-evaluate-and-deploy-relia
 add skills in antigravity
 
 
- new website update like: https://thevaluationschool.com
+ new website update like:
+ 
+  https://thevaluationschool.com
 
- add  security md file
- add gujtlrm in build section - add in projects, portfolio, and home page
+ https://www.protonicgod.me
 
-
-I have made a csv database (link to the database: https://docs.google.com/spreadsheets/d/1_pGtDrMyta696m13-ST0n0jFfQlYKAsieEFEk4qdbOw/export?format=csv).
-
-
-
-Its format is heading, Name, Link, Tags, India, Global, ACCA
-
-Name = Name of the company, its blank you have fill using the link or domain 
-Link = Link of their Career Page
-Tags = Any Tags
-India = Indian Career Website Link
-Global = Global Career Website Link
-ACCA = Yes or No 
-
-
-I want you to create a single HTML code that will parse this database from the link I have given to you at start, and show the items in grid view or list view form based on user selection.
-
-The page should be responsive for every screen and whenever any list item is clicked, we should be able to open the project through the link of Link. The page should have modern color-scheme specially for professional users with a good and easy to use interface, font and color combination should be pleasing and modern. Try to add a working search function to search between the projects. Use any cdn you want.
-
-Use icons from font awesome
-
-improve the padding, use proper custom HTML hr tags
-
-Clean the code
-
-This page should have advanced features and a modern and beautiful UI using CSS. It should also be responsive and dynamically optimized.
