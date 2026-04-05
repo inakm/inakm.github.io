@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RMM Dashboard | Anjani Kumar Mishra</title>
+    <title>RMM Executive Dashboard | Anjani Kumar Mishra</title>
     <link rel="icon" type="image/png" href="../../../mypfpf.png">
-    <meta name="description" content="RMM Sales Interactive Dashboard powered by local CSV data.">
+    <meta name="description" content="RMM Executive Interactive Dashboard powered by local CSV data.">
     <meta name="author" content="Anjani Kumar Mishra">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
     <script>
         tailwind.config = {
@@ -54,6 +55,13 @@
             transform: translate(-1px, -1px); box-shadow: 6px 6px 0px rgba(255, 69, 0, 0.8);
             background: rgba(33, 47, 69, 0.9); border-color: #d5cfe1;
         }
+        select {
+            background: rgba(33, 47, 69, 0.9);
+            color: #ffffff; border: 1px solid rgba(255, 69, 0, 0.5);
+            padding: 8px 16px; border-radius: 4px; font-family: 'Manrope', sans-serif;
+            outline: none; transition: border 0.3s;
+        }
+        select:focus { border-color: #FF4500; }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1b3a4b; }
         ::-webkit-scrollbar-thumb { background: #FF4500; border: 2px solid #1b3a4b; border-radius: 4px; }
@@ -77,13 +85,13 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative min-h-[40vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-24 pb-12">
+    <header class="relative min-h-[35vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-24 pb-8">
         <div class="text-center z-10 relative">
             <h1 class="text-[8vw] md:text-[5vw] leading-[0.8] font-display uppercase text-brand-highlight select-none drop-shadow-xl">
-                RMM ANALYTICS
+                RMM EXECUTIVE
             </h1>
             <p class="mt-4 text-sm md:text-md font-mono text-brand-lavender py-1 inline-block bg-brand-stormy/20 px-4 rounded-full border border-brand-stormy/50">
-                LIVE CSV DATA DASHBOARD
+                ADVANCED BI DASHBOARD
             </p>
         </div>
     </header>
@@ -92,192 +100,362 @@
         
         <div id="loading" class="flex flex-col items-center justify-center py-20">
             <div class="loader mb-4"></div>
-            <p class="font-mono text-sm uppercase tracking-widest animate-pulse">Loading Dataset...</p>
+            <p class="font-mono text-sm uppercase tracking-widest animate-pulse">Establishing Dataset Joins...</p>
         </div>
 
         <div id="dashboard" class="hidden">
+            
+            <!-- Dashboard Controls -->
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 border-b border-white/10 pb-6 gap-4">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-display uppercase text-white">Performance Overview</h2>
+                    <p class="text-gray-400 font-mono text-xs mt-1">Multi-dimensional relational analysis</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label for="stateFilter" class="font-mono text-xs uppercase tracking-widest text-brand-highlight">Filter by State:</label>
+                    <select id="stateFilter" onchange="handleStateFilter(this.value)">
+                        <option value="All">All States (IN)</option>
+                    </select>
+                </div>
+            </div>
+
             <!-- KPI Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-brand-highlight">
-                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Amount</span>
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Revenue</span>
                     <span class="text-3xl font-display text-white" id="kpi-amount">₹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#00FA9A]">
-                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Profit</span>
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Net Profit</span>
                     <span class="text-3xl font-display text-white" id="kpi-profit">₹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#48cae4]">
-                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Quantity</span>
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Units Sold</span>
                     <span class="text-3xl font-display text-white" id="kpi-orders">0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#d5cfe1]">
-                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Avg Profit Margin</span>
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Profit Margin</span>
                     <span class="text-3xl font-display text-white" id="kpi-margin">0%</span>
                 </div>
             </div>
 
-            <!-- Charts -->
+            <!-- Row 1: Operations & Geography -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <!-- Amount by Category (Bar) -->
                 <div class="card-3d p-6 rounded-lg relative">
-                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Revenue by Category</h3>
-                    <div class="relative h-64 w-full">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Quarter-Wise Revenue & Profit</h3>
+                    <div class="relative h-[300px] w-full">
+                        <canvas id="quarterChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Top Performing States</h3>
+                    <div class="relative h-[300px] w-full">
+                        <canvas id="topStatesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 2: Time Series & Top Customers -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                <div class="card-3d p-6 rounded-lg relative lg:col-span-2">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Monthly Profit Trajectory</h3>
+                    <div class="relative h-[320px] w-full">
+                        <canvas id="monthlyProfitChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Top 5 Client Accounts</h3>
+                    <div class="relative h-[320px] w-full">
+                        <canvas id="topCustomersChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Product & Payment Economics -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Revenue vs Profit by Category</h3>
+                    <div class="relative h-[340px] w-full">
                         <canvas id="categoryChart"></canvas>
                     </div>
                 </div>
 
-                <!-- Payment Mode Distribution (Pie) -->
                 <div class="card-3d p-6 rounded-lg relative">
                     <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Payment Mode Analysis</h3>
-                    <div class="relative h-64 w-full flex justify-center">
+                    <div class="relative h-[340px] w-full flex justify-center">
                         <canvas id="paymentChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 mb-8">
-                <!-- Profit by Sub-Category (Horizontal Bar) -->
-                <div class="card-3d p-6 rounded-lg relative">
-                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Profit by Sub-Category</h3>
-                    <div class="relative h-[400px] w-full">
-                        <canvas id="subCategoryChart"></canvas>
-                    </div>
-                </div>
-            </div>
         </div>
-
     </main>
 
     <script>
-        // Set Chart.js Defaults for dark theme
+        // Register ChartDataLabels plugin
+        Chart.register(ChartDataLabels);
+
+        // Global DB variables
+        let fullDataset = [];
+        let chartInstances = {};
+
+        // Setup Chart Defaults
         Chart.defaults.color = '#d5cfe1';
         Chart.defaults.font.family = 'Manrope';
         
-        const dataPath = '../../../Data/RMM/Details.csv';
+        const detailsPath = '../../../Data/RMM/Details.csv';
+        const ordersPath = '../../../Data/RMM/Orders.csv';
 
-        Papa.parse(dataPath, {
-            download: true,
-            header: true,
-            dynamicTyping: true,
-            skipEmptyLines: true,
-            complete: function(results) {
-                const data = results.data;
-                processDataAndRender(data);
-            },
-            error: function(error) {
-                console.error("Error fetching CSV: ", error);
-                document.getElementById('loading').innerHTML = '<p class="text-red-500 font-mono">Error loading dataset. Make sure you are running via a local server.</p>';
-            }
+        const fetchCSV = (url) => new Promise((resolve, reject) => {
+            Papa.parse(url, {
+                download: true,
+                header: true,
+                dynamicTyping: true,
+                skipEmptyLines: true,
+                complete: res => resolve(res.data),
+                error: err => reject(err)
+            });
         });
 
-        function processDataAndRender(data) {
+        // Application INIT
+        Promise.all([fetchCSV(ordersPath), fetchCSV(detailsPath)])
+            .then(([orders, details]) => {
+                const orderMap = {};
+                orders.forEach(o => { orderMap[o['Order ID']] = o; });
+
+                // Join Datasets on `Order ID`
+                details.forEach(d => {
+                    const row = { ...d };
+                    const orderMeta = orderMap[d['Order ID']];
+                    if (orderMeta) {
+                        row['Order Date'] = orderMeta['Order Date'];
+                        row['CustomerName'] = orderMeta['CustomerName'];
+                        row['State'] = orderMeta['State'];
+                        row['City'] = orderMeta['City'];
+                        
+                        // Parse Date explicitly: assuming DD-MM-YYYY
+                        let dateStr = row['Order Date'];
+                        if (dateStr && dateStr.includes('-')) {
+                            let parts = dateStr.split('-');
+                            if(parts.length === 3) {
+                                // JavaScript Date uses Index 0 for months. We format ISO YYYY-MM
+                                row['Month'] = parts[1];
+                                row['Year'] = parts[2];
+                                row['Qtr'] = 'Q' + Math.ceil(parseInt(parts[1], 10) / 3);
+                            }
+                        } else {
+                            row['Month'] = '01'; row['Year'] = '2000'; row['Qtr'] = 'Q1';
+                        }
+                    } else {
+                        row['Order Date'] = ''; row['CustomerName'] = 'Unknown'; row['State'] = 'Unknown'; row['City'] = 'Unknown';
+                        row['Month'] = '01'; row['Year'] = '2000'; row['Qtr'] = 'Q1';
+                    }
+                    fullDataset.push(row);
+                });
+
+                populateStateDropdown(fullDataset);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                
+                processDataAndRender(fullDataset, 'All');
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('loading').innerHTML = '<p class="text-red-500 font-mono">Error joining datasets. Check local server.</p>';
+            });
+
+        function populateStateDropdown(data) {
+            const states = new Set();
+            data.forEach(d => {
+                if(d['State'] && d['State'] !== 'Unknown') states.add(d['State']);
+            });
+            const sel = document.getElementById('stateFilter');
+            [...states].sort().forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = opt.innerText = s;
+                sel.appendChild(opt);
+            });
+        }
+
+        function handleStateFilter(stateVal) {
+            processDataAndRender(fullDataset, stateVal);
+        }
+
+        function processDataAndRender(data, filterState) {
             let totalAmount = 0;
             let totalProfit = 0;
             let totalQuantity = 0;
             
             const categoryData = {};
-            const subCategoryProfit = {};
             const paymentMode = {};
+            
+            const quarterData = { 'Q1':{rev:0, prof:0}, 'Q2':{rev:0, prof:0}, 'Q3':{rev:0, prof:0}, 'Q4':{rev:0, prof:0} };
+            const monthProfitsRaw = {};
+            const customerRevs = {};
+            const stateRevs = {};
 
             data.forEach(row => {
-                let amount = parseFloat(row['Amount']) || 0;
-                let profit = parseFloat(row['Profit']) || 0;
-                let quantity = parseInt(row['Quantity'], 10) || 0;
-                
-                let cat = row['Category'] || 'Unknown';
-                let subCat = row['Sub-Category'] || 'Unknown';
-                let pay = row['PaymentMode'] || 'Unknown';
+                if(filterState !== 'All' && row['State'] !== filterState) return;
 
-                totalAmount += amount;
-                totalProfit += profit;
-                totalQuantity += quantity;
+                let amt = parseFloat(row['Amount']) || 0;
+                let prof = parseFloat(row['Profit']) || 0;
+                let qnty = parseInt(row['Quantity'], 10) || 0;
+                let cat = row['Category'] || 'Unknown';
+                let pay = row['PaymentMode'] || 'Unknown';
+                
+                let qtr = row['Qtr'];
+                let yrMo = row['Year'] + '-' + row['Month'];
+                let cust = row['CustomerName'];
+                let stt = row['State'];
+
+                totalAmount += amt; totalProfit += prof; totalQuantity += qnty;
 
                 // Category
-                if (!categoryData[cat]) categoryData[cat] = { amount: 0, profit: 0 };
-                categoryData[cat].amount += amount;
-                categoryData[cat].profit += profit;
-
-                // Sub-Category Profit
-                subCategoryProfit[subCat] = (subCategoryProfit[subCat] || 0) + profit;
+                if (!categoryData[cat]) categoryData[cat] = { amt: 0, prof: 0 };
+                categoryData[cat].amt += amt; categoryData[cat].prof += prof;
 
                 // Payment Mode
-                paymentMode[pay] = (paymentMode[pay] || 0) + amount; // Total amount by payment mode
+                paymentMode[pay] = (paymentMode[pay] || 0) + amt;
+
+                // Time Series
+                if (quarterData[qtr]) { quarterData[qtr].rev += amt; quarterData[qtr].prof += prof; }
+                monthProfitsRaw[yrMo] = (monthProfitsRaw[yrMo] || 0) + prof;
+
+                // Entities
+                if(cust && cust !== 'Unknown') customerRevs[cust] = (customerRevs[cust] || 0) + amt;
+                if(stt && stt !== 'Unknown') stateRevs[stt] = (stateRevs[stt] || 0) + amt;
             });
 
-            // Update KPIs
-            document.getElementById('kpi-amount').innerText = '₹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('kpi-profit').innerText = '₹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            // Set KPIs
+            document.getElementById('kpi-amount').innerText = '₹' + totalAmount.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('kpi-profit').innerText = '₹' + totalProfit.toLocaleString(undefined, {maximumFractionDigits: 0});
             document.getElementById('kpi-orders').innerText = totalQuantity.toLocaleString();
-            let margin = totalAmount > 0 ? (totalProfit / totalAmount) * 100 : 0;
-            document.getElementById('kpi-margin').innerText = margin.toFixed(1) + '%';
-            
-            // Hide Loader, Show Dashboard
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('kpi-margin').innerText = totalAmount > 0 ? ((totalProfit / totalAmount) * 100).toFixed(1) + '%' : '0%';
 
-            renderCharts(categoryData, subCategoryProfit, paymentMode);
+            // Aggregating Chart Data Objects
+            
+            // 1. Quarters
+            const qLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
+            const qRev = qLabels.map(q => quarterData[q].rev);
+            const qProf = qLabels.map(q => quarterData[q].prof);
+
+            // 2. States (Top 5)
+            const top5States = Object.keys(stateRevs).sort((a,b) => stateRevs[b] - stateRevs[a]).slice(0,5);
+            const stRev = top5States.map(s => stateRevs[s]);
+
+            // 3. Months Profit
+            // Format month labels (e.g., "2018-01" -> "Jan 18")
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const moKeys = Object.keys(monthProfitsRaw).sort(); // Sort chronological
+            const moLabels = moKeys.map(k => {
+                let p = k.split('-'); 
+                return monthNames[parseInt(p[1])-1] + " '" + p[0].slice(2);
+            });
+            const moProfData = moKeys.map(k => monthProfitsRaw[k]);
+
+            // 4. Customers (Top 5)
+            const top5Custs = Object.keys(customerRevs).sort((a,b) => customerRevs[b] - customerRevs[a]).slice(0,5);
+            const cuRev = top5Custs.map(c => customerRevs[c]);
+
+            // 5. Category Map
+            const catLabels = Object.keys(categoryData);
+            const caRev = catLabels.map(c => categoryData[c].amt);
+            const caProf = catLabels.map(c => categoryData[c].prof);
+
+            // 6. Payment Modes & Percentages (for tooltip custom text / datalabels)
+            const payLabels = Object.keys(paymentMode);
+            const payVals = Object.values(paymentMode);
+            const payTotal = payVals.reduce((a,b) => a+b, 0);
+
+            drawChart('quarterChart', 'bar', {
+                labels: qLabels,
+                datasets: [
+                    { label: 'Revenue (₹)', data: qRev, backgroundColor: 'rgba(255, 69, 0, 0.75)', borderRadius: 4 },
+                    { label: 'Profit (₹)', data: qProf, backgroundColor: 'rgba(0, 250, 154, 0.75)', borderRadius: 4 }
+                ]
+            }, { plugins: { datalabels: { display: false } }});
+
+            drawChart('topStatesChart', 'bar', {
+                labels: top5States,
+                datasets: [{ label: 'Revenue (₹)', data: stRev, backgroundColor: '#48cae4', borderRadius: 4 }]
+            }, { indexAxis: 'y', plugins: { legend: { display:false }, datalabels: { display: false } } });
+
+            drawChart('monthlyProfitChart', 'line', {
+                labels: moLabels,
+                datasets: [{ 
+                    label: 'Net Profit (₹)', data: moProfData, 
+                    borderColor: '#00FA9A', backgroundColor: 'rgba(0, 250, 154, 0.1)', 
+                    fill: true, tension: 0.3, pointBackgroundColor: '#00FA9A' 
+                }]
+            }, { plugins: { datalabels: { display: false } } });
+
+            drawChart('topCustomersChart', 'bar', {
+                labels: top5Custs,
+                datasets: [{ label: 'Revenue (₹)', data: cuRev, backgroundColor: '#f3c623', borderRadius: 4 }]
+            }, { indexAxis: 'y', plugins: { legend: { display:false }, datalabels: { display: false } } });
+
+            drawChart('categoryChart', 'bar', {
+                labels: catLabels,
+                datasets: [
+                    { label: 'Revenue (₹)', data: caRev, backgroundColor: 'rgba(255, 69, 0, 0.7)', borderRadius: 2 },
+                    { label: 'Profit (₹)', data: caProf, backgroundColor: 'rgba(72, 202, 228, 0.7)', borderRadius: 2 }
+                ]
+            }, { plugins: { datalabels: { display: false } }});
+
+            drawChart('paymentChart', 'pie', {
+                labels: payLabels,
+                datasets: [{
+                    data: payVals, 
+                    backgroundColor: ['#FF4500', '#48cae4', '#00FA9A', '#f3c623', '#d5cfe1'],
+                    borderWidth: 0
+                }]
+            }, {
+                cutout: '0%', 
+                plugins: { 
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            if(payTotal === 0) return '';
+                            let p = (value * 100 / payTotal).toFixed(1) + "%";
+                            return p;
+                        },
+                        color: '#1a1a1d', font: { weight: 'bold', size: 12 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed !== null && payTotal > 0) {
+                                    let percentage = (context.parsed * 100 / payTotal).toFixed(1) + "%";
+                                    label += `₹${context.parsed.toLocaleString()} (${percentage})`;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            });
         }
 
-        function renderCharts(categoryData, subCategoryProfit, paymentMode) {
-            // Category Bar Chart (Grouped Amount vs Profit)
-            const catLabels = Object.keys(categoryData);
-            const catAmount = catLabels.map(l => categoryData[l].amount);
-            const catProfit = catLabels.map(l => categoryData[l].profit);
+        // Generic Chart factory with destruction logic to re-render clean
+        function drawChart(canvasId, type, data, extraOptions = {}) {
+            if(chartInstances[canvasId]) {
+                chartInstances[canvasId].destroy();
+            }
+            const ctx = document.getElementById(canvasId).getContext('2d');
             
-            new Chart(document.getElementById('categoryChart'), {
-                type: 'bar',
-                data: {
-                    labels: catLabels,
-                    datasets: [
-                        { label: 'Revenue', data: catAmount, backgroundColor: 'rgba(255, 69, 0, 0.8)' },
-                        { label: 'Profit', data: catProfit, backgroundColor: 'rgba(0, 250, 154, 0.8)' }
-                    ]
-                },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
+            const baseOptions = { responsive: true, maintainAspectRatio: false };
+            const mergedOptions = { ...baseOptions, ...extraOptions };
+            
+            // Re-merge nested properties (like plugins) carefully
+            if(extraOptions.plugins) {
+                mergedOptions.plugins = { ...baseOptions.plugins, ...extraOptions.plugins };
+            }
 
-            // Sub-Category Profit Chart
-            const subCatLabels = Object.keys(subCategoryProfit).sort((a,b) => subCategoryProfit[b] - subCategoryProfit[a]); // sort desc
-            const subCatData = subCatLabels.map(l => subCategoryProfit[l]);
-
-            new Chart(document.getElementById('subCategoryChart'), {
-                type: 'bar',
-                data: {
-                    labels: subCatLabels,
-                    datasets: [{
-                        label: 'Profit (₹)',
-                        data: subCatData,
-                        backgroundColor: subCatData.map(v => v >= 0 ? 'rgba(72, 202, 228, 0.6)' : 'rgba(255, 99, 71, 0.6)'),
-                        borderColor: subCatData.map(v => v >= 0 ? '#48cae4' : '#FF6347'),
-                        borderWidth: 1,
-                        borderRadius: 2
-                    }]
-                },
-                options: { 
-                    indexAxis: 'y', // Horizontal
-                    responsive: true, 
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } }
-                }
-            });
-
-            // Payment Pie Chart
-            new Chart(document.getElementById('paymentChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(paymentMode),
-                    datasets: [{
-                        data: Object.values(paymentMode),
-                        backgroundColor: ['#FF4500', '#48cae4', '#00FA9A', '#f3c623', '#d5cfe1'],
-                        borderWidth: 0
-                    }]
-                },
-                options: { 
-                    responsive: true, 
-                    maintainAspectRatio: false,
-                    cutout: '60%'
-                }
-            });
+            chartInstances[canvasId] = new Chart(ctx, { type: type, data: data, options: mergedOptions });
         }
     </script>
 </body>

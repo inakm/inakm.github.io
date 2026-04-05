@@ -25,10 +25,4 @@ remove all un-needed  comments from the code
 
  
 
-fix the files of https://inakm.github.io/page/projects/acca-fm.html
 
-
-
-added new PowerBi Folder to showcase all my PowerBi Projects I made, create a showcase age of it in page/projects/powerbi.html
-also enhance the job-scraper prompt and make it more advanced and efficient 
-I have made a new folder of Data, where all the raw data is stored. Your job is to create a dashboard using the CSV files, create seperate dashboard html files for each CSV file and showcase them in page/projects/dashboards/RMM.html & VEVOi.html & Prism.html realted to the relveant datasent csv files
