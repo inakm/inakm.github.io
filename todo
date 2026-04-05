@@ -5,20 +5,30 @@ can you please imporve the hero section of our site for smaller mobile screen - 
 
 imporve the header navigations on all pages 
 
+https://dribbble.com/shots/25614963-Duwy-Personal-Portfolio-Website
+
+https://dribbble.com/shots/24978876-Personal-Portfolio-Website-Design
+
 https://21st.dev/community/components/s/scroll-area
 
 https://land-book.com/websites/92484-langchain-observe-evaluate-and-deploy-reliable-ai-agents
 
 add skills in antigravity
 
+remove all un-needed  comments from the code
 
  new website update like:
  
   https://thevaluationschool.com
 
-<<<<<<< HEAD
  https://www.protonicgod.me
 
-=======
  
->>>>>>> 7281b02046e146b5d24f0a089bc49647f927932f
+
+fix the files of https://inakm.github.io/page/projects/acca-fm.html
+
+
+
+added new PowerBi Folder to showcase all my PowerBi Projects I made, create a showcase age of it in page/projects/powerbi.html
+also enhance the job-scraper prompt and make it more advanced and efficient 
+I have made a new folder of Data, where all the raw data is stored. Your job is to create a dashboard using the CSV files, create seperate dashboard html files for each CSV file and showcase them in page/projects/dashboards/RMM.html & VEVOi.html & Prism.html realted to the relveant datasent csv files

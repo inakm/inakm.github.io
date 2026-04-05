@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEVOi Dashboard | Anjani Kumar Mishra</title>
+    <link rel="icon" type="image/png" href="../../../mypfpf.png">
+    <meta name="description" content="VEVOi Sales Interactive Dashboard powered by local CSV data.">
+    <meta name="author" content="Anjani Kumar Mishra">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
+                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
+                            white: '#ffffff', highlight: '#9d4edd', pbi: '#F2C811', positive: '#48cae4', negative: '#e91e24'
+                        }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1a1a1d;
+            background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
+            color: #d5cfe1; overflow-x: hidden;
+        }
+        .bg-grid { background-size: 50px 50px; background-position: center; }
+        .card-3d {
+            background: rgba(33, 47, 69, 0.7); border: 1px solid rgba(148, 149, 139, 0.3);
+            box-shadow: 4px 4px 0px rgba(157, 78, 221, 0.5); transition: all 0.2s ease;
+        }
+        .card-3d:hover {
+            transform: translate(-1px, -1px); box-shadow: 6px 6px 0px rgba(157, 78, 221, 0.8);
+            background: rgba(33, 47, 69, 0.9); border-color: #d5cfe1;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1b3a4b; }
+        ::-webkit-scrollbar-thumb { background: #9d4edd; border: 2px solid #1b3a4b; border-radius: 4px; }
+        
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #9d4edd; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            <a href="../../../index.html" class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
+                AKM<span class="text-brand-stormy group-hover:text-white">.</span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="../powerbi.html" class="hover:text-white transition-colors"><i class="fa-solid fa-arrow-left mr-1"></i> Back to PowerBI</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[40vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-24 pb-12">
+        <div class="text-center z-10 relative">
+            <h1 class="text-[8vw] md:text-[5vw] leading-[0.8] font-display uppercase text-brand-highlight select-none drop-shadow-xl">
+                VEVOi INSIGHTS
+            </h1>
+            <p class="mt-4 text-sm md:text-md font-mono text-brand-lavender py-1 inline-block bg-brand-stormy/20 px-4 rounded-full border border-brand-stormy/50">
+                LIVE CSV DATA DASHBOARD
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20 relative z-10">
+        
+        <div id="loading" class="flex flex-col items-center justify-center py-20">
+            <div class="loader mb-4"></div>
+            <p class="font-mono text-sm uppercase tracking-widest animate-pulse">Loading Dataset...</p>
+        </div>
+
+        <div id="dashboard" class="hidden">
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-brand-highlight">
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Revenue</span>
+                    <span class="text-3xl font-display text-white" id="kpi-amount">₹0</span>
+                </div>
+                <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#48cae4]">
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Profit</span>
+                    <span class="text-3xl font-display text-white" id="kpi-profit">₹0</span>
+                </div>
+                <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#006466]">
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Units Sold</span>
+                    <span class="text-3xl font-display text-white" id="kpi-orders">0</span>
+                </div>
+                <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#d5cfe1]">
+                    <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Avg Profit Margin</span>
+                    <span class="text-3xl font-display text-white" id="kpi-margin">0%</span>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Amount by Category (Bar) -->
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Financials by Category</h3>
+                    <div class="relative h-64 w-full">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Payment Mode Distribution (Pie) -->
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Transaction Methods</h3>
+                    <div class="relative h-64 w-full flex justify-center">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 mb-8">
+                <!-- Profit by Sub-Category (Horizontal Bar) -->
+                <div class="card-3d p-6 rounded-lg relative">
+                    <h3 class="font-mono text-sm text-gray-300 uppercase tracking-widest mb-4 border-b border-white/10 pb-2">Sub-Category Performance</h3>
+                    <div class="relative h-[400px] w-full">
+                        <canvas id="subCategoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Set Chart.js Defaults for dark theme
+        Chart.defaults.color = '#d5cfe1';
+        Chart.defaults.font.family = 'Manrope';
+        
+        const dataPath = '../../../Data/VEVOi/Details_v2.csv';
+
+        Papa.parse(dataPath, {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                const data = results.data;
+                processDataAndRender(data);
+            },
+            error: function(error) {
+                console.error("Error fetching CSV: ", error);
+                document.getElementById('loading').innerHTML = '<p class="text-red-500 font-mono">Error loading dataset. Make sure you are running via a local server.</p>';
+            }
+        });
+
+        function processDataAndRender(data) {
+            let totalAmount = 0;
+            let totalProfit = 0;
+            let totalQuantity = 0;
+            
+            const categoryData = {};
+            const subCategoryProfit = {};
+            const paymentMode = {};
+
+            data.forEach(row => {
+                let amount = parseFloat(row['Amount']) || 0;
+                let profit = parseFloat(row['Profit']) || 0;
+                let quantity = parseInt(row['Quantity'], 10) || 0;
+                
+                let cat = row['Category'] || 'Unknown';
+                let subCat = row['Sub-Category'] || 'Unknown';
+                let pay = row['PaymentMode'] || 'Unknown';
+
+                totalAmount += amount;
+                totalProfit += profit;
+                totalQuantity += quantity;
+
+                // Category
+                if (!categoryData[cat]) categoryData[cat] = { amount: 0, profit: 0 };
+                categoryData[cat].amount += amount;
+                categoryData[cat].profit += profit;
+
+                // Sub-Category Profit
+                subCategoryProfit[subCat] = (subCategoryProfit[subCat] || 0) + profit;
+
+                // Payment Mode
+                paymentMode[pay] = (paymentMode[pay] || 0) + amount; // Total amount by payment mode
+            });
+
+            // Update KPIs
+            document.getElementById('kpi-amount').innerText = '₹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-profit').innerText = '₹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-orders').innerText = totalQuantity.toLocaleString();
+            let margin = totalAmount > 0 ? (totalProfit / totalAmount) * 100 : 0;
+            document.getElementById('kpi-margin').innerText = margin.toFixed(1) + '%';
+            
+            // Hide Loader, Show Dashboard
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+
+            renderCharts(categoryData, subCategoryProfit, paymentMode);
+        }
+
+        function renderCharts(categoryData, subCategoryProfit, paymentMode) {
+            // Category Bar Chart (Grouped Amount vs Profit)
+            const catLabels = Object.keys(categoryData);
+            const catAmount = catLabels.map(l => categoryData[l].amount);
+            const catProfit = catLabels.map(l => categoryData[l].profit);
+            
+            new Chart(document.getElementById('categoryChart'), {
+                type: 'bar',
+                data: {
+                    labels: catLabels,
+                    datasets: [
+                        { label: 'Revenue', data: catAmount, backgroundColor: 'rgba(157, 78, 221, 0.8)' },
+                        { label: 'Profit', data: catProfit, backgroundColor: 'rgba(72, 202, 228, 0.8)' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Sub-Category Profit Chart
+            const subCatLabels = Object.keys(subCategoryProfit).sort((a,b) => subCategoryProfit[b] - subCategoryProfit[a]); // sort desc
+            const subCatData = subCatLabels.map(l => subCategoryProfit[l]);
+
+            new Chart(document.getElementById('subCategoryChart'), {
+                type: 'bar',
+                data: {
+                    labels: subCatLabels,
+                    datasets: [{
+                        label: 'Profit (₹)',
+                        data: subCatData,
+                        backgroundColor: subCatData.map(v => v >= 0 ? 'rgba(72, 202, 228, 0.6)' : 'rgba(233, 30, 36, 0.6)'),
+                        borderColor: subCatData.map(v => v >= 0 ? '#48cae4' : '#e91e24'),
+                        borderWidth: 1,
+                        borderRadius: 2
+                    }]
+                },
+                options: { 
+                    indexAxis: 'y', // Horizontal
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Payment Pie Chart
+            new Chart(document.getElementById('paymentChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(paymentMode),
+                    datasets: [{
+                        data: Object.values(paymentMode),
+                        backgroundColor: ['#9d4edd', '#48cae4', '#006466', '#d5cfe1', '#e91e24'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false,
+                    cutout: '60%'
+                }
+            });
+        }
+    </script>
+</body>
+</html>
