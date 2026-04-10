@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equity Research Prompt - Anjani</title>
-    <!-- Tailwind CSS -->
+    <title>Equity Research Prompt | Anjani Kumar Mishra</title>
+    <link rel="icon" type="image/png" href="../../mypfpf.png">
+    <meta name="description" content="Advanced AI Equity Research Prompt Generator.">
+    <meta name="author" content="Anjani Kumar Mishra">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;700;800&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script>
         tailwind.config = {
             theme: {
@@ -24,9 +23,13 @@
                     },
                     colors: {
                         brand: {
-                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', 
-                            deepSpace: '#212f45', lavender: '#d5cfe1', white: '#ffffff', highlight: '#48cae4'
+                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
+                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
+                            white: '#ffffff', highlight: '#48cae4'
                         }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
                     }
                 }
             }
@@ -36,206 +39,287 @@
         body {
             background-color: #1a1a1d;
             background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
-            color: #d5cfe1; min-height: 100vh;
+            color: #d5cfe1; overflow-x: hidden;
         }
+        .bg-grid { background-size: 50px 50px; background-position: center; }
         .card-3d {
             background: rgba(33, 47, 69, 0.7); border: 1px solid rgba(148, 149, 139, 0.3);
-            box-shadow: 6px 6px 0px rgba(0, 100, 102, 0.5);
+            box-shadow: 6px 6px 0px rgba(72, 202, 228, 0.3); transition: all 0.2s ease;
+        }
+        .card-3d:hover {
+            transform: translate(-2px, -2px); box-shadow: 10px 10px 0px rgba(72, 202, 228, 0.5);
+            background: rgba(33, 47, 69, 0.9); border-color: #48cae4;
         }
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1b3a4b; }
-        ::-webkit-scrollbar-thumb { background: #006466; border: 2px solid #1b3a4b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #48cae4; border: 2px solid #1b3a4b; border-radius: 4px; }
+        
+        .mobile-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(33, 47, 69, 0.98); backdrop-filter: blur(20px);
+            z-index: 45; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; opacity: 0; visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: scale(1.05);
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; transform: scale(1); }
+        .hamburger-icon {
+            display: flex; flex-direction: column; justify-content: space-around; width: 24px; height: 20px;
+            background: transparent; border: none; cursor: pointer; padding: 0; z-index: 55;
+        }
+        .hamburger-icon span { width: 24px; height: 2px; background: white; transition: all 0.3s linear; position: relative; transform-origin: 1px; }
+        .hamburger-icon.open span:nth-child(1) { transform: rotate(45deg); }
+        .hamburger-icon.open span:nth-child(2) { opacity: 0; }
+        .hamburger-icon.open span:nth-child(3) { transform: rotate(-45deg); }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            min-width: 200px; background: rgba(33, 47, 69, 0.95); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); padding: 0.5rem 0; z-index: 100; margin-top: 0.5rem;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-item {
+            display: block; padding: 0.75rem 1.5rem; color: #d5cfe1; font-size: 0.75rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.2s ease;
+        }
+        .dropdown-item:hover { background: rgba(72, 202, 228, 0.3); color: #48cae4; padding-left: 1.75rem; }
+        
+        .input-field {
+            background: rgba(11, 12, 16, 0.6); border: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: 'Courier New', Courier, monospace; font-size: 0.85rem;
+            padding: 1rem; border-radius: 0.5rem; width: 100%; transition: all 0.2s ease; resize: vertical;
+        }
+        .input-field:focus {
+            outline: none; border-color: #48cae4; box-shadow: inset 0 0 10px rgba(72, 202, 228, 0.1);
+        }
     </style>
 </head>
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace">
 
-<body class="p-4 md:p-10 font-body">
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            <a href="../../index.html" class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
+                AKM<span class="text-brand-highlight group-hover:text-white">.</span>
+            </a>
 
-    <!-- Navigation -->
-    <nav class="max-w-4xl mx-auto mb-10 flex justify-between items-center relative z-20">
-        <a href="../../index.html" class="flex items-center gap-3 group relative cursor-pointer">
-            <div class="w-10 h-10 border border-brand-stormy flex items-center justify-center text-white bg-brand-stormy/20 group-hover:bg-brand-stormy transition-colors">
-                <i class="fa-solid fa-arrow-left"></i>
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="../../index.html#about" class="hover:text-white transition-colors">Profile</a>
+                <a href="../../index.html#experience" class="hover:text-white transition-colors">Work</a>
+                <a href="../../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
+                <div class="dropdown">
+                    <button class="hover:text-brand-highlight transition-colors focus:outline-none focus:text-brand-highlight uppercase tracking-widest flex items-center gap-1">
+                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="../projects/index.html" class="dropdown-item">Portfolio Hub</a>
+                        <a href="index.html" class="dropdown-item text-brand-highlight">AI Prompts</a>
+                        <a href="../career-directory.html" class="dropdown-item">Career Directory</a>
+                    </div>
+                </div>
             </div>
-            <span class="font-display uppercase tracking-widest text-[#d5cfe1] group-hover:text-white transition-colors">Back</span>
-        </a>
+
+            <div class="flex items-center gap-4 z-50">
+                <a href="mailto:inakm@proton.me" class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-highlight hover:text-brand-deepSpace transition-all shadow-lg whitespace-nowrap">
+                    Let's Talk
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden hamburger-icon ml-2" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Header -->
-    <header class="max-w-4xl mx-auto text-center mb-10">
-        <span class="text-brand-stormy font-mono text-sm tracking-widest uppercase block mb-3 font-bold">Generative AI Workflow</span>
-        <h1 class="text-4xl md:text-6xl font-display uppercase tracking-wide text-white mb-4">Equity Research Prompt</h1>
-        <p class="text-brand-lavender text-lg font-mono">For Claude & DeepSeek</p>
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
+        <nav class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full overflow-y-auto max-h-[80vh] py-8">
+            <a href="../../index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Home</a>
+            <a href="../projects/index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Portfolio Hub</a>
+            <a href="index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">AI Prompts</a>
+            <a href="../career-directory.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Career Directory</a>
+            <a href="mailto:inakm@proton.me" class="bg-brand-highlight text-brand-deepSpace px-8 py-4 rounded-full text-lg mt-4 font-bold" onclick="toggleMobileMenu()">Let's Talk</a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32 pb-10">
+        <div class="text-center z-10 relative">
+            <h1 class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-brand-highlight mix-blend-overlay opacity-30 select-none">
+                AI GENERATOR
+            </h1>
+            <h1 class="text-[10vw] md:text-[6vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-highlight via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
+                EQUITY RESEARCH
+            </h1>
+            <p class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
+                FINANCIAL ANALYSIS <span class="text-brand-highlight px-2">::</span> RESEARCH REPORT
+            </p>
+        </div>
     </header>
 
-    <main class="max-w-4xl mx-auto">
-        
-        <!-- Interactive Tool Section -->
-        <div class="card-3d p-6 md:p-10 mb-10">
-            <h2 class="text-2xl text-white font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-wand-magic-sparkles text-brand-highlight"></i> 1. Prepare Prompt</h2>
-            <div class="flex flex-col md:flex-row gap-4 mb-6">
-                <div class="flex-grow">
-                    <label class="block font-mono text-brand-stormy font-bold text-xs uppercase mb-2">Company Name (Ticker)</label>
-                    <input type="text" id="companyName" placeholder="e.g. Apple Inc. (AAPL)" 
-                        class="w-full bg-brand-deepSpace border border-white/20 rounded p-4 text-white font-mono focus:outline-none focus:border-brand-highlight transition-colors"
-                        oninput="updatePreview()">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-10 relative z-10">
+
+        <!-- GENERATOR SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-highlight font-mono text-sm tracking-widest uppercase block mb-2 font-bold animate-pulse">DYNAMIC ENGINE</span>
+                    <h2 class="text-3xl md:text-5xl font-display uppercase text-white">Configure Report</h2>
                 </div>
             </div>
-            <div class="flex gap-4">
-                <button onclick="copyPrompt()" class="bg-brand-stormy hover:bg-brand-highlight hover:text-brand-deepSpace text-white font-mono font-bold text-sm uppercase px-8 py-4 transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-copy"></i> Copy to Clipboard
-                </button>
-                <div id="copyNotice" class="hidden items-center justify-center text-green-400 font-mono text-sm font-bold bg-green-400/10 px-4 rounded border border-green-400">
-                    <i class="fa-solid fa-check mr-2"></i> Copied!
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                
+                <!-- INPUTS FORM -->
+                <div class="lg:col-span-2 flex flex-col gap-6">
+                    
+                    <div class="card-3d p-6 rounded-xl border border-white/10">
+                        <label class="block text-brand-highlight font-display uppercase text-lg mb-2">
+                            <i class="fa-solid fa-chart-line mr-2"></i>Target Asset
+                        </label>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Company name and stock ticker symbol.</p>
+                        <input id="inpCompany" class="input-field mb-2" oninput="updatePrompt()" value="Apple Inc. (AAPL)"/>
+                    </div>
+
+                    <div class="card-3d p-6 rounded-xl border border-white/10">
+                        <label class="block text-brand-highlight font-display uppercase text-lg mb-2">
+                            <i class="fa-solid fa-calendar-days mr-2"></i>Lookback Horizon
+                        </label>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Historical timeline to review financial performance.</p>
+                        <select id="inpYears" class="input-field mb-2" onchange="updatePrompt()">
+                            <option value="last 3 years">3 Years</option>
+                            <option value="last 5 years" selected>5 Years</option>
+                            <option value="last 10 years">10 Years</option>
+                        </select>
+                    </div>
+
+                    <div class="card-3d p-6 rounded-xl border border-white/10">
+                        <label class="block text-brand-highlight font-display uppercase text-lg mb-2">
+                            <i class="fa-solid fa-headset mr-2"></i>Earnings Calls Density
+                        </label>
+                        <p class="text-xs font-mono text-gray-400 mb-3">Con calls required to summarize management sentiment.</p>
+                        <select id="inpCalls" class="input-field mb-2" onchange="updatePrompt()">
+                            <option value="last two">Last Two Calls (TTM half)</option>
+                            <option value="last four" selected>Last Four Calls (1 Year)</option>
+                            <option value="last eight">Last Eight Calls (2 Years)</option>
+                        </select>
+                    </div>
+
                 </div>
+
+                <!-- OUTPUT DISPLAY -->
+                <div class="lg:col-span-3">
+                    <div class="card-3d p-6 md:p-8 h-full border-l-4 border-l-brand-highlight relative flex flex-col">
+                        <div class="flex justify-between items-center mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display uppercase text-white">System Prompt Output</h3>
+                                <span class="text-xs font-mono text-brand-lavender bg-brand-deepSpace px-2 py-1 border border-white/10 rounded mt-2 inline-block">Real-time Generation Active</span>
+                            </div>
+                            <button onclick="copyToClipboard()" class="bg-brand-highlight/20 text-brand-highlight border border-brand-highlight hover:bg-brand-highlight hover:text-brand-deepSpace px-4 py-2 rounded text-xs font-bold font-mono uppercase transition-colors flex items-center gap-2">
+                                <i id="copyIcon" class="fa-regular fa-copy leading-none"></i>
+                                <span id="copyText">Copy Prompt</span>
+                            </button>
+                        </div>
+                        
+                        <div class="bg-[#0b0c10] p-6 rounded text-brand-lavender font-mono text-sm overflow-x-auto overflow-y-auto whitespace-pre-wrap border border-white/10 shadow-inner flex-grow relative">
+                            <div class="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-[#0b0c10] to-transparent pointer-events-none"></div>
+<span id="promptOutput" class="opacity-90"></span>
+                            <div class="absolute inset-x-0 bottom-0 h-4 bg-gradient-to-t from-[#0b0c10] to-transparent pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
 
-        <!-- Prompt Preview -->
-        <div class="card-3d p-6 md:p-10">
-            <h2 class="text-xl text-white font-bold mb-4 font-mono uppercase border-b border-brand-stormy pb-4"><i class="fa-solid fa-eye text-brand-stormy mr-2"></i> Preview</h2>
-            <div id="promptContent" class="space-y-4 text-brand-lavender font-body leading-relaxed max-h-[500px] overflow-y-auto pr-4 text-sm md:text-base selection:bg-brand-stormy/50 hidden-scrollbar">
-                <p><em>You are a senior equity research analyst at a top-tier investment fund with over 15 years of experience. Your role is to deliver professional, disciplined, and actionable equity research analysis.</em></p>
-                <p><em>Always integrate <strong>fundamental</strong> and <strong>macroeconomic perspectives</strong> into your work, with a focus on clarity and depth. You are <strong>data-driven, rational, and guided by insights</strong>—every conclusion must be supported by evidence or clearly stated assumptions.</em></p>
-                <p><em>Was I clear enough? Can I proceed with the next instructions?</em></p>
-                
-                <hr class="border-white/10 my-6">
-                
-                <p>Explain how <strong class="text-brand-highlight bg-brand-highlight/10 px-1 company-placeholder">[Insert company name here]</strong> makes money by breaking down its main products, services, and geographies, highlighting revenue contribution by segment where possible. <strong>Identify the key revenue drivers</strong> (pricing power, volume growth, renewals, unit economics) and describe the cost structure (fixed vs. variable, operating leverage, COGS vs. SG&amp;A).</p>
-                
-                <p>Outline who the customers are, how concentrated or diversified the base is, and the distribution model (direct, retail, e-commerce, partnerships). <strong>Clarify the pricing logic—whether one-off, subscription, transaction, or usage-based</strong>.</p>
-                
-                <p>Then analyze the company's <strong>competitive positioning:</strong> highlight the top 2–3 moats such as brand, scale, network effects, IP, or switching costs. Explain how these advantages sustain profitability and whether they create customer lock-in or premium pricing power. Finally, compare with the closest peers, showing how their models differ and what makes this company distinct.</p>
-                
-                <p>Be didactic. You are explaining this to an 18-year-old with no experience in the stock market.</p>
-                
-                <hr class="border-white/10 my-6">
-
-                <p>Explain the overall <strong>sector environment</strong> in which the company operates. Describe market size, growth rates, and key demand drivers.</p>
-                <p><strong>Highlight competitive dynamics:</strong> number of players, market concentration, barriers to entry, and degree of pricing power. Assess regulatory or technological trends shaping the industry.</p>
-                <p>Identify major risks that affect the entire sector (commodity cycles, FX, consumer behavior, interest rates, new entrants). Then, provide a forward-looking perspective: how the sector is expected to evolve in the next 3–5 years, and what role the company could play in this landscape.</p>
-                <p>Conclude with 2–3 key indicators or macro variables to monitor going forward.</p>
-                
-                <hr class="border-white/10 my-6">
-
-                <p><strong>Review the company's financial performance over the last 3–5 years</strong>. Highlight revenue growth, margin trends (gross, operating, net), free cash flow generation, and capital structure (net debt/EBITDA, leverage ratios). Assess returns on invested capital (ROIC vs. WACC) to judge whether the company is creating or destroying value.</p>
-                <p>Then evaluate <strong>valuation metrics relative to peers</strong>. Present key multiples such as P/E, EV/EBITDA, EV/FCF, and P/B, noting where the company trades at a premium or discount and why. Compare valuation against financial quality (growth, margins, returns) to see if the premium or discount is justified.</p>
-                <p>Conclude with a <strong>fair value discussion</strong>: does the current market price reflect fundamentals, and under what conditions would the stock look undervalued or overvalued?</p>
-                
-                <hr class="border-white/10 my-6">
-
-                <p>Identify the <strong>top risks facing the company across categories</strong> such as demand, pricing power, input costs, regulatory changes, technological disruption, and competitive pressure. For each risk, explain:</p>
-                <ol class="list-decimal list-inside ml-4 space-y-2 text-brand-highlight/80">
-                    <li>The probability of occurrence (high, medium, low).</li>
-                    <li>The potential financial impact (on revenue, margins, EPS, or FCF).</li>
-                    <li>The early-warning indicators that an analyst should monitor.</li>
-                </ol>
-                <p>Then, provide a <strong>forward-looking perspective</strong>: how the company is positioned over the next 3–5 years, considering macro trends, sector dynamics, and internal strategy. Highlight the main opportunities that could accelerate growth and the threats that could undermine it.</p>
-                <p>Conclude with a short summary: Which risks are "make or break"? Which opportunities are realistic? What would invalidate the investment thesis?</p>
-                
-                <hr class="border-white/10 my-6">
-
-                <p>Summarize the last four companies' earnings calls. For each call, extract:</p>
-                <p><strong>Management's key messages</strong><br>Strategy updates, guidance changes, and main themes.<br>Highlights and surprises (positive or negative).<br>Analyst questions that revealed important information.</p>
-                
-                <p><strong>Then, compare across the four calls:</strong><br>Identify recurring themes and management priorities.<br>Highlight shifts in tone or changes in guidance.<br>Point out gaps—issues analysts keep asking about but management avoids.</p>
-                
-                <p><strong>Finally, conclude with:</strong><br>The 3 biggest positive developments since the first of the four calls.<br>The 3 most concerning signals that could impact the thesis.<br>5 sharp questions an analyst should ask on the next call.</p>
-            </div>
-        </div>
     </main>
 
+    <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-highlight">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
+            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/inakm" target="_blank" class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:inakm@proton.me" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
+                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Store the original prompt template string
-        const originalText = `You are a senior equity research analyst at a top-tier investment fund with over 15 years of experience. Your role is to deliver professional, disciplined, and actionable equity research analysis.
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            if (menu && btn) {
+                menu.classList.toggle('active');
+                btn.classList.toggle('open');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            }
+        }
+
+        function generatePromptText() {
+            const company = document.getElementById('inpCompany').value.trim();
+            const years = document.getElementById('inpYears').value;
+            const calls = document.getElementById('inpCalls').value;
+
+            return `You are a senior equity research analyst at a top-tier investment fund with over 15 years of experience. Your role is to deliver professional, disciplined, and actionable equity research analysis.
 
 Always integrate fundamental and macroeconomic perspectives into your work, with a focus on clarity and depth. You are data-driven, rational, and guided by insights—every conclusion must be supported by evidence or clearly stated assumptions.
 
-Was I clear enough? Can I proceed with the next instructions?
-
 ---
+### TARGET ASSET:
+Please generate an institutional-grade equity research report on **${company}**.
 
-Explain how [placeholder] makes money by breaking down its main products, services, and geographies, highlighting revenue contribution by segment where possible. Identify the key revenue drivers (pricing power, volume growth, renewals, unit economics) and describe the cost structure (fixed vs. variable, operating leverage, COGS vs. SG&A).
+### 1. REVENUE DRIVERS & COMPETITIVE POSITIONING
+Explain how ${company} makes money by breaking down its main products, services, and geographies, highlighting revenue contribution by segment where possible. Identify the key revenue drivers (pricing power, volume growth, renewals, unit economics) and describe the cost structure (fixed vs. variable, operating leverage).
 
-Outline who the customers are, how concentrated or diversified the base is, and the distribution model (direct, retail, e-commerce, partnerships). Clarify the pricing logic—whether one-off, subscription, transaction, or usage-based.
+Outline who the customers are, how concentrated or diversified the base is, and the distribution model. Clarify the pricing logic—whether one-off, subscription, transaction, or usage-based.
 
-Then analyze the company's competitive positioning: highlight the top 2–3 moats such as brand, scale, network effects, IP, or switching costs. Explain how these advantages sustain profitability and whether they create customer lock-in or premium pricing power. Finally, compare with the closest peers, showing how their models differ and what makes this company distinct.
+Analyze the company's competitive positioning: highlight the top 2–3 moats such as brand, scale, network effects, IP, or switching costs. Explain how these advantages sustain profitability and compare with the closest peers.
 
-Be didactic. You are explaining this to an 18-year-old with no experience in the stock market.
+### 2. SECTOR ENVIRONMENT & MACRO DYNAMICS
+Explain the overall sector environment in which ${company} operates. Describe market size, growth rates, key demand drivers, and competitive dynamics (market concentration, barriers to entry, degree of pricing power). 
+Assess regulatory or technological trends shaping the industry and provide a forward-looking perspective on how the sector will evolve.
 
----
+### 3. FINANCIAL PERFORMANCE & VALUATION
+Review the company's financial performance over the **${years}**. 
+Highlight revenue growth, margin trends (gross, operating, net), free cash flow generation, and capital structure (net debt/EBITDA, leverage ratios). Assess returns on invested capital (ROIC vs. WACC).
 
-Explain the overall sector environment in which the company operates. Describe market size, growth rates, and key demand drivers.
+Evaluate valuation metrics relative to peers. Present key multiples (P/E, EV/EBITDA, EV/FCF, P/B), noting where the company trades at a premium or discount and why. Conclude with a fair value discussion over intrinsic worth.
 
-Highlight competitive dynamics: number of players, market concentration, barriers to entry, and degree of pricing power. Assess regulatory or technological trends shaping the industry.
+### 4. RISK ASSESSMENT & MANAGEMENT SENTIMENT
+Identify the top "make or break" risks facing the company across categories such as demand, input costs, and competitive pressure. Detail probability, financial impact, and early-warning indicators.
 
-Identify major risks that affect the entire sector (commodity cycles, FX, consumer behavior, interest rates, new entrants). Then, provide a forward-looking perspective: how the sector is expected to evolve in the next 3–5 years, and what role the company could play in this landscape.
-
-Conclude with 2–3 key indicators or macro variables to monitor going forward.
-
----
-
-Review the company's financial performance over the last 3–5 years. Highlight revenue growth, margin trends (gross, operating, net), free cash flow generation, and capital structure (net debt/EBITDA, leverage ratios). Assess returns on invested capital (ROIC vs. WACC) to judge whether the company is creating or destroying value.
-
-Then evaluate valuation metrics relative to peers. Present key multiples such as P/E, EV/EBITDA, EV/FCF, and P/B, noting where the company trades at a premium or discount and why. Compare valuation against financial quality (growth, margins, returns) to see if the premium or discount is justified.
-
-Conclude with a fair value discussion: does the current market price reflect fundamentals, and under what conditions would the stock look undervalued or overvalued?
-
----
-
-Identify the top risks facing the company across categories such as demand, pricing power, input costs, regulatory changes, technological disruption, and competitive pressure. For each risk, explain:
-1. The probability of occurrence (high, medium, low).
-2. The potential financial impact (on revenue, margins, EPS, or FCF).
-3. The early-warning indicators that an analyst should monitor.
-
-Then, provide a forward-looking perspective: how the company is positioned over the next 3–5 years, considering macro trends, sector dynamics, and internal strategy. Highlight the main opportunities that could accelerate growth and the threats that could undermine it.
-
-Conclude with a short summary: Which risks are "make or break"? Which opportunities are realistic? What would invalidate the investment thesis?
-
----
-
-Summarize the last four companies' earnings calls. For each call, extract:
-
-Management's key messages:
-- Strategy updates, guidance changes, and main themes.
-- Highlights and surprises (positive or negative).
-- Analyst questions that revealed important information.
-
-Then, compare across the four calls:
-- Identify recurring themes and management priorities.
-- Highlight shifts in tone or changes in guidance.
-- Point out gaps—issues analysts keep asking about but management avoids.
-
-Finally, conclude with:
-- The 3 biggest positive developments since the first of the four calls.
-- The 3 most concerning signals that could impact the thesis.
-- 5 sharp questions an analyst should ask on the next call.`;
-
-        function updatePreview() {
-            const input = document.getElementById('companyName').value;
-            const replacement = input.trim() ? input.trim() : "[Insert company name here]";
-            
-            // Update UI
-            const placeholders = document.querySelectorAll('.company-placeholder');
-            placeholders.forEach(el => {
-                el.textContent = replacement;
-            });
+Finally, summarize the **${calls}** company earnings calls. Extract:
+- Management's key messages (strategy updates, guidance shifts).
+- Tone shifts or analyst questions management avoided.
+- 5 sharp questions an analyst must ask on the upcoming call.`;
         }
 
-        function copyPrompt() {
-            const input = document.getElementById('companyName').value;
-            const replacement = input.trim() ? input.trim() : "[Insert company name here]";
-            
-            // Replace in final text
-            const finalPrompt = originalText.replace(/\[placeholder\]/g, replacement);
-            
-            navigator.clipboard.writeText(finalPrompt).then(() => {
-                const notice = document.getElementById('copyNotice');
-                notice.style.display = 'flex';
+        function updatePrompt() {
+            document.getElementById('promptOutput').textContent = generatePromptText();
+        }
+
+        function copyToClipboard() {
+            const promptText = generatePromptText();
+            navigator.clipboard.writeText(promptText).then(() => {
+                const copyText = document.getElementById('copyText');
+                const copyIcon = document.getElementById('copyIcon');
+                
+                copyText.textContent = 'Copied!';
+                copyIcon.className = 'fa-solid fa-check';
+                
                 setTimeout(() => {
-                    notice.style.display = 'none';
+                    copyText.textContent = 'Copy Prompt';
+                    copyIcon.className = 'fa-regular fa-copy leading-none';
                 }, 2000);
             });
         }
+
+        // Initialize mapping on load
+        document.addEventListener('DOMContentLoaded', updatePrompt);
     </script>
 </body>
 </html>
