@@ -170,6 +170,36 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="mybuild-grid">
 
+            <!-- AI Prompts Hub -->
+            <a href="../prompts/index.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="font-mono text-xs font-bold text-brand-highlight border border-brand-highlight px-2 py-1 bg-brand-highlight/10">AI / INTELLIGENCE</span>
+                    <div class="text-white group-hover:text-brand-highlight text-xl transition-colors">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                </div>
+                <h3 class="text-3xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight">AI Prompts Hub</h3>
+                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">A suite of interactive, dynamic AI prompt generators structured to automate elite institutional workflows.</p>
+                <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                    PROMPT ENGINEERING • JAVASCRIPT
+                </div>
+            </a>
+
+            <!-- Excel Projects -->
+            <a href="excelproj.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="font-mono text-xs font-bold text-[#107c41] border border-[#107c41] px-2 py-1 bg-[#107c41]/10">DATA / FINANCE</span>
+                    <div class="text-white group-hover:text-[#107c41] text-xl transition-colors">
+                        <i class="fa-solid fa-file-excel"></i>
+                    </div>
+                </div>
+                <h3 class="text-3xl font-display uppercase mb-4 text-white group-hover:text-[#107c41] transition-colors tracking-tight">Excel Projects</h3>
+                <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body font-medium">A robust collection of advanced modeling, valuation, KPI dashboards, and tracking templates.</p>
+                <div class="mt-auto border-t border-gray-600 pt-4 font-mono text-xs text-brand-lavender font-bold group-hover:text-white transition-colors">
+                    EXCEL • DASHBOARDS • FINANCE
+                </div>
+            </a>
+
             
             <a href="gatigo.html" class="block card-3d p-8 flex flex-col h-full group text-inherit hover:text-inherit">
                 <div class="flex justify-between items-start mb-6">
@@ -315,13 +345,13 @@
             <script>
                 document.addEventListener("DOMContentLoaded", () => {
                     const grid = document.getElementById("mybuild-grid");
-                    const order = ["PowerBI Portfolio", "RMM Dashboard", "VEVOi Dashboard", "Prism Dashboard", "GatiGo", "RVNL", "GUJTLRM", "FHEL", "BQL Analysis", "Citi Experience", "ACCA FM", "iCryptos Dash", "FoilAI"];
+                    const order = ["AI Prompts Hub", "PowerBI Portfolio", "Excel Projects", "RMM Dashboard", "VEVOi Dashboard", "Prism Dashboard", "GatiGo", "RVNL", "GUJTLRM", "FHEL", "BQL Analysis", "Citi Experience", "ACCA FM", "iCryptos Dash", "FoilAI"];
                     const cards = Array.from(grid.children);
                     
                     // Categorize on the fly based on known web tools 
                     cards.forEach(card => {
                         const title = card.querySelector("h3").textContent.trim();
-                        if (["iCryptos Dash", "FoilAI", "RMM Dashboard", "VEVOi Dashboard", "Prism Dashboard"].includes(title)) {
+                        if (["iCryptos Dash", "FoilAI", "RMM Dashboard", "VEVOi Dashboard", "Prism Dashboard", "AI Prompts Hub"].includes(title)) {
                             card.setAttribute("data-category", "web");
                         } else {
                             card.setAttribute("data-category", "excel");
