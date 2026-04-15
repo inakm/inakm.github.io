@@ -70,6 +70,15 @@
             border-color: #48cae4; background: rgba(33, 47, 69, 0.8);
         }
 
+        .card-cv {
+            background: rgba(33, 47, 69, 0.4); border: 1px solid rgba(255, 107, 107, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-cv:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(255, 107, 107, 0.2);
+            border-color: #ff6b6b; background: rgba(33, 47, 69, 0.8);
+        }
+
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #0b0c10; }
         ::-webkit-scrollbar-thumb { background: #ff6b6b; border: 2px solid #0b0c10; border-radius: 4px; }
@@ -234,6 +243,28 @@
                     </p>
                     
                     <div class="mt-auto flex items-center text-brand-accentEqty font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
+                        Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- CV Job Hunter Card -->
+                <a href="cvfindjob.html" class="card-cv p-8 md:p-12 rounded-2xl flex flex-col items-start group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-[10rem] text-brand-highlight opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    
+                    <div class="bg-brand-highlight/10 p-4 rounded-xl mb-6 border border-brand-highlight/30 group-hover:bg-brand-highlight/20 transition-colors">
+                        <i class="fa-solid fa-magnifying-glass-chart text-3xl text-brand-highlight shadow-sm"></i>
+                    </div>
+                    
+                    <span class="font-mono text-xs font-bold text-brand-highlight tracking-widest uppercase block mb-3 border border-brand-highlight px-2 py-1 bg-brand-highlight/5">RECRUITMENT AGENT</span>
+                    <h2 class="text-3xl md:text-4xl font-display uppercase text-white mb-4 group-hover:text-brand-highlight transition-colors shadow-sm">CV Job Hunter</h2>
+                    
+                    <p class="text-gray-400 font-body leading-relaxed mb-8">
+                        An elite AI recruitment engine. Feed it your desired experience levels, geography, and sector focus to dynamically cross-reference market openings and generate prioritized role targeting matrices.
+                    </p>
+                    
+                    <div class="mt-auto flex items-center text-brand-highlight font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
                         Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
                     </div>
                 </a>
