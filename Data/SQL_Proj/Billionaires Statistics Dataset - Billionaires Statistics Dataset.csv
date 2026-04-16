@@ -1,0 +1,476 @@
+rank,finalWorth,category,personName,age,country,city,source,industries,selfMade,gender,birthDate,lastName,firstName,birthYear,birthMonth,birthDay,cpi_country,gdp_country,life_expectancy_country,tax_revenue_country_country,total_tax_rate_country,population_country
+1,211000,Fashion & Retail,Bernard Arnault & family,74,France,Paris,LVMH,Fashion & Retail,FALSE,M,03/05/1949 00:00,Arnault,Bernard,1949,3,5,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+2,180000,Automotive,Elon Musk,51,United States,Austin,"Tesla, SpaceX",Automotive,TRUE,M,6/28/1971 0:00,Musk,Elon,1971,6,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+3,114000,Technology,Jeff Bezos,59,United States,Medina,Amazon,Technology,TRUE,M,01/12/1964 00:00,Bezos,Jeff,1964,1,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+4,107000,Technology,Larry Ellison,78,United States,Lanai,Oracle,Technology,TRUE,M,8/17/1944 0:00,Ellison,Larry,1944,8,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+5,106000,Finance & Investments,Warren Buffett,92,United States,Omaha,Berkshire Hathaway,Finance & Investments,TRUE,M,8/30/1930 0:00,Buffett,Warren,1930,8,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+6,104000,Technology,Bill Gates,67,United States,Medina,Microsoft,Technology,TRUE,M,10/28/1955 0:00,Gates,Bill,1955,10,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+7,94500,Media & Entertainment,Michael Bloomberg,81,United States,New York,Bloomberg LP,Media & Entertainment,TRUE,M,2/14/1942 0:00,Bloomberg,Michael,1942,2,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+8,93000,Telecom,Carlos Slim Helu & family,83,Mexico,Mexico City,Telecom,Telecom,TRUE,M,1/28/1940 0:00,Slim Helu,Carlos,1940,1,28,141.54,"$1,258,286,717,125 ",75,13.1,55.1,126014024
+9,83400,Diversified,Mukesh Ambani,65,India,Mumbai,Diversified,Diversified,FALSE,M,4/19/1957 0:00,Ambani,Mukesh,1957,4,19,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+10,80700,Technology,Steve Ballmer,67,United States,Hunts Point,Microsoft,Technology,TRUE,M,3/24/1956 0:00,Ballmer,Steve,1956,3,24,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+11,80500,Fashion & Retail,Francoise Bettencourt Meyers & family,69,France,Paris,L'Oréal,Fashion & Retail,FALSE,F,07/10/1953 00:00,Bettencourt Meyers,Francoise,1953,7,10,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+12,79200,Technology,Larry Page,50,United States,Palo Alto,Google,Technology,TRUE,M,3/26/1973 0:00,Page,Larry,1973,3,26,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+13,77300,Fashion & Retail,Amancio Ortega,87,Spain,La Coruna,Zara,Fashion & Retail,TRUE,M,3/28/1936 0:00,Ortega,Amancio,1936,3,28,110.96,"$1,394,116,310,769 ",83.3,14.2,47,47076781
+14,76000,Technology,Sergey Brin,49,United States,Los Altos,Google,Technology,TRUE,M,8/21/1973 0:00,Brin,Sergey,1973,8,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+15,68000,Food & Beverage,Zhong Shanshan,68,China,Hangzhou,"Beverages, pharmaceuticals",Food & Beverage,TRUE,M,12/01/1954 00:00,Zhong,Shanshan,1954,12,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+16,64400,Technology,Mark Zuckerberg,38,United States,Palo Alto,Facebook,Technology,TRUE,M,5/14/1984 0:00,Zuckerberg,Mark,1984,5,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+17,59000,Diversified,Charles Koch & family,87,United States,Wichita,Koch Industries,Diversified,FALSE,M,11/01/1935 00:00,Koch,Charles,1935,11,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+17,59000,Diversified,Julia Koch & family,60,United States,New York,Koch Industries,Diversified,FALSE,F,04/12/1962 00:00,Koch,Julia,1962,4,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+19,58800,Fashion & Retail,Jim Walton,74,United States,Bentonville,Walmart,Fashion & Retail,FALSE,M,06/07/1948 00:00,Walton,Jim,1948,6,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+20,57600,Fashion & Retail,Rob Walton & family,78,United States,Bentonville,Walmart,Fashion & Retail,FALSE,M,10/27/1944 0:00,Walton,Rob,1944,10,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+21,56700,Fashion & Retail,Alice Walton,73,United States,Fort Worth,Walmart,Fashion & Retail,FALSE,F,10/07/1949 00:00,Walton,Alice,1949,10,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+22,54400,Media & Entertainment,David Thomson & family,65,Canada,Toronto,Media,Media & Entertainment,FALSE,M,06/12/1957 00:00,Thomson,David,1957,6,12,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+23,50100,Technology,Michael Dell,58,United States,Austin,Dell Technologies,Technology,TRUE,M,2/23/1965 0:00,Dell,Michael,1965,2,23,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+24,47200,Diversified,Gautam Adani,60,India,Ahmedabad,"Infrastructure, commodities",Diversified,TRUE,M,6/24/1962 0:00,Adani,Gautam,1962,6,24,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+25,45100,Fashion & Retail,Phil Knight & family,85,United States,Hillsboro,Nike,Fashion & Retail,TRUE,M,2/24/1938 0:00,Knight,Phil,1938,2,24,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+26,45000,Technology,Zhang Yiming,39,China,Beijing,TikTok,Technology,TRUE,M,01/01/1984 00:00,Zhang,Yiming,1984,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+27,42900,Fashion & Retail,Dieter Schwarz,83,Germany,Neckarsulm,Retail,Fashion & Retail,FALSE,M,9/24/1939 0:00,Schwarz,Dieter,1939,9,24,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+28,40100,Fashion & Retail,François Pinault & family,86,France,Paris,Luxury goods,Fashion & Retail,TRUE,M,8/21/1936 0:00,Pinault,François,1936,8,21,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+29,39100,Logistics,Klaus-Michael Kuehne,85,Switzerland,Schindellegi,Shipping,Logistics,FALSE,M,06/02/1937 00:00,Kuehne,Klaus-Michael,1937,6,2,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+30,38900,Food & Beverage,Giovanni Ferrero,58,Belgium,Brussels,"Nutella, chocolates",Food & Beverage,FALSE,M,9/21/1964 0:00,Ferrero,Giovanni,1964,9,21,117.11,"$529,606,710,418 ",81.6,24,55.4,11484055
+31,38300,Food & Beverage,Jacqueline Mars,83,United States,The Plains,"Candy, pet food",Food & Beverage,FALSE,F,10/10/1939 00:00,Mars,Jacqueline,1939,10,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+31,38300,Food & Beverage,John Mars,87,United States,Jackson,"Candy, pet food",Food & Beverage,FALSE,M,10/15/1935 0:00,Mars,John,1935,10,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+34,35300,Technology,Ma Huateng,51,China,Shenzhen,Internet media,Technology,TRUE,M,10/29/1971 0:00,Ma,Huateng,1971,10,29,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+35,35000,Gambling & Casinos,Miriam Adelson & family,77,United States,Las Vegas,Casinos,Gambling & Casinos,FALSE,F,10/10/1945 00:00,Adelson,Miriam,1945,10,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+35,35000,Finance & Investments,Ken Griffin,54,United States,Miami,Hedge funds,Finance & Investments,TRUE,M,10/15/1968 0:00,Griffin,Ken,1968,10,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+37,34700,Food & Beverage,Mark Mateschitz,30,Austria,Salzburg,Red Bull,Food & Beverage,FALSE,M,05/07/1992 00:00,Mateschitz,Mark,1992,5,7,118.06,"$446,314,739,528 ",81.6,25.4,51.4,8877067
+38,33400,Automotive,Robin Zeng,54,China,Ningde,Batteries,Automotive,TRUE,M,01/01/1969 00:00,Zeng,Robin,1969,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+39,32600,Fashion & Retail,Tadashi Yanai & family,74,Japan,Tokyo,Fashion retail,Fashion & Retail,TRUE,M,02/07/1949 00:00,Yanai,Tadashi,1949,2,7,105.48,"$5,081,769,542,380 ",84.2,11.9,46.7,126226568
+40,32100,Diversified,Len Blavatnik,65,United Kingdom,London,"Music, chemicals",Diversified,TRUE,M,06/01/1957 00:00,Blavatnik,Len,1957,6,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+41,31600,Fashion & Retail,Alain Wertheimer,74,United States,New York,Chanel,Fashion & Retail,FALSE,M,8/28/1948 0:00,Wertheimer,Alain,1948,8,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+41,31600,Fashion & Retail,Gerard Wertheimer,72,United States,New York,Chanel,Fashion & Retail,FALSE,M,01/09/1951 00:00,Wertheimer,Gerard,1951,1,9,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+43,31200,Logistics,Gianluigi Aponte,82,Switzerland,Geneva,Shipping,Logistics,TRUE,M,6/27/1940 0:00,Aponte,Gianluigi,1940,6,27,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+43,31200,Logistics,Rafaela Aponte-Diamant,78,Switzerland,Geneva,Shipping,Logistics,TRUE,F,3/26/1945 0:00,Aponte-Diamant,Rafaela,1945,3,26,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+45,30200,Technology,Colin Zheng Huang,43,China,Shanghai,E-commerce,Technology,TRUE,M,02/02/1980 00:00,Huang,Colin Zheng,1980,2,2,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+46,29700,Manufacturing,Reinhold Wuerth & family,87,Germany,Kuenzelsau,Fasteners,Manufacturing,TRUE,M,4/20/1935 0:00,Wuerth,Reinhold,1935,4,20,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+48,28500,Finance & Investments,Jeff Yass,64,United States,Haverford,"Trading, investments",Finance & Investments,TRUE,M,7/17/1958 0:00,Yass,Jeff,1958,7,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+49,28100,Finance & Investments,Jim Simons,84,United States,East Setauket,Hedge funds,Finance & Investments,TRUE,M,4/25/1938 0:00,Simons,Jim,1938,4,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+50,27800,Finance & Investments,Stephen Schwarzman,76,United States,New York,Investments,Finance & Investments,TRUE,M,2/14/1947 0:00,Schwarzman,Stephen,1947,2,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+51,27400,Automotive,Susanne Klatten,60,Germany,Bad Homburg,"BMW, pharmaceuticals",Automotive,FALSE,F,4/28/1962 0:00,Klatten,Susanne,1962,4,28,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+52,27000,Metals & Mining,Gina Rinehart,69,Australia,Perth,Mining,Metals & Mining,FALSE,F,02/09/1954 00:00,Rinehart,Gina,1954,2,9,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+53,26700,Technology,William Ding,51,China,Hangzhou,Online games,Technology,TRUE,M,10/01/1971 00:00,Ding,William,1971,10,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+54,26600,Metals & Mining,Germán Larrea Mota Velasco & family,69,Mexico,Mexico City,Mining,Metals & Mining,FALSE,M,10/26/1953 0:00,Larrea Mota Velasco,Germán,1953,10,26,141.54,"$1,258,286,717,125 ",75,13.1,55.1,126014024
+55,25600,Technology,Shiv Nadar,77,India,Delhi,software services,Technology,TRUE,M,7/18/1945 0:00,Nadar,Shiv,1945,7,18,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+56,25500,Energy,Low Tuck Kwong,74,Indonesia,Jakarta,Coal,Energy,TRUE,M,4/17/1948 0:00,Low Tuck,Kwong,1948,4,17,151.18,"$1,119,190,780,753 ",71.5,10.2,30.1,270203917
+57,25300,Finance & Investments,Thomas Peterffy,78,United States,Palm Beach,Discount brokerage,Finance & Investments,TRUE,M,9/30/1944 0:00,Peterffy,Thomas,1944,9,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+58,25200,Metals & Mining,Andrey Melnichenko & family,51,United Arab Emirates,Ras Al Khaimah,"Fertilizers, coal",Metals & Mining,TRUE,M,03/08/1972 00:00,Melnichenko,Andrey,1972,3,8,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529
+59,24600,Automotive,Stefan Quandt,56,Germany,Frankfurt,BMW,Automotive,FALSE,M,05/09/1966 00:00,Quandt,Stefan,1966,5,9,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+60,24400,Technology,MacKenzie Scott,52,United States,Seattle,Amazon,Technology,FALSE,F,04/07/1970 00:00,Scott,MacKenzie,1970,4,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+61,24200,Finance & Investments,R. Budi Hartono,82,Indonesia,Kudus,"Banking, tobacco",Finance & Investments,FALSE,M,01/01/1941 00:00,Hartono,R. Budi,1941,1,1,151.18,"$1,119,190,780,753 ",71.5,10.2,30.1,270203917
+62,23700,Metals & Mining,Vladimir Potanin,62,Russia,Moscow,Metals,Metals & Mining,TRUE,M,01/03/1961 00:00,Potanin,Vladimir,1961,1,3,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+63,23500,Technology,Jack Ma,58,China,Hangzhou,E-commerce,Technology,TRUE,M,09/10/1964 00:00,Ma,Jack,1964,9,10,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+64,23400,Manufacturing,He Xiangjian & family,80,China,Foshan,Home appliances,Manufacturing,TRUE,M,08/11/1942 00:00,He,Xiangjian,1942,8,11,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+65,23100,Metals & Mining,Iris Fontbona & family,80,Chile,Santiago,Mining,Metals & Mining,FALSE,F,01/01/1943 00:00,Fontbona,Iris,1943,1,1,131.91,"$282,318,159,745 ",80,18.2,34,18952038
+65,23100,Manufacturing,Michael Hartono,83,Indonesia,Kudus,"Banking, tobacco",Manufacturing,FALSE,M,10/02/1939 00:00,Hartono,Michael,1939,10,2,151.18,"$1,119,190,780,753 ",71.5,10.2,30.1,270203917
+67,22900,Manufacturing,James Ratcliffe,70,United Kingdom,London,Chemicals,Manufacturing,TRUE,M,01/01/1953 00:00,Ratcliffe,James,1953,1,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+68,22600,Healthcare,Cyrus Poonawalla,81,India,Pune,Vaccines,Healthcare,FALSE,M,05/11/1941 00:00,Poonawalla,Cyrus,1941,5,11,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+69,22400,Telecom,Masayoshi Son,65,Japan,Tokyo,"Internet, telecom",Telecom,TRUE,M,08/11/1957 00:00,Son,Masayoshi,1957,8,11,105.48,"$5,081,769,542,380 ",84.2,11.9,46.7,126226568
+70,22100,Metals & Mining,Vladimir Lisin,66,Russia,Moscow,"Steel, transport",Metals & Mining,TRUE,M,05/07/1956 00:00,Lisin,Vladimir,1956,5,7,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+71,22000,Food & Beverage,Emmanuel Besnier,52,France,Laval,Cheese,Food & Beverage,FALSE,M,9/18/1970 0:00,Besnier,Emmanuel,1970,9,18,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+72,21600,Finance & Investments,Abigail Johnson,61,United States,Milton,Fidelity,Finance & Investments,FALSE,F,12/19/1961 0:00,Johnson,Abigail,1961,12,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+72,21600,Energy,Leonid Mikhelson & family,67,Russia,Moscow,"Gas, chemicals",Energy,TRUE,M,08/11/1955 00:00,Mikhelson,Leonid,1955,8,11,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+74,21200,Fashion & Retail,Lukas Walton,36,United States,Chicago,Walmart,Fashion & Retail,FALSE,M,9/19/1986 0:00,Walton,Lukas,1986,9,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+74,21200,Service,Wang Wei,52,China,Shenzhen,Package delivery,Service,TRUE,M,10/01/1970 00:00,Wang,Wei,1970,10,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+76,21100,Technology,Jensen Huang,60,United States,Los Altos,Semiconductors,Technology,TRUE,M,2/17/1963 0:00,Huang,Jensen,1963,2,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+77,21000,Fashion & Retail,Leonard Lauder,90,United States,New York,Estee Lauder,Fashion & Retail,FALSE,M,3/19/1933 0:00,Lauder,Leonard,1933,3,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+77,21000,Manufacturing,Takemitsu Takizaki,77,Japan,Osaka,Sensors,Manufacturing,TRUE,M,06/10/1945 00:00,Takizaki,Takemitsu,1945,6,10,105.48,"$5,081,769,542,380 ",84.2,11.9,46.7,126226568
+79,20900,Metals & Mining,Alexey Mordashov & family,57,Russia,Moscow,"Steel, investments",Metals & Mining,TRUE,M,9/26/1965 0:00,Mordashov,Alexey,1965,9,26,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+80,20500,Energy,Vagit Alekperov,72,Russia,Moscow,Oil,Energy,TRUE,M,09/01/1950 00:00,Alekperov,Vagit,1950,9,1,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+81,20200,Healthcare,"Thomas Frist, Jr. & family",84,United States,Nashville,Hospitals,Healthcare,TRUE,M,08/12/1938 00:00,Frist,Thomas,1938,8,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+82,19600,Metals & Mining,Andrew Forrest,61,Australia,Perth,Mining,Metals & Mining,TRUE,M,11/18/1961 0:00,Forrest,Andrew,1961,11,18,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+83,19100,Finance & Investments,Ray Dalio,73,United States,Greenwich,Hedge funds,Finance & Investments,TRUE,M,08/08/1949 00:00,Dalio,Ray,1949,8,8,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+84,19000,Automotive,Eric Li,59,China,Hangzhou,Automobiles,Automotive,TRUE,M,06/01/1963 00:00,Li,Eric,1963,6,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+84,19000,Metals & Mining,Wang Wenyin,55,China,Shenzhen,"Mining, copper products",Metals & Mining,TRUE,M,03/01/1968 00:00,Wang,Wenyin,1968,3,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+86,18900,Food & Beverage,Qin Yinglin,57,China,Nanyang,Pig breeding,Food & Beverage,TRUE,M,4/17/1965 0:00,Qin,Yinglin,1965,4,17,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+88,18700,Automotive,Wang Chuanfu,57,China,Shenzhen,"Batteries, automobiles",Automotive,TRUE,M,2/15/1966 0:00,Wang,Chuanfu,1966,2,15,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+89,18500,Energy,Harold Hamm & family,77,United States,Oklahoma City,Oil & gas,Energy,TRUE,M,12/11/1945 00:00,Hamm,Harold,1945,12,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+89,18500,Finance & Investments,David Tepper,65,United States,Palm Beach,Hedge funds,Finance & Investments,TRUE,M,09/11/1957 00:00,Tepper,David,1957,9,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+89,18500,Energy,Gennady Timchenko,70,Russia,Moscow,"Oil, gas",Energy,TRUE,M,11/09/1952 00:00,Timchenko,Gennady,1952,11,9,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+92,18000,Finance & Investments,Daniel Gilbert,61,United States,Franklin,Quicken Loans,Finance & Investments,TRUE,M,1/17/1962 0:00,Gilbert,Daniel,1962,1,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+93,17700,Metals & Mining,Lakshmi Mittal,72,United Kingdom,London,Steel,Metals & Mining,FALSE,M,6/15/1950 0:00,Mittal,Lakshmi,1950,6,15,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+94,17500,Finance & Investments,Steve Cohen,66,United States,Greenwich,Hedge funds,Finance & Investments,TRUE,M,06/11/1956 00:00,Cohen,Steve,1956,6,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+94,17500,Finance & Investments,Carl Icahn,87,United States,Indian Creek,Investments,Finance & Investments,TRUE,M,2/16/1936 0:00,Icahn,Carl,1936,2,16,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+94,17500,Metals & Mining,Savitri Jindal & family,73,India,Hisar,Steel,Metals & Mining,FALSE,F,3/20/1950 0:00,Jindal,Savitri,1950,3,20,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+97,17400,Real Estate,Donald Bren,90,United States,Newport Beach,Real estate,Real Estate,TRUE,M,05/11/1932 00:00,Bren,Donald,1932,5,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+97,17400,Fashion & Retail,"John Menard, Jr.",83,United States,Eau Claire,Home improvement stores,Fashion & Retail,TRUE,M,1/22/1940 0:00,Menard,John,1940,1,22,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+99,17100,Media & Entertainment,Rupert Murdoch & family,92,United States,New York,"Newspapers, TV network",Media & Entertainment,FALSE,M,03/11/1931 00:00,Murdoch,Rupert,1931,3,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+100,16700,Finance & Investments,Vicky Safra & family,70,Switzerland,Crans-Montana,Banking,Finance & Investments,FALSE,F,01/01/1953 00:00,Safra,Vicky,1953,1,1,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+101,16500,Fashion & Retail,"Theo Albrecht, Jr. & family",72,Germany,Mulheim an der Ruhr,"Aldi, Trader Joe's",Fashion & Retail,FALSE,M,01/01/1951 00:00,Albrecht,Theo,1951,1,1,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+101,16500,Finance & Investments,Renata Kellnerova & family,55,Czech Republic,Prague,"Finance, telecommunications",Finance & Investments,FALSE,F,07/04/1967 00:00,Kellnerova,Renata,1967,7,4,116.48,"$246,489,245,495 ",79,14.9,46.1,10669709
+103,16300,Healthcare,Li Xiting,72,China,Shenzhen,medical devices,Healthcare,TRUE,M,01/01/1951 00:00,Li,Xiting,1951,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+104,16200,Fashion & Retail,Stefan Persson,75,Sweden,Stockholm,H&M,Fashion & Retail,FALSE,M,10/04/1947 00:00,Persson,Stefan,1947,10,4,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+104,16200,Technology,Eric Schmidt,67,United States,Atherton,Google,Technology,TRUE,M,4/27/1955 0:00,Schmidt,Eric,1955,4,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+106,16000,Finance & Investments,Michael Platt,55,Switzerland,Geneva,Hedge funds,Finance & Investments,TRUE,M,3/18/1968 0:00,Platt,Michael,1968,3,18,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+107,15900,Food & Beverage,Pang Kang,67,China,Foshan,Soy sauce,Food & Beverage,TRUE,M,1/19/1956 0:00,Pang,Kang,1956,1,19,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+108,15800,Food & Beverage,Jorge Paulo Lemann & family,83,Switzerland,Zurich,Beer,Food & Beverage,TRUE,M,8/26/1939 0:00,Lemann,Jorge Paulo,1939,8,26,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+112,15600,Healthcare,Dilip Shanghvi,67,India,Mumbai,Pharmaceuticals,Healthcare,TRUE,M,10/01/1955 00:00,Shanghvi,Dilip,1955,10,1,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+113,15500,Technology,Robert Pera,45,United States,San Jose,Wireless networking,Technology,TRUE,M,03/10/1978 00:00,Pera,Robert,1978,3,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+114,15300,Fashion & Retail,Radhakishan Damani,68,India,Mumbai,"Retail, investments",Fashion & Retail,TRUE,M,01/01/1955 00:00,Damani,Radhakishan,1955,1,1,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+115,15200,Automotive,Huang Shilin,56,China,Ningde,Batteries,Automotive,TRUE,M,01/01/1967 00:00,Huang,Shilin,1967,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+116,14900,Diversified,Dhanin Chearavanont,83,Thailand,Bangkok,Diversified,Diversified,FALSE,M,4/19/1939 0:00,Chearavanont,Dhanin,1939,4,19,113.27,"$543,649,976,166 ",76.9,14.9,29.5,69625582
+116,14900,Fashion & Retail,David Green & family,81,United States,Oklahoma City,Retail,Fashion & Retail,TRUE,M,11/13/1941 0:00,Green,David,1941,11,13,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+118,14800,Food & Beverage,Charoen Sirivadhanabhakdi,78,Thailand,Bangkok,"Alcohol, real estate",Food & Beverage,TRUE,M,05/02/1944 00:00,Sirivadhanabhakdi,Charoen,1944,5,2,113.27,"$543,649,976,166 ",76.9,14.9,29.5,69625582
+119,14700,Food & Beverage,Charlene de Carvalho-Heineken & family,68,United Kingdom,London,Heineken,Food & Beverage,FALSE,F,6/30/1954 0:00,de Carvalho-Heineken,Charlene,1954,6,30,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+120,14600,Healthcare,Xu Hang,60,China,Shenzhen,Medical devices,Healthcare,TRUE,M,5/22/1962 0:00,Xu,Hang,1962,5,22,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+121,14500,Automotive,Wei Jianjun & family,59,China,Baoding,Automobiles,Automotive,TRUE,M,03/01/1964 00:00,Wei,Jianjun,1964,3,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+123,14300,Manufacturing,Goh Cheng Liang,95,Singapore,Singapore,Paints,Manufacturing,TRUE,M,6/27/1927 0:00,Goh,Cheng Liang,1927,6,27,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+124,14200,Diversified,Kumar Birla,55,India,Mumbai,Commodities,Diversified,FALSE,M,6/14/1967 0:00,Birla,Kumar,1967,6,14,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+124,14200,Manufacturing,Aliko Dangote,65,Nigeria,Lagos,"Cement, sugar",Manufacturing,TRUE,M,04/10/1957 00:00,Dangote,Aliko,1957,4,10,267.51,"$448,120,428,859 ",54.3,1.5,34.8,200963599
+127,14000,Diversified,Idan Ofer,67,United Kingdom,London,Shipping,Diversified,FALSE,M,10/02/1955 00:00,Ofer,Idan,1955,10,2,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+128,13900,Healthcare,Chen Bang,57,China,Changsha,Hospitals,Healthcare,TRUE,M,09/01/1965 00:00,Chen,Bang,1965,9,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+130,13700,Logistics,John Fredriksen,78,United Kingdom,London,Shipping,Logistics,TRUE,M,02/01/1945 00:00,Fredriksen,John,1945,2,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+130,13700,Construction & Engineering,Diane Hendricks,76,United States,Afton,Building supplies,Construction & Engineering,TRUE,F,03/02/1947 00:00,Hendricks,Diane,1947,3,2,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+130,13700,Technology,Jan Koum,47,United States,Atherton,WhatsApp,Technology,TRUE,M,2/24/1976 0:00,Koum,Jan,1976,2,24,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+133,13300,Sports,Jerry Jones,80,United States,Dallas,Dallas Cowboys,Sports,TRUE,M,10/13/1942 0:00,Jones,Jerry,1942,10,13,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+133,13300,Energy,George Kaiser,80,United States,Tulsa,"Oil & gas, banking",Energy,FALSE,M,7/29/1942 0:00,Kaiser,George,1942,7,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+136,13200,Automotive,Lu Xiangyang,60,China,Guangzhou,"Automobiles, batteries",Automotive,TRUE,M,12/28/1962 0:00,Lu,Xiangyang,1962,12,28,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+137,13100,Real Estate,Harry Triguboff,90,Australia,Sydney,Real estate,Real Estate,TRUE,M,03/03/1933 00:00,Triguboff,Harry,1933,3,3,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+138,12900,Finance & Investments,Uday Kotak,64,India,Mumbai,Banking,Finance & Investments,TRUE,M,3/15/1959 0:00,Kotak,Uday,1959,3,15,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+138,12900,Sports,Stanley Kroenke,75,United States,Electra,"Sports, real estate",Sports,TRUE,M,7/29/1947 0:00,Kroenke,Stanley,1947,7,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+140,12600,Energy,Mikhail Fridman,58,United Kingdom,London,"Oil, banking, telecom",Energy,TRUE,M,4/21/1964 0:00,Fridman,Mikhail,1964,4,21,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+141,12300,Energy,Sarath Ratanavadi,57,Thailand,Bangkok,Energy,Energy,TRUE,M,07/12/1965 00:00,Ratanavadi,Sarath,1965,7,12,113.27,"$543,649,976,166 ",76.9,14.9,29.5,69625582
+142,12200,Metals & Mining,Dang Yanbao,50,China,Yinchuan,Coal,Metals & Mining,TRUE,M,02/01/1973 00:00,Dang,Yanbao,1973,2,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+142,12200,Healthcare,Jiang Rensheng & family,69,China,Chongqing,Vaccines,Healthcare,TRUE,M,10/08/1953 00:00,Jiang,Rensheng,1953,10,8,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+144,12100,Automotive,Shahid Khan,72,United States,Naples,Auto parts,Automotive,TRUE,M,7/18/1950 0:00,Khan,Shahid,1950,7,18,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+145,12000,Technology,Laurene Powell Jobs & family,59,United States,Palo Alto,"Apple, Disney",Technology,FALSE,F,11/06/1963 00:00,Powell Jobs,Laurene,1963,11,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+147,11600,Real Estate,Stephen Ross,82,United States,New York,Real estate,Real Estate,TRUE,M,05/10/1940 00:00,Ross,Stephen,1940,5,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+148,11500,Technology,Pavel Durov,38,United Arab Emirates,Dubai,Messaging app,Technology,TRUE,M,10/10/1984 00:00,Durov,Pavel,1984,10,10,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529
+148,11500,Healthcare,Andreas Struengmann & family,73,Germany,Tegernsee,Pharmaceuticals,Healthcare,TRUE,M,2/16/1950 0:00,Struengmann,Andreas,1950,2,16,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+148,11500,Healthcare,Thomas Struengmann & family,73,Germany,Tegernsee,Pharmaceuticals,Healthcare,TRUE,M,2/16/1950 0:00,Struengmann,Thomas,1950,2,16,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+151,11400,Food & Beverage,Liu Hanyuan,59,China,Chengdu,Agribusiness,Food & Beverage,TRUE,M,01/01/1964 00:00,Liu,Hanyuan,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+151,11400,Fashion & Retail,Michael Rubin,50,United States,Bryn Mawr,Online retail,Fashion & Retail,TRUE,M,7/21/1972 0:00,Rubin,Michael,1972,7,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+153,11300,Finance & Investments,Israel Englander,74,United States,New York,Hedge funds,Finance & Investments,TRUE,M,9/30/1948 0:00,Englander,Israel,1948,9,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+153,11300,Manufacturing,Viatcheslav Kantor,69,Israel,Herzliya,"Fertilizer, real estate",Manufacturing,TRUE,M,09/08/1953 00:00,Kantor,Viatcheslav,1953,9,8,108.15,"$395,098,666,122 ",82.8,23.1,25.3,9053300
+153,11300,Manufacturing,Anthony Pratt,62,Australia,Melbourne,Manufacturing,Manufacturing,FALSE,M,04/11/1960 00:00,Pratt,Anthony,1960,4,11,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+153,11300,Finance & Investments,Mikhail Prokhorov,57,Switzerland,Frauenfeld,Investments,Finance & Investments,TRUE,M,05/03/1965 00:00,Prokhorov,Mikhail,1965,5,3,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+157,11100,Fashion & Retail,Giorgio Armani,88,Italy,Milan,Luxury goods,Fashion & Retail,TRUE,M,07/11/1934 00:00,Armani,Giorgio,1934,7,11,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+157,11100,Fashion & Retail,Johann Rupert & family,72,South Africa,Cape Town,Luxury goods,Fashion & Retail,FALSE,M,06/01/1950 00:00,Rupert,Johann,1950,6,1,158.93,"$351,431,649,241 ",63.9,27.5,29.2,58558270
+159,11000,Technology,Zhang Zhidong,51,China,Shenzhen,Internet media,Technology,TRUE,M,01/01/1972 00:00,Zhang,Zhidong,1972,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+161,10900,Finance & Investments,Philip Anschutz,83,United States,Denver,"Energy, sports, entertainment",Finance & Investments,FALSE,M,12/28/1939 0:00,Anschutz,Philip,1939,12,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+161,10900,Fashion & Retail,Judy Love & family,85,United States,Oklahoma City,Gas stations,Fashion & Retail,TRUE,F,6/17/1937 0:00,Love,Judy,1937,6,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+161,10900,Fashion & Retail,Ricardo Salinas Pliego & family,67,Mexico,Mexico City,"Retail, media",Fashion & Retail,FALSE,M,10/19/1955 0:00,Salinas Pliego,Ricardo,1955,10,19,141.54,"$1,258,286,717,125 ",75,13.1,55.1,126014024
+164,10700,Media & Entertainment,Donald Newhouse,93,United States,New York,Media,Media & Entertainment,FALSE,M,08/05/2029 00:00,Newhouse,Donald,1929,8,5,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+165,10600,Sports,Robert Kraft,81,United States,Brookline,"Manufacturing, New England Patriots",Sports,TRUE,M,06/05/1941 00:00,Kraft,Robert,1941,6,5,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+165,10600,Food & Beverage,Marcel Herrmann Telles,73,Brazil,Sao Paulo,Beer,Food & Beverage,TRUE,M,01/01/1950 00:00,Telles,Marcel Herrmann,1950,1,1,167.4,"$1,839,758,040,766 ",75.7,14.2,65.1,212559417
+167,10500,Finance & Investments,Suleiman Kerimov & family,57,Russia,Moscow,Gold,Finance & Investments,TRUE,M,03/12/1966 00:00,Kerimov & family,Suleiman,1966,3,12,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+167,10500,Fashion & Retail,Sky Xu,39,China,Guangzhou,E-commerce,Fashion & Retail,TRUE,M,01/01/1984 00:00,Xu,Sky,1984,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+167,10500,Finance & Investments,Changpeng Zhao,45,United Arab Emirates,Dubai,Cryptocurrency exchange,Finance & Investments,TRUE,M,09/10/1977 00:00,Zhao,Changpeng,1977,9,10,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529
+170,10300,Finance & Investments,Andrew Beal,70,United States,Dallas,"Banks, real estate",Finance & Investments,TRUE,M,11/29/1952 0:00,Beal,Andrew,1952,11,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+171,10200,Technology,Mike Cannon-Brookes,43,Australia,Sydney,Software,Technology,TRUE,M,11/17/1979 0:00,Cannon-Brookes,Mike,1979,11,17,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+171,10200,Healthcare,Carl Cook,60,United States,Bloomington,Medical devices,Healthcare,FALSE,M,8/19/1962 0:00,Cook,Carl,1962,8,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+171,10200,Technology,David Duffield,82,United States,Incline Village,Business software,Technology,TRUE,M,9/21/1940 0:00,Duffield,David,1940,9,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+171,10200,Energy,Jeffery Hildebrand,64,United States,Houston,Oil,Energy,TRUE,M,03/05/1959 00:00,Hildebrand,Jeffery,1959,3,5,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+171,10200,Manufacturing,Viktor Rashnikov,74,Russia,Magnitogorsk,Steel,Manufacturing,TRUE,M,10/13/1948 0:00,Rashnikov,Viktor,1948,10,13,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+171,10200,Technology,Eduardo Saverin,41,Singapore,Singapore,Facebook,Technology,TRUE,M,3/19/1982 0:00,Saverin,Eduardo,1982,3,19,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+171,10200,Automotive,Georg Schaeffler,58,Germany,Herzogenaurach,Auto parts,Automotive,FALSE,M,10/19/1964 0:00,Schaeffler,Georg,1964,10,19,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+171,10200,Fashion & Retail,Christy Walton,74,United States,Jackson,Walmart,Fashion & Retail,FALSE,F,02/08/1949 00:00,Walton,Christy,1949,2,8,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+179,10100,Technology,Scott Farquhar,43,Australia,Sydney,Software,Technology,TRUE,M,12/17/1979 0:00,Farquhar,Scott,1979,12,17,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+179,10100,Diversified,Quek Leng Chan,81,Malaysia,Kuala Lumpur,"Banking, property",Diversified,FALSE,M,08/12/1941 00:00,Quek,Leng Chan,1941,8,12,121.46,"$364,701,517,788 ",76,12,38.7,32447385
+179,10100,Real Estate,Wu Yajun,59,China,Beijing,Real estate,Real Estate,TRUE,F,01/01/1964 00:00,Wu,Yajun,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+182,10000,Energy,Autry Stephens,85,United States,Midland,Oil,Energy,TRUE,M,03/08/1938 00:00,Stephens,Autry,1938,3,8,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+183,9900,Service,Liu Yongxing,74,China,Shanghai,Diversified,Service,TRUE,M,06/01/1948 00:00,Liu,Yongxing,1948,6,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+184,9800,Diversified,Vinod Adani,74,United Arab Emirates,Dubai,"Infrastructure, commodities",Diversified,TRUE,M,01/10/1949 00:00,Adani,Vinod,1949,1,10,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529
+184,9800,Fashion & Retail,Nicolas Puech,80,Switzerland,Martigny,Hermes,Fashion & Retail,FALSE,M,1/29/1943 0:00,Puech,Nicolas,1943,1,29,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+184,9800,Logistics,"Jacques Saadé, Jr.",51,France,Marseille,Shipping,Logistics,FALSE,M,08/10/1971 00:00,Saadé,Jacques,1971,8,10,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+184,9800,Logistics,Rodolphe Saadé,53,France,Marseille,Shipping,Logistics,FALSE,M,03/03/1970 00:00,Saadé,Rodolphe,1970,3,3,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+184,9800,Logistics,Tanya Saadé Zeenny,55,France,Marseille,Shipping,Logistics,FALSE,F,02/01/1968 00:00,Saadé Zeenny,Tanya,1968,2,1,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+184,9800,Finance & Investments,Melker Schorling & family,75,Sweden,Stockholm,Investments,Finance & Investments,TRUE,M,5/15/1947 0:00,Schorling,Melker,1947,5,15,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+190,9700,Manufacturing,Andrei Guriev & family,63,Russia,Moscow,Fertilizers,Manufacturing,TRUE,M,3/24/1960 0:00,Guriev & family,Andrei,1960,3,24,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+190,9700,Finance & Investments,Michael Kim,59,South Korea,Seoul,Private equity,Finance & Investments,TRUE,M,10/01/1963 00:00,Kim,Michael,1963,10,1,115.16,"$2,029,000,000,000 ",82.6,15.6,33.2,51709098
+190,9700,Technology,Lei Jun,53,China,Beijing,Smartphones,Technology,TRUE,M,12/16/1969 0:00,Lei,Jun,1969,12,16,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+190,9700,Manufacturing,Friedhelm Loh,76,Germany,Haiger,Manufacturing,Manufacturing,FALSE,M,8/15/1946 0:00,Loh,Friedhelm,1946,8,15,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+190,9700,Healthcare,Sun Piaoyang,64,China,Lianyungang,Pharmaceuticals,Healthcare,TRUE,M,09/01/1958 00:00,Sun,Piaoyang,1958,9,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+195,9600,Technology,Rick Cohen & family,70,United States,Keene,Warehouse automation,Technology,FALSE,M,7/25/1952 0:00,Cohen,Rick,1952,7,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+195,9600,Energy,Jin Baofang,70,China,Xingtai,Solar panels,Energy,TRUE,M,09/01/1952 00:00,Jin,Baofang,1952,9,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+195,9600,Manufacturing,Luo Liguo & family,67,China,Ningbo,Chemicals,Manufacturing,TRUE,M,03/01/1956 00:00,Luo,Liguo,1956,3,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+195,9600,Food & Beverage,Marijke Mars,58,United States,Los Angeles,"Candy, pet food",Food & Beverage,FALSE,F,7/28/1964 0:00,Mars,Marijke,1964,7,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+195,9600,Food & Beverage,Pamela Mars,62,United States,Alexandria,"Candy, pet food",Food & Beverage,FALSE,F,08/01/1960 00:00,Mars,Pamela,1960,8,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+195,9600,Food & Beverage,Valerie Mars,64,United States,New York,"Candy, pet food",Food & Beverage,FALSE,F,1/26/1959 0:00,Mars,Valerie,1959,1,26,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+195,9600,Food & Beverage,Victoria Mars,66,United States,Philadelphia,"Candy, pet food",Food & Beverage,FALSE,F,12/15/1956 0:00,Mars,Victoria,1956,12,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+202,9500,Finance & Investments,Vincent Bolloré & family,71,France,Paris,Investments,Finance & Investments,FALSE,M,04/01/1952 00:00,Bolloré,Vincent,1952,4,1,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+202,9500,Diversified,Jim Pattison,94,Canada,Vancouver,Diversified,Diversified,TRUE,M,10/01/2028 00:00,Pattison,Jim,1928,10,1,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+204,9400,Healthcare,Ernesto Bertarelli,57,Switzerland,Gstaad,"Biotech, investments",Healthcare,FALSE,M,9/22/1965 0:00,Bertarelli,Ernesto,1965,9,22,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+204,9400,Technology,Wang Xing,44,China,Beijing,Food delivery,Technology,TRUE,M,2/18/1979 0:00,Wang,Xing,1979,2,18,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+206,9300,Technology,Brian Chesky,41,United States,San Francisco,Airbnb,Technology,TRUE,M,8/29/1981 0:00,Chesky,Brian,1981,8,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+206,9300,Manufacturing,James Dyson,75,United Kingdom,Gloucestershire,Vacuums,Manufacturing,TRUE,M,05/02/1947 00:00,Dyson,James,1947,5,2,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+208,9200,Diversified,Roman Abramovich & family,56,Russia,Moscow,"Steel, investments",Diversified,TRUE,M,10/24/1966 0:00,Abramovich,Roman,1966,10,24,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+208,9200,Diversified,Antonia Ax:son Johnson & family,79,Sweden,Stockholm,Diversified,Diversified,FALSE,F,09/06/1943 00:00,Ax:son Johnson,Antonia,1943,9,6,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+208,9200,Energy,Daniel Kretinsky,47,Czech Republic,Prague,"Energy, investments",Energy,TRUE,M,07/09/1975 00:00,Kretinsky,Daniel,1975,7,9,116.48,"$246,489,245,495 ",79,14.9,46.1,10669709
+208,9200,Media & Entertainment,John Malone,82,United States,Elizabeth,Cable television,Media & Entertainment,TRUE,M,03/07/1941 00:00,Malone,John,1941,3,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+208,9200,Technology,Azim Premji,77,India,Bangalore,Software services,Technology,FALSE,M,7/24/1945 0:00,Premji,Azim,1945,7,24,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+208,9200,Finance & Investments,Charles Schwab,85,United States,Woodside,Discount brokerage,Finance & Investments,TRUE,M,7/29/1937 0:00,Schwab,Charles,1937,7,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+208,9200,Fashion & Retail,Eric Smidt,63,United States,Beverly Hills,Hardware stores,Fashion & Retail,TRUE,M,01/01/1960 00:00,Smidt,Eric,1960,1,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+215,9000,Technology,David Cheriton,72,United States,Palo Alto,Google,Technology,TRUE,M,3/29/1951 0:00,Cheriton,David,1951,3,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+215,9000,Metals & Mining,Ivan Glasenberg,66,Switzerland,Ruschlikon,Mining,Metals & Mining,TRUE,M,01/07/1957 00:00,Glasenberg,Ivan,1957,1,7,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+215,9000,Real Estate,Alexander Otto,55,Germany,Hamburg,Real estate,Real Estate,FALSE,M,07/07/1967 00:00,Otto,Alexander,1967,7,7,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+215,9000,Food & Beverage,Anthony von Mandl,73,Canada,Vancouver,Alcoholic beverages,Food & Beverage,TRUE,M,03/10/1950 00:00,von Mandl,Anthony,1950,3,10,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+215,9000,Manufacturing,Wang Liping & family,57,China,Changzhou,Hydraulic machinery,Manufacturing,TRUE,M,2/24/1966 0:00,Wang,Liping,1966,2,24,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+220,8900,Food & Beverage,Finn Rausing,68,United Kingdom,London,Packaging,Food & Beverage,FALSE,M,01/01/1955 00:00,Rausing,Finn,1955,1,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+220,8900,Food & Beverage,Jorn Rausing,63,United Kingdom,Surrey,Packaging,Food & Beverage,FALSE,M,01/01/1960 00:00,Rausing,Jorn,1960,1,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+220,8900,Food & Beverage,Kirsten Rausing,70,United Kingdom,Newmarket,Packaging,Food & Beverage,FALSE,F,06/06/1952 00:00,Rausing,Kirsten,1952,6,6,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+223,8800,Fashion & Retail,Tatyana Bakalchuk,47,Russia,Moscow region,Ecommerce,Fashion & Retail,TRUE,F,10/16/1975 0:00,Bakalchuk,Tatyana,1975,10,16,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+223,8800,Technology,John Doerr,71,United States,Woodside,Venture capital,Technology,TRUE,M,6/29/1951 0:00,Doerr,John,1951,6,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+223,8800,Technology,Richard Liu,49,China,Beijing,E-commerce,Technology,TRUE,M,03/10/1974 00:00,Liu,Richard,1974,3,10,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+223,8800,Technology,Dustin Moskovitz,38,United States,San Francisco,Facebook,Technology,TRUE,M,5/22/1984 0:00,Moskovitz,Dustin,1984,5,22,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+223,8800,Technology,Pierre Omidyar,55,United States,Honolulu,"EBay, PayPal",Technology,TRUE,M,6/21/1967 0:00,Omidyar,Pierre,1967,6,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+223,8800,Energy,Pei Zhenhua,64,China,Ningde,Batteries,Energy,TRUE,M,01/01/1959 00:00,Pei,Zhenhua,1959,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+223,8800,Energy,Carrie Perrodo & family,72,United Kingdom,London,Oil,Energy,FALSE,F,01/01/1951 00:00,Perrodo,Carrie,1951,1,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+230,8700,Manufacturing,Chen Jianhua,52,China,Wujiang,Chemicals,Manufacturing,TRUE,M,01/01/1971 00:00,Chen,Jianhua,1971,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+230,8700,Fashion & Retail,Michael Otto,79,Germany,Hamburg,"Retail, real estate",Fashion & Retail,FALSE,M,04/12/1943 00:00,Otto,Michael,1943,4,12,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+232,8600,Finance & Investments,Leon Black,71,United States,New York,Private equity,Finance & Investments,TRUE,M,7/31/1951 0:00,Black,Leon,1951,7,31,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+232,8600,Finance & Investments,Graeme Hart,67,New Zealand,Auckland,Investments,Finance & Investments,TRUE,M,06/06/1955 00:00,Hart,Graeme,1955,6,6,114.24,"$206,928,765,544 ",81.9,29,34.6,4841000
+232,8600,Food & Beverage,Ravi Jaipuria,68,India,Delhi,"Soft drinks, fast food",Food & Beverage,FALSE,M,11/28/1954 0:00,Jaipuria,Ravi,1954,11,28,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+232,8600,Technology,Hasso Plattner & family,79,Germany,Heidelberg,Software,Technology,TRUE,M,1/21/1944 0:00,Plattner,Hasso,1944,1,21,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+232,8600,Food & Beverage,Carlos Alberto Sicupira & family,75,Switzerland,St. Gallen,Beer,Food & Beverage,TRUE,M,01/01/1948 00:00,Sicupira,Carlos Alberto,1948,1,1,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+232,8600,Real Estate,Manuel Villar,73,Philippines,Manila,Real estate,Real Estate,TRUE,M,12/13/1949 0:00,Villar,Manuel,1949,12,13,129.61,"$376,795,508,680 ",71.1,14,43.1,108116615
+232,8600,Technology,Andreas von Bechtolsheim & family,67,United States,Palo Alto,Google,Technology,TRUE,M,9/30/1955 0:00,von Bechtolsheim,Andreas,1955,9,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+239,8500,Finance & Investments,"Chase Coleman, III.",47,United States,New York,Investments,Finance & Investments,TRUE,M,6/21/1975 0:00,Coleman,Chase,1975,6,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+239,8500,Fashion & Retail,Ann Walton Kroenke,74,United States,Electra,Walmart,Fashion & Retail,FALSE,F,12/18/1948 0:00,Kroenke,Ann Walton,1948,12,18,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+239,8500,Manufacturing,Li Zhenguo & family,55,China,Xi'an,Solar wafers and modules,Manufacturing,TRUE,M,01/01/1968 00:00,Li,Zhenguo,1968,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+242,8400,Media & Entertainment,Jim Kennedy,75,United States,Atlanta,"Media, automotive",Media & Entertainment,FALSE,M,11/29/1947 0:00,Kennedy,Jim,1947,11,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+242,8400,Metals & Mining,Nicky Oppenheimer & family,77,South Africa,Johannesburg,Diamonds,Metals & Mining,FALSE,M,06/08/1945 00:00,Oppenheimer,Nicky,1945,6,8,158.93,"$351,431,649,241 ",63.9,27.5,29.2,58558270
+242,8400,Media & Entertainment,Blair Parry-Okeden,72,Australia,New South Wales,"Media, automotive",Media & Entertainment,FALSE,F,5/21/1950 0:00,Parry-Okeden,Blair,1950,5,21,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+242,8400,Metals & Mining,Zheng Shuliang & family,77,China,Binzhou,Aluminum products,Metals & Mining,FALSE,F,01/01/1946 00:00,Zheng,Shuliang,1946,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+246,8300,Fashion & Retail,John Morris,75,United States,Springfield,Sporting goods retail,Fashion & Retail,TRUE,M,3/19/1948 0:00,Morris,John,1948,3,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+249,8200,Energy,German Khan,61,Russia,Moscow,"Oil, banking, telecom",Energy,TRUE,M,10/24/1961 0:00,Khan,German,1961,10,24,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+249,8200,Diversified,Abdulsamad Rabiu,62,Nigeria,Lagos,"Cement, sugar",Diversified,FALSE,M,08/04/1960 00:00,Rabiu,Abdulsamad,1960,8,4,267.51,"$448,120,428,859 ",54.3,1.5,34.8,200963599
+249,8200,Finance & Investments,George Roberts,79,United States,Atherton,Private equity,Finance & Investments,TRUE,M,9/14/1943 0:00,Roberts,George,1943,9,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+249,8200,Real Estate,Kushal Pal Singh,91,India,Delhi,Real estate,Real Estate,FALSE,M,8/15/1931 0:00,Singh,Kushal Pal,1931,8,15,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+249,8200,Real Estate,Wang Jianlin,68,China,Beijing,Real estate,Real Estate,TRUE,M,10/01/1954 00:00,Wang,Jianlin,1954,10,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+249,8200,Real Estate,Yang Huiyan & family,41,China,Foshan,Real estate,Real Estate,FALSE,F,9/27/1981 0:00,Yang,Huiyan,1981,9,27,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+256,8100,Diversified,Laurent Dassault,69,France,Paris,Diversified,Diversified,FALSE,M,07/07/1953 00:00,Dassault,Laurent,1953,7,7,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+256,8100,Diversified,Thierry Dassault,66,France,Paris,Diversified,Diversified,FALSE,M,3/26/1957 0:00,Dassault,Thierry,1957,3,26,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+256,8100,Food & Beverage,Tilman Fertitta,65,United States,Houston,"Houston Rockets, entertainment",Food & Beverage,TRUE,M,6/25/1957 0:00,Fertitta,Tilman,1957,6,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+256,8100,Diversified,Marie-Hélène Habert-Dassault,58,France,Paris,Diversified,Diversified,FALSE,F,04/04/1965 00:00,Habert-Dassault,Marie-Hélène,1965,4,4,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+256,8100,Gambling & Casinos,Karel Komarek,54,Switzerland,Verbier,"Oil and gas, IT, lotteries",Gambling & Casinos,TRUE,M,3/15/1969 0:00,Komarek,Karel,1969,3,15,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+261,8000,Technology,Nathan Blecharczyk,39,United States,San Francisco,Airbnb,Technology,TRUE,M,06/11/1983 00:00,Blecharczyk,Nathan,1983,6,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+261,8000,Energy,Leonid Fedun,66,Russia,Moscow,Oil,Energy,TRUE,M,04/05/1956 00:00,Fedun,Leonid,1956,4,5,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+261,8000,Fashion & Retail,Bernard Marcus,93,United States,Atlanta,Home Depot,Fashion & Retail,TRUE,M,05/12/2029 00:00,Marcus,Bernard,1929,5,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+261,8000,Finance & Investments,Patrick Ryan,85,United States,Winnetka,Insurance,Finance & Investments,TRUE,M,5/15/1937 0:00,Ryan,Patrick,1937,5,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+261,8000,Finance & Investments,Robert F. Smith,60,United States,Austin,Private equity,Finance & Investments,TRUE,M,12/01/1962 00:00,Smith,Robert F.,1962,12,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+261,8000,Metals & Mining,Pavel Tykac,58,Czech Republic,Prague,Coal mines,Metals & Mining,TRUE,M,5/15/1964 0:00,Tykac,Pavel,1964,5,15,116.48,"$246,489,245,495 ",79,14.9,46.1,10669709
+268,7900,Finance & Investments,Orlando Bravo,52,United States,Miami Beach,Private equity,Finance & Investments,TRUE,M,9/23/1970 0:00,Bravo,Orlando,1970,9,23,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+268,7900,Fashion & Retail,Ding Shizhong,52,China,Quanzhou,Sports apparel,Fashion & Retail,TRUE,M,12/01/1970 00:00,Ding,Shizhong,1970,12,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+268,7900,Fashion & Retail,Nancy Walton Laurie,71,United States,Henderson,Walmart,Fashion & Retail,FALSE,F,5/15/1951 0:00,Laurie,Nancy Walton,1951,5,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+268,7900,Technology,Jay Y. Lee,54,South Korea,Seoul,Samsung,Technology,FALSE,M,6/23/1968 0:00,Lee,Jay Y.,1968,6,23,115.16,"$2,029,000,000,000 ",82.6,15.6,33.2,51709098
+268,7900,Finance & Investments,Ramzi Musallam,54,United States,New York,Private equity,Finance & Investments,TRUE,M,9/17/1968 0:00,Musallam,Ramzi,1968,9,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+268,7900,Finance & Investments,David Shaw,72,United States,New York,Hedge funds,Finance & Investments,TRUE,M,3/29/1951 0:00,Shaw,David,1951,3,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+268,7900,Metals & Mining,Andrei Skoch & family,57,Russia,Moscow,Metals and mining,Metals & Mining,TRUE,M,1/30/1966 0:00,Skoch & family,Andrei,1966,1,30,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+268,7900,Diversified,Georg Stumpf,50,Austria,Vienna,"Real estate, construction",Diversified,TRUE,M,9/14/1972 0:00,Stumpf,Georg,1972,9,14,118.06,"$446,314,739,528 ",81.6,25.4,51.4,8877067
+276,7800,Telecom,Rocco Commisso,73,United States,Saddle River,Telecom,Telecom,TRUE,M,11/25/1949 0:00,Commisso,Rocco,1949,11,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+276,7800,Manufacturing,Li Shuirong & family,66,China,Hangzhou,Petrochemicals,Manufacturing,TRUE,M,07/01/1956 00:00,Li,Shuirong,1956,7,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+276,7800,Technology,Qi Shi & family,53,China,Shanghai,Financial information,Technology,TRUE,M,01/03/1970 00:00,Qi,Shi,1970,1,3,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+276,7800,Manufacturing,Yao Liangsong,58,China,Guangzhou,Furniture,Manufacturing,TRUE,M,08/01/1964 00:00,Yao,Liangsong,1964,8,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+282,7700,Food & Beverage,Jean-Michel Besnier,55,France,Laval,Cheese,Food & Beverage,FALSE,M,06/05/1967 00:00,Besnier,Jean-Michel,1967,6,5,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+282,7700,Food & Beverage,Marie Besnier Beauvalot,42,France,Laval,Cheese,Food & Beverage,FALSE,F,7/30/1980 0:00,Besnier Beauvalot,Marie,1980,7,30,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+282,7700,Media & Entertainment,David Geffen,80,United States,Beverly Hills,"Movies, record labels",Media & Entertainment,TRUE,M,2/21/1943 0:00,Geffen,David,1943,2,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+282,7700,Technology,Robin Li,54,China,Beijing,Internet search,Technology,TRUE,M,11/17/1968 0:00,Li,Robin,1968,11,17,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+282,7700,Service,Liu Yonghao & family,71,China,Chengdu,Agribusiness,Service,TRUE,M,09/01/1951 00:00,Liu,Yonghao,1951,9,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+282,7700,Technology,Henry Samueli,68,United States,Newport Beach,Semiconductors,Technology,TRUE,M,9/20/1954 0:00,Samueli,Henry,1954,9,20,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+282,7700,Healthcare,Reinhold Schmieding,68,United States,Naples,Medical devices,Healthcare,TRUE,M,01/03/1955 00:00,Schmieding,Reinhold,1955,1,3,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+282,7700,Real Estate,Ivar Tollefsen,61,Norway,Oslo,Real estate,Real Estate,TRUE,M,6/23/1961 0:00,Tollefsen,Ivar,1961,6,23,120.27,"$403,336,363,636 ",82.8,23.9,36.2,5347896
+290,7600,Energy,Cao Renxian,54,China,Hefei,Photovoltaic equipment,Energy,TRUE,M,7/24/1968 0:00,Cao,Renxian,1968,7,24,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+290,7600,Healthcare,Hasmukh Chudgar & family,89,India,Ahmedabad,Pharmaceuticals,Healthcare,TRUE,M,9/19/1933 0:00,Chudgar,Hasmukh,1933,9,19,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+290,7600,Manufacturing,Andrew Currie,67,United Kingdom,London,Chemicals,Manufacturing,TRUE,M,12/04/1955 00:00,Currie,Andrew,1955,12,4,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+290,7600,Technology,Joe Gebbia,41,United States,Austin,Airbnb,Technology,TRUE,M,8/21/1981 0:00,Gebbia,Joe,1981,8,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+290,7600,Real Estate,Philip Ng,64,Singapore,Singapore,Real Estate,Real Estate,FALSE,M,01/01/1959 00:00,Ng,Philip,1959,1,1,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+290,7600,Manufacturing,John Reece,66,United Kingdom,London,Chemicals,Manufacturing,TRUE,M,03/07/1957 00:00,Reece,John,1957,3,7,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+290,7600,Real Estate,Leonard Stern,85,United States,New York,Real estate,Real Estate,FALSE,M,3/28/1938 0:00,Stern,Leonard,1938,3,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+290,7600,Healthcare,Zhong Huijuan,62,China,Shanghai,Pharmaceuticals,Healthcare,TRUE,F,01/01/1961 00:00,Zhong,Huijuan,1961,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+299,7500,Sports,Arthur Blank,80,United States,Atlanta,Home Depot,Sports,TRUE,M,9/27/1942 0:00,Blank,Arthur,1942,9,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+299,7500,Fashion & Retail,Charles Butt,85,United States,San Antonio,Supermarkets,Fashion & Retail,FALSE,M,02/03/1938 00:00,Butt,Charles,1938,2,3,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+299,7500,Fashion & Retail,Ding Shijia,59,China,Quanzhou,Sports apparel,Fashion & Retail,TRUE,M,01/01/1964 00:00,Ding,Shijia,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+299,7500,Finance & Investments,"Paul Tudor Jones, II.",68,United States,Palm Beach,Hedge funds,Finance & Investments,TRUE,M,9/28/1954 0:00,Jones,Paul Tudor,1954,9,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+299,7500,Finance & Investments,Henry Kravis,79,United States,New York,Private equity,Finance & Investments,TRUE,M,01/06/1944 00:00,Kravis,Henry,1944,1,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+299,7500,Food & Beverage,Zhang Yong,52,Singapore,Singapore,Restaurants,Food & Beverage,TRUE,M,07/01/1970 00:00,Zhang,Yong,1970,7,1,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+305,7400,Technology,James Goodnight,80,United States,Cary,Software,Technology,TRUE,M,01/06/1943 04:00,Goodnight,James,1943,1,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+305,7400,Manufacturing,Sri Prakash Lohia,70,United Kingdom,London,Petrochemicals,Manufacturing,FALSE,M,08/11/1952 00:00,Lohia,Sri Prakash,1952,8,11,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+305,7400,Fashion & Retail,Ma Jianrong,59,China,Ningbo,"Textiles, apparel",Fashion & Retail,TRUE,M,01/01/1964 00:00,Ma,Jianrong,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+305,7400,Real Estate,Robert Ng,71,Singapore,Singapore,Real estate,Real Estate,FALSE,M,01/01/1952 00:00,Ng,Robert,1952,1,1,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+305,7400,Manufacturing,Steven Rales,72,United States,Santa Barbara,"Manufacturing, investments",Manufacturing,TRUE,M,3/31/1951 0:00,Rales,Steven,1951,3,31,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+305,7400,Construction & Engineering,Nassef Sawiris,62,Egypt,Cairo,"Construction, investments",Construction & Engineering,FALSE,M,1/19/1961 0:00,Sawiris,Nassef,1961,1,19,288.57,"$303,175,127,598 ",71.8,12.5,44.4,100388073
+305,7400,Food & Beverage,Harry Stine,81,United States,Adel,Agriculture,Food & Beverage,TRUE,M,11/30/1941 0:00,Stine,Harry,1941,11,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+312,7300,Manufacturing,Benu Gopal Bangur,91,India,Kolkata,Cement,Manufacturing,FALSE,M,06/01/1931 00:00,Bangur,Benu Gopal,1931,6,1,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+312,7300,Metals & Mining,Iskander Makhmudov,59,Russia,Moscow,"Mining, metals, machinery",Metals & Mining,TRUE,M,12/05/1963 00:00,Makhmudov,Iskander,1963,12,5,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+312,7300,Fashion & Retail,Anders Holch Povlsen,50,Denmark,Aarhus,Fashion retail,Fashion & Retail,FALSE,M,11/04/1972 00:00,Povlsen,Anders Holch,1972,11,4,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+312,7300,Logistics,Enrique Razon Jr.,63,Philippines,Manila,Ports,Logistics,FALSE,M,03/03/1960 00:00,Razon Jr.,Enrique,1960,3,3,129.61,"$376,795,508,680 ",71.1,14,43.1,108116615
+312,7300,Technology,Wang Laichun,55,China,Shenzhen,Electronics components,Technology,TRUE,F,06/03/1967 00:00,Wang,Laichun,1967,6,3,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+317,7200,Finance & Investments,Arthur Dantchik,65,United States,Gladwyne,"Trading, investments",Finance & Investments,TRUE,M,11/25/1957 0:00,Dantchik,Arthur,1957,11,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+317,7200,Real Estate,Jeff Greene,68,United States,Palm Beach,"Real estate, investments",Real Estate,TRUE,M,12/10/1954 00:00,Greene,Jeff,1954,12,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+317,7200,Finance & Investments,Don Hankey,79,United States,Malibu,Auto loans,Finance & Investments,TRUE,M,6/13/1943 0:00,Hankey,Don,1943,6,13,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+317,7200,Energy,Richard Kinder,78,United States,Houston,Pipelines,Energy,TRUE,M,10/19/1944 0:00,Kinder,Richard,1944,10,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+317,7200,Finance & Investments,Guillaume Pousaz,41,United Arab Emirates,Dubai,Fintech,Finance & Investments,TRUE,M,8/15/1981 0:00,Pousaz,Guillaume,1981,8,15,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529
+317,7200,Fashion & Retail,Takahisa Takahara,61,Japan,Tokyo,Personal care goods,Fashion & Retail,FALSE,M,07/12/1961 00:00,Takahara,Takahisa,1961,7,12,105.48,"$5,081,769,542,380 ",84.2,11.9,46.7,126226568
+317,7200,Food & Beverage,Zong Qinghou,77,China,Hangzhou,Beverages,Food & Beverage,TRUE,M,10/01/1945 00:00,Zong,Qinghou,1945,10,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+325,7100,Technology,Judy Faulkner,79,United States,Madison,Healthcare software,Technology,TRUE,F,08/01/1943 00:00,Faulkner,Judy,1943,8,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+325,7100,Gambling & Casinos,Johann Graf,76,Austria,Vienna,Gambling,Gambling & Casinos,TRUE,M,01/03/1947 00:00,Graf,Johann,1947,1,3,118.06,"$446,314,739,528 ",81.6,25.4,51.4,8877067
+325,7100,Service,Tamara Gustavson,61,United States,Lexington,Self storage,Service,FALSE,F,11/16/1961 0:00,Gustavson,Tamara,1961,11,16,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+325,7100,Manufacturing,Liang Wengen,66,China,Changsha,Construction equipment,Manufacturing,TRUE,M,12/14/1956 0:00,Liang,Wengen,1956,12,14,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+325,7100,Healthcare,Frederik Paulsen,72,Switzerland,Lausanne,Health care,Healthcare,FALSE,M,10/30/1950 0:00,Paulsen,Frederik,1950,10,30,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+325,7100,Finance & Investments,Wee Cho Yaw,94,Singapore,Singapore,Banking,Finance & Investments,FALSE,M,01/10/2029 00:00,Wee,Cho Yaw,1929,1,10,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+325,7100,Manufacturing,Zhang Hejun,71,China,Ningbo,Electronics,Manufacturing,TRUE,M,01/01/1952 00:00,Zhang,Hejun,1952,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+332,7000,Technology,Marc Benioff,58,United States,San Francisco,Business software,Technology,TRUE,M,9/25/1964 0:00,Benioff,Marc,1964,9,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+332,7000,Media & Entertainment,Dmitri Bukhman,37,United Kingdom,London,Online games,Media & Entertainment,TRUE,M,5/27/1985 0:00,Bukhman,Dmitri,1985,5,27,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+332,7000,Media & Entertainment,Igor Bukhman,41,United Kingdom,London,Online games,Media & Entertainment,TRUE,M,3/29/1982 0:00,Bukhman,Igor,1982,3,29,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+332,7000,Technology,Jack Dangermond,77,United States,Redlands,Mapping software,Technology,TRUE,M,7/23/1945 0:00,Dangermond,Jack,1945,7,23,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+332,7000,Manufacturing,Ashwin Dani & family,80,India,Mumbai,Paints,Manufacturing,FALSE,M,10/24/1942 0:00,Dani,Ashwin,1942,10,24,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+332,7000,Fashion & Retail,Ralph Lauren,83,United States,New York,Apparel,Fashion & Retail,TRUE,M,10/14/1939 0:00,Lauren,Ralph,1939,10,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+332,7000,Diversified,Rohiqa Cyrus Mistry,55,India,Mumbai,Diversified,Diversified,FALSE,F,06/06/1967 00:00,Mistry,Rohiqa Cyrus,1967,6,6,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+332,7000,Diversified,Shapoor Mistry,58,India,Mumbai,Diversified,Diversified,FALSE,M,09/06/1964 00:00,Mistry,Shapoor,1964,9,6,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+332,7000,Food & Beverage,J. Christopher Reyes,69,United States,Hobe Sound,Food distribution,Food & Beverage,TRUE,M,12/29/1953 0:00,Reyes,J. Christopher,1953,12,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+332,7000,Food & Beverage,Jude Reyes,67,United States,Palm Beach,Food distribution,Food & Beverage,TRUE,M,9/16/1955 0:00,Reyes,Jude,1955,9,16,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+332,7000,Food & Beverage,Don Vultaggio & family,71,United States,Port Washington,Beverages,Food & Beverage,TRUE,M,2/26/1952 0:00,Vultaggio,Don,1952,2,26,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+344,6900,Diversified,Edythe Broad & family,87,United States,Los Angeles,"Homebuilding, insurance",Diversified,FALSE,F,01/01/1936 00:00,Broad,Edythe,1936,1,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+344,6900,Food & Beverage,Pauline MacMillan Keinath,89,United States,St. Louis,Cargill,Food & Beverage,FALSE,F,01/01/1934 00:00,Keinath,Pauline MacMillan,1934,1,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+344,6900,Finance & Investments,Philippe Laffont,55,United States,New York,Hedge fund,Finance & Investments,TRUE,M,9/16/1967 0:00,Laffont,Philippe,1967,9,16,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+344,6900,Technology,Liu Jincheng & family,58,China,Huizhou,Lithium batteries,Technology,TRUE,M,9/22/1964 0:00,Liu,Jincheng,1964,9,22,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+344,6900,Real Estate,Igor Olenicoff,80,United States,Lighthouse Point,Real estate,Real Estate,TRUE,M,9/20/1942 0:00,Olenicoff,Igor,1942,9,20,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+344,6900,Fashion & Retail,Sandra Ortega Mera,54,Spain,La Coruna,Zara,Fashion & Retail,FALSE,F,07/09/1968 00:00,Ortega Mera,Sandra,1968,7,9,110.96,"$1,394,116,310,769 ",83.3,14.2,47,47076781
+344,6900,Healthcare,Ronda Stryker,68,United States,Portage,Medical equipment,Healthcare,FALSE,F,05/01/1954 00:00,Stryker,Ronda,1954,5,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Energy,Dannine Avara,59,United States,Houston,Pipelines,Energy,FALSE,F,03/09/1964 00:00,Avara,Dannine,1964,3,9,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Diversified,Silvio Berlusconi & family,86,Italy,Milan,Media,Diversified,TRUE,M,9/29/1936 0:00,Berlusconi,Silvio,1936,9,29,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+352,6800,Gambling & Casinos,Denise Coates,55,United Kingdom,Stoke-on-Trent,Online gambling,Gambling & Casinos,TRUE,F,9/26/1967 0:00,Coates,Denise,1967,9,26,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+352,6800,Energy,Scott Duncan,40,United States,Houston,Pipelines,Energy,FALSE,M,11/01/1982 00:00,Duncan,Scott,1982,11,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Energy,Milane Frantz,53,United States,Houston,Pipelines,Energy,FALSE,F,08/12/1969 00:00,Frantz,Milane,1969,8,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Finance & Investments,"Edward Johnson, IV.",58,United States,Boston,Fidelity,Finance & Investments,FALSE,M,11/18/1964 0:00,Johnson,Edward,1964,11,18,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Finance & Investments,Yuri Milner,61,United States,Los Altos,Tech investments,Finance & Investments,TRUE,M,11/11/1961 00:00,Milner,Yuri,1961,11,11,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Technology,Gordon Moore,94,United States,Woodside,Intel,Technology,TRUE,M,01/03/2029 00:00,Moore,Gordon,1929,1,3,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Finance & Investments,John Overdeck,53,United States,Millburn,Hedge funds,Finance & Investments,TRUE,M,12/21/1969 0:00,Overdeck,John,1969,12,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Finance & Investments,David Siegel,61,United States,Scarsdale,Hedge funds,Finance & Investments,TRUE,M,7/15/1961 0:00,Siegel,David,1961,7,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+352,6800,Diversified,Viktor Vekselberg,65,Russia,Moscow,"Metals, investments",Diversified,TRUE,M,4/14/1957 0:00,Vekselberg,Viktor,1957,4,14,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+352,6800,Technology,Wang Laisheng,58,China,Shenzhen,Electronics components,Technology,TRUE,M,12/14/1964 0:00,Wang,Laisheng,1964,12,14,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+352,6800,Energy,Randa Duncan Williams,61,United States,Houston,Pipelines,Energy,FALSE,F,8/28/1961 0:00,Williams,Randa Duncan,1961,8,28,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Finance & Investments,Ken Fisher,72,United States,Dallas,Money management,Finance & Investments,TRUE,M,11/29/1950 0:00,Fisher,Ken,1950,11,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Finance & Investments,Christopher Hohn,56,United Kingdom,London,Hedge funds,Finance & Investments,TRUE,M,10/27/1966 0:00,Hohn,Christopher,1966,10,27,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+365,6700,Manufacturing,Kjeld Kirk Kristiansen,75,Denmark,Billund,Lego,Manufacturing,FALSE,M,12/27/1947 0:00,Kristiansen,Kjeld Kirk,1947,12,27,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+365,6700,Manufacturing,Sofie Kirk Kristiansen,47,Denmark,Billund,Lego,Manufacturing,FALSE,F,01/01/1976 00:00,Kristiansen,Sofie Kirk,1976,1,1,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+365,6700,Manufacturing,Thomas Kirk Kristiansen,44,Denmark,Billund,Lego,Manufacturing,FALSE,M,01/01/1979 00:00,Kristiansen,Thomas Kirk,1979,1,1,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+365,6700,Healthcare,Massimiliana Landini Aleotti & family,80,Italy,Fiesole,Pharmaceuticals,Healthcare,FALSE,F,01/01/1943 00:00,Landini Aleotti,Massimiliana,1943,1,1,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+365,6700,Automotive,Li Ping,55,China,Ningde,Batteries,Automotive,TRUE,M,01/01/1968 00:00,Li,Ping,1968,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+365,6700,Manufacturing,Lin Jianhua,60,China,Hangzhou,Solar panel components,Manufacturing,TRUE,M,08/01/1962 00:00,Lin,Jianhua,1962,8,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+365,6700,Manufacturing,Magdalena Martullo-Blocher,54,Switzerland,Feldmeilen,Chemicals,Manufacturing,FALSE,F,01/01/1969 00:00,Martullo-Blocher,Magdalena,1969,1,1,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+365,6700,Telecom,Xavier Niel,55,France,Paris,"Internet, telecom",Telecom,TRUE,M,8/25/1967 0:00,Niel,Xavier,1967,8,25,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+365,6700,Energy,Terrence Pegula,72,United States,Boca Raton,Natural gas,Energy,TRUE,M,3/27/1951 0:00,Pegula,Terrence,1951,3,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Real Estate,"Edward Roski, Jr.",84,United States,Los Angeles,Real estate,Real Estate,FALSE,M,12/25/1938 0:00,Roski,Edward,1938,12,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Real Estate,John A. Sobrato & family,83,United States,Atherton,Real estate,Real Estate,TRUE,M,5/23/1939 0:00,Sobrato,John A.,1939,5,23,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Finance & Investments,George Soros,92,United States,Katonah,Hedge funds,Finance & Investments,TRUE,M,08/12/1930 00:00,Soros,George,1930,8,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Technology,David Sun,71,United States,Irvine,Computer hardware,Technology,TRUE,M,10/12/1951 00:00,Sun,David,1951,10,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Manufacturing,Agnete Kirk Thinggaard,39,Denmark,Billund,Lego,Manufacturing,FALSE,F,5/18/1983 0:00,Thinggaard,Agnete Kirk,1983,5,18,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+365,6700,Technology,John Tu,81,United States,Rolling Hills,Computer hardware,Technology,TRUE,M,08/12/1941 00:00,Tu,John,1941,8,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+365,6700,Food & Beverage,Xu Shihui,65,China,Quanzhou,"Snacks, beverages",Food & Beverage,TRUE,M,01/01/1958 00:00,Xu,Shihui,1958,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+383,6600,Manufacturing,Rahel Blocher,47,Switzerland,Wilen bei Wollerau,Chemicals,Manufacturing,FALSE,F,01/01/1976 00:00,Blocher,Rahel,1976,1,1,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+383,6600,Food & Beverage,Bubba Cathy,68,United States,Atlanta,Chick-fil-A,Food & Beverage,FALSE,M,4/22/1954 0:00,Cathy,Bubba,1954,4,22,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+383,6600,Food & Beverage,Dan Cathy,70,United States,Atlanta,Chick-fil-A,Food & Beverage,FALSE,M,03/01/1953 00:00,Cathy,Dan,1953,3,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+383,6600,Food & Beverage,Trudy Cathy White,67,United States,Hampton,Chick-fil-A,Food & Beverage,FALSE,F,12/17/1955 0:00,Cathy White,Trudy,1955,12,17,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+383,6600,Finance & Investments,Bruce Kovner,78,United States,New York,Hedge funds,Finance & Investments,TRUE,M,2/25/1945 0:00,Kovner,Bruce,1945,2,25,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+383,6600,Technology,"Henry Nicholas, III.",63,United States,Newport Coast,Semiconductors,Technology,TRUE,M,10/08/1959 00:00,Nicholas,Henry,1959,10,8,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+383,6600,Finance & Investments,Nadia Thiele,47,Germany,Munich,Investments,Finance & Investments,FALSE,F,01/07/1976 00:00,Thiele,Nadia,1976,1,7,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+390,6500,Finance & Investments,David Bonderman,80,United States,Fort Worth,Private equity,Finance & Investments,TRUE,M,11/27/1942 0:00,Bonderman,David,1942,11,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+390,6500,Technology,Melinda French Gates,58,United States,Medina,Microsoft,Technology,FALSE,F,8/15/1964 0:00,French Gates,Melinda,1964,8,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+390,6500,Real Estate,Annette Lerner & family,93,United States,Chevy Chase,Real estate,Real Estate,FALSE,F,2/27/1930 0:00,Lerner,Annette,1930,2,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+390,6500,Real Estate,David Reuben,84,United Kingdom,London,"Investments, real estate",Real Estate,TRUE,M,09/01/1938 00:00,Reuben,David,1938,9,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+390,6500,Real Estate,Radovan Vitek,51,Switzerland,Crans Montana,Real estate,Real Estate,TRUE,M,4/22/1971 0:00,Vitek,Radovan,1971,4,22,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+397,6400,Finance & Investments,Carl Bennet,71,Sweden,Gothenberg,Investments,Finance & Investments,TRUE,M,8/19/1951 0:00,Bennet,Carl,1951,8,19,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+397,6400,Sports,Stephen Bisciotti,62,United States,Hobe Sound,"Staffing, Baltimore Ravens",Sports,TRUE,M,04/10/1960 00:00,Bisciotti,Stephen,1960,4,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+397,6400,Finance & Investments,Stanley Druckenmiller,69,United States,New York,Hedge funds,Finance & Investments,TRUE,M,6/14/1953 0:00,Druckenmiller,Stanley,1953,6,14,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+397,6400,Healthcare,Jian Jun,59,China,Beijing,Biomedical products,Healthcare,TRUE,F,11/01/1963 00:00,Jian,Jun,1963,11,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+397,6400,Energy,Alexei Kuzmichev,60,France,Paris,"Oil, banking, telecom",Energy,TRUE,M,10/15/1962 0:00,Kuzmichev,Alexei,1962,10,15,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+397,6400,Finance & Investments,Luis Carlos Sarmiento,90,Colombia,Bogota,Banking,Finance & Investments,TRUE,M,1/27/1933 0:00,Sarmiento,Luis Carlos,1933,1,27,140.95,"$323,802,808,108 ",77.1,14.4,71.2,50339443
+397,6400,Logistics,Dennis Washington,88,United States,Missoula,"Construction, mining",Logistics,TRUE,M,7/27/1934 0:00,Washington,Dennis,1934,7,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+405,6300,Construction & Engineering,Anthony Bamford & family,77,United Kingdom,Gloucestershire,Construction equipment,Construction & Engineering,FALSE,M,10/23/1945 0:00,Bamford,Anthony,1945,10,23,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+405,6300,Energy,Gao Jifan & family,58,China,Changzhou,Solar equipment,Energy,TRUE,M,01/01/1965 00:00,Gao,Jifan,1965,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+405,6300,Finance & Investments,John Grayken,66,United Kingdom,London,Private equity,Finance & Investments,TRUE,M,06/01/1956 00:00,Grayken,John,1956,6,1,119.62,"$2,827,113,184,696 ",81.3,25.5,30.6,66834405
+405,6300,Healthcare,Alain Merieux & family,85,France,Lyon,Pharmaceuticals,Healthcare,FALSE,M,01/01/1938 00:00,Merieux,Alain,1938,1,1,110.05,"$2,715,518,274,227 ",82.5,24.2,60.7,67059887
+405,6300,Energy,Wang Yusuo & family,59,China,Langfang,Natural gas distribution,Energy,TRUE,M,03/11/1964 00:00,Wang,Yusuo,1964,3,11,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+405,6300,Manufacturing,Stef Wertheimer & family,96,Israel,Tel Aviv,Metalworking tools,Manufacturing,TRUE,M,7/16/1926 0:00,Wertheimer,Stef,1926,7,16,108.15,"$395,098,666,122 ",82.8,23.1,25.3,9053300
+411,6200,Food & Beverage,Maria Asuncion Aramburuzabala & family,59,Mexico,Mexico City,"Beer, investments",Food & Beverage,FALSE,F,05/02/1963 00:00,Aramburuzabala,Maria Asuncion,1963,5,2,141.54,"$1,258,286,717,125 ",75,13.1,55.1,126014024
+411,6200,Diversified,Gustaf Douglas,85,Sweden,Stockholm,Investments,Diversified,TRUE,M,03/03/1938 00:00,Douglas,Gustaf,1938,3,3,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+411,6200,Service,Frits Goldschmeding,89,Netherlands,Amsterdam,Temp agency,Service,TRUE,M,08/02/1933 00:00,Goldschmeding,Frits,1933,8,2,115.91,"$909,070,395,161 ",81.8,23,41.2,17332850
+411,6200,Food & Beverage,Lin Muqin & family,59,China,Shenzhen,Beverages,Food & Beverage,TRUE,M,01/01/1964 00:00,Lin,Muqin,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+411,6200,Manufacturing,Ruan Liping,59,China,Ningbo,Power strips,Manufacturing,TRUE,M,01/01/1964 00:00,Ruan,Liping,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+411,6200,Manufacturing,Ruan Xueping,51,China,Ningbo,Power strip,Manufacturing,TRUE,M,01/01/1972 00:00,Ruan,Xueping,1972,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+411,6200,Finance & Investments,Michal Solowow,60,Poland,Kielce,Investments,Finance & Investments,TRUE,M,07/11/1962 00:00,Solowow,Michal,1962,7,11,114.11,"$592,164,400,688 ",77.6,17.4,40.8,37970874
+418,6100,Diversified,Mike Adenuga,69,Nigeria,Lagos,"Telecom, oil",Diversified,TRUE,M,4/29/1953 0:00,Adenuga,Mike,1953,4,29,267.51,"$448,120,428,859 ",54.3,1.5,34.8,200963599
+418,6100,Finance & Investments,Tom Gores,58,United States,Beverly Hills,Private equity,Finance & Investments,TRUE,M,7/31/1964 0:00,Gores,Tom,1964,7,31,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+418,6100,Fashion & Retail,Michael Herz,79,Germany,Hamburg,Coffee,Fashion & Retail,FALSE,M,9/28/1943 0:00,Herz,Michael,1943,9,28,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+418,6100,Fashion & Retail,Wolfgang Herz,72,Germany,Hamburg,Coffee,Fashion & Retail,FALSE,M,01/01/1951 00:00,Herz,Wolfgang,1951,1,1,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+425,6000,Metals & Mining,Alexander Abramov,64,Russia,Moscow,"Steel, mining",Metals & Mining,TRUE,M,2/20/1959 0:00,Abramov,Alexander,1959,2,20,180.75,"$1,699,876,578,871 ",72.7,11.4,46.2,144373535
+425,6000,Real Estate,Neil Bluhm,85,United States,Chicago,Real estate,Real Estate,TRUE,M,01/12/1938 00:00,Bluhm,Neil,1938,1,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+425,6000,Fashion & Retail,Alain Bouchard,74,Canada,Montreal,Convinience stores,Fashion & Retail,TRUE,M,2/18/1949 0:00,Bouchard,Alain,1949,2,18,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+425,6000,Technology,Jay Chaudhry,63,United States,Reno,Security software,Technology,TRUE,M,8/26/1959 0:00,Chaudhry,Jay,1959,8,26,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+425,6000,Fashion & Retail,Gopikishan Damani,65,India,Mumbai,"Retail, investments",Fashion & Retail,TRUE,M,01/01/1958 00:00,Damani,Gopikishan,1958,1,1,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+425,6000,Diversified,Sumet Jiaravanon,88,Thailand,Bangkok,Diversified,Diversified,FALSE,M,11/02/1934 00:00,Jiaravanon,Sumet,1934,11,2,113.27,"$543,649,976,166 ",76.9,14.9,29.5,69625582
+425,6000,Finance & Investments,Frank Lowy,92,Israel,Tel Aviv,Investments,Finance & Investments,TRUE,M,10/22/1930 0:00,Lowy,Frank,1930,10,22,108.15,"$395,098,666,122 ",82.8,23.1,25.3,9053300
+425,6000,Finance & Investments,Michael Milken,76,United States,Los Angeles,Investments,Finance & Investments,TRUE,M,07/04/1946 00:00,Milken,Michael,1946,7,4,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+425,6000,Technology,David Steward,71,United States,St. Louis,IT provider,Technology,TRUE,M,07/02/1951 00:00,Steward,David,1951,7,2,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+425,6000,Fashion & Retail,Les Wexner & family,85,United States,New Albany,Retail,Fashion & Retail,TRUE,M,09/08/1937 00:00,Wexner,Les,1937,9,8,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+437,5900,Real Estate,Cai Kui,60,China,Chengdu,Real estate,Real Estate,TRUE,M,01/01/1963 00:00,Cai,Kui,1963,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+437,5900,Diversified,Jaran Chiaravanont,93,Thailand,Bangkok,Diversified,Diversified,FALSE,M,04/01/1930 00:00,Chiaravanont,Jaran,1930,4,1,113.27,"$543,649,976,166 ",76.9,14.9,29.5,69625582
+437,5900,Finance & Investments,Andreas Halvorsen,61,United States,Darien,Hedge funds,Finance & Investments,TRUE,M,4/23/1961 0:00,Halvorsen,Andreas,1961,4,23,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+437,5900,Finance & Investments,Antony Ressler,62,United States,Los Angeles,Finance,Finance & Investments,TRUE,M,10/12/1960 00:00,Ressler,Antony,1960,10,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+437,5900,Food & Beverage,Tsai Eng-meng,66,China,Shanghai,"Food, beverages",Food & Beverage,FALSE,M,1/15/1957 0:00,Tsai,Eng-meng,1957,1,15,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+442,5800,Finance & Investments,Josh Harris,58,United States,Miami,Private equity,Finance & Investments,TRUE,M,12/29/1964 0:00,Harris,Josh,1964,12,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+442,5800,Healthcare,Niels Peter Louis-Hansen,75,Denmark,Humlebaek,Medical devices,Healthcare,FALSE,M,10/25/1947 0:00,Louis-Hansen,Niels Peter,1947,10,25,110.35,"$348,078,018,464 ",81,32.4,23.8,5818553
+442,5800,Healthcare,Patrick Soon-Shiong,70,United States,Los Angeles,Pharmaceuticals,Healthcare,TRUE,M,7/29/1952 0:00,Soon-Shiong,Patrick,1952,7,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+445,5700,Metals & Mining,Rinat Akhmetov,56,Ukraine,Donetsk,"Steel, coal",Metals & Mining,TRUE,M,9/21/1966 0:00,Akhmetov,Rinat,1966,9,21,281.66,"$153,781,069,118 ",71.6,20.1,45.2,44385155
+445,5700,Healthcare,John Brown,88,United States,Atlanta,Medical equipment,Healthcare,TRUE,M,9/15/1934 0:00,Brown,John,1934,9,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+445,5700,Energy,Arthur Irving,93,Canada,Saint John,Oil,Energy,FALSE,M,01/01/1930 00:00,Irving,Arthur,1930,1,1,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+445,5700,Real Estate,Fredrik Lundberg,71,Sweden,Stockholm,"Real estate, investments",Real Estate,FALSE,M,08/05/1951 00:00,Lundberg,Fredrik,1951,8,5,110.51,"$530,832,908,738 ",82.5,27.9,49.1,10285453
+445,5700,Construction & Engineering,Thomas Schmidheiny,77,Switzerland,Jona,Cement,Construction & Engineering,FALSE,M,12/17/1945 0:00,Schmidheiny,Thomas,1945,12,17,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+445,5700,Finance & Investments,Daniel Ziff,51,United States,New York,Investments,Finance & Investments,FALSE,M,11/02/1971 00:00,Ziff,Daniel,1971,11,2,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+445,5700,Finance & Investments,Dirk Ziff,59,United States,North Palm Beach,Investments,Finance & Investments,FALSE,M,04/01/1964 00:00,Ziff,Dirk,1964,4,1,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+445,5700,Finance & Investments,Robert Ziff,56,United States,New York,Investments,Finance & Investments,FALSE,M,08/12/1966 00:00,Ziff,Robert,1966,8,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+455,5600,Energy,Ray Lee Hunt,79,United States,Dallas,"Oil, real estate",Energy,FALSE,M,04/06/1943 00:00,Hunt,Ray Lee,1943,4,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+455,5600,Logistics,Lai Meisong,52,China,Shanghai,Package delivery,Logistics,TRUE,M,12/01/1970 00:00,Lai,Meisong,1970,12,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+455,5600,Automotive,Vikram Lal & family,81,India,Delhi,Motorcycles,Automotive,FALSE,M,03/05/1942 00:00,Lal,Vikram,1942,3,5,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+455,5600,Finance & Investments,Ken Langone,87,United States,Sands Point,Investments,Finance & Investments,TRUE,M,9/16/1935 0:00,Langone,Ken,1935,9,16,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+455,5600,Healthcare,Li Ge,56,China,Shanghai,Pharmaceutical ingredients,Healthcare,TRUE,M,01/01/1967 00:00,Li,Ge,1967,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+455,5600,Finance & Investments,Karen Pritzker,65,United States,Branford,"Hotels, investments",Finance & Investments,FALSE,F,01/07/1958 00:00,Pritzker,Karen,1958,1,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+455,5600,Service,Robert Rowling,69,United States,Dallas,"Hotels, investments",Service,FALSE,M,9/26/1953 0:00,Rowling,Robert,1953,9,26,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+455,5600,Gambling & Casinos,Teddy Sagi,51,Israel,Tel Aviv,Gambling software,Gambling & Casinos,TRUE,M,11/01/1971 00:00,Sagi,Teddy,1971,11,1,108.15,"$395,098,666,122 ",82.8,23.1,25.3,9053300
+455,5600,Healthcare,Seo Jung-jin,65,South Korea,Seoul,Biotech,Healthcare,TRUE,M,10/23/1957 0:00,Seo,Jung-jin,1957,10,23,115.16,"$2,029,000,000,000 ",82.6,15.6,33.2,51709098
+455,5600,Automotive,Wu Jianshu,59,China,Ningbo,Auto parts,Automotive,TRUE,M,01/01/1964 00:00,Wu,Jianshu,1964,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+466,5500,Service,Micky Arison,73,United States,Bal Harbour,Carnival Cruises,Service,FALSE,M,6/29/1949 0:00,Arison,Micky,1949,6,29,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Media & Entertainment,James Chambers,65,United States,Palisades,"Media, automotive",Media & Entertainment,FALSE,M,04/12/1957 00:00,Chambers,James,1957,4,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Technology,John Collison,32,United States,San Francisco,Payments software,Technology,TRUE,M,08/06/1990 00:00,Collison,John,1990,8,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Technology,Patrick Collison,34,United States,San Francisco,Payment software,Technology,TRUE,M,09/09/1988 00:00,Collison,Patrick,1988,9,9,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Manufacturing,Archie Aldis Emmerson & family,93,United States,Redding,"Timberland, lumber mills",Manufacturing,TRUE,M,04/10/2029 00:00,Emmerson,Archie Aldis,1929,4,10,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Automotive,Piero Ferrari,77,Italy,Modena,Automobiles,Automotive,FALSE,M,5/22/1945 0:00,Ferrari,Piero,1945,5,22,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+466,5500,Automotive,Dan Friedkin,58,United States,Houston,Toyota dealerships,Automotive,FALSE,M,2/27/1965 0:00,Friedkin,Dan,1965,2,27,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Diversified,James Irving,95,Canada,Saint John,Diversified,Diversified,FALSE,M,3/20/1928 0:00,Irving,James,1928,3,20,116.76,"$1,736,425,629,520 ",81.9,12.8,24.5,36991981
+466,5500,Manufacturing,Jiang Weiping & family,68,China,Chengdu,Chemicals,Manufacturing,TRUE,M,03/01/1955 00:00,Jiang,Weiping,1955,3,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+466,5500,Healthcare,Wolfgang Marguerre & family,81,Germany,Heidelberg,Pharmaceuticals,Healthcare,TRUE,M,06/04/1941 00:00,Marguerre,Wolfgang,1941,6,4,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+466,5500,Finance & Investments,Ludwig Merckle,58,Germany,Ulm,Pharmaceuticals,Finance & Investments,FALSE,M,01/01/1965 00:00,Merckle,Ludwig,1965,1,1,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+466,5500,Manufacturing,Mitchell Rales,66,United States,Potomac,"Manufacturing, investments",Manufacturing,TRUE,M,8/21/1956 0:00,Rales,Mitchell,1956,8,21,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Media & Entertainment,Katharine Rayner,78,United States,East Hampton,"Media, automotive",Media & Entertainment,FALSE,F,01/12/1945 00:00,Rayner,Katharine,1945,1,12,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Finance & Investments,Paul Singer,78,United States,New York,Hedge funds,Finance & Investments,TRUE,M,8/22/1944 0:00,Singer,Paul,1944,8,22,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Healthcare,Sergio Stevanato & family,80,Italy,Venice,Medical packaging,Healthcare,TRUE,M,3/20/1943 0:00,Stevanato,Sergio,1943,3,20,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+466,5500,Media & Entertainment,Margaretta Taylor,80,United States,Southampton,"Media, automotive",Media & Entertainment,FALSE,F,4/15/1942 0:00,Taylor,Margaretta,1942,4,15,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+466,5500,Technology,Richard White,68,Australia,Sydney,Software,Technology,TRUE,M,04/01/1955 00:00,White,Richard,1955,4,1,119.8,"$1,392,680,589,329 ",82.7,23,47.4,25766605
+466,5500,Diversified,Zhao Yan,56,China,Beijing,Biotech,Diversified,TRUE,F,01/01/1967 00:00,Zhao,Yan,1967,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+486,5400,Fashion & Retail,Patrizio Bertelli,77,Italy,Milan,Luxury goods,Fashion & Retail,TRUE,M,01/01/1946 00:00,Bertelli,Patrizio,1946,1,1,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+486,5400,Manufacturing,Mahendra Choksi & family,81,India,Mumbai,Paints,Manufacturing,FALSE,M,4/19/1941 0:00,Choksi,Mahendra,1941,4,19,180.44,"$2,611,000,000,000 ",69.4,11.2,49.7,1366417754
+486,5400,Finance & Investments,Mat Ishbia,43,United States,Bloomfield Hills,Mortgage lender,Finance & Investments,FALSE,M,01/06/1980 00:00,Ishbia,Mat,1980,1,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+486,5400,Technology,Leo Koguan,68,Singapore,Singapore,IT provider,Technology,TRUE,M,2/15/1955 0:00,Koguan,Leo,1955,2,15,114.41,"$372,062,527,489 ",83.1,13.1,21,5703569
+486,5400,Diversified,Miao Hangen,58,China,Suzhou,"Textiles, petrochemicals",Diversified,TRUE,M,01/01/1965 00:00,Miao,Hangen,1965,1,1,125.08,"$19,910,000,000,000 ",77,9.4,59.2,1397715000
+486,5400,Manufacturing,Michael Pieper,77,Switzerland,Lucerne,Kitchen appliances,Manufacturing,TRUE,M,02/05/1946 00:00,Pieper,Michael,1946,2,5,99.55,"$703,082,435,360 ",83.6,10.1,28.8,8574832
+486,5400,Fashion & Retail,Miuccia Prada,73,Italy,Milan,Luxury goods,Fashion & Retail,FALSE,F,05/10/1949 00:00,Prada,Miuccia,1949,5,10,110.62,"$2,001,244,392,042 ",82.9,24.3,59.1,60297396
+486,5400,Fashion & Retail,Wolfgang Reimann,70,Germany,Passau,Consumer goods,Fashion & Retail,FALSE,M,10/04/1952 00:00,Reimann,Wolfgang,1952,10,4,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+486,5400,Fashion & Retail,Matthias Reimann-Andersen,58,Germany,Munich,Consumer goods,Fashion & Retail,FALSE,M,3/30/1965 0:00,Reimann-Andersen,Matthias,1965,3,30,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+486,5400,Fashion & Retail,Stefan Reimann-Andersen,59,Austria,Vienna,Consumer goods,Fashion & Retail,FALSE,M,7/13/1963 0:00,Reimann-Andersen,Stefan,1963,7,13,118.06,"$446,314,739,528 ",81.6,25.4,51.4,8877067
+486,5400,Fashion & Retail,Renate Reimann-Haas,71,Austria,Vienna,Consumer goods,Fashion & Retail,FALSE,F,10/08/1951 00:00,Reimann-Haas,Renate,1951,10,8,118.06,"$446,314,739,528 ",81.6,25.4,51.4,8877067
+497,5300,Finance & Investments,Todd Boehly,49,United States,Darien,Finance,Finance & Investments,TRUE,M,9/20/1973 0:00,Boehly,Todd,1973,9,20,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Real Estate,Rick Caruso,64,United States,Los Angeles,Real estate,Real Estate,TRUE,M,01/07/1959 00:00,Caruso,Rick,1959,1,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Manufacturing,Ibrahim Erdemoglu,60,Turkey,Istanbul,Carpet,Manufacturing,TRUE,M,9/26/1962 0:00,Erdemoglu,Ibrahim,1962,9,26,234.44,"$754,411,708,203 ",77.4,17.9,42.3,83429615
+497,5300,Finance & Investments,Elizabeth Johnson,59,United States,Boston,Fidelity,Finance & Investments,FALSE,F,05/07/1963 00:00,Johnson,Elizabeth,1963,5,7,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Finance & Investments,Douglas Leone,65,United States,Atherton,Venture capital,Finance & Investments,TRUE,M,07/04/1957 00:00,Leone,Douglas,1957,7,4,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Diversified,Prajogo Pangestu,78,Indonesia,Jakarta,Petrochemicals,Diversified,FALSE,M,5/13/1944 0:00,Pangestu,Prajogo,1944,5,13,151.18,"$1,119,190,780,753 ",71.5,10.2,30.1,270203917
+497,5300,Finance & Investments,Thomas Pritzker,72,United States,Chicago,"Hotels, investments",Finance & Investments,FALSE,M,06/06/1950 00:00,Pritzker,Thomas,1950,6,6,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Food & Beverage,Lynda Resnick,80,United States,Beverly Hills,Agriculture,Food & Beverage,TRUE,F,01/02/1943 00:00,Resnick,Lynda,1943,1,2,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Food & Beverage,Stewart Resnick,86,United States,Beverly Hills,Agriculture,Food & Beverage,TRUE,M,12/24/1936 0:00,Resnick,Stewart,1936,12,24,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Service,Gary Rollins,78,United States,Atlanta,Pest control,Service,FALSE,M,8/30/1944 0:00,Rollins,Gary,1944,8,30,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Finance & Investments,Mark Walter,62,United States,Chicago,"Finance, asset management",Finance & Investments,TRUE,M,5/22/1960 0:00,Walter,Mark,1960,5,22,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Manufacturing,Ronald Wanek,81,United States,Saint Petersburg,Furniture,Manufacturing,TRUE,M,5/19/1941 0:00,Wanek,Ronald,1941,5,19,117.24,"$21,427,700,000,000 ",78.5,9.6,36.6,328239523
+497,5300,Food & Beverage,Erich Wesjohann & family,77,Germany,Visbek,Poultry genetics,Food & Beverage,TRUE,M,06/02/1945 00:00,Wesjohann,Erich,1945,6,2,112.85,"$3,845,630,030,824 ",80.9,11.5,48.8,83132799
+497,5300,Fashion & Retail,M.A. Yusuff Ali,67,United Arab Emirates,Abu Dhabi,Retail,Fashion & Retail,TRUE,M,11/15/1955 0:00,Yusuff Ali,M.A.,1955,11,15,114.52,"$421,142,267,938 ",77.8,0.1,15.9,9770529

@@ -1,1 +1,241 @@
-Bloomberg for Education Videos: https://vimeo.com/user117803870
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge & Tools Resources | Anjani Kumar Mishra</title>
+    <link rel="icon" type="image/png" href="../mypfpf.png">
+    <meta name="description" content="A curated directory of financial tools, reporting databases, and intelligence hubs utilized by Anjani Kumar Mishra.">
+    <meta name="author" content="Anjani Kumar Mishra">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Anton', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
+                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
+                            white: '#ffffff', highlight: '#f3c623'
+                        }
+                    },
+                    backgroundImage: {
+                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0b0c10;
+            background-image: linear-gradient(135deg, #1b3a4b 0%, #0b0c10 50%, #272640 100%);
+            color: #d5cfe1;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-size: 50px 50px;
+            background-position: center;
+        }
+
+        .card-3d {
+            background: rgba(33, 47, 69, 0.4);
+            border: 1px solid rgba(243, 198, 35, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(243, 198, 35, 0.2);
+            border-color: #f3c623;
+            background: rgba(33, 47, 69, 0.8);
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0b0c10; }
+        ::-webkit-scrollbar-thumb { background: #f3c623; border: 2px solid #0b0c10; border-radius: 4px; }
+    </style>
+</head>
+
+<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace">
+
+    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+        <div class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
+            <a href="../index.html" class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
+                AKM<span class="text-brand-highlight group-hover:text-white">.</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
+                <a href="../index.html#about" class="hover:text-white transition-colors">Profile</a>
+                <a href="../index.html#experience" class="hover:text-white transition-colors">Work</a>
+                <a href="../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
+                <a href="projects/index.html" class="hover:text-white transition-colors">Builds</a>
+            </div>
+
+            <div class="flex items-center gap-4 z-50">
+                <a href="mailto:inakm@proton.me" class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-highlight hover:text-brand-deepSpace transition-all shadow-lg whitespace-nowrap">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[50vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32 pb-10">
+        <div class="text-center z-10 relative">
+            <h1 class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-brand-highlight mix-blend-overlay opacity-20 select-none">
+                KNOWLEDGE
+            </h1>
+            <h1 class="text-[10vw] md:text-[6vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-highlight via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
+                RESOURCES HUB
+            </h1>
+            <p class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium bg-black/20 px-8 rounded-full">
+                DATABASES <span class="text-brand-highlight px-2">::</span> ACCA PROTOCOLS <span class="text-brand-highlight px-2">::</span> TOOLS
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 md:px-6 py-10 relative z-10">
+
+        <section class="mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Bloomberg Card -->
+                <a href="https://vimeo.com/user117803870" target="_blank" class="card-3d p-8 rounded-2xl flex flex-col items-start group relative overflow-hidden">
+                    <div class="bg-brand-highlight/10 p-4 rounded-xl mb-6 border border-brand-highlight/30 group-hover:bg-brand-highlight/20 transition-colors z-10">
+                        <i class="fa-solid fa-terminal text-3xl text-brand-highlight"></i>
+                    </div>
+                    <span class="font-mono text-xs font-bold text-brand-highlight tracking-widest uppercase block mb-3 border border-brand-highlight px-2 py-1 bg-brand-highlight/5 z-10">TERMINAL HUB</span>
+                    <h2 class="text-3xl font-display uppercase text-white mb-4 group-hover:text-brand-highlight transition-colors z-10">Bloomberg Education</h2>
+                    <p class="text-gray-400 font-body leading-relaxed mb-8 z-10 flex-grow">
+                        Official Bloomberg Terminal educational video series. Crucial for understanding BQL formulation and macro-economic data extraction architecture.
+                    </p>
+                    <div class="mt-auto flex items-center text-brand-highlight font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform z-10">
+                        Access Resources <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- BSE/NSE Card -->
+                <a href="https://www.bseindia.com/" target="_blank" class="card-3d p-8 rounded-2xl flex flex-col items-start group relative overflow-hidden" style="border-color: rgba(96, 165, 250, 0.2);" onmouseover="this.style.borderColor='#60a5fa'" onmouseout="this.style.borderColor='rgba(96, 165, 250, 0.2)'">
+                    <div class="bg-blue-400/10 p-4 rounded-xl mb-6 border border-blue-400/30 transition-colors z-10">
+                        <i class="fa-solid fa-landmark text-3xl text-blue-400"></i>
+                    </div>
+                    <span class="font-mono text-xs font-bold text-blue-400 tracking-widest uppercase block mb-3 border border-blue-400 px-2 py-1 bg-blue-400/5 z-10">CORPORATE FILINGS</span>
+                    <h2 class="text-3xl font-display uppercase text-white mb-4 transition-colors z-10">BSE & NSE Databases</h2>
+                    <p class="text-gray-400 font-body leading-relaxed mb-8 z-10 flex-grow">
+                        Primary extraction sources for annual reports, quarterly filings, and corporate governance updates vital for DCF and Equity Research structuring.
+                    </p>
+                    <div class="mt-auto flex items-center text-blue-400 font-mono text-sm font-bold uppercase tracking-wider transition-transform z-10 group-hover:translate-x-2">
+                        Access Resources <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </div>
+                </a>
+
+                <!-- ACCA Card -->
+                <a href="https://www.accaglobal.com/gb/en/student/exam-support-resources.html" target="_blank" class="card-3d p-8 rounded-2xl flex flex-col items-start group relative overflow-hidden" style="border-color: rgba(248, 113, 113, 0.2);" onmouseover="this.style.borderColor='#f87171'" onmouseout="this.style.borderColor='rgba(248, 113, 113, 0.2)'">
+                    <div class="bg-red-400/10 p-4 rounded-xl mb-6 border border-red-400/30 transition-colors z-10">
+                        <i class="fa-solid fa-book-open-reader text-3xl text-red-400"></i>
+                    </div>
+                    <span class="font-mono text-xs font-bold text-red-400 tracking-widest uppercase block mb-3 border border-red-400 px-2 py-1 bg-red-400/5 z-10">STUDY PROTOCOLS</span>
+                    <h2 class="text-3xl font-display uppercase text-white mb-4 transition-colors z-10">ACCA Study Hub</h2>
+                    <p class="text-gray-400 font-body leading-relaxed mb-8 z-10 flex-grow">
+                        Rigorous documentation, past exam structures, and practice platforms mapping directly to Financial Management (F9) and Reporting (F7).
+                    </p>
+                    <div class="mt-auto flex items-center text-red-400 font-mono text-sm font-bold uppercase tracking-wider transition-transform z-10 group-hover:translate-x-2">
+                        Access Resources <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- DATA DOWNLOAD SECTION -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-brand-highlight font-mono text-sm tracking-widest uppercase block mb-2 font-bold">RAW ASSETS</span>
+                    <h2 class="text-3xl md:text-5xl font-display uppercase text-white">Project Datasets</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <!-- Data Files -->
+                <a href="../Data/Finance Expenses Data.xlsx" download class="bg-[#111111] hover:bg-brand-deepSpace border border-gray-800 hover:border-green-500 transition-all rounded-lg p-6 flex flex-col items-center text-center group">
+                    <i class="fa-solid fa-file-excel text-3xl text-green-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-white font-mono text-xs uppercase font-bold tracking-wider break-words">Finance Expenses<br>.XLSX</span>
+                </a>
+                
+                <a href="../Data/Prism_Sales_Dataset.csv" download class="bg-[#111111] hover:bg-brand-deepSpace border border-gray-800 hover:border-blue-400 transition-all rounded-lg p-6 flex flex-col items-center text-center group">
+                    <i class="fa-solid fa-file-csv text-3xl text-gray-400 mb-3 group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    <span class="text-white font-mono text-xs uppercase font-bold tracking-wider break-words">Prism Sales<br>.CSV</span>
+                </a>
+                
+                <a href="../Data/RVNL_Financials.csv" download class="bg-[#111111] hover:bg-brand-deepSpace border border-gray-800 hover:border-blue-400 transition-all rounded-lg p-6 flex flex-col items-center text-center group">
+                    <i class="fa-solid fa-file-csv text-3xl text-gray-400 mb-3 group-hover:scale-110 transition-transform group-hover:text-white"></i>
+                    <span class="text-white font-mono text-xs uppercase font-bold tracking-wider break-words">RVNL Financials<br>.CSV</span>
+                </a>
+                
+                <a href="../Data/findata.xlsx" download class="bg-[#111111] hover:bg-brand-deepSpace border border-gray-800 hover:border-green-500 transition-all rounded-lg p-6 flex flex-col items-center text-center group">
+                    <i class="fa-solid fa-file-excel text-3xl text-green-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-white font-mono text-xs uppercase font-bold tracking-wider break-words">Financial Data<br>.XLSX</span>
+                </a>
+
+                <div class="bg-[#0b0c10] border border-gray-800 border-dashed rounded-lg p-6 flex flex-col items-center justify-center text-center col-span-2 md:col-span-4">
+                    <span class="text-gray-500 font-mono text-sm uppercase">Raw extraction subdirectories (RMM, SQL_Proj, VEVOi) available in repository source code tree.</span>
+                </div>
+            </div>
+
+            <!-- DISCLAIMER -->
+            <div class="card-3d p-8 border-l-4 border-l-rose-500 bg-brand-indigo/60 relative overflow-hidden">
+                <i class="fa-solid fa-scale-balanced absolute -right-10 -top-10 text-[10rem] text-rose-500 opacity-5 rotate-12"></i>
+                <h4 class="text-rose-500 font-mono text-sm tracking-widest uppercase font-bold mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-xl"></i> Data Attribution & Disclaimer
+                </h4>
+                <p class="text-gray-300 font-body text-base leading-relaxed mb-4 relative z-10 font-medium">
+                    The datasets, raw information, and supplementary `.csv` / `.xlsx` files provided above are strictly for educational mapping, academic modeling, and analytical demonstration purposes. 
+                </p>
+                <div class="h-px w-full bg-rose-500/20 mb-4 relative z-10"></div>
+                <p class="text-gray-400 font-body text-sm leading-relaxed relative z-10">
+                    <strong class="text-white font-bold tracking-wide">These materials are not originated, owned, generated, or internally vetted by me.</strong> They are sourced directly from external third-party entities, public repositories, and virtual simulation modules purely to demonstrate structural FP&A modeling proficiency and workflow logic. They do not constitute financial advice, verified live commercial data, or endorse any real-world corporate data extraction.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="relative bg-black pt-20 pb-10 border-t-4 border-brand-highlight">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
+            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
+            <div class="flex justify-center gap-8 mb-12">
+                <a href="https://linkedin.com/in/inakmm" target="_blank"
+                    class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/inakm" target="_blank"
+                    class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="mailto:inakm@proton.me"
+                    class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i
+                        class="fa-solid fa-envelope"></i></a>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
+                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

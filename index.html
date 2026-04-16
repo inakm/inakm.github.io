@@ -38,46 +38,91 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Anjani Kumar Mishra",
-      "alternateName": "AKM",
-      "jobTitle": "Finance Analyst & Fintech Developer",
-      "url": "https://inakm.github.io",
-      "image": "https://inakm.github.io/mypfpf.png",
-      "sameAs": [
-        "https://linkedin.com/in/inakmm",
-        "https://github.com/inakm",
-        "https://x.com/in_akm",
-        "https://www.instagram.com/in_akmm",
-        "https://linktr.ee/in_akm"
-      ],
-      "knowsAbout": [
-        "Financial Analysis",
-        "Fintech",
-        "Blockchain",
-        "DeFi",
-        "Bloomberg Query Language (BQL)",
-        "Accounting",
-        "IFRS",
-        "Data Reporting"
-      ],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "GITAM University"
-      },
-      "memberOf": {
-        "@type": "Organization",
-        "name": "Association of Chartered Certified Accountants (ACCA)"
-      },
-      "hasCredential": [
+      "@graph": [
         {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Bloomberg Market Concepts (BMC)",
-          "url": "https://portal.bloombergforeducation.com/certificates/vsqjkT7qeRWmpcTEtXSeM8e1"
+          "@type": "Person",
+          "@id": "https://inakm.github.io/#person",
+          "name": "Anjani Kumar Mishra",
+          "alternateName": "AKM",
+          "jobTitle": "Entry-Level Finance Analyst & Fresher",
+          "description": "An entry-level finance student and aspiring corporate finance analyst building an ecosystem of financial modeling, PowerBI analysis, and equity research tools.",
+          "url": "https://inakm.github.io",
+          "image": "https://inakm.github.io/mypfpf.png",
+          "sameAs": [
+            "https://linkedin.com/in/inakmm",
+            "https://github.com/inakm",
+            "https://x.com/in_akm",
+            "https://www.instagram.com/in_akmm",
+            "https://linktr.ee/in_akm"
+          ],
+          "knowsAbout": [
+            "Financial Decision Making",
+            "Discounted Cash Flow (DCF)",
+            "Financial Modeling",
+            "Accounting Standards (IFRS)",
+            "Data Analysis & PowerBI",
+            "Bloomberg Query Language",
+            "Association of Chartered Certified Accountants (ACCA)"
+          ],
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "GITAM University"
+          },
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Association of Chartered Certified Accountants (ACCA)"
+          },
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Bloomberg Market Concepts (BMC)",
+              "url": "https://portal.bloombergforeducation.com/certificates/vsqjkT7qeRWmpcTEtXSeM8e1"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Bloomberg Researching and Adopting ESG"
+            }
+          ]
         },
         {
-          "@type": "EducationalOccupationalCredential",
-          "name": "Bloomberg Researching and Adopting ESG"
+          "@type": "WebSite",
+          "@id": "https://inakm.github.io/#website",
+          "url": "https://inakm.github.io",
+          "name": "Anjani Kumar Mishra | Finance Portfolio",
+          "description": "Official centralized repository for my Finance, Fintech, and Data Analytics portfolio showcasing models, dashboards, and research.",
+          "publisher": {
+            "@id": "https://inakm.github.io/#person"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://inakm.github.io/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is Anjani Kumar Mishra?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anjani Kumar Mishra is an entry-level finance student and passionate fresher systematically building a career in corporate finance, financial modeling, and data analytics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What projects are hosted on Anjani's portfolio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The portfolio features comprehensive Excel DCF valuation models, interactive PowerBI sales dashboards, structured ACCA study matrices, and specialized AI recruitment prompt engineering tools."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What certifications and education is Anjani pursuing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anjani is pursuing the globally recognized ACCA curriculum, focusing deeply on Financial Management (F9) and Financial Reporting (F7), supplemented by Bloomberg Market Concepts strictly as a student building expertise."
+              }
+            }
+          ]
         }
       ]
     }
