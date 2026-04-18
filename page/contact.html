@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | AKM Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
+                            white: '#ffffff',
+                            highlight: '#f3c623'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff; /* Stark white */
+            color: #222222;
+            overflow-x: hidden;
+            font-family: 'Manrope', sans-serif;
+            cursor: none; 
+        }
+        * { cursor: none !important; }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+            mix-blend-mode: difference;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: white; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid white; transition: width 0.2s, height 0.2s, background-color 0.2s; }
+        .cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255, 255, 255, 0.1); }
+
+        /* --- LIGHT NAVIGATION --- */
+        .liquid-glass-light {
+            background: rgba(0,0,0,0.02);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 9999px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+        }
+
+        .magnetic-wrap { display: inline-block; }
+        .magnetic-inner { display: inline-block; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
+        
+        /* Form Inputs */
+        input:focus, textarea:focus { outline: none; border-color: #222222; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
+
+    <!-- Custom Cursor DOM -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <!-- NAVIGATION (Static Light Mode) -->
+    <nav class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl">
+        <div class="liquid-glass-light px-6 py-4 flex justify-between items-center">
+            
+            <a href="../demo.html" class="magnetic-wrap group">
+                <div class="magnetic-inner text-xl font-bold tracking-tight text-brand-primary flex items-center gap-2">
+                    AKM<span class="text-brand-secondary text-sm font-normal">Portfolio</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold tracking-widest uppercase text-brand-secondary">
+                <a href="../demo.html#about" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Profile</div></a>
+                <a href="../demo.html#experience" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Work</div></a>
+                <a href="../demo.html#projects" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Builds</div></a>
+            </div>
+
+            <div class="flex items-center">
+                <a href="contact.html" class="magnetic-wrap">
+                    <div class="magnetic-inner bg-brand-primary text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+                        Let's Talk
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTACT HERO -->
+    <main class="flex-grow flex items-center pt-32 pb-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-20">
+            
+            <!-- Left: Typography -->
+            <div class="flex flex-col justify-center">
+                <h1 class="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.9] text-brand-primary mb-8">
+                    Hello.<br>
+                    <span class="text-[#E5E5E5]">Hola.</span><br>
+                    <span class="text-[#E5E5E5] text-5xl md:text-7xl">Namaste.</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-medium tracking-tight text-brand-secondary max-w-md">
+                    Looking to build something great or need a financial model decoded?
+                </p>
+                
+                <div class="mt-16 space-y-6 text-xl font-bold tracking-tighter text-brand-primary">
+                    <a href="mailto:inakm@proton.me" class="magnetic-wrap group flex items-center gap-4 border-b border-[#E5E5E5] pb-4 hover:text-brand-secondary transition-colors">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="magnetic-inner">inakm@proton.me</span>
+                    </a>
+                    <a href="https://linkedin.com/in/inakmm" class="magnetic-wrap group flex items-center gap-4 border-b border-[#E5E5E5] pb-4 hover:text-[#0a66c2] transition-colors">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span class="magnetic-inner">linkedin.com/in/inakmm</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Minimalist Form -->
+            <div class="bg-brand-tertiary p-10 md:p-16 rounded-[3rem] border border-[#E5E5E5] flex flex-col justify-center">
+                <h2 class="text-3xl font-bold tracking-tighter text-brand-primary mb-10">Send a message</h2>
+                
+                <form action="mailto:inakm@proton.me" method="POST" enctype="text/plain" class="space-y-8">
+                    <div class="group">
+                        <label for="name" class="block text-xs font-bold tracking-widest text-brand-secondary uppercase mb-2">Your Name</label>
+                        <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-[#D1D1D1] py-3 text-xl font-medium text-brand-primary transition-colors focus:border-brand-primary placeholder:text-[#D1D1D1]" placeholder="Jane Doe">
+                    </div>
+                    
+                    <div class="group">
+                        <label for="email" class="block text-xs font-bold tracking-widest text-brand-secondary uppercase mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-[#D1D1D1] py-3 text-xl font-medium text-brand-primary transition-colors focus:border-brand-primary placeholder:text-[#D1D1D1]" placeholder="jane@example.com">
+                    </div>
+                    
+                    <div class="group">
+                        <label for="message" class="block text-xs font-bold tracking-widest text-brand-secondary uppercase mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full bg-transparent border-b border-[#D1D1D1] py-3 text-xl font-medium text-brand-primary transition-colors focus:border-brand-primary placeholder:text-[#D1D1D1] resize-none" placeholder="How can I help you?"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="magnetic-wrap w-full">
+                            <div class="magnetic-inner bg-brand-primary text-white w-full py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-black transition-colors flex justify-center items-center">
+                                Submit Inquiry <i class="fa-solid fa-paper-plane ml-3"></i>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="max-w-7xl mx-auto w-full px-6 md:px-12 pt-10 pb-10 border-t border-[#E5E5E5]">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold tracking-tighter text-brand-primary">AKM<span class="text-brand-secondary font-medium">.Portfolio</span></div>
+            <div class="text-xs font-bold tracking-widest text-brand-secondary uppercase">
+                &copy; 2026 Anjani Kumar Mishra
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT FOR CUSTOM CURSOR & INTERACTIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorOutline = document.getElementById('cursor-outline');
+            const magneticElements = document.querySelectorAll('.magnetic-wrap');
+
+            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+            let outlineX = mouseX; let outlineY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
+            });
+
+            const animate = () => {
+                let distX = mouseX - outlineX; let distY = mouseY - outlineY;
+                outlineX += distX * 0.15; outlineY += distY * 0.15;
+                cursorOutline.style.left = `${outlineX}px`; cursorOutline.style.top = `${outlineY}px`;
+                requestAnimationFrame(animate);
+            };
+            animate();
+
+            magneticElements.forEach((el) => {
+                const inner = el.querySelector('.magnetic-inner');
+                if(!inner) return;
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const pullX = (e.clientX - (rect.left + rect.width / 2)) * 0.4;
+                    const pullY = (e.clientY - (rect.top + rect.height / 2)) * 0.4;
+                    inner.style.transform = `translate(${pullX}px, ${pullY}px)`;
+                    cursorOutline.classList.add('hover-active');
+                });
+                el.addEventListener('mouseleave', () => {
+                    inner.style.transform = `translate(0px, 0px)`;
+                    cursorOutline.classList.remove('hover-active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
