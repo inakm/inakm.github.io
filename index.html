@@ -267,7 +267,7 @@
     </div>
 
 
-    <nav id="mainNav" class="fixed top-4 md:top-6 left-0 w-full z-50 px-4 md:px-12 transition-colors duration-500">
+    <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4 transition-all duration-300 -translate-y-0">
 
         <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center relative gap-y-4">
 
@@ -500,8 +500,24 @@
         class="relative z-20 bg-[#ffffff] text-brand-primary rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] -mt-16 pt-8">
 
 
-        <div class="w-full flex justify-center pt-8 mb-20">
-            <div class="w-16 h-1.5 bg-[#E5E5E5] rounded-full"></div>
+        <div class="w-full flex justify-center pt-8 mb-20 overflow-x-auto">
+            <nav class="flex items-center gap-1 md:gap-0 px-4 whitespace-nowrap">
+                <a href="#about" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Profile</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#experience" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Experience</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#skills" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Expertise</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#projects" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Works</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#insights" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Research</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#credentials" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Credentials</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#writing" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Writing</a>
+                <span class="text-brand-secondary/30">|</span>
+                <a href="#ai-tools" class="px-3 md:px-5 py-2 text-xs md:text-sm font-medium text-brand-secondary hover:text-brand-primary transition-colors">Technology</a>
+            </nav>
         </div>
 
 
@@ -873,38 +889,38 @@
         </section>
 
 
-        <section id="projects" class="max-w-7xl mx-auto px-4 md:px-12 mb-40 reveal">
+        <section id="projects" class="max-w-7xl mx-auto px-4 md:px-12 mb-40 reveal pt-32">
             <div
-                class="bg-[#1A1A1A] rounded-[2.5rem] p-6 md:p-12 shadow-2xl relative overflow-hidden border border-white/5">
+                class="bg-brand-primary rounded-[2.5rem] p-6 md:p-12 shadow-2xl relative overflow-hidden border border-white/10">
                 <div
                     class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-white/10 pb-8 gap-4">
                     <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-white">My Works</h2>
-                    <p class="text-[#888888] text-sm md:text-base max-w-sm md:text-right font-medium">Explore the
+                    <p class="text-brand-secondary text-sm md:text-base max-w-sm md:text-right font-medium">Explore the
                         digital journeys we've designed and developed in partnership with our valued clients.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <div
-                        class="bg-[#2A2A2A] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/5 h-[360px] flex flex-col">
+                        class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
-                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md">PowerBI Dashboards
+                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3"><i class="fa-solid fa-chart-pie text-brand-highlight text-xl"></i> PowerBI Dashboards
                             </h3>
                         </div>
 
                         <div class="relative mt-auto h-56 flex justify-center items-end px-4 md:px-6">
                             <div
-                                class="absolute bottom-6 w-[75%] h-40 bg-[#7B5EE4] rounded-t-xl opacity-30 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-50 transition-all duration-500 ease-out">
+                                class="absolute bottom-6 w-[75%] h-40 bg-brand-highlight/30 rounded-t-xl opacity-50 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-70 transition-all duration-500 ease-out">
                             </div>
                             <div
-                                class="absolute bottom-3 w-[85%] h-40 bg-[#9B82F3] rounded-t-xl opacity-50 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-80 transition-all duration-500 ease-out delay-75">
+                                class="absolute bottom-3 w-[85%] h-40 bg-brand-highlight/50 rounded-t-xl opacity-70 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-90 transition-all duration-500 ease-out delay-75">
                             </div>
                             <div
                                 class="relative w-full h-44 bg-white rounded-t-xl shadow-2xl overflow-hidden transform transition-all duration-500 ease-out z-10 group-hover:scale-[1.02]">
-                                <div class="h-4 bg-[#E5E5E5] flex items-center px-2 gap-1 border-b border-black/5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F56]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#27C93F]"></div>
+                                <div class="h-4 bg-brand-tertiary flex items-center px-2 gap-1 border-b border-black/5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                                 </div>
                                 <img src="myprojects/PowerBI/PrismStore_DashboardIMG.png" alt="PowerBI"
                                     class="w-full h-full object-cover object-top">
@@ -912,40 +928,40 @@
                         </div>
 
                         <div
-                            class="absolute bottom-0 right-0 w-20 h-20 bg-[#1A1A1A] rounded-tl-3xl flex items-end justify-end p-2 z-20">
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-brand-primary rounded-tl-3xl flex items-end justify-end p-2 z-20">
                             <div
-                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <div
-                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <a href="page/projects/powerbi.html"
-                                class="w-14 h-14 rounded-full bg-[#333] group-hover:bg-[#C7F131] text-white group-hover:text-black flex items-center justify-center transition-colors duration-300 text-xl shadow-lg relative z-10">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                                class="w-14 h-14 rounded-full bg-brand-highlight flex items-center justify-center transition-colors duration-300 shadow-lg relative z-10" style="background-color: #f3c623;">
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; font-size: 16px;"></i>
                             </a>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#2A2A2A] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/5 h-[360px] flex flex-col">
+                        class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
-                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md">Financial Models
+                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3"><i class="fa-solid fa-calculator text-brand-highlight text-xl"></i> Financial Models
                             </h3>
                         </div>
 
                         <div class="relative mt-auto h-56 flex justify-center items-end px-4 md:px-6">
                             <div
-                                class="absolute bottom-6 w-[75%] h-40 bg-[#7B5EE4] rounded-t-xl opacity-30 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-50 transition-all duration-500 ease-out">
+                                class="absolute bottom-6 w-[75%] h-40 bg-brand-highlight/30 rounded-t-xl opacity-50 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-70 transition-all duration-500 ease-out">
                             </div>
                             <div
-                                class="absolute bottom-3 w-[85%] h-40 bg-[#9B82F3] rounded-t-xl opacity-50 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-80 transition-all duration-500 ease-out delay-75">
+                                class="absolute bottom-3 w-[85%] h-40 bg-brand-highlight/50 rounded-t-xl opacity-70 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-90 transition-all duration-500 ease-out delay-75">
                             </div>
                             <div
                                 class="relative w-full h-44 bg-white rounded-t-xl shadow-2xl overflow-hidden transform transition-all duration-500 ease-out z-10 group-hover:scale-[1.02]">
-                                <div class="h-4 bg-[#E5E5E5] flex items-center px-2 gap-1 border-b border-black/5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F56]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#27C93F]"></div>
+                                <div class="h-4 bg-brand-tertiary flex items-center px-2 gap-1 border-b border-black/5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                                 </div>
                                 <img src="myprojects/GatiGo/images/1.PNG" alt="GatiGo"
                                     class="w-full h-full object-cover object-top">
@@ -953,40 +969,40 @@
                         </div>
 
                         <div
-                            class="absolute bottom-0 right-0 w-20 h-20 bg-[#1A1A1A] rounded-tl-3xl flex items-end justify-end p-2 z-20">
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-brand-primary rounded-tl-3xl flex items-end justify-end p-2 z-20">
                             <div
-                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <div
-                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <a href="page/projects/gatigo.html"
-                                class="w-14 h-14 rounded-full bg-[#C7F131] text-black hover:bg-white flex items-center justify-center transition-colors duration-300 text-xl shadow-lg relative z-10">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                                class="w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-300 shadow-lg relative z-10" style="background-color: #f3c623;">
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; font-size: 16px;"></i>
                             </a>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#2A2A2A] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/5 h-[360px] flex flex-col">
+                        class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
-                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md">Data Visualization
+                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3"><i class="fa-solid fa-chart-column text-brand-highlight text-xl"></i> Data Visualization
                             </h3>
                         </div>
 
                         <div class="relative mt-auto h-56 flex justify-center items-end px-4 md:px-6">
                             <div
-                                class="absolute bottom-6 w-[75%] h-40 bg-[#7B5EE4] rounded-t-xl opacity-30 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-50 transition-all duration-500 ease-out">
+                                class="absolute bottom-6 w-[75%] h-40 bg-brand-highlight/30 rounded-t-xl opacity-50 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-70 transition-all duration-500 ease-out">
                             </div>
                             <div
-                                class="absolute bottom-3 w-[85%] h-40 bg-[#9B82F3] rounded-t-xl opacity-50 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-80 transition-all duration-500 ease-out delay-75">
+                                class="absolute bottom-3 w-[85%] h-40 bg-brand-highlight/50 rounded-t-xl opacity-70 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-90 transition-all duration-500 ease-out delay-75">
                             </div>
                             <div
                                 class="relative w-full h-44 bg-white rounded-t-xl shadow-2xl overflow-hidden transform transition-all duration-500 ease-out z-10 group-hover:scale-[1.02]">
-                                <div class="h-4 bg-[#E5E5E5] flex items-center px-2 gap-1 border-b border-black/5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F56]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#27C93F]"></div>
+                                <div class="h-4 bg-brand-tertiary flex items-center px-2 gap-1 border-b border-black/5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                                 </div>
                                 <img src="myprojects/PowerBI/Vrinda_StoreAnnualDashboardIMG.png" alt="Vrinda"
                                     class="w-full h-full object-cover object-top">
@@ -994,40 +1010,40 @@
                         </div>
 
                         <div
-                            class="absolute bottom-0 right-0 w-20 h-20 bg-[#1A1A1A] rounded-tl-3xl flex items-end justify-end p-2 z-20">
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-brand-primary rounded-tl-3xl flex items-end justify-end p-2 z-20">
                             <div
-                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <div
-                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <a href="page/projects/powerbi.html"
-                                class="w-14 h-14 rounded-full bg-[#333] group-hover:bg-[#C7F131] text-white group-hover:text-black flex items-center justify-center transition-colors duration-300 text-xl shadow-lg relative z-10">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                                class="w-14 h-14 rounded-full bg-brand-highlight flex items-center justify-center transition-colors duration-300 shadow-lg relative z-10" style="background-color: #f3c623;">
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; font-size: 16px;"></i>
                             </a>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#2A2A2A] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/5 h-[360px] flex flex-col">
+                        class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
-                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md">Excel Projects
+                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3"><i class="fa-solid fa-file-excel text-brand-highlight text-xl"></i> Excel Projects
                             </h3>
                         </div>
 
                         <div class="relative mt-auto h-56 flex justify-center items-end px-4 md:px-6">
                             <div
-                                class="absolute bottom-6 w-[75%] h-40 bg-[#7B5EE4] rounded-t-xl opacity-30 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-50 transition-all duration-500 ease-out">
+                                class="absolute bottom-6 w-[75%] h-40 bg-brand-highlight/30 rounded-t-xl opacity-50 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-70 transition-all duration-500 ease-out">
                             </div>
                             <div
-                                class="absolute bottom-3 w-[85%] h-40 bg-[#9B82F3] rounded-t-xl opacity-50 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-80 transition-all duration-500 ease-out delay-75">
+                                class="absolute bottom-3 w-[85%] h-40 bg-brand-highlight/50 rounded-t-xl opacity-70 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-90 transition-all duration-500 ease-out delay-75">
                             </div>
                             <div
                                 class="relative w-full h-44 bg-white rounded-t-xl shadow-2xl overflow-hidden transform transition-all duration-500 ease-out z-10 group-hover:scale-[1.02]">
-                                <div class="h-4 bg-[#E5E5E5] flex items-center px-2 gap-1 border-b border-black/5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F56]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#27C93F]"></div>
+                                <div class="h-4 bg-brand-tertiary flex items-center px-2 gap-1 border-b border-black/5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                                 </div>
                                 <img src="myprojects/ExelProj/AR_Aging_ReportIMG.png" alt="Excel"
                                     class="w-full h-full object-cover object-top">
@@ -1035,39 +1051,39 @@
                         </div>
 
                         <div
-                            class="absolute bottom-0 right-0 w-20 h-20 bg-[#1A1A1A] rounded-tl-3xl flex items-end justify-end p-2 z-20">
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-brand-primary rounded-tl-3xl flex items-end justify-end p-2 z-20">
                             <div
-                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <div
-                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <a href="page/projects/excelproj.html"
-                                class="w-14 h-14 rounded-full bg-[#333] group-hover:bg-[#C7F131] text-white group-hover:text-black flex items-center justify-center transition-colors duration-300 text-xl shadow-lg relative z-10">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                                class="w-14 h-14 rounded-full bg-brand-highlight flex items-center justify-center transition-colors duration-300 shadow-lg relative z-10" style="background-color: #f3c623;">
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; font-size: 16px;"></i>
                             </a>
                         </div>
                     </div>
 
                     <div
-                        class="bg-[#2A2A2A] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/5 h-[360px] flex flex-col">
+                        class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
-                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md">BQL Analysis</h3>
+                            <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3"><i class="fa-solid fa-database text-brand-highlight text-xl"></i> BQL Analysis</h3>
                         </div>
 
                         <div class="relative mt-auto h-56 flex justify-center items-end px-4 md:px-6">
                             <div
-                                class="absolute bottom-6 w-[75%] h-40 bg-[#7B5EE4] rounded-t-xl opacity-30 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-50 transition-all duration-500 ease-out">
+                                class="absolute bottom-6 w-[75%] h-40 bg-brand-highlight/30 rounded-t-xl opacity-50 transform -translate-y-6 scale-90 group-hover:-translate-y-10 group-hover:opacity-70 transition-all duration-500 ease-out">
                             </div>
                             <div
-                                class="absolute bottom-3 w-[85%] h-40 bg-[#9B82F3] rounded-t-xl opacity-50 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-80 transition-all duration-500 ease-out delay-75">
+                                class="absolute bottom-3 w-[85%] h-40 bg-brand-highlight/50 rounded-t-xl opacity-70 transform -translate-y-3 scale-95 group-hover:-translate-y-5 group-hover:opacity-90 transition-all duration-500 ease-out delay-75">
                             </div>
                             <div
                                 class="relative w-full h-44 bg-white rounded-t-xl shadow-2xl overflow-hidden transform transition-all duration-500 ease-out z-10 group-hover:scale-[1.02]">
-                                <div class="h-4 bg-[#E5E5E5] flex items-center px-2 gap-1 border-b border-black/5">
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FF5F56]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-[#27C93F]"></div>
+                                <div class="h-4 bg-brand-tertiary flex items-center px-2 gap-1 border-b border-black/5">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                                 </div>
                                 <img src="myprojects/BQL/EQS Function.jpeg" alt="BQL"
                                     class="w-full h-full object-cover object-top">
@@ -1075,16 +1091,16 @@
                         </div>
 
                         <div
-                            class="absolute bottom-0 right-0 w-20 h-20 bg-[#1A1A1A] rounded-tl-3xl flex items-end justify-end p-2 z-20">
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-brand-primary rounded-tl-3xl flex items-end justify-end p-2 z-20">
                             <div
-                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute -top-6 right-0 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <div
-                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#1A1A1A]">
+                                class="absolute bottom-0 -left-6 w-6 h-6 bg-transparent rounded-br-3xl shadow-[5px_5px_0_5px_#222222]">
                             </div>
                             <a href="page/projects/bql.html"
-                                class="w-14 h-14 rounded-full bg-[#333] group-hover:bg-[#C7F131] text-white group-hover:text-black flex items-center justify-center transition-colors duration-300 text-xl shadow-lg relative z-10">
-                                <i class="fa-solid fa-arrow-up-right"></i>
+                                class="w-14 h-14 rounded-full bg-brand-highlight flex items-center justify-center transition-colors duration-300 shadow-lg relative z-10" style="background-color: #f3c623;">
+                                <i class="fa-solid fa-arrow-up-right-from-square" style="color: #000000; font-size: 16px;"></i>
                             </a>
                         </div>
                     </div>
@@ -1377,7 +1393,7 @@
 
 
 
-        <section id="articles" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
+        <section id="writing" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
             <div class="text-center mb-20">
                 <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase mb-4 block">Insights &
                     Writing</span>
@@ -1408,12 +1424,34 @@
                     </a>
                 </div>
             </div>
+
+            <div
+                class="bg-brand-tertiary p-10 flex flex-col md:flex-row items-center gap-8 rounded-[3rem] border border-[#E5E5E5] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 mt-8">
+                <div
+                    class="absolute -top-10 -right-10 text-9xl text-brand-primary/5 group-hover:scale-110 transition-transform duration-700">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
+                <div class="flex-grow z-10">
+                    <span
+                        class="text-[10px] font-bold text-green-600 bg-green-100 px-4 py-2 rounded-full uppercase tracking-widest mb-6 inline-block"><i
+                            class="fa-solid fa-chart-line mr-1"></i> Investment Guide</span>
+                    <h3
+                        class="text-4xl md:text-5xl font-bold tracking-tighter text-brand-primary mb-4 leading-tight group-hover:text-brand-secondary transition-colors">
+                        Building a Monthly Dividend Stream</h3>
+                    <p class="text-brand-secondary font-medium text-lg md:text-xl mb-8 max-w-2xl">Top Indian Stocks for Consistent Cash Flow</p>
+                    <a href="https://tontufmoney-news.blogspot.com/2026/04/building-monthly-dividend-stream-top.html"
+                        target="_blank"
+                        class="inline-flex items-center gap-3 bg-brand-primary text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-brand-secondary transition-colors shadow-lg">
+                        Read Analysis <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </section>
 
 
 
 
-        <section id="articles" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
+        <section id="writing-analysis" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-[#E5E5E5] pb-8">
                 <div>
                     <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase mb-4 block">08 /
@@ -1773,15 +1811,31 @@
 
             const nav = document.getElementById('mainNav');
             const whiteCanvas = document.getElementById('white-canvas');
+            let lastScrollY = 0;
+            let navHidden = false;
 
             window.addEventListener('scroll', () => {
                 const canvasTop = whiteCanvas.getBoundingClientRect().top;
+                const currentScrollY = window.scrollY;
 
                 if (canvasTop < 100) {
                     nav.classList.add('header-light');
                 } else {
                     nav.classList.remove('header-light');
                 }
+
+                if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                    if (!navHidden) {
+                        nav.style.transform = 'translateY(-120%)';
+                        navHidden = true;
+                    }
+                } else {
+                    if (navHidden) {
+                        nav.style.transform = 'translateY(0)';
+                        navHidden = false;
+                    }
+                }
+                lastScrollY = currentScrollY;
             });
 
             window.toggleInsights = function () {
@@ -1941,7 +1995,7 @@
                         </div>
                     </div>
                 `;
-                grid.insertAdjacentHTML('beforeend', html);
+                grid.innerHTML = html;
             });
 
             const loadBtn = document.getElementById('loadMoreArticles');
