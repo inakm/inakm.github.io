@@ -4,59 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Projects | Anjani Kumar Mishra</title>
+    <title>Excel Projects | Financial Modeling & Data Analysis</title>
 
     <link rel="icon" type="image/png" href="../../mypfpf.png">
 
-    <meta name="description" content="Advanced Excel modeling and data analysis projects by Anjani Kumar Mishra.">
-    <meta name="keywords" content="Excel, Financial Analysis, Data Modeling, Dashboard, Anjani Kumar Mishra, AKM">
+    <meta name="description" content="Advanced Excel financial modeling, DCF valuation, AR aging reports, and data analysis projects by Anjani Kumar Mishra. Download Excel models for corporate finance and accounting.">
+    <meta name="keywords" content="Excel projects, financial modeling, DCF valuation, AR aging report, fixed asset register, data analysis, Excel dashboard, pivot tables, VLOOKUP, INDEX-MATCH, LAMBDA functions, Power Query, Anjani Kumar Mishra, AKM Portfolio">
     <meta name="author" content="Anjani Kumar Mishra">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="14 days">
+    <meta name="theme-color" content="#107c41">
+
+    <link rel="canonical" href="https://inakm.github.io/page/projects/excelproj.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../mypfpf.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inakm.github.io/page/projects/excelproj.html">
+    <meta property="og:title" content="Excel Projects | Financial Modeling & Data Analysis">
+    <meta property="og:description" content="Advanced Excel financial modeling, DCF valuation, AR aging reports, and data analysis projects. Download corporate finance Excel templates.">
+    <meta property="og:image" content="https://inakm.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@in_akmm">
+    <meta name="twitter:creator" content="@in_akmm">
+    <meta name="twitter:title" content="Excel Projects | Financial Modeling & Data Analysis">
+    <meta name="twitter:description" content="Advanced Excel financial modeling, DCF valuation, AR aging reports, and data analysis projects.">
+    <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Excel Projects",
+        "description": "Advanced Excel financial modeling and data analysis projects",
+        "url": "https://inakm.github.io/page/projects/excelproj.html",
+        "creator": {
+            "@type": "Person",
+            "name": "Anjani Kumar Mishra",
+            "url": "https://inakm.github.io/"
+        },
+        "about": [
+            "Financial Modeling",
+            "DCF Valuation",
+            "Data Analysis",
+            "Excel Dashboards",
+            "AR Aging Reports",
+            "Fixed Asset Register"
+        ],
+        "genre": "Portfolio"
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Anton', 'sans-serif'],
-                        body: ['Manrope', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'],
+                        sans: ['Manrope', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            excelGreen: '#107c41',
-                            excelDark: '#084f29',
-                            stormy: '#006466',
-                            charcoal: '#1b3a4b',
-                            deepSpace: '#212f45',
-                            indigo: '#272640',
-                            lavender: '#d5cfe1',
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
                             white: '#ffffff',
-                            highlight: '#48cae4'
-                        }
-                    },
-                    backgroundImage: {
-                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in-down': 'fadeInDown 0.3s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        fadeInDown: {
-                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                            highlight: '#f3c623',
+                            excel: '#107c41'
                         }
                     }
                 }
@@ -66,591 +92,371 @@
 
     <style>
         body {
-            background-color: #1a1a1d;
-            background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
-            color: #d5cfe1;
+            background-color: #ffffff;
+            color: #222222;
             overflow-x: hidden;
+            font-family: 'Manrope', sans-serif;
+            cursor: none;
         }
-
-        .bg-grid {
-            background-size: 50px 50px;
-            background-position: center;
-        }
-
-        .card-3d {
-            background: rgba(33, 47, 69, 0.7);
-            border: 1px solid rgba(148, 149, 139, 0.3);
-            box-shadow: 6px 6px 0px rgba(16, 124, 65, 0.5);
-            transition: all 0.2s ease;
-        }
-
-        .card-3d:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px rgba(16, 124, 65, 0.8);
-            background: rgba(33, 47, 69, 0.9);
-            border-color: #d5cfe1;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1b3a4b;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #107c41;
-            border: 2px solid #1b3a4b;
-            border-radius: 4px;
-        }
-
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 60;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateY(20px);
-        }
-
-        #backToTop.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            min-width: 200px;
-            background: rgba(33, 47, 69, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 0;
-            z-index: 100;
-            margin-top: 0.5rem;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-            animation: fadeInDown 0.3s ease-out forwards;
-        }
-
-        .dropdown-item {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: #d5cfe1;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-item:hover {
-            background: rgba(16, 124, 65, 0.3);
-            color: #107c41;
-            padding-left: 1.75rem;
-        }
-
-        .mobile-menu-overlay {
+        * { cursor: none !important; }
+        .cursor-dot, .cursor-outline {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(33, 47, 69, 0.98);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #222222; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid #222222; transition: width 0.2s, height 0.2s; }
+        .cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(34,34,34,0.1); }
+
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
-            z-index: 45;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .nav-text {
+            color: #222222;
+        }
+        .nav-pill {
+            background: #ffffff;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: scale(1.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            pointer-events: none;
         }
-
-        .mobile-menu-overlay.active {
+        .nav-item-wrapper:hover .mega-menu {
             opacity: 1;
             visibility: visible;
-            transform: scale(1);
-        }
-
-        .hamburger-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 24px;
-            height: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 55;
-        }
-
-        .hamburger-icon span {
-            width: 24px;
-            height: 2px;
-            background: white;
-            transition: all 0.3s linear;
-            position: relative;
-            transform-origin: 1px;
-        }
-
-        .hamburger-icon.open span:nth-child(1) {
-            transform: rotate(45deg);
-        }
-
-        .hamburger-icon.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-icon.open span:nth-child(3) {
-            transform: rotate(-45deg);
+            transform: translateX(-50%) translateY(10px);
+            pointer-events: auto;
         }
     </style>
 </head>
 
-<body
-    class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-excelGreen selection:text-white">
+<body class="antialiased selection:bg-brand-primary selection:text-white">
 
-    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
-        <div
-            class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
-            <a href="../../index.html"
-                class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-excelGreen transition-colors flex items-center gap-2">
-                AKM<span class="text-brand-excelGreen group-hover:text-white">.</span>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <nav id="mainNav" class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4 transition-all duration-300 nav-blur">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center relative gap-y-4">
+            <a href="../../index.html" class="magnetic-wrap group shrink-0">
+                <div class="magnetic-inner text-2xl font-bold tracking-tighter nav-text flex items-center gap-1">
+                    AKM<span class="text-brand-secondary text-sm font-medium tracking-normal mt-1">Portfolio</span>
+                </div>
             </a>
 
-            <div
-                class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
-                <a href="../../index.html#about" class="hover:text-white transition-colors">Profile</a>
-                <a href="../../index.html#experience" class="hover:text-white transition-colors">Work</a>
-                <a href="../../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
-                <div class="dropdown">
-                    <button
-                        class="hover:text-white transition-colors focus:outline-none focus:text-brand-excelGreen uppercase tracking-widest flex items-center gap-1">
-                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="../../index.html#projects" class="dropdown-item">Portfolio</a>
-                        <a href="excelproj.html" class="dropdown-item">Excel Projects</a>
-                        <a href="gatigo.html" class="dropdown-item">GatiGo</a>
-                        <a href="https://foilai.in/" target="_blank" class="dropdown-item">FoilAI</a>
+            <div class="flex items-center justify-center w-full md:w-auto md:absolute md:left-1/2 md:-translate-x-1/2 nav-pill rounded-full px-2 py-1 gap-1 order-last md:order-none">
+                <a href="../../index.html#about" class="px-5 py-2.5 rounded-full nav-text font-medium text-sm hover:bg-brand-tertiary transition-colors shrink-0">Profile</a>
+
+                <div class="relative nav-item-wrapper group shrink-0">
+                    <a href="../../index.html#projects" class="px-5 py-2.5 rounded-full nav-text font-medium text-sm flex items-center gap-2 hover:bg-brand-tertiary transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </a>
+
+                    <div class="mega-menu w-[500px] p-5">
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="bql.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">BQL Analysis</div>
+                                <div class="text-xs text-brand-secondary">Bloomberg Query Language</div>
+                            </a>
+                            <a href="citi-forage.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">Citi Forage</div>
+                                <div class="text-xs text-brand-secondary">Virtual Experience</div>
+                            </a>
+                            <a href="excelproj.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">Excel Projects</div>
+                                <div class="text-xs text-brand-secondary">Financial Models</div>
+                            </a>
+                            <a href="gatigo.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">GatiGo</div>
+                                <div class="text-xs text-brand-secondary">Logistics Models</div>
+                            </a>
+                            <a href="powerbi.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">PowerBI</div>
+                                <div class="text-xs text-brand-secondary">Dashboards</div>
+                            </a>
+                            <a href="rvnl.html" class="p-3 rounded-lg hover:bg-brand-tertiary transition-colors">
+                                <div class="text-sm font-bold text-brand-primary">RVNL</div>
+                                <div class="text-xs text-brand-secondary">Railway Analysis</div>
+                            </a>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-black/5 text-center">
+                            <a href="index.html" class="text-xs font-bold text-brand-excel hover:underline">View All Projects</a>
+                        </div>
                     </div>
                 </div>
+
+                <div class="relative nav-item-wrapper group">
+                    <a href="../../page/prompts/index.html" class="px-5 py-2.5 rounded-full nav-text font-medium text-sm flex items-center gap-2 hover:bg-brand-tertiary transition-colors">
+                        Prompts <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </a>
+                    <div class="mega-menu w-[240px] p-3">
+                        <ul class="space-y-1">
+                            <li><a href="../../page/prompts/bmodel-analysis.html" class="block p-2 rounded-lg hover:bg-brand-tertiary transition-colors text-sm font-bold text-brand-primary">Business Models</a></li>
+                            <li><a href="../../page/prompts/cvfindjob.html" class="block p-2 rounded-lg hover:bg-brand-tertiary transition-colors text-sm font-bold text-brand-primary">CV / Job Finder</a></li>
+                            <li><a href="../../page/prompts/equityresrch.html" class="block p-2 rounded-lg hover:bg-brand-tertiary transition-colors text-sm font-bold text-brand-primary">Equity Research</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="../../page/contact.html" class="px-5 py-2.5 rounded-full nav-text font-medium text-sm hover:bg-brand-tertiary transition-colors">Contact</a>
             </div>
 
-            <div class="flex items-center gap-4 z-50">
-                <a href="mailto:inakm@proton.me"
-                    class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-excelGreen hover:text-white transition-all shadow-lg whitespace-nowrap">
-                    Let's Talk
+            <div class="flex items-center gap-4 shrink-0">
+                <a href="../../page/contact.html" class="hidden sm:block">
+                    <div class="bg-brand-primary text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-lg">
+                        Let's Talk
+                    </div>
                 </a>
-                <button id="mobileMenuBtn" class="md:hidden hamburger-icon ml-2" aria-label="Toggle navigation menu"
-                    onclick="toggleMobileMenu()">
-                    <span></span><span></span><span></span>
-                </button>
             </div>
         </div>
     </nav>
 
-    <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
-        <nav
-            class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full">
-            <a href="../../index.html"
-                class="hover:text-brand-excelGreen transition-colors w-full text-center py-2 relative group"
-                onclick="toggleMobileMenu()">
-                <span class="group-hover:text-white z-10 relative">Home</span>
-            </a>
-            <a href="../../index.html#projects"
-                class="hover:text-brand-excelGreen transition-colors w-full text-center py-2 relative group"
-                onclick="toggleMobileMenu()">
-                <span class="group-hover:text-white z-10 relative">Portfolio</span>
-            </a>
-            <a href="mailto:inakm@proton.me"
-                class="bg-white text-brand-deepSpace px-8 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-brand-excelGreen hover:text-white transition-all shadow-lg mt-4"
-                onclick="toggleMobileMenu()">
-                Let's Talk
-            </a>
-        </nav>
-    </div>
+    <main class="pt-28 pb-20">
 
-    <header class="relative min-h-[60vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32">
-        <div class="text-center z-10 relative">
-            <h1
-                class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-white mix-blend-overlay opacity-50 select-none">
-                Excel Projects
-            </h1>
-            <h1
-                class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-excelGreen via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
-                Showcase
-            </h1>
-
-            <p
-                class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/20 py-3 inline-block font-medium">
-                ADVANCED EXCEL <span class="text-brand-excelGreen px-2">::</span> FINANCIAL DATA SCIENCE
-            </p>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 md:px-6 py-20 relative z-10">
-
-        <section class="mb-32">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6">
-                <div>
-                    <span
-                        class="text-brand-excelGreen font-mono text-sm tracking-widest uppercase block mb-2 font-bold">01.
-                        Excel Analysis</span>
-                    <h2 class="text-4xl md:text-5xl font-display uppercase text-white">Excel Projects</h2>
+        <section class="max-w-7xl mx-auto px-6 md:px-12 mb-40 pt-10">
+            <div class="flex flex-col md:flex-row gap-12 lg:gap-24 mb-16">
+                <div class="w-full md:w-1/3">
+                    <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase mb-4 block">Projects</span>
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-brand-primary">Excel Projects</h1>
                 </div>
-                <div class="mt-4 md:mt-0">
-                    <p class="text-right font-mono text-brand-lavender text-xs">SPREADSHEET MODELING</p>
+                <div class="w-full md:w-2/3">
+                    <p class="text-xl text-brand-secondary font-medium leading-relaxed">Advanced financial modeling and data analysis projects showcasing Excel proficiency for corporate finance, reporting, and analytical workflows.</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <hr class="border-t border-[#E5E5E5] mb-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 
                 <!-- Vrinda Store Data Analysis -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div class="w-full h-64 overflow-hidden bg-brand-deepSpace relative z-10">
-                        <img src="../../myprojects/ExelProj/Vrinda_StoreData_AnalysisIMG.png"
-                            alt="Vrinda Store Data Analysis"
-                            class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-primary/5 relative">
+                        <img src="../../myprojects/ExelProj/Vrinda_StoreData_AnalysisIMG.png" alt="Vrinda Store Analysis" class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-tertiary/50 to-transparent"></div>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-file-excel text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                Vrinda Store Analysis</h3>
-                            <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed font-body">An interactive
-                                dashboard utilizing advanced Excel formulas, pivot tables, and conditional formatting to
-                                interpret massive store data metrics effectively.</p>
-
-                            <a href="../../myprojects/ExelProj/Vrinda%20Store%20Data%20Analysis.xlsx" download
-                                class="mt-auto bg-brand-excelGreen text-white px-6 py-3 rounded text-center font-mono text-sm font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                <i class="fa-solid fa-download mr-2"></i> Download XLSX
-                            </a>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">Vrinda Store Analysis</h3>
+                        <i class="fa-solid fa-file-excel text-brand-excel text-xl"></i>
                     </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">An interactive dashboard built with advanced Excel formulas, pivot tables, and conditional formatting to analyze retail store data metrics effectively. Tracks sales performance, inventory turnover, and customer trends.</p>
+                    <a href="../../myprojects/ExelProj/Vrinda%20Store%20Data%20Analysis.xlsx" download class="w-full sm:w-auto text-center bg-brand-excel text-white px-6 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download File
+                    </a>
                 </div>
 
-                <!-- DCF Start -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div
-                        class="w-full h-64 overflow-hidden bg-[#107c41]/20 relative z-10 flex items-center justify-center">
-                        <i
-                            class="fa-solid fa-file-invoice-dollar text-7xl text-brand-excelGreen opacity-50 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <!-- DCF Valuation -->
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-excel/10 relative flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line text-[10rem] text-brand-excel/20 group-hover:scale-110 group-hover:text-brand-excel/30 transition-all duration-700"></i>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-chart-line text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                DCF Valuation Modeling</h3>
-                            <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed font-body">A standardized
-                                Discounted Cash Flow starting model template featuring structural assumptions, WACC
-                                calculations, and intrinsic value projections.</p>
-
-                            <a href="../../myprojects/ExelProj/DCF-Start.xlsx" download
-                                class="mt-auto bg-brand-excelGreen text-white px-6 py-3 rounded text-center font-mono text-sm font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                <i class="fa-solid fa-download mr-2"></i> Download XLSX
-                            </a>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">DCF Valuation Modeling</h3>
+                        <i class="fa-solid fa-chart-line text-brand-excel text-xl"></i>
                     </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">A standardized Discounted Cash Flow (DCF) model template featuring structured assumptions, WACC calculations, terminal value computations, and intrinsic value projections for company valuation.</p>
+                    <a href="../../myprojects/ExelProj/DCF-Start.xlsx" download class="w-full sm:w-auto text-center bg-brand-excel text-white px-6 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download File
+                    </a>
                 </div>
 
                 <!-- AR Aging Report -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div class="w-full h-64 overflow-hidden bg-brand-deepSpace relative z-10">
-                        <img src="../../myprojects/ExelProj/AR_Aging_ReportIMG.png" alt="AR Aging Report"
-                            class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-primary/5 relative">
+                        <img src="../../myprojects/ExelProj/AR_Aging_ReportIMG.png" alt="AR Aging Report" class="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-tertiary/50 to-transparent"></div>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-file-invoice text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                AR Aging Report</h3>
-                            <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed font-body">An accounts
-                                receivable aging dashboard to systematically track outstanding invoices, gauge liquidity
-                                gaps, and maintain healthy corporate cash flows.</p>
-
-                            <a href="../../myprojects/ExelProj/AR_Aging_Report.xlsx" download
-                                class="mt-auto bg-brand-excelGreen text-white px-6 py-3 rounded text-center font-mono text-sm font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                <i class="fa-solid fa-download mr-2"></i> Download XLSX
-                            </a>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">AR Aging Report</h3>
+                        <i class="fa-solid fa-file-invoice text-brand-excel text-xl"></i>
                     </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">An accounts receivable aging dashboard to systematically track outstanding invoices, categorize by aging buckets, gauge liquidity gaps, and maintain healthy corporate cash flows.</p>
+                    <a href="../../myprojects/ExelProj/AR_Aging_Report.xlsx" download class="w-full sm:w-auto text-center bg-brand-excel text-white px-6 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download File
+                    </a>
                 </div>
 
-                <!-- Fixed Asset Register & Depreciation -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div
-                        class="w-full h-64 overflow-hidden bg-[#107c41]/20 relative z-10 flex items-center justify-center">
-                        <i
-                            class="fa-solid fa-building text-7xl text-brand-excelGreen opacity-50 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <!-- Fixed Asset Register -->
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-excel/10 relative flex items-center justify-center">
+                        <i class="fa-solid fa-building text-[10rem] text-brand-excel/20 group-hover:scale-110 group-hover:text-brand-excel/30 transition-all duration-700"></i>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-calculator text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                Fixed Asset Register</h3>
-                            <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed font-body">A detailed capital
-                                expenditure and fixed asset matrix engineered for logging asset lifespan, computing
-                                depreciation, and auditing balance sheet carry structures.</p>
-
-                            <a href="../../myprojects/ExelProj/Fixed_Asset_Register_Depreciation.xlsx" download
-                                class="mt-auto bg-brand-excelGreen text-white px-6 py-3 rounded text-center font-mono text-sm font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                <i class="fa-solid fa-download mr-2"></i> Download XLSX
-                            </a>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">Fixed Asset Register</h3>
+                        <i class="fa-solid fa-building text-brand-excel text-xl"></i>
                     </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">A detailed capital expenditure matrix for logging asset lifespan, computing straight-line and reducing balance depreciation, and auditing balance sheet carry structures.</p>
+                    <a href="../../myprojects/ExelProj/Fixed_Asset_Register_Depreciation.xlsx" download class="w-full sm:w-auto text-center bg-brand-excel text-white px-6 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download File
+                    </a>
                 </div>
 
-                <!-- AI Financial Model Audit -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div
-                        class="w-full h-64 overflow-hidden bg-[#107c41]/20 relative z-10 flex items-center justify-center">
-                        <i
-                            class="fa-solid fa-microchip text-7xl text-brand-excelGreen opacity-50 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <!-- AI Fin-Model Audit -->
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-excel/10 relative flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-[10rem] text-brand-excel/20 group-hover:scale-110 group-hover:text-brand-excel/30 transition-all duration-700"></i>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-robot text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                AI Fin-Model Audit</h3>
-                            <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">A comprehensive
-                                integrity check utilizing advanced AI logic to audit, identify, and rectify complex
-                                formulaic discrepancies. Showcases high proficiency in bridging corporate finance
-                                architecture with AI automation for error-free financial modeling.</p>
-
-                            <div class="mt-auto grid grid-cols-2 gap-2 z-10 relative">
-                                <a href="../../myprojects/ExelProj/AI_Audit/Startup_Fin_Model_Audited.xlsx" download
-                                    class="bg-brand-excelGreen text-white px-2 py-3 rounded text-center font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                    <i class="fa-solid fa-download mr-1"></i> Audited
-                                </a>
-                                <a href="../../myprojects/ExelProj/AI_Audit/Startup_Fin_Model_Fixed.xlsx" download
-                                    class="bg-brand-excelGreen text-white px-2 py-3 rounded text-center font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                    <i class="fa-solid fa-download mr-1"></i> Fixed
-                                </a>
-                            </div>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">AI Fin-Model Audit</h3>
+                        <i class="fa-solid fa-robot text-brand-excel text-xl"></i>
+                    </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">Comprehensive integrity check using advanced AI logic formulas to audit and rectify complex formulaic discrepancies in financial models.</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="../../myprojects/ExelProj/AI_Audit/Startup_Fin_Model_Audited.xlsx" download class="flex-1 text-center bg-brand-excel text-white px-4 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check"></i> Audited
+                        </a>
+                        <a href="../../myprojects/ExelProj/AI_Audit/Startup_Fin_Model_Fixed.xlsx" download class="flex-1 text-center bg-brand-primary text-white px-4 py-3 rounded-full font-bold hover:bg-brand-excel transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wrench"></i> Fixed
+                        </a>
                     </div>
                 </div>
 
                 <!-- Data Cleaning Practice -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div
-                        class="w-full h-64 overflow-hidden bg-[#107c41]/20 relative z-10 flex items-center justify-center">
-                        <i
-                            class="fa-solid fa-broom text-7xl text-brand-excelGreen opacity-50 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-excel/10 relative flex items-center justify-center">
+                        <i class="fa-solid fa-broom text-[10rem] text-brand-excel/20 group-hover:scale-110 group-hover:text-brand-excel/30 transition-all duration-700"></i>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-broom text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                Data Cleaning Practice</h3>
-                            <p class="text-gray-300 text-sm mb-8 flex-grow leading-relaxed font-body">Hands-on data
-                                cleaning exercises using Power Query, text functions, and advanced formulas to transform
-                                raw data into analysis-ready formats.</p>
-
-                            <a href="../../myprojects/ExelProj/Data_Cleaning_Practice.xlsx" download
-                                class="mt-auto bg-brand-excelGreen text-white px-6 py-3 rounded text-center font-mono text-sm font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                <i class="fa-solid fa-download mr-2"></i> Download XLSX
-                            </a>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">Data Cleaning Practice</h3>
+                        <i class="fa-solid fa-broom text-brand-excel text-xl"></i>
                     </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">Hands-on exercises using Power Query, text functions (LEFT, RIGHT, MID), and advanced formulas (VLOOKUP, INDEX-MATCH) to transform raw data into analysis-ready formats.</p>
+                    <a href="../../myprojects/ExelProj/Data_Cleaning_Practice.xlsx" download class="w-full sm:w-auto text-center bg-brand-excel text-white px-6 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> Download File
+                    </a>
                 </div>
 
                 <!-- Data Cleaning AI -->
-                <div
-                    class="card-3d flex flex-col group relative overflow-hidden rounded-xl border border-brand-excelGreen/30">
-                    <div
-                        class="w-full h-64 overflow-hidden bg-[#107c41]/20 relative z-10 flex items-center justify-center">
-                        <i
-                            class="fa-solid fa-wand-magic-sparkles text-7xl text-brand-excelGreen opacity-50 group-hover:scale-110 transition-transform duration-500"></i>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-deepSpace to-transparent opacity-80">
-                        </div>
+                <div class="bg-brand-tertiary p-6 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
+                    <div class="h-64 -mx-6 -mt-6 mb-6 overflow-hidden bg-brand-excel/10 relative flex items-center justify-center">
+                        <i class="fa-solid fa-wand-magic-sparkles text-[10rem] text-brand-excel/20 group-hover:scale-110 group-hover:text-brand-excel/30 transition-all duration-700"></i>
                     </div>
-
-                    <div class="p-8 flex flex-col flex-grow z-20 -mt-16">
-                        <div
-                            class="bg-brand-deepSpace/90 backdrop-blur-sm p-6 rounded-lg border border-brand-excelGreen/20 flex-grow flex flex-col">
-                            <div class="flex justify-between items-start mb-4">
-                                <span
-                                    class="font-mono text-xs font-bold text-brand-excelGreen border border-brand-excelGreen px-2 py-1 bg-brand-excelGreen/10">.XLSX</span>
-                                <i class="fa-solid fa-wand-magic-sparkles text-brand-excelGreen text-2xl"></i>
-                            </div>
-                            <h3
-                                class="text-2xl font-display uppercase mb-3 text-white group-hover:text-brand-excelGreen transition-colors tracking-tight">
-                                Data Cleaning AI</h3>
-                            <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed font-body">AI-powered data
-                                cleaning and transformation using modern Excel functions to automate data prep workflows
-                                with intelligent pattern recognition.</p>
-
-                            <div class="mt-auto grid grid-cols-2 gap-2 z-10 relative">
-                                <a href="../../myprojects/ExelProj/Data%20Cleaning_AI.xlsx" download
-                                    class="bg-brand-excelGreen text-white px-2 py-3 rounded text-center font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                    <i class="fa-solid fa-download mr-1"></i> Download
-                                </a>
-                                <a href="https://share.google/aimode/DYyqHYlhMOD0HbOT6" target="_blank"
-                                    class="bg-brand-lavender text-brand-deepSpace px-2 py-3 rounded text-center font-mono text-[10px] font-bold uppercase hover:bg-white hover:text-brand-deepSpace transition-colors shadow-lg">
-                                    <i class="fa-solid fa-robot mr-1"></i> AI Prompts Used
-                                </a>
-                            </div>
-                        </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-2xl font-bold tracking-tighter text-brand-primary group-hover:text-brand-excel transition-colors">Data Cleaning AI</h3>
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-excel text-xl"></i>
+                    </div>
+                    <p class="text-brand-secondary text-base leading-relaxed mb-6">AI-powered data cleaning using modern Excel functions (LAMBDA, LET, MAP, SCAN) to automate data prep with intelligent pattern recognition.</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="../../myprojects/ExelProj/Data%20Cleaning_AI.xlsx" download class="flex-1 text-center bg-brand-excel text-white px-4 py-3 rounded-full font-bold hover:bg-brand-primary transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Download
+                        </a>
+                        <a href="https://share.google/aimode/DYyqHYlhMOD0HbOT6" target="_blank" class="flex-1 text-center bg-brand-primary text-white px-4 py-3 rounded-full font-bold hover:bg-brand-excel transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-robot"></i> AI Prompts
+                        </a>
                     </div>
                 </div>
 
             </div>
+
+            <hr class="border-t border-[#E5E5E5] mt-16">
         </section>
-        <section class="mb-8 card-3d p-6 border-l-4 border-l-brand-highlight bg-brand-indigo/60 mt-8">
-            <h4 class="text-brand-highlight font-mono text-sm tracking-widest uppercase font-bold mb-3">Academic Project
-                Disclaimer</h4>
-            <p class="text-white font-body text-base leading-relaxed mb-2 font-medium">
-                This data is compiled strictly for academic research and educational purposes. It does not constitute
-                financial advice, investment recommendations, or an endorsement of any particular security or strategy.
-                All analysis is based on historical or simulated data and should not be used as a basis for real-world
-                financial decisions.
-            </p>
-            <p class="text-gray-400 font-body text-xs leading-relaxed mt-4 border-t border-white/10 pt-3">
-                Designed & Developed by <a href="https://inakm.github.io"
-                    class="text-brand-highlight hover:text-white font-bold transition-colors">@inAKM</a>.
-            </p>
+
+        <section class="max-w-7xl mx-auto px-6 md:px-12 py-16">
+            <div class="bg-brand-tertiary p-10 rounded-[2rem] border border-[#E5E5E5]">
+                <h4 class="text-brand-primary font-bold text-xl mb-4">Academic Project Disclaimer</h4>
+                <p class="text-brand-secondary text-base leading-relaxed mb-4">
+                    This data is compiled strictly for academic research and educational purposes. It does not constitute financial advice, investment recommendations, or an endorsement of any particular security or strategy. All analysis is based on historical or simulated data and should not be used as a basis for real-world financial decisions.
+                </p>
+                <p class="text-brand-secondary text-sm leading-relaxed mt-6 pt-6 border-t border-[#E5E5E5]">
+                    Designed & Developed by <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-brand-primary font-bold hover:text-brand-excel transition-colors">@inAKM</a>.
+                </p>
+            </div>
         </section>
 
     </main>
 
-    <footer class="relative bg-[#111111] pt-20 pb-10 border-t-4 border-brand-excelGreen">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
-            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
-
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="https://linkedin.com/in/inakmm" target="_blank"
-                    class="text-gray-400 hover:text-brand-excelGreen transition-colors text-2xl">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/inakm" target="_blank"
-                    class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="mailto:inakm@proton.me"
-                    class="text-gray-400 hover:text-brand-stormy transition-colors text-2xl">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
+    <footer class="bg-brand-primary text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-2">
+                    <h3 class="text-3xl font-bold mb-4">Anjani Kumar Mishra</h3>
+                    <p class="text-white/70 text-lg mb-8 max-w-md">Finance & Analytics professional bridging corporate finance with technology.</p>
+                    <div class="flex flex-wrap gap-4 text-xl mb-8">
+                        <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-white hover:text-brand-highlight transition-colors bg-white/5 w-10 h-10 flex items-center justify-center rounded-full"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/inakm" target="_blank" class="text-white hover:text-brand-highlight transition-colors bg-white/5 w-10 h-10 flex items-center justify-center rounded-full"><i class="fa-brands fa-github"></i></a>
+                        <a href="mailto:inakm@proton.me" class="text-white hover:text-brand-highlight transition-colors bg-white/5 w-10 h-10 flex items-center justify-center rounded-full"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Projects</h4>
+                    <ul class="text-white/70 text-sm font-medium space-y-3">
+                        <li><a href="bql.html" class="hover:text-white transition-colors">BQL Analysis</a></li>
+                        <li><a href="gatigo.html" class="hover:text-white transition-colors">GatiGo Models</a></li>
+                        <li><a href="powerbi.html" class="hover:text-white transition-colors">PowerBI Projects</a></li>
+                        <li><a href="rvnl.html" class="hover:text-white transition-colors">RVNL Analysis</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Resources</h4>
+                    <ul class="text-white/70 text-sm font-medium space-y-3">
+                        <li><a href="../../page/career-directory.html" class="hover:text-white transition-colors">Career Directory</a></li>
+                        <li><a href="../../page/resources.html" class="hover:text-white transition-colors">Resources</a></li>
+                        <li><a href="../../Mishra_AnjaniKr_2026.pdf" target="_blank" class="hover:text-white transition-colors">Download Resume</a></li>
+                        <li><a href="../../page/contact.html" class="hover:text-white transition-colors">Contact Me</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
-                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            <div class="border-t border-white/10 mt-16 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-white/50">
+                <p>&copy; 2026 Anjani Kumar Mishra. All rights reserved.</p>
+                <p>Open Source on <a href="https://github.com/inakm/inakm.github.io" target="_blank" class="text-white hover:text-brand-highlight transition-colors underline decoration-white/30 underline-offset-4">GitHub</a></p>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop" onclick="scrollToTop()"
-        class="bg-brand-excelGreen text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 hover:text-brand-excelGreen transition-all border-2 border-brand-deepSpace"
-        aria-label="Back to top">
-        <i class="fa-solid fa-chevron-up text-xl"></i>
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-white text-black w-12 h-12 rounded-full flex items-center justify-center shadow-2xl opacity-0 translate-y-10 transition-all duration-300 z-50 hover:bg-brand-primary hover:text-white border border-[#E5E5E5] hover:scale-110">
+        <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <script>
-        const btt = document.getElementById('backToTop');
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+        const backToTop = document.getElementById('back-to-top');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+            cursorOutline.style.left = e.clientX + 'px';
+            cursorOutline.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, input, select').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+        });
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
-                btt.classList.add('show');
+                backToTop.classList.remove('opacity-0', 'translate-y-10');
             } else {
-                btt.classList.remove('show');
+                backToTop.classList.add('opacity-0', 'translate-y-10');
             }
         });
 
-        function scrollToTop() {
+        document.getElementById('back-to-top').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.getElementById('mobileMenuBtn');
-            if (menu && btn) {
-                menu.classList.toggle('active');
-                btn.classList.toggle('open');
-                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-            }
-        }
+        });
     </script>
+
 </body>
 
 </html>
