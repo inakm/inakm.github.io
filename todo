@@ -25,6 +25,8 @@ remove all un-needed  comments from the code
 
  https://motionsites.ai/
 
+
+add Aciii animation
  
 
 XLS:
@@ -33,6 +35,10 @@ XLS:
  RVNL Ratio Analysis
  RVNL DCF Analysis
  RVNL 3 Statement Model
+
+ Capital budgeting decison tool
+I have a portfolio of many investment products in india like stocks, etfs, mutual funds, I want to make some projects from it in excel
+
 
 
  Here are the 8 top consultancies clarified with their official, verified contact emails These firms charge employers only upon successful placement—no fees from candidates.
@@ -48,4 +54,103 @@ inquiries@manpowergroup.co.in
 
 
 
-AI Data Cleaning Prompts Link: https://share.google/aimode/DYyqHYlhMOD0HbOT6
+
+To transform the current individual portfolio into a professional corporate profile for Rail Vikas Nigam Limited (RVNL), focusing on financial analysis, you can use the following descriptive layout.
+🏗️ Header & Brand Identity
+Profile Picture: Replace the portrait with the RVNL Official Logo. Ensure it is high-resolution against a clean white or transparent background.
+Cover Banner: Replace the soft purple gradient with a professional, high-definition panoramic shot of a modern Indian rail infrastructure project (e.g., a newly commissioned bridge or a high-speed metro line) with a subtle blue overlay to match corporate branding.
+Company Name: Rail Vikas Nigam Limited (RVNL).
+Tagline: "A Navratna PSU under the Ministry of Railways | Expediting Rail Infrastructure through Excellence."
+Location: New Delhi, India (Headquarters).
+📊 Performance Metrics (Stats Row)
+Replace the social media counts with key financial/operational indicators:
+Market Cap: Current valuation (e.g., ₹50,000+ Cr).
+Order Book: Total value of ongoing projects.
+Status: "Navratna Central PSU."
+📂 Navigation Tabs
+Update the "Work," "Moodboards," and "Likes" tabs to:
+Annual Reports: Direct access to PDF archives.
+Financial Models: Interactive DCF, Ratio Analysis, and Valuation models.
+Social & News: Latest stock updates and project announcements.
+About: Company history and mission statement.
+📁 Project Gallery (Financial Showcase)
+Instead of mobile app UI, the cards should feature:
+Card 1: 3-Year Historical Financial Analysis
+Thumbnail: A sleek bar chart showing Revenue & PAT growth.
+Card 2: Project Implementation Dashboard
+Thumbnail: A map of India highlighting key doubling and metro projects.
+Card 3: Valuation Model (DCF)
+Thumbnail: A spreadsheet-style interface showing intrinsic value calculations.
+Coming Soon Section: Add two greyed-out or "blurred" cards with a "Coming Soon" badge.
+Future Project 1: Q1 Earnings Call Analysis.
+Future Project 2: ESG Compliance & Sustainability Report.
+⚖️ Footer Disclaimer
+At the very bottom of the page, use a smaller, clean font for the legal text provided:
+Disclaimer: This data is compiled strictly for academic research and educational purposes. It does not constitute financial advice, investment recommendations, or an endorsement of any particular security or strategy.
+Would you like me to refine the "Financial Models" section with specific metrics like Debt-to-Equity or EBITDA margins for the cards?
+AI can make mistakes, so double-check responses
+
+
+
+
+same, I wanna imporve my cards , can u please write a prompt too
+To make your project cards look professional for a financial and corporate context, the prompt needs to focus on data visualization, clean typography, and corporate aesthetics.
+Since you are using the layout from the image, here is a detailed prompt you can use for a UI designer or an AI image generator to create those specific cards:
+Prompt: Professional Financial Analysis Project Cards
+Overall Style:
+"Clean, corporate Fintech UI design. Minimalist aesthetic using a 'Glassmorphism' effect with a white and 'Railway Blue' color palette. High-contrast typography using sans-serif fonts (like Inter or Roboto). Each card should look like a high-end financial dashboard widget."
+Card 1: Annual Reports & Revenue
+Visual: A sophisticated line graph showing a 5-year upward trend in "Total Income." Use a soft glow on the data points.
+Text Overlay: "FY 2023-24 Annual Analysis."
+Subtext: "Comprehensive breakdown of Profit After Tax (PAT) and Expenditure."
+Tag/Badge: "PDF Integrated" in a small, pill-shaped button.
+Card 2: Financial Models (The Hero Card)
+Visual: A split-screen UI showing a "Discounted Cash Flow (DCF)" calculation on one side and a "Price-to-Earnings (P/E) Ratio" gauge on the other. Use shades of emerald green for positive growth indicators.
+Text Overlay: "Intrinsic Valuation Model."
+Subtext: "Dynamic financial forecasting based on RVNL’s current order book."
+Tag/Badge: "Interactive."
+Card 3: Social & Project News
+Visual: A news feed layout featuring a high-quality thumbnail of a Vande Bharat train or a new Metro line, with a "Stock Price" ticker overlaying the bottom (RVNL: NSE).
+Text Overlay: "Infrastructure Impact & Market News."
+Subtext: "Real-time updates on project commissions and MoUs."
+Tag/Badge: "Live Feed."
+Card 4 & 5: The "Coming Soon" Placeholders
+Visual: A frosted glass (blurred) background with a centered, high-opacity "Lock" icon or a "Loading" circle.
+Text Overlay: "Q1 Quarterly Review" (Card 4) and "ESG Sustainability Report" (Card 5).
+Label: A prominent "COMING SOON" banner angled across the top right corner in a gold or light grey color.
+Pro-Tip for the Layout:
+Keep the bottom stats from your original image (the "Likes" and "Views" icons) but change the icons to "Download" and "Time Spent Reading" to make it feel more like a research portal and less like a social network.
+Would you like me to help you draft the specific financial text (like CAGR percentages or Revenue figures) to put inside these cards?
+
+
+
+
+no, the card are of my Excel Projects, also tell them to keep using my site design and colour patterns ,
+To showcase your Excel-based Financial Models while maintaining the exact aesthetic of your site (soft gradients, rounded "pill" shapes, and clean UI), here is a refined prompt.
+This prompt tells a designer (or AI) to treat the Excel spreadsheets as "Art," making complex data look visually stunning within your existing layout.
+Prompt: Excel Project Showcase Cards (RVNL Corporate Style)
+Design Instruction:
+"Apply the existing site’s design system: use the soft pastel gradients, glassmorphism (translucent backgrounds), and ultra-rounded corners (32px radius). The 'Railway Blue' from the RVNL logo should be used as a primary accent color for data points."
+Card 1: 3-Statement Integrated Model
+Visual Content: A stylized, high-fidelity snippet of an Excel sheet. Focus on the Income Statement and Balance Sheet interface. Use 'zebra-striping' for rows in soft grey and blue. Highlight a 'Net Profit' cell with a subtle glow.
+Footer Title: RVNL 3-Statement Model
+Subtext: Fully linked Dynamic Excel Architecture.
+Card 2: DCF Valuation (The Analysis Card)
+Visual Content: A clean Excel dashboard view. Feature a Sensitivity Analysis table (the heat map style) showing varied WACC and Terminal Growth rates. Use a color scale from soft red to deep "Railway Blue" for the heat map.
+Footer Title: Intrinsic Value Analysis
+Subtext: DCF & Exit Multiple Valuation Methods.
+Card 3: Ratio & Debt Dashboard
+Visual Content: An Excel-based 'Executive Summary' sheet. Show a cluster of Excel Sparklines (mini charts inside cells) representing Debt-to-Equity and ROE trends over 5 years.
+Footer Title: Financial Health Dashboard
+Subtext: Solvency & Profitability Ratio Analysis.
+Card 4 & 5: Coming Soon (The Placeholders)
+Visual Content: Maintain the frosted glass/blur effect seen in the original UI. Inside the blur, show a faint outline of an Excel grid.
+Overlay: A centered, minimalist "+" icon or a "Loading" bar in the RVNL accent blue.
+Footer Title: Project Pending...
+Banner: A small, elegant "COMING SOON" tag in the top right corner using the same font as the "PRO" badge in your header.
+Quick Tip for the Excel Look:
+When creating these, hide the Excel Ribbon and Gridlines in your screenshots. This makes the "Excel Project" look like a bespoke software application rather than just a spreadsheet, which significantly elevates your portfolio's professional feel.
+Do you want to add specific file-type icons (like a small .XLSX badge) to the corner of each card to clarify they are Excel-based?
+
+
+also add more projects comming soon
