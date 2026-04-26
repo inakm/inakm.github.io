@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 17 Sustainability Assurance Summary</title>
+<link rel="icon" type="image/png" href="../../mypfpf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: #000000;
+    color: #222222;
+    overflow-x: hidden;
+    font-family: 'Manrope', sans-serif;
+    cursor: none;
+}
+* { cursor: none !important; }
+a { color: #f3c623; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+.cursor-dot { width: 8px; height: 8px; background-color: white; }
+.cursor-outline { width: 40px; height: 40px; border: 1px solid white; transition: width 0.2s, height 0.2s; }
+.cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255,255,255,0.1); }
+
+@keyframes fade-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-rise { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+.bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.bg-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 100%); }
+.blob-1 { position: absolute; top: 1/4; left: 1/4; width: 300px; height: 300px; background: #f3c623; opacity: 0.08; border-radius: 50%; filter: blur(100px); animation: float 6s ease-in-out infinite; }
+
+.page { max-width: 800px; margin: 0 auto; padding: 80px 20px 40px; position: relative; z-index: 10; }
+.hero-strip {
+    background: rgba(255,255,255,0.01);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+}
+.hero-strip h1 { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -0.02em; }
+.hero-strip p { font-size: 0.9rem; color: #888; }
+
+.section { margin-bottom: 20px; }
+.section-title { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #f3c623; display: flex; align-items: center; gap: 12px; }
+.section-num { font-size: 0.7rem; background: #f3c623; color: #000; padding: 4px 10px; font-weight: 600; }
+
+.topic { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.topic:last-child { border-bottom: none; margin-bottom: 0; }
+.topic-title { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.topic-body { font-size: 0.85rem; color: #999; line-height: 1.7; }
+
+.tag { display: inline-block; font-size: 10px; padding: 4px 10px; border-radius: 12px; margin: 4px 4px 8px 0; font-weight: 600; }
+.tag-tip { background: rgba(243,198,35,0.15); color: #f3c623; }
+.tag-imp { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+.card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 3px solid #f3c623; padding: 14px 18px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 10px 0; }
+th { background: rgba(255,255,255,0.08); font-weight: 600; text-align: left; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+td { padding: 8px 14px; border: 1px solid rgba(255,255,255,0.1); color: #999; }
+
+ul { padding-left: 22px; margin: 12px 0; }
+ul li { font-size: 0.85rem; color: #888; line-height: 1.7; margin-bottom: 5px; }
+
+.pill { display: inline-block; font-size: 10px; padding: 4px 12px; border-radius: 20px; margin: 4px 6px; font-weight: 600; }
+.pill.green { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid #22c55e; }
+.pill.amber { background: rgba(243,198,35,0.15); color: #f3c623; border: 1px solid #f3c623; }
+.pill.gray { background: rgba(255,255,255,0.1); color: #888; border: 1px solid #444; }
+
+.highlight-box { padding: 14px 18px; border-radius: 8px; margin: 14px 0; font-size: 0.85rem; }
+.highlight-box.info { background: rgba(20,184,166,0.1); border-left: 3px solid #14b8a6; color: #aaa; }
+.highlight-box.warning { background: rgba(243,198,35,0.1); border-left: 3px solid #f3c623; color: #aaa; }
+
+footer { position: relative; z-index: 10; padding: 24px 20px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+footer a { color: #666; font-size: 12px; }
+footer a:hover { color: #f3c623; }
+.claude-note { text-align: center; color: #555; font-size: 11px; margin-top: 8px; }
+</style>
+</head>
+
+<body class="antialiased selection:bg-brand-primary selection:text-white">
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline"></div>
+<div class="bg-blobs"><div class="bg-gradient"></div><div class="blob-1"></div></div>
+
+<nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="../../index.html" class="text-xl font-bold tracking-tighter text-white">AKM<span class="text-white/50 text-sm font-medium">Portfolio</span></a>
+        <a href="../../page/resources.html" class="px-5 py-2 rounded-full text-white/70 text-sm font-medium hover:bg-white/10 transition-colors">
+            <i class="fa-solid fa-arrow-left mr-2"></i>Back to Resources
+        </a>
+    </div>
+</nav>
+
+<main class="page">
+<div class="hero-strip animate-fade-rise">
+    <h1>Chapter 17 – Sustainability Assurance</h1>
+    <p>ESG Reporting, ISSA 5000, and Assurance Beyond Financial Statements</p>
+</div>
+
+<div class="section animate-fade-rise">
+    <div class="section-title"><span class="section-num">01</span>Key Concepts</div>
+    <div class="topic">
+        <div class="topic-title">ESG = Environmental, Social, Governance</div>
+        <div class="topic-body">
+            <ul>
+                <li><strong>Environmental</strong> – climate change, emissions, waste, resource use</li>
+                <li><strong>Social</strong> – workforce, health & safety, community, human rights</li>
+                <li><strong>Governance</strong> – board structure, ethics, transparency, risk management</li>
+            </ul>
+        </div>
+    </div>
+    <div class="topic">
+        <div class="topic-title">EER = Electronic Expenditure Reporting</div>
+        <div class="topic-body">Reports that go beyond traditional financial statements – sustainability reports, integrated reports, narrative reports.</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">02</span>Assurance Standards</div>
+    <div class="card"><strong>ISSA 5000</strong> – International Standard on Sustainability Assurances<p style="color:#aaa;margin-top:6px;">Governs sustainability assurance engagements. Replaces ISAE 3000 (Revised) for EER assurance.</p></div>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">03</span>Level of Assurance</div>
+    <ul>
+        <li><span class="pill amber">Reasonable</span> – Provides an <strong>opinion</strong> (like audit)</li>
+        <li><span class="pill green">Limited</span> – Provides a <strong>conclusion</strong> (like review)</li>
+    </ul>
+    <div class="highlight-box warning"><strong>Key Message:</strong> It was decided NOT to create a new specific EER standard. ISAE 3000 (Revised) was considered sufficient.</div>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">04</span>What Builds Credibility</div>
+    <div class="highlight-box info"><strong>4 things that build credibility and trust in an EER report:</strong>
+        <ol style="margin-top:10px;padding-left:20px;">
+            <li>A sound reporting framework</li>
+            <li>Strong governance & internal controls</li>
+            <li>Consistent information (consistent with other sources)</li>
+            <li>An independent assurance report</li>
+        </ol>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">05</span>Key Challenges Identified</div>
+    <ul>
+        <li>Evaluating the suitability of criteria</li>
+        <li>Addressing materiality</li>
+        <li>Form of the assurance report</li>
+    </ul>
+</div>
+
+<footer>
+    <div style="text-align:center;"><a href="../../page/resources.html"><i class="fa-solid fa-arrow-left"></i> Back to Resources</a></div>
+    <div class="claude-note">Thanks to Claude AI for generating these comprehensive study notes.</div>
+</footer>
+</main>
+
+<script>
+const cursorDot = document.getElementById('cursor-dot'), cursorOutline = document.getElementById('cursor-outline');
+document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; });
+document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active')); el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active')); });
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Anjani Kumar Mishra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="mypfpf.png">
+
+
+    <style>
+        body {
+            background-color: #1a1a1d;
+            background-image: radial-gradient(circle at center, #212f45 0%, #1a1a1d 100%);
+            font-family: 'Manrope', sans-serif;
+            color: #d5cfe1;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+
+        .error-code {
+            font-family: 'Anton', sans-serif;
+            font-size: 25vw;
+            line-height: 1;
+            color: rgba(0, 100, 102, 0.1);
+            position: absolute;
+            z-index: 0;
+            user-select: none;
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.2;
+            }
+        }
+
+        .glass-box {
+            background: rgba(33, 47, 69, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="text-center">
+    <div class="bg-pattern"></div>
+    <div class="error-code">404</div>
+
+    <div class="relative z-10 glass-box max-w-2xl mx-4">
+        <div class="mb-6">
+            <span class="text-brand-stormy font-bold text-4xl block mb-2" style="color: #006466;">/// ERROR</span>
+            <h1 class="text-5xl md:text-7xl font-family: 'Anton', sans-serif; uppercase text-white leading-tight">Ledger
+                Mismatch</h1>
+        </div>
+
+        <p class="text-lg md:text-xl text-brand-lavender mb-10 leading-relaxed">
+            The entry you're looking for is missing from our records. The path might have changed or the transaction was
+            rolled back.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="/"
+                class="inline-block bg-white text-black px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#006466] hover:text-white transition-all shadow-xl">
+                Return to Homepage
+            </a>
+            <a href="mailto:inakm@proton.me"
+                class="inline-block border border-white/20 text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+                Report Issue
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

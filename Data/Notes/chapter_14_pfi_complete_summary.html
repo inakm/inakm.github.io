@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 14 PFI Complete Summary</title>
+<link rel="icon" type="image/png" href="../../mypfpf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background-color: #000000;
+    color: #222222;
+    overflow-x: hidden;
+    font-family: 'Manrope', sans-serif;
+    cursor: none;
+}
+* { cursor: none !important; }
+a { color: #f3c623; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+.cursor-dot { width: 8px; height: 8px; background-color: white; }
+.cursor-outline { width: 40px; height: 40px; border: 1px solid white; transition: width 0.2s, height 0.2s; }
+.cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255,255,255,0.1); }
+
+@keyframes fade-rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-rise { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+.bg-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 100%);
+}
+.blob-1 {
+    position: absolute;
+    top: 1/4;
+    left: 1/4;
+    width: 300px;
+    height: 300px;
+    background: #f3c623;
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: float 6s ease-in-out infinite;
+}
+.blob-2 {
+    position: absolute;
+    bottom: 1/4;
+    right: 1/4;
+    width: 250px;
+    height: 250px;
+    background: #222222;
+    opacity: 0.2;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+.page { max-width: 800px; margin: 0 auto; padding: 80px 20px 40px; position: relative; z-index: 10; }
+.hero {
+    background: rgba(255,255,255,0.01);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(4px);
+    border: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 32px;
+}
+.hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+}
+.hero h1 { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: -0.02em; }
+.hero p { font-size: 0.95rem; color: #888; }
+
+.section {
+    background: rgba(255,255,255,0.01);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+.sec-header {
+    padding: 18px 24px;
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sec-header:hover { background: rgba(255,255,255,0.05); }
+.sec-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.sec-badge {
+    font-size: 10px;
+    background: rgba(243,198,35,0.15);
+    color: #f3c623;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.sec-body {
+    padding: 24px;
+    display: block;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.topic { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.topic:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.topic-title { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.topic-body { font-size: 0.9rem; color: #999; line-height: 1.7; }
+
+.tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin: 4px 4px 8px 0;
+    font-weight: 600;
+}
+.tag-green { background: rgba(34,197,94,0.15); color: #22c55e; }
+.tag-yellow { background: rgba(243,198,35,0.15); color: #f3c623; }
+.tag-red { background: rgba(239,68,68,0.15); color: #ef4444; }
+.tag-teal { background: rgba(20,184,166,0.15); color: #14b8a6; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 12px 0; }
+th { background: rgba(255,255,255,0.08); font-weight: 600; text-align: left; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+td { padding: 10px 16px; border: 1px solid rgba(255,255,255,0.1); color: #999; }
+tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid #f3c623;
+    padding: 16px 20px;
+    margin: 14px 0;
+    border-radius: 0 8px 8px 0;
+}
+.card-title { font-size: 0.95rem; font-weight: 600; color: #f3c623; margin-bottom: 6px; }
+
+ul { padding-left: 22px; margin: 12px 0; }
+ul li { font-size: 0.9rem; color: #888; line-height: 1.7; margin-bottom: 6px; }
+ul li::marker { color: #f3c623; }
+
+footer {
+    position: relative;
+    z-index: 10;
+    padding: 24px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 40px;
+}
+footer a { color: #666; font-size: 12px; }
+footer a:hover { color: #f3c623; }
+.claude-note {
+    text-align: center;
+    color: #555;
+    font-size: 11px;
+    margin-top: 8px;
+}
+</style>
+</head>
+
+<body class="antialiased selection:bg-brand-primary selection:text-white">
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline"></div>
+
+<div class="bg-blobs">
+    <div class="bg-gradient"></div>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+</div>
+
+<nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="../../index.html" class="text-xl font-bold tracking-tighter text-white">AKM<span class="text-white/50 text-sm font-medium">Portfolio</span></a>
+        <a href="../../page/resources.html" class="px-5 py-2 rounded-full text-white/70 text-sm font-medium hover:bg-white/10 transition-colors">
+            <i class="fa-solid fa-arrow-left mr-2"></i>Back to Resources
+        </a>
+    </div>
+</nav>
+
+<main class="page">
+<div class="hero animate-fade-rise">
+    <div class="hero-eyebrow">ACCA F9 · Financial Management</div>
+    <h1>Chapter 14 – PFI Complete Summary</h1>
+    <p>Prospective Financial Information – Complete revision guide covering forecasts, projections, ISAE 3400, and examination procedures.</p>
+</div>
+
+<div class="section animate-fade-rise">
+    <div class="sec-header">
+        <span class="sec-title">Key Definitions</span>
+        <span class="sec-badge">Essential</span>
+    </div>
+    <div class="sec-body">
+        <div class="topic">
+            <div class="topic-title">Forecasts vs Projections</div>
+            <div class="topic-body">
+                <div class="card">
+                    <div class="card-title">Forecast</div>
+                    <p style="color:#aaa;">Prepared on best-estimate assumptions – what management expects to happen. More verifiable, lower risk.</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Projection</div>
+                    <p style="color:#aaa;">Prepared on hypothetical assumptions – "what if" scenarios. Less evidence, higher risk.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-header">
+        <span class="sec-title">Acceptance Considerations (ISAE 3400)</span>
+    </div>
+    <div class="sec-body">
+        <ul>
+            <li><strong>Intended use</strong> – Internal vs external users affects risk</li>
+            <li><strong>Distribution</strong> – General (high risk) vs limited (lower risk)</li>
+            <li><strong>Nature of assumptions</strong> – Best-estimate vs hypothetical</li>
+            <li><strong>Period covered</strong> – Longer = more uncertainty</li>
+            <li><strong>Management competence</strong> – Track record at forecasting</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-header">
+        <span class="sec-title">Level of Assurance</span>
+    </div>
+    <div class="sec-body">
+        <div class="topic-body">
+            <p><strong>Only limited (moderate) assurance</strong> can be offered due to inherent uncertainty of future events.</p>
+            <p style="margin-top:12px;">Conclusion expressed as <strong>negative assurance</strong>: "Nothing has come to our attention to suggest the assumptions do not provide a reasonable basis."</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-header">
+        <span class="sec-title">Key Procedures</span>
+    </div>
+    <div class="sec-body">
+        <ul>
+            <li>Compare forecast to historical performance</li>
+            <li>Compare to actual results for elapsed periods</li>
+            <li>Inspect supporting documentation (contracts, agreements)</li>
+            <li>Enquire of management about assumptions</li>
+            <li>Recalculate arithmetic accuracy</li>
+            <li>Obtain written representations</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-header">
+        <span class="sec-title">Exam Techniques</span>
+    </div>
+    <div class="sec-body">
+        <div class="card">
+            <span class="tag tag-yellow">Important</span>
+            <p style="margin-top:8px;color:#aaa;">Read the question! Is it a profit forecast or cash flow forecast? This determines which items are relevant.</p>
+        </div>
+        <div class="card">
+            <span class="tag tag-teal">Pro Tip</span>
+            <p style="margin-top:8px;color:#aaa;">Depreciation is included in profit forecasts but NOT cash flow forecasts.</p>
+        </div>
+        <div class="card">
+            <span class="tag tag-red">Critical</span>
+            <p style="margin-top:8px;color:#aaa;">Written representations are required but never sufficient on their own.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div style="text-align:center;">
+        <a href="../../page/resources.html"><i class="fa-solid fa-arrow-left"></i> Back to Resources</a>
+    </div>
+    <div class="claude-note">
+        Thanks to Claude AI for generating these comprehensive study notes.
+    </div>
+</footer>
+</main>
+
+<script>
+const cursorDot = document.getElementById('cursor-dot');
+const cursorOutline = document.getElementById('cursor-outline');
+document.addEventListener('mousemove', (e) => {
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
+    cursorOutline.style.left = e.clientX + 'px';
+    cursorOutline.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+    el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+});
+</script>
+</body>
+</html>

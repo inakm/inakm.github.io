@@ -1,109 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Anjani Kumar Mishra</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;700&display=swap"
-        rel="stylesheet">
 
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Anjani Kumar Mishra's portfolio.">
+    <meta name="robots" content="noindex, nofollow">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="mypfpf.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="mypfpf.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
+                            white: '#ffffff',
+                            highlight: '#f3c623'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body {
-            background-color: #1a1a1d;
-            background-image: radial-gradient(circle at center, #212f45 0%, #1a1a1d 100%);
+            background-color: #000000;
+            color: #222222;
+            overflow-x: hidden;
             font-family: 'Manrope', sans-serif;
-            color: #d5cfe1;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
+            cursor: none;
         }
 
-        .bg-pattern {
-            position: absolute;
+        * {
+            cursor: none !important;
+        }
+
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            mix-blend-mode: difference;
         }
 
-        .error-code {
-            font-family: 'Anton', sans-serif;
-            font-size: 25vw;
-            line-height: 1;
-            color: rgba(0, 100, 102, 0.1);
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid white;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        .cursor-outline.hover-active {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.01);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: none;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-glass::before {
+            content: '';
             position: absolute;
-            z-index: 0;
-            user-select: none;
-            animation: pulse-slow 4s ease-in-out infinite;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.4px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
-        @keyframes pulse-slow {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.1;
+        @keyframes fade-rise {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
             }
-
-            50% {
-                transform: scale(1.05);
-                opacity: 0.2;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .glass-box {
-            background: rgba(33, 47, 69, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        .animate-fade-rise {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .animate-fade-rise-delay {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .animate-fade-rise-delay-2 {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+
+        .animate-fade-rise-delay-3 {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .animate-glitch:hover {
+            animation: glitch 0.3s ease-in-out infinite;
+        }
+
+        .magnetic-wrap {
+            display: inline-block;
+        }
+
+        .magnetic-inner {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        .magnetic-btn {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
         }
     </style>
 </head>
 
-<body class="text-center">
-    <div class="bg-pattern"></div>
-    <div class="error-code">404</div>
+<body class="antialiased selection:bg-brand-primary selection:text-white">
 
-    <div class="relative z-10 glass-box max-w-2xl mx-4">
-        <div class="mb-6">
-            <span class="text-brand-stormy font-bold text-4xl block mb-2" style="color: #006466;">/// ERROR</span>
-            <h1 class="text-5xl md:text-7xl font-family: 'Anton', sans-serif; uppercase text-white leading-tight">Ledger
-                Mismatch</h1>
-        </div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
 
-        <p class="text-lg md:text-xl text-brand-lavender mb-10 leading-relaxed">
-            The entry you're looking for is missing from our records. The path might have changed or the transaction was
-            rolled back.
-        </p>
-
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="/"
-                class="inline-block bg-white text-black px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#006466] hover:text-white transition-all shadow-xl">
-                Return to Homepage
-            </a>
-            <a href="mailto:inakm@proton.me"
-                class="inline-block border border-white/20 text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
-                Report Issue
-            </a>
-        </div>
+    <div class="absolute top-0 left-0 w-full h-screen z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-highlight/10 rounded-full blur-[120px] animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-primary/30 rounded-full blur-[100px] animate-float" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-white/5 rounded-full blur-[80px] animate-float" style="animation-delay: -1.5s;"></div>
     </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="/" class="magnetic-wrap group shrink-0">
+                <div class="magnetic-inner text-2xl font-bold tracking-tighter nav-text text-white flex items-center gap-1">
+                    AKM<span class="nav-text text-white/50 text-sm font-medium tracking-normal mt-1">Portfolio</span>
+                </div>
+            </a>
+            <a href="/" class="magnetic-wrap">
+                <div class="magnetic-inner liquid-glass px-6 py-3 rounded-full text-white font-medium text-sm flex items-center gap-2 border border-white/20 hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-house"></i> Go Home
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 min-h-screen flex items-center justify-center px-4 md:px-12">
+        <div class="text-center max-w-3xl mx-auto">
+            <div class="mb-8 animate-fade-rise">
+                <span class="text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-white/80 to-brand-highlight animate-glitch inline-block">
+                    404
+                </span>
+            </div>
+
+            <div class="animate-fade-rise-delay">
+                <div class="inline-flex items-center gap-2 liquid-glass px-5 py-2.5 rounded-full border border-white/20 backdrop-blur-sm mb-6">
+                    <i class="fa-solid fa-triangle-exclamation text-brand-highlight"></i>
+                    <span class="text-sm font-medium text-white/80">Page Not Found</span>
+                </div>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 animate-fade-rise-delay leading-tight">
+                Looks like this page wandered off
+            </h1>
+
+            <p class="text-lg text-white/60 font-medium mb-12 max-w-xl mx-auto animate-fade-rise-delay-2 leading-relaxed">
+                The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-rise-delay-3">
+                <a href="/" class="magnetic-wrap w-full sm:w-auto">
+                    <div class="magnetic-btn liquid-glass rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white/10 transition-colors gap-3 w-full sm:w-auto">
+                        <i class="fa-solid fa-house"></i> Back to Home
+                    </div>
+                </a>
+                <a href="page/contact.html" class="magnetic-wrap w-full sm:w-auto">
+                    <div class="magnetic-btn border border-white/30 rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white hover:text-black transition-all gap-3 w-full sm:w-auto">
+                        <i class="fa-solid fa-envelope"></i> Contact Me
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-16 animate-fade-rise-delay-3">
+                <p class="text-xs font-medium text-white/40 uppercase tracking-widest mb-4">Or explore</p>
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <a href="page/projects/index.html" class="px-4 py-2 rounded-full bg-white/5 text-white/70 text-sm font-medium hover:bg-white/10 hover:text-white transition-colors border border-white/10">
+                        <i class="fa-solid fa-folder-open mr-2"></i>Projects
+                    </a>
+                    <a href="page/prompts/index.html" class="px-4 py-2 rounded-full bg-white/5 text-white/70 text-sm font-medium hover:bg-white/10 hover:text-white transition-colors border border-white/10">
+                        <i class="fa-solid fa-terminal mr-2"></i>Prompts
+                    </a>
+                    <a href="page/resources.html" class="px-4 py-2 rounded-full bg-white/5 text-white/70 text-sm font-medium hover:bg-white/10 hover:text-white transition-colors border border-white/10">
+                        <i class="fa-solid fa-book-open mr-2"></i>Resources
+                    </a>
+                    <a href="page/career-directory.html" class="px-4 py-2 rounded-full bg-white/5 text-white/70 text-sm font-medium hover:bg-white/10 hover:text-white transition-colors border border-white/10">
+                        <i class="fa-solid fa-briefcase mr-2"></i>Career
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-white/40 font-medium">
+                    &copy; <span id="year"></span> Anjani Kumar Mishra. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-white/40 hover:text-white transition-colors">
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                    </a>
+                    <a href="https://github.com/inakm" target="_blank" class="text-white/40 hover:text-white transition-colors">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/in_akmm" target="_blank" class="text-white/40 hover:text-white transition-colors">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://www.reddit.com/user/in_akm" target="_blank" class="text-white/40 hover:text-white transition-colors">
+                        <i class="fa-brands fa-reddit text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+
+            cursorOutline.style.left = e.clientX + 'px';
+            cursorOutline.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .magnetic-wrap, .magnetic-btn').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+        });
+
+        document.querySelectorAll('.magnetic-wrap, .magnetic-btn').forEach(wrapper => {
+            wrapper.addEventListener('mousemove', (e) => {
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const inner = wrapper.querySelector('.magnetic-inner, .magnetic-btn');
+                if (inner) {
+                    inner.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                }
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                const inner = wrapper.querySelector('.magnetic-inner, .magnetic-btn');
+                if (inner) {
+                    inner.style.transform = 'translate(0, 0)';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

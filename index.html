@@ -1,3 +1,4 @@
+i
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -177,6 +178,7 @@
             z-index: 9999;
             pointer-events: none;
             mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
         }
 
         .cursor-dot {
@@ -287,6 +289,24 @@
         }
 
 
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #f3c623;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffd666;
+        }
+
         /* Hide scrollbars */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -305,7 +325,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -365,13 +385,19 @@
             visibility: visible;
         }
 
-        #mobileMenuBtn, #mobileMenuClose {
+        #mobileMenuBtn,
+        #mobileMenuClose {
             cursor: pointer;
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .animate-marquee {
@@ -380,6 +406,13 @@
 
         .animate-marquee:hover {
             animation-play-state: paused;
+        }
+
+        .grid-lines {
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+            background-size: 80px 80px;
         }
     </style>
 </head>
@@ -392,12 +425,15 @@
 
 
     <div class="absolute top-0 left-0 w-full h-screen z-0 pointer-events-none bg-black">
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60" preload="none"poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60"
+            preload="none"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
             <source
                 src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
                 type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80"></div>
+        <div class="absolute inset-0 grid-lines opacity-[0.03]"></div>
     </div>
 
 
@@ -619,23 +655,31 @@
             <nav class="flex-1 overflow-y-auto p-4">
                 <ul class="space-y-2">
                     <li><a href="#about"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Profile</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Profile</a>
+                    </li>
                     <li><a href="page/projects/index.html"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Projects</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Projects</a>
+                    </li>
                     <li><a href="page/prompts/index.html"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Prompts</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Prompts</a>
+                    </li>
                     <li><a href="page/career-directory.html"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Career Directory</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Career
+                            Directory</a></li>
                     <li><a href="page/resources.html"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Resources</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Resources</a>
+                    </li>
                     <li><a href="page/index.html"
-                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">All Pages</a></li>
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">All
+                            Pages</a></li>
                 </ul>
                 <div class="mt-8 pt-8 border-t border-[#E5E5E5] space-y-3">
                     <a href="page/contact.html"
-                        class="block w-full text-center bg-brand-primary text-white px-6 py-3 rounded-full font-bold">Let's Talk</a>
+                        class="block w-full text-center bg-brand-primary text-white px-6 py-3 rounded-full font-bold">Let's
+                        Talk</a>
                     <a href="Mishra_AnjaniKr_2026.pdf" target="_blank"
-                        class="block w-full text-center border border-[#E5E5E5] text-brand-primary px-6 py-3 rounded-full font-bold">Download CV</a>
+                        class="block w-full text-center border border-[#E5E5E5] text-brand-primary px-6 py-3 rounded-full font-bold">Download
+                        CV</a>
                 </div>
             </nav>
         </div>
@@ -722,7 +766,8 @@
 
 
         <div class="w-full flex justify-center pt-4 mb-12">
-            <nav class="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 py-2 bg-brand-tertiary/50 rounded-full border border-[#E5E5E5] overflow-x-auto no-scrollbar max-w-full">
+            <nav
+                class="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 py-2 bg-brand-tertiary/50 rounded-full border border-[#E5E5E5] overflow-x-auto no-scrollbar max-w-full">
                 <a href="#about"
                     class="px-2 md:px-3 py-1.5 md:py-1 text-xs md:text-xs font-medium text-brand-secondary hover:text-brand-primary transition-colors whitespace-nowrap">Profile</a>
                 <span class="w-2 h-2 flex items-center justify-center text-brand-secondary/30 shrink-0"><i
@@ -2096,8 +2141,15 @@
 
 
     <button id="back-to-top" aria-label="Back to top"
-        class="fixed bottom-8 right-8 bg-white text-black w-12 h-12 rounded-full flex items-center justify-center shadow-2xl opacity-0 translate-y-10 transition-all duration-300 z-50 hover:bg-brand-primary hover:text-white border border-[#E5E5E5] hover:scale-110 pointer-events-none group">
-        <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform"></i>
+        class="fixed bottom-16 right-4 md:right-8 opacity-0 translate-y-10 transition-all duration-500 z-50 pointer-events-none group">
+        <div
+            class="w-8 h-32 relative flex items-center justify-center group-hover:-translate-y-2 transition-transform duration-300">
+            <span
+                class="absolute whitespace-nowrap transform -rotate-90 text-[11px] font-bold tracking-[0.25em] text-black uppercase flex items-center gap-3 hover:text-brand-highlight transition-colors">
+                Back to top <i
+                    class="fa-solid fa-arrow-right text-[12px] group-hover:translate-x-1 transition-transform"></i>
+            </span>
+        </div>
     </button>
 
 
@@ -2146,6 +2198,16 @@
             window.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX; mouseY = e.clientY;
                 cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
+            });
+
+            document.addEventListener('mouseleave', () => {
+                cursorDot.style.opacity = '0';
+                cursorOutline.style.opacity = '0';
+            });
+
+            document.addEventListener('mouseenter', () => {
+                cursorDot.style.opacity = '1';
+                cursorOutline.style.opacity = '1';
             });
 
             const animate = () => {
@@ -2565,7 +2627,7 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        heroVideo.play().catch(() => {});
+                        heroVideo.play().catch(() => { });
                         observer.disconnect();
                     }
                 });

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA Chapters 17-19 Study Notes</title>
+<link rel="icon" type="image/png" href="../../mypfpf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: #000000; color: #222222; overflow-x: hidden; font-family: 'Source Serif 4', Georgia, serif; cursor: none; }
+* { cursor: none !important; }
+a { color: #c9a227; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; mix-blend-mode: difference; }
+.cursor-dot { width: 8px; height: 8px; background-color: white; }
+.cursor-outline { width: 40px; height: 40px; border: 1px solid white; transition: width 0.2s, height 0.2s; }
+.cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255,255,255,0.1); }
+@keyframes fade-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-rise { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+.bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.bg-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 100%); }
+.blob-1 { position: absolute; top: 1/4; left: 1/4; width: 320px; height: 320px; background: #c9a227; opacity: 0.06; border-radius: 50%; filter: blur(110px); animation: float 6s ease-in-out infinite; }
+
+.page { max-width: 850px; margin: 0 auto; padding: 80px 20px 50px; position: relative; z-index: 10; }
+.cover { background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border-bottom: 1px solid rgba(255,255,255,0.15); color: #f0c97a; text-align: center; padding: 40px 24px 30px; }
+.cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 900; color: #fff; margin-bottom: 8px; }
+.cover-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+.chip { background: rgba(201,146,42,0.15); border: 1px solid #c9a227; color: #f0c97a; padding: 6px 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.05em; }
+
+.chapter-header { margin: 28px 0 20px; padding: 22px 26px; border-left: 4px solid; background: rgba(255,255,255,0.02); border-radius: 0 10px 10px 0; }
+.ch17 { border-color: #14b8a6; } .ch19 { border-color: #a855f7; }
+.ch-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.7; }
+.chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 6px; }
+.ch17 h2 { color: #14b8a6; } .ch19 h2 { color: #a855f7; }
+.chapter-header p { font-size: 0.85rem; color: #888; }
+
+.section { margin: 20px 0; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 10px; }
+.section-num { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; background: #c9a227; color: #000; padding: 3px 8px; letter-spacing: 0.04em; }
+
+.def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+@media(max-width:560px){ .def-grid{ grid-template-columns: 1fr; } }
+.def-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid #c9a227; padding: 16px 18px; border-radius: 8px; }
+.def-card .def-term { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 700; color: #c9a227; margin-bottom: 4px; }
+.def-card p { font-size: 0.8rem; line-height: 1.6; color: #aaa; }
+
+.callout { border-left: 3px solid; padding: 14px 18px; margin: 14px 0; border-radius: 0 8px 8px 0; background: rgba(255,255,255,0.02); }
+.callout-tip { border-color: #14b8a6; } .callout-warn { border-color: #c9a227; } .callout-critical { border-color: #ef4444; }
+.callout-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.callout-tip .callout-label { color: #14b8a6; } .callout-warn .callout-label { color: #c9a227; } .callout-critical .callout-label { color: #ef4444; }
+
+.topic { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.topic:last-child { border-bottom: none; margin-bottom: 0; }
+.topic-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.topic-body { font-size: 0.8rem; color: #bbb; line-height: 1.7; }
+table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 10px 0; }
+thead tr { background: rgba(255,255,255,0.08); }
+thead th { padding: 10px 12px; text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+td { padding: 8px 12px; border: 1px solid rgba(255,255,255,0.1); color: #aaa; }
+ul { padding-left: 20px; margin: 10px 0; }
+ul li { margin-bottom: 5px; line-height: 1.6; color: #bbb; font-size: 0.8rem; }
+.proc-list { counter-reset: proc; list-style: none; padding: 0; margin: 10px 0; }
+.proc-list li { counter-increment: proc; display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+.proc-list li::before { content: counter(proc); min-width: 22px; height: 22px; background: #c9a227; color: #000; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 50%; }
+.summary-box { background: rgba(255,255,255,0.04); color: #fff; padding: 20px 24px; margin: 20px 0; border-radius: 10px; }
+.summary-box h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #c9a227; margin-bottom: 10px; }
+.summary-box li { font-size: 0.78rem; color: #bbb; margin-bottom: 4px; }
+.summary-box ul { padding-left: 16px; }
+.page-footer { text-align: center; padding: 24px 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: #555; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 30px; }
+
+footer { position: relative; z-index: 10; padding: 24px 20px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+footer a { color: #666; font-size: 12px; }
+footer a:hover { color: #c9a227; }
+.claude-note { text-align: center; color: #555; font-size: 11px; margin-top: 8px; }
+</style>
+</head>
+
+<body class="antialiased selection:bg-brand-primary selection:text-white">
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-outline" id="cursor-outline"></div>
+<div class="bg-blobs"><div class="bg-gradient"></div><div class="blob-1"></div></div>
+
+<nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="../../index.html" class="text-xl font-bold tracking-tighter text-white">AKM<span class="text-white/50 text-sm font-medium">Portfolio</span></a>
+        <a href="../../page/resources.html" class="px-5 py-2 rounded-full text-white/70 text-sm font-medium hover:bg-white/10 transition-colors">
+            <i class="fa-solid fa-arrow-left mr-2"></i>Back to Resources
+        </a>
+    </div>
+</nav>
+
+<main class="page">
+<div class="cover animate-fade-rise">
+    <h1>Chapters 17-19</h1>
+    <div class="cover-chips"><div class="chip">Sustainability</div><div class="chip">Going Concern</div><div class="chip">Winding Up</div></div>
+</div>
+
+<div class="chapter-header ch17 animate-fade-rise">
+    <div class="ch-label">Chapter 17</div>
+    <h2>Sustainability & Going Concern</h2>
+    <p>ESG Reporting, ISAs 570 & 720</p>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">01</span>Sustainability (ESG)</div>
+    <ul>
+        <li><strong>E</strong>nvironmental – climate, emissions, waste</li>
+        <li><strong>S</strong>ocial – workforce, community</li>
+        <li><strong>G</strong>overnance – board, ethics</li>
+    </ul>
+    <div class="callout callout-tip">
+        <div class="callout-label">Key Point</div>
+        <p>ISSA 5000 governs sustainability assurance. Reasonable = opinion, Limited = conclusion.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">02</span>Going Concern (ISA 570)</div>
+    <div class="def-grid">
+        <div class="def-card"><div class="def-term">Going Concern Concept</div><p>Assumption entity will continue operations for at least 12 months from reporting date.</p></div>
+        <div class="def-card"><div class="def-term">Material Uncertainty</div><p>Significant doubt about entity's ability to continue as going concern. Must disclose in financial statements.</p></div>
+    </div>
+    <div class="topic-body"><strong>Auditor's Responsibilities:</strong>
+        <ul>
+            <li>Evaluate management's assessment</li>
+            <li>Consider events after reporting date</li>
+            <li>Obtain sufficient appropriate evidence</li>
+            <li>Report appropriately (qualified/adverse if GC is inadequate)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="chapter-header ch19">
+    <div class="ch-label">Chapter 19</div>
+    <h2>Winding Up & Entity Types</h2>
+    <p>Compulsory Winding Up & Voluntary Liquidations</p>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">01</span>Types of Winding Up</div>
+    <ul>
+        <li><strong>Compulsory</strong> – Court ordered (petition by creditor/member)</li>
+        <li><strong>Members' Voluntary (MVL)</strong> – Solvent company, declaration of solvency</li>
+        <li><strong>Creditors' Voluntary (CVL)</strong> – Insolvent company, no solvency declaration</li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-title"><span class="section-num">02</span>MVL vs CVL</div>
+    <div class="def-grid">
+        <div class="def-card"><div class="def-term">MVL</div><p>Directors declare solvency (pay debts within 12 months). Liquidator appointed by members.</p></div>
+        <div class="def-card"><div class="def-term">CVL</div><p>No solvency declaration possible. Liquidator appointed by creditors (or court if dispute).</p></div>
+    </div>
+    <div class="callout callout-tip">
+        <div class="callout-label">Key Difference</div>
+        <p>In CVL, creditors' nominee prevails if there's a dispute. Liquidation committee possible (up to 5 creditors) – not available in MVL.</p>
+    </div>
+</div>
+
+<footer>
+    <div style="text-align:center;"><a href="../../page/resources.html"><i class="fa-solid fa-arrow-left"></i> Back to Resources</a></div>
+    <div class="claude-note">Thanks to Claude AI for generating these comprehensive study notes.</div>
+</footer>
+</main>
+
+<script>
+const cursorDot = document.getElementById('cursor-dot'), cursorOutline = document.getElementById('cursor-outline');
+document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; });
+document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active')); el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active')); });
+</script>
+</body>
+</html>
