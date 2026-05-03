@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarLIMIT Sales Performance Dashboard | Anjani Kumar Mishra</title>
+
+  <meta name="description"
+    content="Interactive Sales Performance Dashboard by Anjani Kumar Mishra. Upload your order data to explore revenue, profit, segment insights, US state choropleth, and shipping mode analytics using Plotly.js.">
+  <meta name="keywords"
+    content="sales dashboard, analytics, revenue tracking, profit analysis, Plotly.js, interactive charts, choropleth map, donut chart, data visualization, Anjani Kumar Mishra, CarLIMIT, sales performance, order analytics">
+  <meta name="author" content="Anjani Kumar Mishra">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <meta name="theme-color" content="#222222">
+
+  <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html">
+
+  <link rel="icon" type="image/png" href="https://inakm.github.io/mypfpf.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://inakm.github.io/mypfpf.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html">
+  <meta property="og:title" content="CarLIMIT Sales Performance Dashboard | Anjani Kumar Mishra">
+  <meta property="og:description"
+    content="Interactive Sales Performance Dashboard. Upload order data to explore revenue, profit, and segment insights across regions and products with Plotly.js visualizations.">
+  <meta property="og:image" content="https://inakm.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@in_akmm">
+  <meta name="twitter:creator" content="@in_akmm">
+  <meta name="twitter:title" content="CarLIMIT Sales Performance Dashboard | Anjani Kumar Mishra">
+  <meta name="twitter:description"
+    content="Interactive Sales Performance Dashboard with revenue, profit, and segment analytics powered by Plotly.js.">
+  <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CarLIMIT Sales Performance Dashboard",
+    "description": "Interactive sales analytics dashboard with revenue, profit, segment, geo, and shipping mode visualizations.",
+    "url": "https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html",
+    "image": "https://inakm.github.io/og-image.png",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "author": {
+        "@type": "Person",
+        "name": "Anjani Kumar Mishra",
+        "url": "https://inakm.github.io/"
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
+</script>
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://inakm.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://inakm.github.io/page/projects/index.html"},
+        {"@type": "ListItem", "position": 3, "name": "CarLIMIT Sales Dashboard", "item": "https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html"}
+    ]
+}
+</script>
+
+  <link rel="dns-prefetch" href="https://cdn.plot.ly">
+  <link rel="preconnect" href="https://cdn.plot.ly">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --brand-primary: #222222;
+      --brand-secondary: #7B7B7B;
+      --brand-tertiary: #F8F8F8;
+      --brand-highlight: #f3c623;
+      --blue: #2563eb;
+      --teal: #0891b2;
+      --green: #059669;
+      --amber: #d97706;
+      --violet: #7c3aed;
+      --rose: #e11d48;
+      --radius: 16px;
+      --font: 'Manrope', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    * {
+      cursor: none !important;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      * {
+        cursor: auto !important;
+      }
+      .cursor-dot,
+      .cursor-outline {
+        display: none !important;
+      }
+    }
+
+    .cursor-dot,
+    .cursor-outline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 9999;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      transition: opacity 0.3s ease;
+    }
+
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background-color: white;
+    }
+
+    .cursor-outline {
+      width: 40px;
+      height: 40px;
+      border: 1px solid white;
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    .cursor-outline.hover-active {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fade-rise {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-rise {
+      animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .animate-fade-rise-delay {
+      animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .animate-fade-rise-delay-2 {
+      animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--brand-highlight);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ffd666;
+    }
+
+    /* NAV */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      padding: 16px 16px;
+    }
+
+    @media (min-width: 768px) {
+      .site-nav {
+        padding: 16px 48px;
+      }
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-brand-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-brand-sub {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: normal;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 4px 8px;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 999px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link.active {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 767px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* HERO HEADER */
+    .hero-section {
+      position: relative;
+      min-height: 38vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 48px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.02;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .site-title {
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .site-title .accent {
+      color: var(--brand-highlight);
+    }
+
+    .site-subtitle {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.88rem;
+      font-weight: 400;
+      max-width: 440px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-family: var(--font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .hero-btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .hero-btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .hero-btn-glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-btn-glass:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* MARQUEE */
+    .marquee-section {
+      overflow: hidden;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-inner {
+      display: flex;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-family: monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0 16px;
+      white-space: nowrap;
+    }
+
+    .marquee-item:nth-child(odd) {
+      color: var(--brand-secondary);
+    }
+
+    .marquee-item:nth-child(even) {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* UPLOAD SCREEN */
+    #upload-screen {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .upload-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .upload-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .upload-tab {
+      flex: 1;
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .upload-tab:hover {
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .upload-tab.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border-bottom: 2px solid var(--brand-highlight);
+    }
+
+    .upload-panel {
+      display: none;
+      padding: 40px;
+    }
+
+    .upload-panel.active {
+      display: block;
+    }
+
+    .drop-zone-inner {
+      border: 2px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .drop-zone-inner:hover,
+    .drop-zone-inner.drag-over {
+      border-color: var(--blue);
+      background: rgba(37, 99, 235, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+    }
+
+    .upload-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--brand-highlight);
+    }
+
+    .upload-heading {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .upload-desc {
+      color: var(--brand-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .upload-btn {
+      display: inline-flex;
+      align-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 12px 32px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .upload-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    /* PASTE PANEL */
+    .paste-area {
+      width: 100%;
+      min-height: 200px;
+      max-height: 400px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+      cursor: text !important;
+    }
+
+    .paste-area::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .paste-area:focus {
+      border-color: var(--blue);
+    }
+
+    .paste-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      gap: 12px;
+    }
+
+    .paste-hint {
+      font-size: 0.75rem;
+      color: var(--brand-secondary);
+    }
+
+    .paste-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .paste-btn:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+
+    .clear-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--brand-secondary);
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .parse-error {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(225, 29, 72, 0.1);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      border-radius: 8px;
+      color: #f87171;
+      font-size: 0.8rem;
+      display: none;
+    }
+
+    .parse-error.show {
+      display: block;
+    }
+
+    /* DASHBOARD */
+    #dashboard {
+      display: none;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* STATUS BAR */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .record-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, .4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(5, 150, 105, 0);
+      }
+    }
+
+    .reset-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--brand-secondary);
+      font-family: var(--font);
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .reset-btn:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      background: rgba(225, 29, 72, 0.08);
+    }
+
+    /* KPI GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .kpi-blue::before {
+      background: var(--blue);
+    }
+
+    .kpi-teal::before {
+      background: var(--teal);
+    }
+
+    .kpi-green::before {
+      background: var(--green);
+    }
+
+    .kpi-amber::before {
+      background: var(--amber);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-secondary);
+    }
+
+    .kpi-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .kpi-icon-blue {
+      color: var(--blue);
+    }
+
+    .kpi-icon-teal {
+      color: var(--teal);
+    }
+
+    .kpi-icon-green {
+      color: var(--green);
+    }
+
+    .kpi-icon-amber {
+      color: var(--amber);
+    }
+
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .kpi-blue .kpi-value {
+      color: var(--blue);
+    }
+
+    .kpi-teal .kpi-value {
+      color: var(--teal);
+    }
+
+    .kpi-green .kpi-value {
+      color: var(--green);
+    }
+
+    .kpi-amber .kpi-value {
+      color: var(--amber);
+    }
+
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 500;
+    }
+
+    /* CHART ROWS */
+    .chart-row {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .row-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .row-3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 900px) {
+
+      .row-2,
+      .row-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .chart-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .chart-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .chart-sub {
+      font-size: 0.72rem;
+      color: var(--brand-secondary);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .chart-inner {
+      width: 100%;
+      height: 260px;
+    }
+
+    .chart-inner-lg {
+      width: 100%;
+      height: 320px;
+    }
+
+    /* FADE UP ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .d1 {
+      animation-delay: 0.05s;
+    }
+
+    .d2 {
+      animation-delay: 0.12s;
+    }
+
+    .d3 {
+      animation-delay: 0.19s;
+    }
+
+    .d4 {
+      animation-delay: 0.26s;
+    }
+
+    .d5 {
+      animation-delay: 0.33s;
+    }
+
+    .d6 {
+      animation-delay: 0.40s;
+    }
+
+    .d7 {
+      animation-delay: 0.47s;
+    }
+
+    .d8 {
+      animation-delay: 0.54s;
+    }
+
+    .d9 {
+      animation-delay: 0.61s;
+    }
+
+    .d10 {
+      animation-delay: 0.68s;
+    }
+
+    .d11 {
+      animation-delay: 0.75s;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--brand-secondary);
+      font-size: 0.8rem;
+    }
+
+    .site-footer a {
+      color: var(--brand-highlight);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .animate-marquee {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .site-nav {
+        padding: 12px 12px;
+      }
+      .nav-brand-text {
+        font-size: 1.25rem;
+      }
+      .hero-section {
+        padding: 88px 16px 36px;
+        min-height: 32vh;
+      }
+      .site-title {
+        font-size: clamp(1.5rem, 6vw, 2.4rem);
+      }
+      .site-subtitle {
+        font-size: 0.82rem;
+        max-width: 100%;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-btn {
+        justify-content: center;
+      }
+      #upload-screen {
+        padding: 48px 16px;
+      }
+      .upload-panel {
+        padding: 24px 16px;
+      }
+      .drop-zone-inner {
+        padding: 32px 20px;
+      }
+      .paste-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .paste-actions > div:last-child {
+        justify-content: stretch;
+      }
+      .paste-btn, .clear-btn {
+        flex: 1;
+        justify-content: center;
+      }
+      .kpi-grid {
+        gap: 12px;
+      }
+      .chart-row {
+        gap: 12px;
+      }
+      #dashboard {
+        padding: 0 12px 48px;
+      }
+      .nav-back {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-outline" id="cursor-outline"></div>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="https://inakm.github.io/" class="nav-brand" rel="noopener noreferrer">
+        <div class="nav-brand-text">
+          AKM<span class="nav-brand-sub">Dashboard</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="https://inakm.github.io/" class="nav-link" rel="noopener noreferrer">
+          <i class="fa-solid fa-house" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Home
+        </a>
+        <a href="https://inakm.github.io/page/projects/index.html" class="nav-link" rel="noopener noreferrer">
+          <i class="fa-solid fa-folder" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Projects
+        </a>
+        <a href="#" class="nav-link active">
+          <i class="fa-solid fa-chart-line" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Sales Dash
+        </a>
+      </div>
+      <div class="nav-back">
+        <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass"
+          style="padding:10px 20px;font-size:0.8rem;" rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-left" style="font-size:11px;"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-bg">
+      <video autoplay loop muted playsinline preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
+        <source
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+          type="video/mp4">
+      </video>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow animate-fade-rise">
+        <i class="fa-solid fa-chart-pie"></i> Analytics Suite
+      </div>
+      <h1 class="site-title animate-fade-rise">
+        Sales <span class="accent">Performance</span> Dashboard
+      </h1>
+      <p class="site-subtitle animate-fade-rise-delay">
+        Upload your order data to explore revenue, profit, and segment insights across regions and products with
+        interactive Plotly.js charts.
+      </p>
+      <div class="hero-actions animate-fade-rise-delay-2">
+        <button class="hero-btn hero-btn-primary" onclick="document.getElementById('upload-screen').scrollIntoView({behavior:'smooth'});switchTab('file')">
+          <i class="fa-solid fa-upload"></i> Upload JSON
+        </button>
+        <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass" rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i> View All Projects
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-inner animate-marquee">
+      <span class="marquee-item">/// REVENUE TRACKING</span>
+      <span class="marquee-item">/// PROFIT ANALYSIS</span>
+      <span class="marquee-item">/// SEGMENT INSIGHTS</span>
+      <span class="marquee-item">/// GEO VISUALIZATION</span>
+      <span class="marquee-item">/// SHIP MODE BREAKDOWN</span>
+      <span class="marquee-item">/// PRODUCT RANKINGS</span>
+      <span class="marquee-item">/// MONTHLY TRENDS</span>
+      <span class="marquee-item">/// INTERACTIVE CHARTS</span>
+      <span class="marquee-item">/// REVENUE TRACKING</span>
+      <span class="marquee-item">/// PROFIT ANALYSIS</span>
+      <span class="marquee-item">/// SEGMENT INSIGHTS</span>
+      <span class="marquee-item">/// GEO VISUALIZATION</span>
+      <span class="marquee-item">/// SHIP MODE BREAKDOWN</span>
+      <span class="marquee-item">/// PRODUCT RANKINGS</span>
+      <span class="marquee-item">/// MONTHLY TRENDS</span>
+      <span class="marquee-item">/// INTERACTIVE CHARTS</span>
+    </div>
+  </div>
+
+  <!-- UPLOAD SCREEN -->
+  <section id="upload-screen">
+    <div class="upload-card">
+      <div class="upload-tabs">
+        <button class="upload-tab active" data-tab="file" onclick="switchTab('file')">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Upload File
+        </button>
+        <button class="upload-tab" data-tab="paste" onclick="switchTab('paste')">
+          <i class="fa-solid fa-paste"></i> Paste JSON
+        </button>
+      </div>
+
+      <!-- FILE TAB -->
+      <div class="upload-panel active" id="panel-file">
+        <div class="drop-zone-inner" id="drop-zone">
+          <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <div class="upload-heading">Drop your JSON file here</div>
+          <div class="upload-desc">Accepts a JSON array with fields: Order ID, Order Date, Sales, Profit, Quantity, Segment,
+            State, Product Name, Ship Mode</div>
+          <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('file-input').click()">
+            <i class="fa-solid fa-folder-open" style="margin-right:6px;"></i>Choose File
+          </button>
+          <input type="file" id="file-input" accept=".json" />
+        </div>
+      </div>
+
+      <!-- PASTE TAB -->
+      <div class="upload-panel" id="panel-paste">
+        <div class="upload-heading" style="margin-bottom:6px;">Paste your JSON data</div>
+        <div class="upload-desc" style="margin-bottom:16px;">Paste a JSON array directly below. Same format as the file upload.</div>
+        <textarea class="paste-area" id="json-paste" placeholder='[{"Order ID":"ORD-001","Order Date":"01/01/2024","Sales":"100"," Profit ":"20","Quantity":"2","Segment":"Consumer","State":"Texas","Product Name":"Widget","Ship Mode":"Standard Class"}, ...]'
+          spellcheck="false"></textarea>
+        <div class="parse-error" id="parse-error">
+          <i class="fa-solid fa-circle-exclamation" style="margin-right:4px;"></i>
+          <span id="parse-error-text">Invalid JSON. Please check your input.</span>
+        </div>
+        <div class="paste-actions">
+          <div class="paste-hint"><i class="fa-solid fa-info-circle" style="margin-right:4px;"></i>JSON array of objects</div>
+          <div style="display:flex;gap:10px;">
+            <button class="clear-btn" onclick="clearPaste()">
+              <i class="fa-solid fa-eraser" style="margin-right:4px;"></i> Clear
+            </button>
+            <button class="paste-btn" onclick="loadPastedJSON()">
+              <i class="fa-solid fa-play"></i> Load Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard">
+    <div class="status-bar fade-up d1">
+      <div class="record-pill">
+        <span class="live-dot"></span>
+        <span id="record-count">0 records loaded</span>
+      </div>
+      <button class="reset-btn" onclick="resetDashboard()">
+        <i class="fa-solid fa-rotate-left" style="margin-right:4px;"></i>Reset &amp; Upload New
+      </button>
+    </div>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-blue fade-up d2">
+        <div class="kpi-top">
+          <span class="kpi-label">Total Revenue</span>
+          <div class="kpi-icon kpi-icon-blue"><i class="fa-solid fa-coins"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-revenue">—</div>
+        <div class="kpi-sub">Gross sales across all orders</div>
+      </div>
+      <div class="kpi-card kpi-teal fade-up d3">
+        <div class="kpi-top">
+          <span class="kpi-label">Total Profit</span>
+          <div class="kpi-icon kpi-icon-teal"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-profit">—</div>
+        <div class="kpi-sub">Net profit margin</div>
+      </div>
+      <div class="kpi-card kpi-green fade-up d4">
+        <div class="kpi-top">
+          <span class="kpi-label">Units Sold</span>
+          <div class="kpi-icon kpi-icon-green"><i class="fa-solid fa-boxes-stacked"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-units">—</div>
+        <div class="kpi-sub">Total quantity across orders</div>
+      </div>
+      <div class="kpi-card kpi-amber fade-up d5">
+        <div class="kpi-top">
+          <span class="kpi-label">Avg. Order Value</span>
+          <div class="kpi-icon kpi-icon-amber"><i class="fa-solid fa-bullseye"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-aov">—</div>
+        <div class="kpi-sub">Average revenue per order</div>
+      </div>
+    </div>
+
+    <!-- ROW 1: Line + Donut -->
+    <div class="chart-row row-2">
+      <div class="chart-card fade-up d6">
+        <div class="chart-title">Monthly Sales &amp; Profit Trend</div>
+        <div class="chart-sub">Spline area — blue = Sales, green = Profit</div>
+        <div class="chart-inner-lg" id="chart-line"></div>
+      </div>
+      <div class="chart-card fade-up d7">
+        <div class="chart-title">Revenue by Segment</div>
+        <div class="chart-sub">Share of total sales per customer segment</div>
+        <div class="chart-inner-lg" id="chart-segment"></div>
+      </div>
+    </div>
+
+    <!-- ROW 2: Choropleth + Bar -->
+    <div class="chart-row row-2">
+      <div class="chart-card fade-up d8">
+        <div class="chart-title">Sales by US State</div>
+        <div class="chart-sub">Choropleth — darker = higher revenue</div>
+        <div class="chart-inner-lg" id="chart-geo"></div>
+      </div>
+      <div class="chart-card fade-up d9">
+        <div class="chart-title">Top 10 Products by Revenue</div>
+        <div class="chart-sub">Horizontal bar — blue to teal gradient</div>
+        <div class="chart-inner-lg" id="chart-products"></div>
+      </div>
+    </div>
+
+    <!-- ROW 3: Three Ship Mode Donuts -->
+    <div class="chart-row row-3">
+      <div class="chart-card fade-up d10">
+        <div class="chart-title">Profit Share by Ship Mode</div>
+        <div class="chart-sub">Proportion of total profit</div>
+        <div class="chart-inner" id="chart-ship-profit"></div>
+      </div>
+      <div class="chart-card fade-up d10">
+        <div class="chart-title">Volume Share by Ship Mode</div>
+        <div class="chart-sub">Units sold per shipping method</div>
+        <div class="chart-inner" id="chart-ship-volume"></div>
+      </div>
+      <div class="chart-card fade-up d11">
+        <div class="chart-title">Order Count by Ship Mode</div>
+        <div class="chart-sub">Number of orders per method</div>
+        <div class="chart-inner" id="chart-ship-orders"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> — Powered by Plotly.js</p>
+  </footer>
+
+  <script>
+    // ── Tab Switching ──────────────────────────────────────────────────────
+    function switchTab(tab) {
+      document.querySelectorAll('.upload-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.upload-panel').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.upload-tab[data-tab="${tab}"]`).classList.add('active');
+      document.getElementById(`panel-${tab}`).classList.add('active');
+    }
+
+    function clearPaste() {
+      document.getElementById('json-paste').value = '';
+      document.getElementById('parse-error').classList.remove('show');
+    }
+
+    function loadPastedJSON() {
+      const raw = document.getElementById('json-paste').value.trim();
+      const errEl = document.getElementById('parse-error');
+      const errText = document.getElementById('parse-error-text');
+      errEl.classList.remove('show');
+      if (!raw) {
+        errText.textContent = 'Please paste some JSON data first.';
+        errEl.classList.add('show');
+        return;
+      }
+      try {
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) throw new Error('Input must be a JSON array, e.g. [{...}, {...}]');
+        buildDashboard(parsed);
+      } catch (e) {
+        errText.textContent = e.message;
+        errEl.classList.add('show');
+      }
+    }
+
+    // ── Custom Cursor ─────────────────────────────────────────────────────
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+    });
+
+    function animateOutline() {
+      outlineX += (mouseX - outlineX) * 0.15;
+      outlineY += (mouseY - outlineY) * 0.15;
+      cursorOutline.style.left = outlineX + 'px';
+      cursorOutline.style.top = outlineY + 'px';
+      requestAnimationFrame(animateOutline);
+    }
+    animateOutline();
+
+    document.querySelectorAll('a, button, .upload-tab, .drop-zone-inner, .kpi-card, .chart-card, .reset-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+      el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+    });
+
+    // ── Helpers ──────────────────────────────────────────────────────────
+    function parseMoney(v) {
+      if (typeof v === 'number') return v;
+      return parseFloat(String(v).replace(/[$, ]/g, '')) || 0;
+    }
+    function parseDate(s) {
+      if (!s) return null;
+      const p = s.trim().split('/');
+      if (p.length !== 3) return null;
+      const [d, m, y] = [parseInt(p[0]), parseInt(p[1]), parseInt(p[2])];
+      if (m >= 1 && m <= 12 && d >= 1 && d <= 31) return new Date(y, m - 1, d);
+      return null;
+    }
+    function fmtMoney(n) {
+      if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + (n / 1000).toFixed(1) + 'K';
+      return '$' + n.toFixed(0);
+    }
+    function fmtNum(n) {
+      if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+      return n.toString();
+    }
+
+    // ── Chart defaults (DARK THEME) ──────────────────────────────────────
+    const DARK_BG = 'rgba(0,0,0,0)';
+    const GRID_COLOR_DARK = 'rgba(255,255,255,0.08)';
+    const FONT_DARK = { family: 'Manrope, sans-serif', size: 11, color: 'rgba(255,255,255,0.45)' };
+    const SHIP_COLORS = { 'Standard Class': '#2563eb', 'First Class': '#0891b2', 'Second Class': '#7c3aed', 'Same Day': '#d97706' };
+    const SHIP_ORDER = ['Standard Class', 'First Class', 'Second Class', 'Same Day'];
+
+    function baseLayout(extra = {}) {
+      return Object.assign({
+        paper_bgcolor: DARK_BG, plot_bgcolor: DARK_BG,
+        font: FONT_DARK, margin: { t: 10, r: 10, b: 36, l: 40 },
+        showlegend: false,
+        xaxis: { gridcolor: GRID_COLOR_DARK, zeroline: false, tickfont: FONT_DARK, linecolor: GRID_COLOR_DARK },
+        yaxis: { gridcolor: GRID_COLOR_DARK, zeroline: false, tickfont: FONT_DARK, linecolor: GRID_COLOR_DARK },
+      }, extra);
+    }
+    const CFG = { displayModeBar: false, responsive: true };
+
+    // ── Upload / Drag ────────────────────────────────────────────────────
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over') });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); const f = e.dataTransfer.files[0]; if (f) readFile(f) });
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', e => { const f = e.target.files[0]; if (f) readFile(f) });
+
+    function readFile(file) {
+      const r = new FileReader();
+      r.onload = ev => {
+        try {
+          const raw = JSON.parse(ev.target.result);
+          if (!Array.isArray(raw)) throw new Error('Not an array');
+          buildDashboard(raw);
+        } catch (err) { alert('Could not parse JSON: ' + err.message) }
+      };
+      r.readAsText(file);
+    }
+
+    function resetDashboard() {
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById('upload-screen').style.display = 'block';
+      fileInput.value = '';
+      clearPaste();
+      switchTab('file');
+      ['chart-line', 'chart-segment', 'chart-geo', 'chart-products', 'chart-ship-profit', 'chart-ship-volume', 'chart-ship-orders']
+        .forEach(id => Plotly.purge(id));
+    }
+
+    // ── Main ─────────────────────────────────────────────────────────────
+    function buildDashboard(raw) {
+      const data = raw.map(r => ({
+        orderId: r['Order ID'] || '',
+        date: parseDate(r['Order Date'] || r['order_date'] || ''),
+        sales: parseMoney(r['Sales'] || 0),
+        profit: parseMoney(r[' Profit '] || r['Profit'] || 0),
+        qty: parseInt(r['Quantity'] || 0),
+        segment: r['Segment'] || 'Unknown',
+        state: r['State'] || '',
+        product: r['Product Name'] || 'Unknown',
+        shipMode: r['Ship Mode'] || 'Unknown',
+      })).filter(r => r.sales > 0 || r.profit !== 0);
+
+      document.getElementById('record-count').textContent = data.length + ' records loaded';
+      document.getElementById('upload-screen').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+
+      const totalRev = data.reduce((s, r) => s + r.sales, 0);
+      const totalProfit = data.reduce((s, r) => s + r.profit, 0);
+      const totalUnits = data.reduce((s, r) => s + r.qty, 0);
+      const aov = totalRev / data.length;
+      document.getElementById('kpi-revenue').textContent = fmtMoney(totalRev);
+      document.getElementById('kpi-profit').textContent = fmtMoney(totalProfit);
+      document.getElementById('kpi-units').textContent = fmtNum(totalUnits);
+      document.getElementById('kpi-aov').textContent = fmtMoney(aov);
+
+      drawLine(data);
+      drawSegment(data);
+      drawGeo(data);
+      drawProducts(data);
+      drawShipDonuts(data);
+    }
+
+    // ── Line Chart ───────────────────────────────────────────────────────
+    function drawLine(data) {
+      const monthly = {};
+      data.forEach(r => {
+        if (!r.date) return;
+        const key = r.date.getFullYear() + '-' + String(r.date.getMonth() + 1).padStart(2, '0');
+        if (!monthly[key]) monthly[key] = { sales: 0, profit: 0 };
+        monthly[key].sales += r.sales;
+        monthly[key].profit += r.profit;
+      });
+      const keys = Object.keys(monthly).sort();
+      const sales = keys.map(k => monthly[k].sales);
+      const profit = keys.map(k => monthly[k].profit);
+      const labels = keys.map(k => { const [y, m] = k.split('-'); return new Date(y, m - 1).toLocaleDateString('en-US', { month: 'short', year: '2-digit' }) });
+
+      const traceSales = {
+        x: labels, y: sales, name: 'Sales', type: 'scatter', mode: 'lines',
+        line: { color: '#2563eb', width: 2.5, shape: 'spline' },
+        fill: 'tozeroy', fillcolor: 'rgba(37,99,235,0.12)',
+        hovertemplate: '%{x}<br>Sales: $%{y:,.0f}<extra></extra>'
+      };
+      const traceProfit = {
+        x: labels, y: profit, name: 'Profit', type: 'scatter', mode: 'lines',
+        line: { color: '#059669', width: 2.5, shape: 'spline' },
+        fill: 'tozeroy', fillcolor: 'rgba(5,150,105,0.12)',
+        hovertemplate: '%{x}<br>Profit: $%{y:,.0f}<extra></extra>'
+      };
+      const layout = baseLayout({
+        margin: { t: 10, r: 10, b: 48, l: 56 },
+        xaxis: { ...baseLayout().xaxis, tickangle: -35 },
+        yaxis: { ...baseLayout().yaxis, tickprefix: '$', tickformat: ',.0f' },
+        hovermode: 'x unified'
+      });
+      Plotly.newPlot('chart-line', [traceSales, traceProfit], layout, CFG);
+    }
+
+    // ── Segment Donut ────────────────────────────────────────────────────
+    function drawSegment(data) {
+      const seg = {};
+      data.forEach(r => { seg[r.segment] = (seg[r.segment] || 0) + r.sales });
+      const labels = Object.keys(seg), values = labels.map(l => seg[l]);
+      const colors = ['#2563eb', '#0891b2', '#7c3aed'];
+      const trace = {
+        labels, values, type: 'pie', hole: 0.58,
+        marker: { colors: colors.slice(0, labels.length), line: { color: '#1a1a1a', width: 2 } },
+        textfont: FONT_DARK,
+        hovertemplate: '%{label}<br>$%{value:,.0f}<br>%{percent}<extra></extra>'
+      };
+      const layout = {
+        paper_bgcolor: DARK_BG, font: FONT_DARK,
+        margin: { t: 10, r: 10, b: 10, l: 10 },
+        showlegend: true,
+        legend: { orientation: 'v', x: 1.02, y: .5, font: { ...FONT_DARK, size: 10 } }
+      };
+      Plotly.newPlot('chart-segment', [trace], layout, CFG);
+    }
+
+    // ── Choropleth ───────────────────────────────────────────────────────
+    const STATE_ABBR = {
+      'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
+      'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE', 'Florida': 'FL', 'Georgia': 'GA',
+      'Hawaii': 'HI', 'Idaho': 'ID', 'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS',
+      'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD', 'Massachusetts': 'MA',
+      'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS', 'Missouri': 'MO', 'Montana': 'MT',
+      'Nebraska': 'NE', 'Nevada': 'NV', 'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM',
+      'New York': 'NY', 'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK',
+      'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC', 'South Dakota': 'SD',
+      'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT', 'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA',
+      'West Virginia': 'WV', 'Wisconsin': 'WI', 'Wyoming': 'WY', 'District of Columbia': 'DC'
+    };
+    function drawGeo(data) {
+      const byState = {};
+      data.forEach(r => {
+        const abbr = STATE_ABBR[r.state];
+        if (abbr) byState[abbr] = (byState[abbr] || 0) + r.sales;
+      });
+      const locs = Object.keys(byState), vals = locs.map(l => byState[l]);
+      const trace = {
+        type: 'choropleth', locationmode: 'USA-states',
+        locations: locs, z: vals,
+        colorscale: [[0, '#1e3a5f'], [0.5, '#3b82f6'], [1, '#93c5fd']],
+        colorbar: { tickprefix: '$', tickformat: ',.0f', thickness: 12, len: .7, tickfont: FONT_DARK },
+        marker: { line: { color: '#1a1a1a', width: .5 } },
+        hovertemplate: '%{location}<br>$%{z:,.0f}<extra></extra>'
+      };
+      const layout = {
+        geo: {
+          scope: 'usa', bgcolor: DARK_BG, landcolor: '#1e293b', subunitcolor: 'rgba(255,255,255,0.05)', showlakes: false,
+          projection: { type: 'albers usa' }
+        },
+        paper_bgcolor: DARK_BG, font: FONT_DARK, margin: { t: 0, r: 0, b: 0, l: 0 }
+      };
+      Plotly.newPlot('chart-geo', [trace], layout, CFG);
+    }
+
+    // ── Top 10 Products ──────────────────────────────────────────────────
+    function drawProducts(data) {
+      const prod = {};
+      data.forEach(r => { prod[r.product] = (prod[r.product] || 0) + r.sales });
+      const sorted = Object.entries(prod).sort((a, b) => b[1] - a[1]).slice(0, 10).reverse();
+      const names = sorted.map(e => e[0]);
+      const vals = sorted.map(e => e[1]);
+      const n = names.length;
+      const colors = names.map((_, i) => {
+        const t = i / (n - 1 || 1);
+        const r = Math.round(37 + (8 - 37) * t), g = Math.round(99 + (145 - 99) * t), b = Math.round(235 + (178 - 235) * t);
+        return `rgb(${r},${g},${b})`;
+      });
+      const trace = {
+        x: vals, y: names, type: 'bar', orientation: 'h',
+        marker: { color: colors, line: { width: 0 } },
+        hovertemplate: '%{y}<br>$%{x:,.0f}<extra></extra>',
+        text: vals.map(v => fmtMoney(v)), textposition: 'outside',
+        textfont: { ...FONT_DARK, size: 10, color: 'rgba(255,255,255,0.45)' }
+      };
+      const layout = baseLayout({
+        margin: { t: 10, r: 60, b: 36, l: Math.min(200, Math.max(...names.map(n => n.length)) * 6) },
+        xaxis: { ...baseLayout().xaxis, tickprefix: '$', tickformat: ',.0f' },
+        yaxis: { ...baseLayout().yaxis, automargin: true, tickfont: { ...FONT_DARK, size: 10 } }
+      });
+      Plotly.newPlot('chart-products', [trace], layout, CFG);
+    }
+
+    // ── Ship Mode Donuts ─────────────────────────────────────────────────
+    function drawShipDonuts(data) {
+      const byMode = {};
+      SHIP_ORDER.forEach(m => { byMode[m] = { profit: 0, qty: 0, count: 0 } });
+      data.forEach(r => {
+        const m = r.shipMode;
+        if (!byMode[m]) byMode[m] = { profit: 0, qty: 0, count: 0 };
+        byMode[m].profit += r.profit;
+        byMode[m].qty += r.qty;
+        byMode[m].count += 1;
+      });
+      const modes = Object.keys(byMode).filter(m => byMode[m].count > 0);
+      const colors = modes.map(m => SHIP_COLORS[m] || '#94a3b8');
+
+      function makeDonut(field, fmt) {
+        return {
+          labels: modes,
+          values: modes.map(m => byMode[m][field]),
+          type: 'pie', hole: 0.55,
+          marker: { colors, line: { color: '#1a1a1a', width: 2 } },
+          textfont: FONT_DARK,
+          hovertemplate: '%{label}<br>' + fmt + '<br>%{percent}<extra></extra>'
+        };
+      }
+      const donutLayout = {
+        paper_bgcolor: DARK_BG, font: FONT_DARK,
+        margin: { t: 10, r: 10, b: 10, l: 10 },
+        showlegend: true,
+        legend: { orientation: 'v', x: 1.02, y: .5, font: { ...FONT_DARK, size: 9 } }
+      };
+
+      Plotly.newPlot('chart-ship-profit', [makeDonut('profit', '$%{value:,.0f}')], donutLayout, CFG);
+      Plotly.newPlot('chart-ship-volume', [makeDonut('qty', '%{value} units')], donutLayout, CFG);
+      Plotly.newPlot('chart-ship-orders', [makeDonut('count', '%{value} orders')], donutLayout, CFG);
+    }
+
+    // ── Auto-load sample data ────────────────────────────────────────────
+    (function tryAutoLoad() {
+      const el = document.getElementById('sample-data');
+      if (el) { try { buildDashboard(JSON.parse(el.textContent)) } catch (e) { } }
+    })();
+  </script>
+
+  <!-- Demo: auto-load the dataset provided in context -->
+  <script id="sample-data" type="application/json">
+[{"Order ID":"ORD-2024-10001","Order Date":"08/12/2024","Ship Date":"09/12/2024","Ship Mode":"Same Day","Customer ID":"CUST-1001","Customer Name":"Ken Brennan","Segment":"Consumer","Country":"United States","City":"Houston","State":"Texas","Region":"Central","Product Name":"Fellowes Laminator","Category":"Technology","Sales":" $544 ","Quantity":"6"," Profit ":" $67 "},{"Order ID":"ORD-2024-10002","Order Date":"10/06/2024","Ship Date":"14/06/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1002","Customer Name":"John Smith","Segment":"Corporate","Country":"United States","City":"Atlanta","State":"Georgia","Region":"South","Product Name":"Pilot G2 Pen Pack","Category":"Office Supplies","Sales":" $97 ","Quantity":"7"," Profit ":" $1 "},{"Order ID":"ORD-2024-10003","Order Date":"07/02/2024","Ship Date":"11/02/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1003","Customer Name":"Maria Johnson","Segment":"Home Office","Country":"United States","City":"Phoenix","State":"Arizona","Region":"West","Product Name":"Reception Desk","Category":"Furniture","Sales":" $2,154 ","Quantity":"3"," Profit ":" $254 "},{"Order ID":"ORD-2024-10004","Order Date":"05/03/2024","Ship Date":"09/03/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1004","Customer Name":"Alicia Turner","Segment":"Consumer","Country":"United States","City":"Philadelphia","State":"Pennsylvania","Region":"East","Product Name":"Staples Multipurpose Paper","Category":"Office Supplies","Sales":" $47 ","Quantity":"7"," Profit ":" $10 "},{"Order ID":"ORD-2024-10005","Order Date":"07/11/2024","Ship Date":"11/11/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1005","Customer Name":"David Lee","Segment":"Corporate","Country":"Canada","City":"Toronto","State":"Ontario","Region":"Canada","Product Name":"Canon ImageClass Printer","Category":"Technology","Sales":" $1,022 ","Quantity":"5"," Profit ":" $204 "},{"Order ID":"ORD-2024-10006","Order Date":"17/03/2024","Ship Date":"20/03/2024","Ship Mode":"Sta... (line truncated to 2000 chars)
+</script>
+</body>
+
+</html>

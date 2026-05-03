@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboards | Anjani Kumar Mishra</title>
+
+    <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/">
+
+    <meta name="description"
+        content="Explore interactive HTML dashboards: sales analytics, regional performance, financial visualizations, and video analytics by Anjani Kumar Mishra.">
+    <meta name="keywords"
+        content="interactive dashboards, HTML dashboards, Plotly.js, sales analytics, regional analytics, financial visualization, video analytics, Anjani Kumar Mishra, CarLIMIT, Prism, RMM, VEVOi">
+    <meta name="author" content="Anjani Kumar Mishra">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#222222">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/">
+    <meta property="og:title" content="Interactive Dashboards | Anjani Kumar Mishra">
+    <meta property="og:description"
+        content="Interactive HTML dashboards for sales analytics, regional performance, and financial reporting. Built with Plotly.js.">
+    <meta property="og:image" content="https://inakm.github.io/og-image.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@in_akmm">
+    <meta name="twitter:creator" content="@in_akmm">
+    <meta name="twitter:title" content="Interactive Dashboards | Anjani Kumar Mishra">
+    <meta name="twitter:description"
+        content="Interactive HTML dashboards for sales analytics, regional performance, and financial reporting.">
+    <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
+    <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Interactive Dashboards",
+        "description": "HTML-based interactive dashboards for data visualization and analytics",
+        "url": "https://inakm.github.io/page/projects/dashboards/",
+        "author": {
+            "@type": "Person",
+            "name": "Anjani Kumar Mishra",
+            "url": "https://inakm.github.io/index.html"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Dashboard Collection",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Prism Store Sales Dashboard",
+                    "description": "Interactive sales dashboard with Plotly.js visualizations"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "RMM Regional Analytics Dashboard",
+                    "description": "Geographical and financial analytics dashboard"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "VEVOi Video Analytics Dashboard",
+                    "description": "Video performance and analytics dashboard"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "CarLIMIT Sales Performance Dashboard",
+                    "description": "Interactive sales performance dashboard with revenue, profit, and segment insights"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://inakm.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://inakm.github.io/page/projects/index.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Dashboards",
+                "item": "https://inakm.github.io/page/projects/dashboards/"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="../../../mypfpf.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../mypfpf.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
+                            white: '#ffffff',
+                            highlight: '#f3c623'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-family: 'Manrope', sans-serif;
+            cursor: none;
+        }
+
+        * {
+            cursor: none !important;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            * {
+                cursor: auto !important;
+            }
+            .cursor-dot,
+            .cursor-outline {
+                display: none !important;
+            }
+        }
+
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid white;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        .cursor-outline.hover-active {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.03);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.2) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        @keyframes fade-rise {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-rise {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .animate-fade-rise-delay {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .animate-fade-rise-delay-2 {
+            animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+
+        .magnetic-wrap {
+            display: inline-block;
+        }
+
+        .magnetic-inner {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .dashboard-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(243, 198, 35, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-highlight selection:text-black">
+
+    <div id="cursor-dot"
+        style="position:fixed;top:0;left:0;width:8px;height:8px;background:#f3c623;border-radius:50%;z-index:9999;pointer-events:none;transform:translate(-50%,-50%)">
+    </div>
+    <div id="cursor-outline"
+        style="position:fixed;top:0;left:0;width:40px;height:40px;border:1px solid #f3c623;border-radius:50%;z-index:9998;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s,background-color 0.2s">
+    </div>
+
+    <!-- Background Orbs -->
+    <div class="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-[#0a0a0a]"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-highlight/10 rounded-full blur-[120px] animate-float">
+        </div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-highlight/5 rounded-full blur-[100px] animate-float"
+            style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-white/5 rounded-full blur-[80px] animate-float"
+            style="animation-delay: -1.5s;"></div>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-4 backdrop-blur-md border-b border-white/5 bg-black/50">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+            <a href="../../../index.html" class="magnetic-wrap group shrink-0">
+                <div class="magnetic-inner text-xl font-bold tracking-tighter text-white flex items-center gap-1">
+                    AKM<span class="text-white/50 text-sm font-medium tracking-normal mt-1">Portfolio</span>
+                </div>
+            </a>
+            <a href="../../../index.html" class="magnetic-wrap">
+                <div
+                    class="magnetic-inner liquid-glass px-5 py-2 rounded-full text-white/80 font-medium text-sm flex items-center gap-2 hover:bg-white/10 hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-24 pb-20 px-4 md:px-8 max-w-[1600px] mx-auto min-h-screen">
+
+        <div class="mb-12">
+            <h1
+                class="text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50 mb-4">
+                Interactive Dashboards
+            </h1>
+            <p class="text-lg text-white/60 max-w-2xl">
+                A collection of HTML-based interactive dashboards built with Plotly.js for sales analytics,
+                regional performance tracking, and data visualization.
+            </p>
+        </div>
+
+        <section aria-label="Interactive Dashboard Projects">
+            <h2 class="sr-only">Dashboard Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Prism Store Sales Dashboard -->
+                <a href="Prism.html"
+                    class="liquid-glass rounded-2xl dashboard-card overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-highlight/50">
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-brand-highlight/20 flex items-center justify-center">
+                                <i class="fa-solid fa-bolt text-brand-highlight"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Prism Store Sales</h3>
+                                <p class="text-xs text-white/50">Interactive sales analytics dashboard</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-6 flex-1">
+                            Upload your order data to explore revenue, profit, and segment insights with interactive
+                            Plotly.js charts.
+                        </p>
+                        <div
+                            class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
+                            <span><i class="fa-solid fa-chart-line mr-1"></i> Plotly.js</span>
+                            <span class="text-brand-highlight font-bold">View Dashboard <i
+                                    class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- RMM Regional Analytics Dashboard -->
+                <a href="RMM.html"
+                    class="liquid-glass rounded-2xl dashboard-card overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-highlight/50">
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                <i class="fa-solid fa-chart-line text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">RMM Regional Analytics</h3>
+                                <p class="text-xs text-white/50">Geographical and financial dashboard</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-6 flex-1">
+                            A geographical and financial dashboard detailing RMM sales distributions and operational
+                            metrics.
+                        </p>
+                        <div
+                            class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
+                            <span><i class="fa-solid fa-chart-pie mr-1"></i> Plotly.js</span>
+                            <span class="text-brand-highlight font-bold">View Dashboard <i
+                                    class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- VEVOi Video Analytics Dashboard -->
+                <a href="VEVOi.html"
+                    class="liquid-glass rounded-2xl dashboard-card overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-highlight/50">
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                                <i class="fa-solid fa-video text-red-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">VEVOi Video Analytics</h3>
+                                <p class="text-xs text-white/50">Video performance dashboard</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-6 flex-1">
+                            Video performance and analytics dashboard tracking views, engagement, and content metrics.
+                        </p>
+                        <div
+                            class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
+                            <span><i class="fa-solid fa-play mr-1"></i> Plotly.js</span>
+                            <span class="text-brand-highlight font-bold">View Dashboard <i
+                                    class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CarLIMIT Sales Performance Dashboard -->
+                <a href="CarLIMIT_SalesDash.html"
+                    class="liquid-glass rounded-2xl dashboard-card overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-highlight/50">
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                                <i class="fa-solid fa-car text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">CarLIMIT Sales Performance</h3>
+                                <p class="text-xs text-white/50">Sales performance dashboard</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-6 flex-1">
+                            Interactive sales performance dashboard with revenue, profit, segment insights, US state
+                            choropleth, and shipping mode analytics.
+                        </p>
+                        <div
+                            class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
+                            <span><i class="fa-solid fa-chart-bar mr-1"></i> Plotly.js</span>
+                            <span class="text-brand-highlight font-bold">View Dashboard <i
+                                    class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative z-10 border-t border-white/5 py-8 text-center text-sm text-white/40">
+        <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+        let mouseX = 0, mouseY = 0;
+        let outlineX = 0, outlineY = 0;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateOutline() {
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+            requestAnimationFrame(animateOutline);
+        }
+        animateOutline();
+
+        document.querySelectorAll('a, button, .dashboard-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+            el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+        });
+    </script>
+</body>
+
+</html>

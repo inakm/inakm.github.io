@@ -54,6 +54,16 @@
             cursor: none !important;
         }
 
+        @media (hover: none) and (pointer: coarse) {
+            * {
+                cursor: auto !important;
+            }
+            .cursor-dot,
+            .cursor-outline {
+                display: none !important;
+            }
+        }
+
         .cursor-dot,
         .cursor-outline {
             position: fixed;
