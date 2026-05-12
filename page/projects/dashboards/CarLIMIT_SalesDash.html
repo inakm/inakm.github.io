@@ -41,6 +41,10 @@
     content="Interactive Sales Performance Dashboard with revenue, profit, and segment analytics powered by Plotly.js.">
   <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
 
+  <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
+
+
+
   <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -125,6 +129,7 @@
       * {
         cursor: auto !important;
       }
+
       .cursor-dot,
       .cursor-outline {
         display: none !important;
@@ -1049,11 +1054,15 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+
       .animate-marquee {
         animation: none;
       }
@@ -1063,56 +1072,73 @@
       .site-nav {
         padding: 12px 12px;
       }
+
       .nav-brand-text {
         font-size: 1.25rem;
       }
+
       .hero-section {
         padding: 88px 16px 36px;
         min-height: 32vh;
       }
+
       .site-title {
         font-size: clamp(1.5rem, 6vw, 2.4rem);
       }
+
       .site-subtitle {
         font-size: 0.82rem;
         max-width: 100%;
       }
+
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
       }
+
       .hero-btn {
         justify-content: center;
       }
+
       #upload-screen {
         padding: 48px 16px;
       }
+
       .upload-panel {
         padding: 24px 16px;
       }
+
       .drop-zone-inner {
         padding: 32px 20px;
       }
+
       .paste-actions {
         flex-direction: column;
         align-items: stretch;
       }
-      .paste-actions > div:last-child {
+
+      .paste-actions>div:last-child {
         justify-content: stretch;
       }
-      .paste-btn, .clear-btn {
+
+      .paste-btn,
+      .clear-btn {
         flex: 1;
         justify-content: center;
       }
+
       .kpi-grid {
         gap: 12px;
       }
+
       .chart-row {
         gap: 12px;
       }
+
       #dashboard {
         padding: 0 12px 48px;
       }
+
       .nav-back {
         display: none;
       }
@@ -1143,6 +1169,12 @@
         <a href="#" class="nav-link active">
           <i class="fa-solid fa-chart-line" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Sales Dash
         </a>
+        <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-excel" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Excel → JSON
+        </a>
+        <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-exchange-alt" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> CSV/JSON
+        </a>
       </div>
       <div class="nav-back">
         <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass"
@@ -1156,7 +1188,8 @@
   <!-- HERO -->
   <section class="hero-section">
     <div class="hero-bg">
-      <video autoplay loop muted playsinline preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
+      <video autoplay loop muted playsinline preload="none"
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
         <source
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
           type="video/mp4">
@@ -1175,11 +1208,21 @@
         interactive Plotly.js charts.
       </p>
       <div class="hero-actions animate-fade-rise-delay-2">
-        <button class="hero-btn hero-btn-primary" onclick="document.getElementById('upload-screen').scrollIntoView({behavior:'smooth'});switchTab('file')">
+        <button class="hero-btn hero-btn-primary"
+          onclick="document.getElementById('upload-screen').scrollIntoView({behavior:'smooth'});switchTab('file')">
           <i class="fa-solid fa-upload"></i> Upload JSON
         </button>
-        <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass" rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i> View All Projects
+        <a href="https://inakm.github.io/page/projects/dashboards/index.html" class="hero-btn hero-btn-glass"
+          rel="noopener noreferrer">
+          <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i> View All Dashboards
+        </a>
+        <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" class="hero-btn hero-btn-glass"
+          target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-excel" style="font-size:11px;"></i> Excel → JSON
+        </a>
+        <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" class="hero-btn hero-btn-glass"
+          target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-exchange-alt" style="font-size:11px;"></i> CSV/JSON
         </a>
       </div>
     </div>
@@ -1224,7 +1267,8 @@
         <div class="drop-zone-inner" id="drop-zone">
           <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
           <div class="upload-heading">Drop your JSON file here</div>
-          <div class="upload-desc">Accepts a JSON array with fields: Order ID, Order Date, Sales, Profit, Quantity, Segment,
+          <div class="upload-desc">Accepts a JSON array with fields: Order ID, Order Date, Sales, Profit, Quantity,
+            Segment,
             State, Product Name, Ship Mode</div>
           <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('file-input').click()">
             <i class="fa-solid fa-folder-open" style="margin-right:6px;"></i>Choose File
@@ -1236,15 +1280,18 @@
       <!-- PASTE TAB -->
       <div class="upload-panel" id="panel-paste">
         <div class="upload-heading" style="margin-bottom:6px;">Paste your JSON data</div>
-        <div class="upload-desc" style="margin-bottom:16px;">Paste a JSON array directly below. Same format as the file upload.</div>
-        <textarea class="paste-area" id="json-paste" placeholder='[{"Order ID":"ORD-001","Order Date":"01/01/2024","Sales":"100"," Profit ":"20","Quantity":"2","Segment":"Consumer","State":"Texas","Product Name":"Widget","Ship Mode":"Standard Class"}, ...]'
+        <div class="upload-desc" style="margin-bottom:16px;">Paste a JSON array directly below. Same format as the file
+          upload.</div>
+        <textarea class="paste-area" id="json-paste"
+          placeholder='[{"Order ID":"ORD-001","Order Date":"01/01/2024","Sales":"100"," Profit ":"20","Quantity":"2","Segment":"Consumer","State":"Texas","Product Name":"Widget","Ship Mode":"Standard Class"}, ...]'
           spellcheck="false"></textarea>
         <div class="parse-error" id="parse-error">
           <i class="fa-solid fa-circle-exclamation" style="margin-right:4px;"></i>
           <span id="parse-error-text">Invalid JSON. Please check your input.</span>
         </div>
         <div class="paste-actions">
-          <div class="paste-hint"><i class="fa-solid fa-info-circle" style="margin-right:4px;"></i>JSON array of objects</div>
+          <div class="paste-hint"><i class="fa-solid fa-info-circle" style="margin-right:4px;"></i>JSON array of objects
+          </div>
           <div style="display:flex;gap:10px;">
             <button class="clear-btn" onclick="clearPaste()">
               <i class="fa-solid fa-eraser" style="margin-right:4px;"></i> Clear
@@ -1356,7 +1403,8 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> — Powered by Plotly.js</p>
+    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> — Powered by
+      Plotly.js</p>
   </footer>
 
   <script>
