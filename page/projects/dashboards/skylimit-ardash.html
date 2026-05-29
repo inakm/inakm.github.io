@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skylimit AR Aging Dashboard | Anjani Kumar Mishra</title>
+  <meta name="description" content="AR Aging Dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging.">
+  <meta name="author" content="Anjani Kumar Mishra">
+  <meta name="keywords" content="AR aging, accounts receivable, Tally ERP, dashboard, Skylimit, risk assessment, invoice tracking, payment collection, Anjani Kumar Mishra, ACCA, finance, analytics">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  <meta name="theme-color" content="#222222">
+  <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html">
+  <link rel="icon" type="image/png" href="../../../mypfpf.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../mypfpf.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html">
+  <meta property="og:title" content="Skylimit AR Aging Dashboard | Anjani Kumar Mishra">
+  <meta property="og:description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment.">
+  <meta property="og:image" content="https://inakm.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@in_akmm">
+  <meta name="twitter:creator" content="@in_akmm">
+  <meta name="twitter:title" content="Skylimit AR Aging Dashboard | Anjani Kumar Mishra">
+  <meta name="twitter:description" content="AR aging dashboard with Tally ERP integration, multi-agent sync, and dynamic risk assessment.">
+  <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
+    <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Skylimit AR Aging Dashboard",
+    "url": "https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html",
+    "author": {
+      "@type": "Person",
+      "name": "Anjani Kumar Mishra",
+      "url": "https://inakm.github.io"
+    },
+    "description": "Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript. Uses IndexedDB for local storage.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inakm.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://inakm.github.io/page/projects/index.html" },
+      { "@type": "ListItem", "position": 3, "name": "Dashboards", "item": "https://inakm.github.io/page/projects/dashboards/" },
+      { "@type": "ListItem", "position": 4, "name": "Skylimit AR Aging Dashboard", "item": "https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.3/dist/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            mono: ['Courier New', 'monospace'],
+          },
+          colors: {
+            brand: {
+              primary: '#222222',
+              secondary: '#7B7B7B',
+              tertiary: '#F8F8F8',
+              white: '#ffffff',
+              highlight: '#f3c623'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #ffffff;
+      color: #222222;
+      overflow-x: hidden;
+      font-family: 'Manrope', sans-serif;
+    }
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .card-light {
+      background: #ffffff;
+      border: 1px solid #E5E5E5;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      min-width: 0;
+    }
+    .card-light:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      border-color: #d0d0d0;
+    }
+    select,
+    input,
+    textarea {
+      background: #ffffff;
+      color: #222222;
+      border: 1.5px solid #E5E5E5;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02), inset 0 1px 2px rgba(0,0,0,0.02);
+    }
+    select:hover,
+    input:hover,
+    textarea:hover {
+      border-color: #d0d0d0;
+    }
+    select:focus,
+    input:focus,
+    textarea:focus {
+      border-color: #f3c623;
+      box-shadow: 0 0 0 4px rgba(243, 198, 35, 0.12), 0 2px 8px rgba(243, 198, 35, 0.08);
+    }
+    select::placeholder,
+    input::placeholder,
+    textarea::placeholder {
+      color: #b0b0b0;
+      font-weight: 400;
+    }
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%237B7B7B' d='M4 5.5l3 3 3-3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+      background-size: 16px;
+      min-height: 42px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    select option {
+      padding: 12px 16px;
+      font-weight: 500;
+      background: #ffffff;
+      color: #222222;
+    }
+    select optgroup {
+      font-weight: 700;
+      color: #7B7B7B;
+      padding: 8px 12px;
+    }
+    .tab-search-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .tab-search-bar input[type="text"] {
+      flex: 1;
+      min-width: 180px;
+    }
+    .tab-search-bar select {
+      min-width: 130px;
+      font-size: 0.75rem;
+      min-height: 38px;
+    }
+    .sort-btn {
+      background: none;
+      border: 1.5px solid #E5E5E5;
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      color: #7B7B7B;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .sort-btn:hover {
+      border-color: #d0d0d0;
+      color: #222222;
+      background: #F8F8F8;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F8F8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f3c623;
+      border-radius: 4px;
+    }
+    .row-paid {
+      background-color: #f0fdf4 !important;
+    }
+    .row-medium {
+      background-color: #fefce8 !important;
+    }
+    .row-high {
+      background-color: #fff7ed !important;
+    }
+    .row-critical {
+      background-color: #fef2f2 !important;
+    }
+    .drawer-content {
+      display: none;
+    }
+    .drawer-content.open {
+      display: table-row;
+    }
+    .badge-low {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+    .badge-medium {
+      background: #fef9c3;
+      color: #ca8a04;
+    }
+    .badge-high {
+      background: #ffedd5;
+      color: #ea580c;
+    }
+    .badge-critical {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .badge-paid {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+    .badge-unpaid {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .btn-primary {
+      background: #222222;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover {
+      background: #444444;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #222222;
+      border: 1px solid #E5E5E5;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+    .btn-secondary:hover {
+      background: #F8F8F8;
+      border-color: #d0d0d0;
+    }
+    .btn-danger {
+      background: #dc2626;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      text-transform: uppercase;
+    }
+    .btn-danger:hover {
+      background: #b91c1c;
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background: #F8F8F8;
+      color: #7B7B7B;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      border-bottom: 2px solid #E5E5E5;
+      white-space: nowrap;
+    }
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.85rem;
+    }
+    tr:hover td {
+      background: #F8F8F8;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #ffffff;
+      border: 1px solid #E5E5E5;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    }
+    .upload-zone {
+      border: 2px dashed #d0d0d0;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .upload-zone:hover,
+    .upload-zone.dragover {
+      border-color: #f3c623;
+      background: rgba(243, 198, 35, 0.05);
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      color: #7B7B7B;
+      background: transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .tab-btn.active {
+      color: #222222;
+      border-bottom-color: #f3c623;
+    }
+    .tab-btn:hover:not(.active) {
+      color: #222222;
+      border-bottom-color: #E5E5E5;
+    }
+    .kpi-value {
+      font-size: clamp(1rem, 2.2vw, 1.6rem);
+      font-weight: 800;
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -0.02em;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+    .input-wrapper {
+      position: relative;
+    }
+    .input-wrapper .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #b0b0b0;
+      pointer-events: none;
+      font-size: 0.85rem;
+    }
+    .input-wrapper input {
+      padding-left: 40px;
+    }
+
+    .autocomplete-items {
+      position: absolute;
+      z-index: 100;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1.5px solid #E5E5E5;
+      border-radius: 0 0 12px 12px;
+      max-height: 220px;
+      overflow-y: auto;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      margin-top: 4px;
+    }
+    .autocomplete-item {
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #222222;
+      transition: background 0.15s;
+    }
+    .autocomplete-item:hover {
+      background: #F8F8F8;
+    }
+    .autocomplete-item:not(:last-child) {
+      border-bottom: 1px solid #f3f3f3;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 24px;
+      background: #222222;
+      color: #fff;
+      border-radius: 12px;
+      z-index: 1000;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      display: none;
+      border-left: 4px solid #f3c623;
+    }
+    .toast.error {
+      border-left-color: #dc2626;
+    }
+    .nav-hidden {
+      transform: translateY(-120%) translateX(-50%) !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+    nav#mainNav {
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 8px;
+      background: #ffffff;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      z-index: 60;
+      padding: 6px;
+    }
+    .nav-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown a,
+    .nav-dropdown button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #222222;
+      text-decoration: none;
+      transition: background 0.15s;
+      border: none;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Manrope', sans-serif;
+    }
+    .nav-dropdown a + a,
+    .nav-dropdown button + button {
+      margin-top: 2px;
+    }
+    .nav-dropdown a:hover,
+    .nav-dropdown button:hover {
+      background: #F8F8F8;
+    }
+    @media (max-width: 768px) {
+      .kpi-value {
+        font-size: clamp(0.85rem, 4vw, 1.1rem);
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 769px) {
+      .chart-grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+      }
+    }
+    .chart-box {
+      position: relative;
+      height: 360px;
+      max-height: 360px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chart-box canvas {
+      flex: 1;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0;
+    }
+    .chart-title {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7B7B7B;
+    }
+  </style>
+</head>
+<body class="antialiased relative font-sans selection:bg-brand-primary selection:text-white">
+
+  <div id="toast" class="toast"></div>
+
+  <!-- NAV -->
+  <nav id="mainNav" class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
+    <div class="bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-full px-4 md:px-5 py-3 md:py-3.5 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+      <!-- Skylimit logo + brand -->
+      <a href="#hero" class="flex items-center gap-2.5 shrink-0">
+        <img src="https://skl2.techril.com/images/logo-sm.png" alt="Skylimit" class="h-7 md:h-8 w-auto">
+        <span class="hidden sm:block text-[13px] font-extrabold uppercase tracking-wider text-brand-primary leading-tight">AR<span class="text-brand-secondary/60"> / </span>Dashboard</span>
+      </a>
+      <!-- Desktop right side -->
+      <div class="hidden md:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-brand-secondary">
+        <a href="#kpiSection" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Overview</a>
+        <a href="#chartGrid" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Charts</a>
+        <a href="#topOverdueSection" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Overdue</a>
+        <a href="#panelLedger" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Ledger</a>
+        <a href="#panelPayment" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Payment</a>
+        <span class="w-px h-5 bg-[#E5E5E5] mx-1"></span>
+        <button onclick="showUploadModal('xlsx')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-regular fa-file-excel mr-1"></i> XLSX</button>
+        <button onclick="showUploadModal('tally')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-solid fa-upload mr-1"></i> Tally</button>
+        <button onclick="showUploadModal('bank')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-solid fa-building-columns mr-1"></i> Bank</button>
+        <div class="relative" id="exportDropdownWrap">
+          <button onclick="toggleExportDropdown()" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary flex items-center gap-1"><i class="fa-solid fa-download mr-1"></i> Export <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
+          <div class="nav-dropdown" id="exportDropdown">
+            <button onclick="exportSyncFile(); closeExportDropdown()"><i class="fa-solid fa-cloud-arrow-up text-brand-secondary" style="width:18px"></i> Sync JSON</button>
+            <button onclick="exportCSV(); closeExportDropdown()"><i class="fa-solid fa-file-csv text-brand-secondary" style="width:18px"></i> CSV Report</button>
+            <button onclick="exportPDF(); closeExportDropdown()"><i class="fa-solid fa-file-pdf text-brand-secondary" style="width:18px"></i> PDF Report</button>
+          </div>
+        </div>
+        <button onclick="showClearModal()" class="hover:text-red-600 transition-colors px-2.5 py-1.5 rounded-full hover:bg-red-50"><i class="fa-solid fa-trash-can mr-1"></i> Clear</button>
+      </div>
+      <!-- mobile menu toggle -->
+      <div class="md:hidden flex gap-1.5">
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-brand-primary text-lg p-1"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden mt-2 bg-white/95 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl px-4 py-4 shadow-lg">
+      <div class="flex flex-col gap-1 text-sm font-medium text-brand-primary">
+        <a href="#kpiSection" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-gauge-high w-5 text-brand-secondary"></i> Overview</a>
+        <a href="#chartGrid" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-simple w-5 text-brand-secondary"></i> Charts</a>
+        <a href="#topOverdueSection" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation w-5 text-brand-secondary"></i> Top Overdue</a>
+        <a href="#panelLedger" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-book w-5 text-brand-secondary"></i> Master Ledger</a>
+        <a href="#panelPayment" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-money-bill w-5 text-brand-secondary"></i> Payment Desk</a>
+        <a href="#panelCalling" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-brand-secondary"></i> Calling List</a>
+        <hr class="border-[#E5E5E5] my-1">
+        <button onclick="showUploadModal('xlsx'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-regular fa-file-excel w-5 text-brand-secondary"></i> XLSX Report</button>
+        <button onclick="showUploadModal('tally'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-upload w-5 text-brand-secondary"></i> Tally CSV</button>
+        <button onclick="showUploadModal('bank'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-building-columns w-5 text-brand-secondary"></i> Bank CSV</button>
+        <hr class="border-[#E5E5E5] my-1">
+        <button onclick="exportSyncFile(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-cloud-arrow-up w-5 text-brand-secondary"></i> Export Sync (JSON)</button>
+        <button onclick="exportCSV(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-csv w-5 text-brand-secondary"></i> Export CSV</button>
+        <button onclick="exportPDF(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-pdf w-5 text-brand-secondary"></i> Export PDF</button>
+        <hr class="border-[#E5E5E5] my-1">
+        <button onclick="showClearModal(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-red-50 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-600"><i class="fa-solid fa-trash-can w-5"></i> Clear Database</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="relative pt-20 pb-10 md:pt-24 md:pb-12 flex flex-col justify-center items-center px-4 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-tertiary/40 via-white to-white pointer-events-none"></div>
+    <div class="absolute top-0 left-1/3 w-72 h-72 bg-brand-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/3 w-56 h-56 bg-brand-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="text-center z-10 relative">
+      <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-brand-primary">
+        AR Aging Dashboard
+      </h1>
+      <p class="mt-1.5 text-xs md:text-sm text-brand-secondary/60 max-w-sm mx-auto">Real-time receivables intelligence &amp; automated collection workflow</p>
+      <div class="mt-3 flex items-center justify-center gap-2 text-[10px] md:text-[11px] text-brand-secondary font-semibold">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-calendar text-[9px]"></i> RECEIVABLES</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-file-invoice text-[9px]"></i> AGING</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-arrow-up-right-dots text-[9px]"></i> RISK</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20 relative z-10">
+
+    <!-- KPI CARDS -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 kpi-grid" id="kpiSection">
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Outstanding</p>
+        <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Collected</p>
+        <p class="kpi-value text-green-600" id="kpiCollected">₹0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Pending Amount</p>
+        <p class="kpi-value text-brand-highlight" id="kpiPendingAmount">₹0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">High Risk Aging</p>
+        <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Pending Invoices</p>
+        <p class="kpi-value text-brand-primary" id="kpiPendingCount">0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Invoices</p>
+        <p class="kpi-value text-brand-primary" id="kpiTotalInvoices">0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Paid Invoices</p>
+        <p class="kpi-value text-green-600" id="kpiPaidCount">0</p>
+      </div>
+      <div class="card-light rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Calling List</p>
+        <p class="kpi-value text-red-600" id="kpiCallingList">0</p>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="flex flex-wrap items-center gap-3 mb-6 p-4 bg-brand-tertiary/40 rounded-2xl border border-[#E5E5E5]">
+      <div class="flex items-center gap-2">
+        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Group:</label>
+        <select id="filterGroup" onchange="applyFilters()" class="min-w-[150px]">
+          <option value="__all">All Groups</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Risk:</label>
+        <select id="filterRisk" onchange="applyFilters()" class="min-w-[150px]">
+          <option value="__all">All Risk Levels</option>
+          <option value="Low">Low (0-30d)</option>
+          <option value="Medium">Medium (31-60d)</option>
+          <option value="High">High (61-90d)</option>
+          <option value="Critical">Critical (90+d)</option>
+        </select>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Call Status:</label>
+        <select id="filterCallStatus" onchange="applyFilters()" class="min-w-[150px]">
+          <option value="__all">All Statuses</option>
+          <option value="Not Called">Not Called</option>
+          <option value="Spoke to Client">Spoke to Client</option>
+          <option value="PTP - Promise to Pay">PTP</option>
+          <option value="Disputed Bill">Disputed Bill</option>
+          <option value="Unreachable">Unreachable</option>
+        </select>
+      </div>
+      <button onclick="resetFilters()" class="btn-secondary text-xs whitespace-nowrap"><i class="fa-solid fa-rotate-left mr-1"></i> Reset</button>
+      <span class="text-xs text-brand-secondary/50 ml-auto whitespace-nowrap" id="recordCount">0 records</span>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 chart-grid" id="chartGrid">
+      <div class="card-light rounded-xl p-5 chart-box">
+        <p class="chart-title mb-3 text-center">Aging Distribution</p>
+        <canvas id="chartAging"></canvas>
+      </div>
+      <div class="card-light rounded-xl p-5 chart-box">
+        <p class="chart-title mb-3 text-center">Outstanding by Collector</p>
+        <canvas id="chartOutstandingByCollector"></canvas>
+      </div>
+      <div class="card-light rounded-xl p-5 chart-box">
+        <p class="chart-title mb-3 text-center">High Risk by Collector</p>
+        <canvas id="chartHighRiskByCollector"></canvas>
+      </div>
+      <div class="card-light rounded-xl p-5 chart-box">
+        <p class="chart-title mb-3 text-center">Call Status Summary</p>
+        <canvas id="chartCallStatus"></canvas>
+      </div>
+    </section>
+
+    <!-- TOP 10 OVERDUE PARTIES -->
+    <section class="mb-8" id="topOverdueSection">
+      <div class="card-light rounded-xl p-4 md:p-5">
+        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-4 text-center font-bold">TOP 10 OVERDUE PARTIES</p>
+        <div class="overflow-x-auto">
+          <table id="topOverdueTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Party Name</th>
+                <th>Outstanding (₹)</th>
+                <th>Max Overdue (Days)</th>
+                <th>Risk Level</th>
+                <th>Invoices</th>
+              </tr>
+            </thead>
+            <tbody id="topOverdueBody"></tbody>
+          </table>
+        </div>
+        <p class="text-xs text-brand-secondary/50 text-center mt-3" id="topOverdueEmpty">No overdue data</p>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <section class="mb-4">
+      <div class="flex border-b border-[#E5E5E5]">
+        <button class="tab-btn active" onclick="switchTab('ledger')" id="tabLedger"><i class="fa-solid fa-book mr-2"></i> Master Ledger</button>
+        <button class="tab-btn" onclick="switchTab('payment')" id="tabPayment"><i class="fa-solid fa-money-bill mr-2"></i> Payment Desk</button>
+        <button class="tab-btn" onclick="switchTab('calling')" id="tabCalling"><i class="fa-solid fa-phone mr-2"></i> Calling List</button>
+      </div>
+    </section>
+
+    <!-- TAB: MASTER LEDGER -->
+    <div id="panelLedger" class="tab-panel">
+      <div class="card-light rounded-xl p-4 md:p-6">
+        <div class="tab-search-bar">
+          <div class="input-wrapper flex-1 min-w-[200px]">
+            <i class="fa-solid fa-search input-icon"></i>
+            <input type="text" id="ledgerSearch" placeholder="Search by party, invoice, group..." oninput="renderLedger()" class="w-full">
+          </div>
+          <select id="ledgerSort" onchange="renderLedger()">
+            <option value="party">Sort: Party</option>
+            <option value="amount">Sort: Amount</option>
+            <option value="overdue">Sort: Overdue Days</option>
+            <option value="risk">Sort: Risk</option>
+            <option value="date">Sort: Due Date</option>
+          </select>
+          <button class="sort-btn" id="ledgerSortDir" onclick="toggleLedgerSort()"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
+          <select id="ledgerStatusFilter" onchange="renderLedger()">
+            <option value="__all">All Statuses</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Paid">Paid</option>
+          </select>
+        </div>
+        <div class="overflow-x-auto max-h-[500px] overflow-y-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Party Name</th>
+                <th>Invoice No</th>
+                <th>Group</th>
+                <th>Date</th>
+                <th>Due Date</th>
+                <th>Overdue</th>
+                <th>Risk</th>
+                <th>Original (₹)</th>
+                <th>Pending (₹)</th>
+                <th>Status</th>
+                <th>Call Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: PAYMENT DESK -->
+    <div id="panelPayment" class="tab-panel" style="display:none">
+      <div class="card-light rounded-xl p-4 md:p-6">
+        <p class="text-sm uppercase tracking-widest text-brand-secondary/70 mb-4"><i class="fa-solid fa-money-bill-wave mr-2"></i>Log Payment Received</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="relative">
+            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Customer</label>
+            <input type="text" id="paymentCustomer" placeholder="Type customer name..." oninput="suggestCustomers()" class="w-full">
+            <div class="autocomplete-items hidden" id="paymentSuggestions"></div>
+          </div>
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Invoice</label>
+            <select id="paymentInvoice" class="w-full"><option value="">-- Select customer first --</option></select>
+          </div>
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Amount Received (₹)</label>
+            <input type="number" id="paymentAmount" placeholder="0.00" min="0" step="0.01" class="w-full">
+          </div>
+          <div class="flex items-end">
+            <button onclick="logPayment()" class="btn-primary w-full"><i class="fa-solid fa-check mr-2"></i>Record Payment</button>
+          </div>
+        </div>
+        <hr class="border-[#E5E5E5] my-6">
+        <p class="text-sm uppercase tracking-widest text-brand-secondary/70 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Recent Payments</p>
+        <div class="overflow-x-auto max-h-[300px] overflow-y-auto">
+          <table>
+            <thead>
+              <tr><th>Party Name</th><th>Invoice No</th><th>Amount (₹)</th><th>Status</th></tr>
+            </thead>
+            <tbody id="paymentLogBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: CALLING LIST -->
+    <div id="panelCalling" class="tab-panel" style="display:none">
+      <div class="card-light rounded-xl p-4 md:p-6">
+        <div class="tab-search-bar">
+          <div class="input-wrapper flex-1 min-w-[200px]">
+            <i class="fa-solid fa-search input-icon"></i>
+            <input type="text" id="callingSearch" placeholder="Search party, invoice, group..." oninput="renderCallingList()" class="w-full">
+          </div>
+          <select id="callingSort" onchange="renderCallingList()">
+            <option value="overdue">Sort: Overdue Days</option>
+            <option value="party">Sort: Party</option>
+            <option value="amount">Sort: Amount</option>
+            <option value="risk">Sort: Risk</option>
+          </select>
+          <button class="sort-btn" id="callingSortDir" onclick="toggleCallingSort()"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
+        </div>
+        <div class="flex flex-wrap gap-1.5 mb-4 items-center">
+          <span class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary mr-2">Call Status:</span>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('__all')" id="callSubAll">All</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Not Called')" id="callSubNotCalled">Not Called</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Spoke to Client')" id="callSubSpoke">Spoke</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('PTP - Promise to Pay')" id="callSubPTP">PTP</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Disputed Bill')" id="callSubDisputed">Disputed</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Unreachable')" id="callSubUnreachable">Unreachable</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table id="callingTable">
+            <thead>
+              <tr>
+                <th>Party Name</th>
+                <th>Invoice No</th>
+                <th>Group</th>
+                <th>Due Date</th>
+                <th>Overdue Days</th>
+                <th>Risk</th>
+                <th>Pending (₹)</th>
+                <th>Call Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="callingBody"></tbody>
+          </table>
+        </div>
+        <p class="text-center text-brand-secondary/50 text-sm mt-4" id="callingEmptyMsg">No overdue items. All caught up!</p>
+      </div>
+    </div>
+
+    <!-- PRIVACY NOTICE -->
+    <div class="mt-10 flex items-start gap-3 p-4 rounded-2xl border border-[#E5E5E5] bg-brand-tertiary/40">
+      <div class="w-9 h-9 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+        <i class="fa-solid fa-shield-halved text-blue-500 text-sm"></i>
+      </div>
+      <div class="text-xs md:text-sm text-brand-secondary leading-relaxed">
+        <strong class="text-brand-primary">Your data stays on your device.</strong>
+        All records — invoices, payments, call logs — are stored locally in your browser's IndexedDB using the Tally ERP data you upload. Nothing is transmitted to any server, collected, or shared. You retain full control and may clear or export your data at any time.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- UPLOAD MODAL -->
+  <div class="modal-overlay" id="uploadModal">
+    <div class="modal-box">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider" id="uploadModalTitle">Upload File</h3>
+        <button onclick="closeModal('uploadModal')" class="text-brand-secondary/70 hover:text-brand-primary text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-brand-tertiary">&times;</button>
+      </div>
+      <p class="text-sm text-brand-secondary/70 mb-4" id="uploadModalDesc">Select a CSV file to upload.</p>
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-tertiary border border-[#E5E5E5] flex items-center justify-center">
+          <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-highlight"></i>
+        </div>
+        <p class="text-sm font-semibold text-brand-primary">Drop file here or click to browse</p>
+        <p class="text-xs text-brand-secondary/60 mt-1" id="uploadZoneHint">Supports .csv, .xlsx, and .json files</p>
+      </div>
+      <input type="file" id="fileInput" accept=".csv,.json" style="display:none" onchange="handleFileSelect(event)">
+      <div class="mt-4 flex justify-end gap-2">
+        <button onclick="closeModal('uploadModal')" class="btn-secondary text-xs">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLEAR DB MODAL -->
+  <div class="modal-overlay" id="clearModal">
+    <div class="modal-box">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider text-red-600"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Destroy Database</h3>
+        <button onclick="closeModal('clearModal')" class="text-brand-secondary/70 hover:text-white text-xl">&times;</button>
+      </div>
+      <p class="text-sm text-brand-secondary/70 mb-4">This action will permanently delete ALL data including invoice records, call logs, and payment history. This cannot be undone.</p>
+      <p class="text-sm text-brand-secondary mb-2 font-medium">Type <strong class="text-red-600">DELETE</strong> to confirm:</p>
+      <input type="text" id="deleteConfirmInput" placeholder="Type DELETE here..." oninput="document.getElementById('deleteConfirmBtn').disabled = this.value !== 'DELETE'" class="w-full mb-4">
+      <div class="flex justify-end gap-2">
+        <button onclick="closeModal('clearModal')" class="btn-secondary text-xs">Cancel</button>
+        <button id="deleteConfirmBtn" class="btn-danger text-xs" disabled onclick="executeClearDB()"><i class="fa-solid fa-trash-can mr-1"></i> Purge All Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATUS SLIDER BUTTON (Not Called / etc) -->
+  <div id="statusChangeModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider">Update Call Status</h3>
+        <button onclick="closeModal('statusChangeModal')" class="text-brand-secondary/70 hover:text-white text-xl">&times;</button>
+      </div>
+      <p class="text-sm text-brand-secondary mb-3 font-medium" id="statusChangeParty">Party:</p>
+      <div class="mb-3">
+        <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary block mb-1.5">Status</label>
+        <select id="statusChangeSelect" class="w-full">
+          <option value="Not Called">Not Called</option>
+          <option value="Spoke to Client">Spoke to Client</option>
+          <option value="PTP - Promise to Pay">PTP - Promise to Pay</option>
+          <option value="Disputed Bill">Disputed Bill</option>
+          <option value="Unreachable">Unreachable</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary block mb-1.5">Remarks</label>
+        <textarea id="statusChangeRemarks" rows="3" class="w-full" placeholder="Enter remarks or notes..."></textarea>
+      </div>
+      <div class="flex justify-end gap-2">
+        <button onclick="closeModal('statusChangeModal')" class="btn-secondary text-xs">Cancel</button>
+        <button onclick="saveStatusChange()" class="btn-primary text-xs"><i class="fa-solid fa-floppy-disk mr-1"></i> Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================
+    // CONFIGURATION
+    // ============================================================
+    const DB_NAME = 'SkylimitARDb';
+    const DB_VERSION = 1;
+    const STORES = { invoices: 'invoices', callLogs: 'callLogs' };
+
+    // Register datalabels plugin globally if available
+    if (typeof ChartDataLabels !== 'undefined') {
+      try { Chart.register(ChartDataLabels); } catch(e) { console.warn('DataLabels plugin registration failed:', e); }
+    }
+
+    const COLORS = {
+      low: '#22c55e',
+      medium: '#eab308',
+      high: '#f97316',
+      critical: '#ef4444',
+      paid: '#22c55e',
+      unpaid: '#ef4444',
+      highlight: '#f3c623',
+    };
+
+    const RISK_LABELS = ['Low', 'Medium', 'High', 'Critical'];
+    const RISK_RANGES = [
+      { min: 0, max: 30 },
+      { min: 31, max: 60 },
+      { min: 61, max: 90 },
+      { min: 91, max: Infinity }
+    ];
+
+    let db = null;
+    let currentCallingSubFilter = '__all';
+    let currentUploadMode = null;
+    let currentStatusChangeParty = null;
+
+    // ============================================================
+    // INDEXEDDB MANAGER
+    // ============================================================
+    function openDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = (e) => {
+          const d = e.target.result;
+          if (!d.objectStoreNames.contains(STORES.invoices)) {
+            const s = d.createObjectStore(STORES.invoices, { keyPath: 'invoiceNo' });
+            s.createIndex('partyName', 'partyName', { unique: false });
+            s.createIndex('groupName', 'groupName', { unique: false });
+            s.createIndex('status', 'status', { unique: false });
+          }
+          if (!d.objectStoreNames.contains(STORES.callLogs)) {
+            const s = d.createObjectStore(STORES.callLogs, { keyPath: 'partyName' });
+          }
+        };
+        req.onsuccess = (e) => { db = e.target.result;
+          resolve(db); };
+        req.onerror = (e) => { reject(e.target.error); };
+      });
+    }
+
+    function dbWrite(storeName, data) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
+        const req = Array.isArray(data) ? data.map(d => store.put(d)) : store.put(data);
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function dbReadAll(storeName) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, 'readonly');
+        const store = tx.objectStore(storeName);
+        const req = store.getAll();
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function dbRead(storeName, key) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, 'readonly');
+        const store = tx.objectStore(storeName);
+        const req = store.get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function dbDelete(storeName, key) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
+        const req = store.delete(key);
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    function dbClear(storeName) {
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(storeName, 'readwrite');
+        const store = tx.objectStore(storeName);
+        const req = store.clear();
+        tx.oncomplete = () => resolve();
+        tx.onerror = (e) => reject(e.target.error);
+      });
+    }
+
+    // ============================================================
+    // DATE & CURRENCY UTILITIES
+    // ============================================================
+    function parseTallyDate(str) {
+      if (!str) return null;
+      str = String(str).trim();
+      // Try common formats: DD-MMM-YY, DD-MMM-YYYY, DD/MM/YYYY, DD-MM-YYYY
+      let formats = [
+        /^(\d{1,2})-([A-Za-z]{3})-(\d{2,4})$/,
+        /^(\d{1,2})\/([A-Za-z]{3})\/(\d{2,4})$/,
+        /^(\d{1,2})-(\d{1,2})-(\d{2,4})$/,
+        /^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/,
+        /^(\d{4})-(\d{1,2})-(\d{1,2})$/,
+      ];
+      for (let f of formats) {
+        let m = str.match(f);
+        if (m) {
+          let d = parseInt(m[1]),
+            mo = parseInt(m[2]) - 1,
+            y = parseInt(m[3]);
+          if (isNaN(mo)) {
+            let months = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10,
+            dec: 11 };
+            mo = months[m[2].toLowerCase().substring(0, 3)];
+            if (mo === undefined) continue;
+          }
+          if (y < 100) y += 2000;
+          let dt = new Date(y, mo, d);
+          if (!isNaN(dt)) return dt;
+        }
+      }
+      let p = Date.parse(str);
+      return isNaN(p) ? null : new Date(p);
+    }
+
+    function parseCurrency(str) {
+      if (!str) return 0;
+      let s = String(str).trim();
+      // Remove Dr/Cr suffix
+      s = s.replace(/\s*(Dr|Cr)\s*$/i, '');
+      // Remove commas, spaces, currency symbols
+      s = s.replace(/[₹,\s]/g, '');
+      let v = parseFloat(s);
+      return isNaN(v) ? 0 : Math.abs(v);
+    }
+
+    function fmtCurrency(v) {
+      return '₹' + Number(v).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function calcOverdueDays(dueDate) {
+      if (!dueDate) return 0;
+      let now = new Date();
+      now.setHours(0, 0, 0, 0);
+      let due = new Date(dueDate);
+      due.setHours(0, 0, 0, 0);
+      let diff = Math.floor((now - due) / (1000 * 60 * 60 * 24));
+      return diff > 0 ? diff : 0;
+    }
+
+    function getRiskLabel(overdueDays) {
+      for (let i = 0; i < RISK_RANGES.length; i++) {
+        if (overdueDays >= RISK_RANGES[i].min && overdueDays <= RISK_RANGES[i].max) return RISK_LABELS[i];
+      }
+      return 'Low';
+    }
+
+    function getRiskColor(risk) {
+      const map = { Low: COLORS.low, Medium: COLORS.medium, High: COLORS.high, Critical: COLORS.critical };
+      return map[risk] || COLORS.highlight;
+    }
+
+    function todayStr() {
+      let d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    function htmlEscape(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>"']/g, function(m) {
+        var e = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+        return e[m] || m;
+      });
+    }
+
+    function nowStr() {
+      let d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2,
+        '0') + ' ' +
+        String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+    }
+
+    // ============================================================
+    // TALLY CSV PARSER
+    // ============================================================
+    function parseTallyCSV(text) {
+      let result = Papa.parse(text, { header: true, skipEmptyLines: true });
+      let rows = result.data;
+      if (!rows || rows.length === 0) { showToast('No data found in CSV', true); return []; }
+
+      // Detect columns by common names
+      let cols = Object.keys(rows[0]);
+      let colMap = {};
+      let nameMap = {
+        'ref no': 'refNo',
+        'refno': 'refNo',
+        'ref. no': 'refNo',
+        'ref. no.': 'refNo',
+        'invoice no': 'refNo',
+        'invoice': 'refNo',
+        'particulars': 'particulars',
+        'particular': 'particulars',
+        'party name': 'particulars',
+        'name': 'particulars',
+        'date': 'date',
+        'due date': 'dueDate',
+        'original amount': 'amount',
+        'pending amount': 'pending',
+        'amount': 'amount',
+        'pending': 'pending',
+        'group': 'groupName',
+        'group name': 'groupName',
+        'ledger group': 'groupName',
+      };
+      for (let c of cols) {
+        let key = c.toLowerCase().trim();
+        if (nameMap[key]) colMap[nameMap[key]] = c;
+      }
+
+      let invoices = [];
+      let currentParty = '';
+      let currentGroup = '';
+
+      for (let row of rows) {
+        let refNo = colMap.refNo ? (row[colMap.refNo] || '').trim() : '';
+        let particulars = colMap.particulars ? (row[colMap.particulars] || '').trim() : '';
+        let date = colMap.date ? (row[colMap.date] || '').trim() : '';
+        let dueDate = colMap.dueDate ? (row[colMap.dueDate] || '').trim() : '';
+        let amtStr = colMap.amount ? (row[colMap.amount] || '').trim() : '';
+        let pendingStr = colMap.pending ? (row[colMap.pending] || '').trim() : '';
+        let grp = colMap.groupName ? (row[colMap.groupName] || '').trim() : '';
+        if (grp) currentGroup = grp;
+
+        // Detect party header row: if particulars has value but refNo is empty
+        if (particulars && !refNo) {
+          currentParty = particulars;
+          continue;
+        }
+        if (!refNo) continue;
+
+        let invDate = parseTallyDate(date);
+        let invDueDate = parseTallyDate(dueDate);
+        let amount = parseCurrency(pendingStr) || parseCurrency(amtStr);
+
+        invoices.push({
+          invoiceNo: refNo,
+          partyName: currentParty || 'Unknown',
+          groupName: currentGroup || 'General',
+          invoiceDate: invDate || new Date(),
+          dueDate: invDueDate || new Date(),
+          originalAmount: amount,
+          pendingAmount: amount,
+          status: 'Unpaid',
+          isManuallyPaid: false,
+          phone: '',
+          email: ''
+        });
+      }
+
+      if (invoices.length === 0) { showToast('No bill line items found. Check CSV column mapping.', true); return []; }
+      return invoices;
+    }
+
+    // ============================================================
+    // BANK STATEMENT CSV PARSER
+    // ============================================================
+    function parseBankCSV(text) {
+      let result = Papa.parse(text, { header: true, skipEmptyLines: true });
+      let rows = result.data;
+      if (!rows || rows.length === 0) { showToast('No data found in bank CSV', true); return []; }
+
+      let cols = Object.keys(rows[0]);
+      let invCol = null,
+        amtCol = null;
+      for (let c of cols) {
+        let k = c.toLowerCase().trim();
+        if (k.includes('invoice') || k.includes('ref') || k.includes('bill')) invCol = c;
+        if (k.includes('amount') || k.includes('payment') || k.includes('received')) amtCol = c;
+      }
+      if (!invCol || !amtCol) { showToast('Bank CSV must have Invoice and Amount columns', true); return []; }
+
+      let payments = [];
+      for (let row of rows) {
+        let inv = (row[invCol] || '').trim();
+        let amt = parseCurrency(row[amtCol]);
+        if (inv && amt > 0) payments.push({ invoiceNo: inv, amount: amt });
+      }
+      return payments;
+    }
+
+    // ============================================================
+    // DATA PROCESSOR
+    // ============================================================
+    function enrichInvoice(inv) {
+      let overdue = calcOverdueDays(inv.dueDate);
+      return Object.assign({}, inv, {
+        _overdueDays: overdue,
+        _riskLabel: getRiskLabel(overdue),
+        _riskColor: getRiskColor(getRiskLabel(overdue))
+      });
+    }
+
+    async function getEnrichedInvoices() {
+      let invoices = await dbReadAll(STORES.invoices);
+      return invoices.map(enrichInvoice);
+    }
+
+    async function getCallLogs() {
+      return await dbReadAll(STORES.callLogs);
+    }
+
+    async function getCallLog(partyName) {
+      return await dbRead(STORES.callLogs, partyName);
+    }
+
+    async function upsertCallLog(partyName, status, agent, text) {
+      let existing = await getCallLog(partyName) || { partyName, currentStatus: 'Not Called', remarksHistory: [] };
+      existing.currentStatus = status;
+      if (!existing.remarksHistory) existing.remarksHistory = [];
+      existing.remarksHistory.push({
+        Timestamp: nowStr(),
+        Agent: agent || 'Agent',
+        Status: status,
+        Text: text || ''
+      });
+      await dbWrite(STORES.callLogs, existing);
+      return existing;
+    }
+
+    // ============================================================
+    // AGGREGATIONS
+    // ============================================================
+    function computeAggregations(invoices) {
+      let totalOutstanding = 0;
+      let totalCollected = 0;
+      let totalInvoiceCount = invoices.length;
+      let totalPaidCount = 0;
+      let pendingCount = 0;
+      let overdueCount = 0;
+      let totalOverdueDays = 0;
+      let criticalCount = 0;
+      let riskBuckets = { Low: 0, Medium: 0, High: 0, Critical: 0 };
+      let groupMap = {};
+      let groupOutstanding = {};
+      let groupHighRisk = {};
+      let partySet = new Set();
+      let partyExposure = {};
+      let partyOverdueDays = {};
+      let partyInvoiceCount = {};
+      let callingListCount = 0;
+
+      for (let inv of invoices) {
+        let e = enrichInvoice(inv);
+        if (e.status !== 'Paid') {
+          totalOutstanding += e.pendingAmount;
+          pendingCount++;
+          partySet.add(e.partyName);
+          if (e._overdueDays > 0) {
+            overdueCount++;
+            totalOverdueDays += e._overdueDays;
+            if (e._overdueDays > 30) callingListCount++;
+          }
+          if (e._riskLabel === 'Critical') criticalCount++;
+          riskBuckets[e._riskLabel] = (riskBuckets[e._riskLabel] || 0) + e.pendingAmount;
+          partyExposure[e.partyName] = (partyExposure[e.partyName] || 0) + e.pendingAmount;
+          partyOverdueDays[e.partyName] = Math.max(partyOverdueDays[e.partyName] || 0, e._overdueDays);
+          partyInvoiceCount[e.partyName] = (partyInvoiceCount[e.partyName] || 0) + 1;
+          groupOutstanding[e.groupName] = (groupOutstanding[e.groupName] || 0) + e.pendingAmount;
+          if (e._riskLabel === 'High' || e._riskLabel === 'Critical') {
+            groupHighRisk[e.groupName] = (groupHighRisk[e.groupName] || 0) + e.pendingAmount;
+          }
+        } else {
+          totalPaidCount++;
+          totalCollected += e.originalAmount;
+        }
+        groupMap[e.groupName] = (groupMap[e.groupName] || 0) + 1;
+      }
+
+      let sortedExposure = Object.entries(partyExposure)
+        .map(([name, amt]) => ({ name, amount: amt, maxDays: partyOverdueDays[name] || 0, count: partyInvoiceCount[name] || 1 }))
+        .sort((a, b) => b.amount - a.amount);
+      let top10 = sortedExposure.slice(0, 10);
+
+      return {
+        totalOutstanding,
+        totalCollected,
+        totalInvoiceCount,
+        totalPaidCount,
+        pendingCount,
+        totalParties: partySet.size,
+        overduePct: overdueCount > 0 ? (overdueCount / (invoices.filter(i => i.status !== 'Paid').length || 1)) * 100 : 0,
+        avgOverdueDays: overdueCount > 0 ? Math.round(totalOverdueDays / overdueCount) : 0,
+        criticalCount,
+        callingListCount,
+        riskBuckets,
+        groups: Object.keys(groupMap).sort(),
+        top10Exposure: top10,
+        groupOutstanding: Object.entries(groupOutstanding).sort((a, b) => b[1] - a[1]),
+        groupHighRisk: Object.entries(groupHighRisk).sort((a, b) => b[1] - a[1]),
+      };
+    }
+
+    // ============================================================
+    // TOAST & MODAL HELPERS
+    // ============================================================
+    function showToast(msg, isError) {
+      let el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast' + (isError ? ' error' : '');
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 3500);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function toggleExportDropdown() {
+      let dd = document.getElementById('exportDropdown');
+      dd.classList.toggle('show');
+    }
+    function closeExportDropdown() {
+      document.getElementById('exportDropdown').classList.remove('show');
+    }
+    // Close export dropdown on outside click
+    document.addEventListener('click', function(e) {
+      let wrap = document.getElementById('exportDropdownWrap');
+      if (wrap && !wrap.contains(e.target)) {
+        let dd = document.getElementById('exportDropdown');
+        if (dd) dd.classList.remove('show');
+      }
+    });
+
+    // ============================================================
+    // NAV HIDE ON SCROLL DOWN / SHOW ON SCROLL UP
+    // ============================================================
+    let lastScroll = 0;
+    const mainNav = document.getElementById('mainNav');
+    window.addEventListener('scroll', function() {
+      const current = window.pageYOffset;
+      if (current < 60) {
+        mainNav.classList.remove('nav-hidden');
+      } else if (current > lastScroll && current > 80) {
+        mainNav.classList.add('nav-hidden');
+      } else if (current < lastScroll) {
+        mainNav.classList.remove('nav-hidden');
+      }
+      lastScroll = current;
+    }, { passive: true });
+
+    function showUploadModal(mode) {
+      currentUploadMode = mode;
+      let title = document.getElementById('uploadModalTitle');
+      let desc = document.getElementById('uploadModalDesc');
+      let hint = document.getElementById('uploadZoneHint');
+      let input = document.getElementById('fileInput');
+      input.value = '';
+      input.accept = mode === 'sync' ? '.json' : mode === 'xlsx' ? '.xlsx,.xls' : '.csv';
+
+      if (mode === 'xlsx') {
+        title.textContent = 'Upload XLSX AR Report';
+        desc.textContent = 'Upload the May_ARAgingReport_AKM.xlsx (or any AR report) — reads the MASTER_AR_REPORT sheet. Invoice, Customer, Amount, Due Date, and Status columns mapped automatically.';
+        hint.textContent = 'Supports .xlsx files (MASTER_AR_REPORT sheet)';
+      } else if (mode === 'tally') {
+        title.textContent = 'Upload Tally BWO CSV';
+        desc.textContent = 'Upload a Tally Bill-Wise Outstanding CSV export. The parser handles hierarchy (party headers + bill lines).';
+        hint.textContent = 'Supports .csv files (Tally BWO export)';
+      } else if (mode === 'bank') {
+        title.textContent = 'Upload Bank Statement CSV';
+        desc.textContent = 'Upload a CSV with Invoice_Number and Payment_Amount_Received columns.';
+        hint.textContent = 'Supports .csv files';
+      } else if (mode === 'sync') {
+        title.textContent = 'Import Sync File';
+        desc.textContent = 'Upload a previously exported .json sync file to merge data across agents.';
+        hint.textContent = 'Supports .json sync files';
+      }
+      document.getElementById('uploadModal').classList.add('active');
+    }
+
+    function showClearModal() {
+      document.getElementById('deleteConfirmInput').value = '';
+      document.getElementById('deleteConfirmBtn').disabled = true;
+      document.getElementById('clearModal').classList.add('active');
+    }
+
+    // ============================================================
+    // FILE HANDLING
+    // ============================================================
+    function handleFileSelect(event) {
+      let file = event.target.files[0];
+      if (!file) return;
+      closeModal('uploadModal');
+      if (currentUploadMode === 'xlsx') {
+        let reader = new FileReader();
+        reader.onload = async (e) => {
+          try {
+            let data = new Uint8Array(e.target.result);
+            await processXLSXUpload(data);
+          } catch (err) {
+            showToast('Error: ' + err.message, true);
+            console.error(err);
+          }
+        };
+        reader.readAsArrayBuffer(file);
+      } else {
+        let reader = new FileReader();
+        reader.onload = async (e) => {
+          let content = e.target.result;
+          try {
+            if (currentUploadMode === 'tally') await processTallyUpload(content);
+            else if (currentUploadMode === 'bank') await processBankUpload(content);
+            else if (currentUploadMode === 'sync') await processSyncImport(content);
+          } catch (err) {
+            showToast('Error: ' + err.message, true);
+            console.error(err);
+          }
+        };
+        reader.readAsText(file);
+      }
+    }
+
+    // ============================================================
+    // TALLY UPLOAD PIPELINE
+    // ============================================================
+    async function processTallyUpload(content) {
+      showToast('Parsing Tally CSV...');
+      let parsed = parseTallyCSV(content);
+      if (parsed.length === 0) return;
+
+      let imported = 0,
+        skipped = 0,
+        updated = 0;
+      for (let inv of parsed) {
+        let existing = await dbRead(STORES.invoices, inv.invoiceNo);
+        if (!existing) {
+          await dbWrite(STORES.invoices, inv);
+          imported++;
+        } else if (existing.isManuallyPaid) {
+          skipped++;
+        } else {
+          existing.pendingAmount = inv.pendingAmount;
+          existing.originalAmount = inv.originalAmount;
+          existing.dueDate = inv.dueDate;
+          existing.invoiceDate = inv.invoiceDate;
+          existing.groupName = inv.groupName;
+          if (existing.status === 'Paid' && existing.pendingAmount > 0) existing.status = 'Unpaid';
+          await dbWrite(STORES.invoices, existing);
+          updated++;
+        }
+      }
+      showToast(`Tally import: ${imported} new, ${updated} updated, ${skipped} skipped (manually paid)`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // BANK UPLOAD PIPELINE
+    // ============================================================
+    async function processBankUpload(content) {
+      showToast('Processing bank statement...');
+      let payments = parseBankCSV(content);
+      if (payments.length === 0) return;
+
+      let matched = 0,
+        notFound = 0;
+      for (let pmt of payments) {
+        let inv = await dbRead(STORES.invoices, pmt.invoiceNo);
+        if (inv) {
+          inv.pendingAmount = Math.max(0, inv.pendingAmount - pmt.amount);
+          if (inv.pendingAmount <= 0) {
+            inv.pendingAmount = 0;
+            inv.status = 'Paid';
+            inv.isManuallyPaid = true;
+          }
+          await dbWrite(STORES.invoices, inv);
+          matched++;
+        } else {
+          notFound++;
+        }
+      }
+      showToast(`Bank payments: ${matched} matched, ${notFound} invoice(s) not found`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // XLSX AR REPORT PARSER & PIPELINE
+    // ============================================================
+    function parseXLSX(bytes) {
+      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
+      let sheetName = 'MASTER_AR_REPORT';
+      let ws = wb.Sheets[sheetName];
+      if (!ws) {
+        let found = wb.SheetNames.filter(n => n !== 'HOME' && n !== 'D' && n !== 't');
+        if (found.length === 0) throw new Error('No data sheet found. Expected: ' + sheetName);
+        sheetName = found[0];
+        ws = wb.Sheets[sheetName];
+      }
+      let rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+      if (!rows || rows.length === 0) throw new Error('No data rows found in sheet "' + sheetName + '"');
+
+      let invoices = [];
+
+      // Map known column name variations to normalised keys
+      function findCol(variants) {
+        let cols = Object.keys(rows[0]);
+        for (let v of variants) {
+          let found = cols.find(c => c.toLowerCase().trim() === v.toLowerCase().trim());
+          if (found) return found;
+        }
+        // fuzzy match
+        for (let v of variants) {
+          let found = cols.find(c => c.toLowerCase().trim().includes(v.toLowerCase().trim()));
+          if (found) return found;
+        }
+        return null;
+      }
+
+      let colInvNo = findCol(['Invoice No', 'Invoice_No', 'INVOICE NO', 'InvoiceNo', 'Invoice Number']);
+      let colParty = findCol(['CUSTOMER NAME', 'Customer Name', 'Customer', 'Party Name', 'PartyName', 'Name']);
+      let colAmt = findCol(['Invoice Amount', 'Invoice_Amount', 'Amount', 'Original Amount', 'Bill Amount']);
+      let colDue = findCol(['Due Date', 'Due_Date', 'DueDate']);
+      let colPending = findCol(['Outstanding Amount', 'Outstanding_Amount', 'Pending Amount', 'Pending', 'Balance']);
+      let colPaid = findCol(['Paid Amount', 'Paid_Amount', 'Payment Received', 'Amount Received']);
+      let colDate = findCol(['Date', 'Invoice Date']);
+      let colGroup = findCol(['Source Sheet', 'Source_Sheet', 'Source', 'Group', 'Group Name', 'Agent']);
+      let colStatus = findCol(['Status', ' Status']);
+      let colRemarks = findCol(['Remarks']);
+
+      // Fallback: any column that trimmed == 'status'
+      if (!colStatus) {
+        let cols = Object.keys(rows[0]);
+        colStatus = cols.find(c => c.trim().toLowerCase() === 'status');
+      }
+
+      for (let row of rows) {
+        let invNo = colInvNo ? (row[colInvNo] || '').toString().trim() : '';
+        let partyName = colParty ? (row[colParty] || '').toString().trim() : '';
+        if (!invNo) continue;
+
+        let amtStr = colAmt ? (row[colAmt] || '').toString().trim() : '';
+        let pendingStr = colPending ? (row[colPending] || '').toString().trim() : '';
+        let paidStr = colPaid ? (row[colPaid] || '').toString().trim() : '';
+
+        let amount = parseFloat(pendingStr) || parseFloat(amtStr) || 0;
+
+        let dueDateVal = colDue ? row[colDue] : null;
+        let invDateVal = colDate ? row[colDate] : null;
+
+        // Parse dates from Excel serial numbers or strings
+        let invDate = parseExcelDate(invDateVal);
+        let dueDate = parseExcelDate(dueDateVal);
+
+        let groupName = colGroup ? (row[colGroup] || '').toString().trim() : 'General';
+
+        // Normalize status
+        let rawStatus = colStatus ? (row[colStatus] || '').toString().trim() : '';
+        let status = rawStatus.toUpperCase() === 'PAID' ? 'Paid' : 'Unpaid';
+
+        // Override status if pending is 0 or paid amount >= invoice amount
+        let paidAmount = parseFloat(paidStr) || 0;
+        let originalAmt = parseFloat(amtStr) || 0;
+        let pending = parseFloat(pendingStr) || 0;
+
+        if (paidAmount > 0 && pending <= 0) status = 'Paid';
+        if (originalAmt > 0 && paidAmount >= originalAmt) status = 'Paid';
+
+        invoices.push({
+          invoiceNo: invNo,
+          partyName: partyName || 'Unknown',
+          groupName: groupName || 'General',
+          invoiceDate: invDate || new Date(),
+          dueDate: dueDate || new Date(),
+          originalAmount: originalAmt || amount,
+          pendingAmount: pending || amount,
+          status: status === 'Paid' ? 'Paid' : 'Unpaid',
+          isManuallyPaid: status === 'Paid',
+          phone: '',
+          email: ''
+        });
+      }
+
+      if (invoices.length === 0) throw new Error('No valid invoice rows found after parsing. Check column mapping.');
+      return invoices;
+    }
+
+    function parseExcelDate(val) {
+      if (!val) return null;
+      // If it's a Date object
+      if (val instanceof Date && !isNaN(val)) return val;
+      // If it's a number (Excel serial date)
+      if (typeof val === 'number') {
+        // Excel serial date: days since 1900-01-01 (with the 1900 leap year bug)
+        let d = new Date(Date.UTC(1899, 11, 30));
+        d.setUTCDate(d.getUTCDate() + val);
+        return d;
+      }
+      // If it's a string
+      let str = String(val).trim();
+      if (!str) return null;
+      // Try ISO / common formats
+      let d = new Date(str);
+      if (!isNaN(d)) return d;
+      // Try DD-MM-YYYY or MM-DD-YYYY
+      let parts = str.split(/[-\/.]/);
+      if (parts.length === 3) {
+        let y = parseInt(parts[2]), m = parseInt(parts[1]) - 1, day = parseInt(parts[0]);
+        if (y < 100) y += 2000;
+        d = new Date(y, m, day);
+        if (!isNaN(d)) return d;
+      }
+      return null;
+    }
+
+    async function processXLSXUpload(bytes) {
+      showToast('Parsing XLSX AR report...');
+      let parsed;
+      try {
+        parsed = parseXLSX(bytes);
+      } catch (err) {
+        showToast('XLSX parse error: ' + err.message, true);
+        return;
+      }
+      if (parsed.length === 0) return;
+
+      let imported = 0, skipped = 0, updated = 0;
+      for (let inv of parsed) {
+        let existing = await dbRead(STORES.invoices, inv.invoiceNo);
+        if (!existing) {
+          await dbWrite(STORES.invoices, inv);
+          imported++;
+        } else if (existing.isManuallyPaid) {
+          skipped++;
+        } else {
+          existing.pendingAmount = inv.pendingAmount;
+          existing.originalAmount = inv.originalAmount;
+          existing.dueDate = inv.dueDate;
+          existing.invoiceDate = inv.invoiceDate;
+          existing.groupName = inv.groupName;
+          existing.status = inv.status;
+          if (existing.status === 'Paid' && existing.pendingAmount > 0) existing.status = 'Unpaid';
+          await dbWrite(STORES.invoices, existing);
+          updated++;
+        }
+      }
+      showToast(`XLSX import: ${imported} new, ${updated} updated, ${skipped} skipped (manually paid)`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // SYNC IMPORT/EXPORT
+    // ============================================================
+    async function exportSyncFile() {
+      showToast('Preparing sync export...');
+      let invoices = await dbReadAll(STORES.invoices);
+      let callLogs = await dbReadAll(STORES.callLogs);
+      let payload = {
+        version: 1,
+        exportedAt: nowStr(),
+        invoices: invoices.map(i => ({
+          invoiceNo: i.invoiceNo,
+          partyName: i.partyName,
+          groupName: i.groupName,
+          invoiceDate: i.invoiceDate,
+          dueDate: i.dueDate,
+          originalAmount: i.originalAmount,
+          pendingAmount: i.pendingAmount,
+          status: i.status,
+          isManuallyPaid: i.isManuallyPaid,
+          phone: i.phone || '',
+          email: i.email || ''
+        })),
+        callLogs: callLogs.map(c => ({
+          partyName: c.partyName,
+          currentStatus: c.currentStatus,
+          remarksHistory: c.remarksHistory
+        }))
+      };
+      let blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'skylimit-ardb-sync-' + todayStr() + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Sync file exported successfully');
+    }
+
+    async function processSyncImport(content) {
+      showToast('Merging sync data...');
+      let payload;
+      try {
+        payload = JSON.parse(content);
+      } catch (e) {
+        showToast('Invalid JSON file', true);
+        return;
+      }
+      if (!payload.invoices || !payload.callLogs) {
+        showToast('Invalid sync file format', true);
+        return;
+      }
+
+      let invCount = 0,
+        callCount = 0;
+      for (let inv of payload.invoices) {
+        let existing = await dbRead(STORES.invoices, inv.invoiceNo);
+        if (!existing) {
+          await dbWrite(STORES.invoices, {
+            invoiceNo: inv.invoiceNo,
+            partyName: inv.partyName,
+            groupName: inv.groupName || 'General',
+            invoiceDate: inv.invoiceDate ? new Date(inv.invoiceDate) : new Date(),
+            dueDate: inv.dueDate ? new Date(inv.dueDate) : new Date(),
+            originalAmount: inv.originalAmount || 0,
+            pendingAmount: inv.pendingAmount || 0,
+            status: inv.status || 'Unpaid',
+            isManuallyPaid: inv.isManuallyPaid || false,
+            phone: inv.phone || '',
+            email: inv.email || ''
+          });
+          invCount++;
+        } else {
+          // Merge: update pending amount and manual status
+          existing.pendingAmount = inv.pendingAmount;
+          existing.isManuallyPaid = inv.isManuallyPaid || existing.isManuallyPaid;
+          if (inv.status) existing.status = inv.status;
+          if (inv.phone) existing.phone = inv.phone;
+          if (inv.email) existing.email = inv.email;
+          await dbWrite(STORES.invoices, existing);
+          invCount++;
+        }
+      }
+
+      for (let cl of payload.callLogs) {
+        let existing = await getCallLog(cl.partyName);
+        if (!existing) {
+          await dbWrite(STORES.callLogs, cl);
+          callCount++;
+        } else if (cl.remarksHistory && cl.remarksHistory.length > 0) {
+          // Append-only merge: add new remarks not already present
+          let existingTimestamps = new Set(existing.remarksHistory.map(r => r.Timestamp + r.Text));
+          let newRemarks = cl.remarksHistory.filter(r => !existingTimestamps.has(r.Timestamp + r.Text));
+          if (newRemarks.length > 0) {
+            existing.remarksHistory.push(...newRemarks);
+            existing.currentStatus = cl.currentStatus || existing.currentStatus;
+            await dbWrite(STORES.callLogs, existing);
+          }
+          callCount++;
+        }
+      }
+      showToast(`Sync merged: ${invCount} invoices, ${callCount} call logs`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // PAYMENT DESK
+    // ============================================================
+    function suggestCustomers() {
+      let input = document.getElementById('paymentCustomer');
+      let val = input.value.toLowerCase().trim();
+      let suggestions = document.getElementById('paymentSuggestions');
+      if (!val) { suggestions.classList.add('hidden'); return; }
+
+      dbReadAll(STORES.invoices).then(invoices => {
+        let parties = [...new Set(invoices.map(i => i.partyName))];
+        let filtered = parties.filter(p => p.toLowerCase().includes(val)).slice(0, 10);
+        if (filtered.length === 0) { suggestions.classList.add('hidden'); return; }
+        suggestions.innerHTML = filtered.map(p =>
+          `<div class="autocomplete-item" data-name="${p.replace(/"/g, '&quot;')}">${htmlEscape(p)}</div>`
+        ).join('');
+        suggestions.querySelectorAll('.autocomplete-item').forEach(el => {
+          el.addEventListener('click', () => selectCustomer(el.dataset.name));
+        });
+        suggestions.classList.remove('hidden');
+      });
+    }
+
+    function selectCustomer(name) {
+      document.getElementById('paymentCustomer').value = name;
+      document.getElementById('paymentSuggestions').classList.add('hidden');
+      loadInvoicesForCustomer(name);
+    }
+
+    function loadInvoicesForCustomer(partyName) {
+      dbReadAll(STORES.invoices).then(invoices => {
+        let filtered = invoices.filter(i => i.partyName === partyName && i.status === 'Unpaid' && i.pendingAmount > 0);
+        let sel = document.getElementById('paymentInvoice');
+        sel.innerHTML = '<option value="">-- Select Invoice --</option>' +
+          filtered.map(i => `<option value="${i.invoiceNo}">${i.invoiceNo} - ${fmtCurrency(i.pendingAmount)}</option>`)
+          .join('');
+      });
+    }
+
+    async function logPayment() {
+      let party = document.getElementById('paymentCustomer').value.trim();
+      let invNo = document.getElementById('paymentInvoice').value;
+      let amt = parseFloat(document.getElementById('paymentAmount').value);
+
+      if (!party || !invNo || !amt || amt <= 0) {
+        showToast('Please fill all payment fields correctly', true);
+        return;
+      }
+
+      let inv = await dbRead(STORES.invoices, invNo);
+      if (!inv) { showToast('Invoice not found', true); return; }
+
+      inv.pendingAmount = Math.max(0, inv.pendingAmount - amt);
+      if (inv.pendingAmount <= 0) {
+        inv.pendingAmount = 0;
+        inv.status = 'Paid';
+        inv.isManuallyPaid = true;
+      }
+      await dbWrite(STORES.invoices, inv);
+
+      document.getElementById('paymentAmount').value = '';
+      document.getElementById('paymentInvoice').innerHTML = '<option value="">-- Select customer first --</option>';
+      showToast(`Payment logged: ${fmtCurrency(amt)} applied to ${invNo}`);
+      await refreshDashboard();
+      renderPaymentLog();
+    }
+
+    function renderPaymentLog() {
+      dbReadAll(STORES.invoices).then(invoices => {
+        let paid = invoices.filter(i => i.isManuallyPaid).slice(-50).reverse();
+        let tbody = document.getElementById('paymentLogBody');
+        if (paid.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" class="text-center text-brand-secondary/50">No manual payments recorded</td></tr>';
+          return;
+        }
+        tbody.innerHTML = paid.map(i =>
+          `<tr class="${i.status === 'Paid' ? 'row-paid' : ''}">
+            <td>${i.partyName}</td>
+            <td>${i.invoiceNo}</td>
+            <td>${fmtCurrency(i.originalAmount - i.pendingAmount)}</td>
+            <td><span class="badge-${i.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${i.status}</span></td>
+          </tr>`
+        ).join('');
+      });
+    }
+
+    // ============================================================
+    // CALL STATUS MANAGEMENT
+    // ============================================================
+    function openStatusModal(encodedParty) {
+      let partyName = decodeURIComponent(encodedParty);
+      currentStatusChangeParty = partyName;
+      document.getElementById('statusChangeParty').textContent = 'Party: ' + partyName;
+      getCallLog(partyName).then(log => {
+        document.getElementById('statusChangeSelect').value = log ? log.currentStatus : 'Not Called';
+        document.getElementById('statusChangeRemarks').value = '';
+      });
+      document.getElementById('statusChangeModal').classList.add('active');
+    }
+
+    async function saveStatusChange() {
+      if (!currentStatusChangeParty) return;
+      let status = document.getElementById('statusChangeSelect').value;
+      let remarks = document.getElementById('statusChangeRemarks').value.trim();
+      await upsertCallLog(currentStatusChangeParty, status, 'Agent', remarks);
+      closeModal('statusChangeModal');
+      showToast(`Status updated for ${currentStatusChangeParty}`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // COMMUNICATION ENGINE
+    // ============================================================
+    function openWhatsApp(partyName, invoiceNo, pendingAmount, overdueDays, phone) {
+      partyName = decodeURIComponent(partyName);
+      let msg = `Dear ${partyName}, your invoice ${invoiceNo} is overdue by ${overdueDays} days. Please remit the pending balance of ${fmtCurrency(pendingAmount)} to avoid credit hold.`;
+      let url = phone ?
+        `https://wa.me/${String(phone).replace(/[^0-9]/g, '')}?text=${encodeURIComponent(msg)}` :
+        `https://web.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    function openEmail(partyName, invoiceNo, pendingAmount, overdueDays, email) {
+      partyName = decodeURIComponent(partyName);
+      let subject = `Overdue Invoice ${invoiceNo} - Payment Reminder`;
+      let body =
+        `Dear ${partyName},%0D%0A%0D%0AThis is a reminder that invoice ${invoiceNo} is overdue by ${overdueDays} days.%0D%0A%0D%0APending Balance: ${fmtCurrency(pendingAmount)}%0D%0ADue Date: ${new Date().toLocaleDateString()}%0D%0A%0D%0APlease arrange payment at the earliest to avoid any credit hold.%0D%0A%0D%0AThank you.`;
+      let url = `mailto:${email || ''}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.open(url, '_blank');
+    }
+
+    // ============================================================
+    // FILTERS
+    // ============================================================
+    let currentFilters = { group: '__all', risk: '__all', callStatus: '__all' };
+    let ledgerSortAsc = false;
+    let callingSortAsc = false;
+
+    function toggleLedgerSort() {
+      ledgerSortAsc = !ledgerSortAsc;
+      document.getElementById('ledgerSortDir').innerHTML = ledgerSortAsc ? '<i class="fa-solid fa-arrow-up-wide-short"></i>' : '<i class="fa-solid fa-arrow-down-wide-short"></i>';
+      renderLedger();
+    }
+    function toggleCallingSort() {
+      callingSortAsc = !callingSortAsc;
+      document.getElementById('callingSortDir').innerHTML = callingSortAsc ? '<i class="fa-solid fa-arrow-up-wide-short"></i>' : '<i class="fa-solid fa-arrow-down-wide-short"></i>';
+      renderCallingList();
+    }
+
+    function applyFilters() {
+      currentFilters.group = document.getElementById('filterGroup').value;
+      currentFilters.risk = document.getElementById('filterRisk').value;
+      currentFilters.callStatus = document.getElementById('filterCallStatus').value;
+      refreshDashboard();
+    }
+
+    function resetFilters() {
+      document.getElementById('filterGroup').value = '__all';
+      document.getElementById('filterRisk').value = '__all';
+      document.getElementById('filterCallStatus').value = '__all';
+      currentFilters = { group: '__all', risk: '__all', callStatus: '__all' };
+      refreshDashboard();
+    }
+
+    function filterCallingSub(filter) {
+      currentCallingSubFilter = filter;
+      // Update button active states
+      document.querySelectorAll('[id^="callSub"]').forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('btn-secondary'); });
+      let map = { __all: 'callSubAll', 'Not Called': 'callSubNotCalled', 'Spoke to Client': 'callSubSpoke',
+        'PTP - Promise to Pay': 'callSubPTP', 'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
+      let btn = document.getElementById(map[filter]);
+      if (btn) { btn.classList.remove('btn-secondary'); btn.classList.add('bg-brand-primary', 'text-white'); }
+      renderCallingList();
+    }
+
+    function filterData(invoices, callLogs) {
+      return invoices.filter(inv => {
+        if (currentFilters.group !== '__all' && inv.groupName !== currentFilters.group) return false;
+        if (currentFilters.risk !== '__all' && enrichInvoice(inv)._riskLabel !== currentFilters.risk) return false;
+        if (currentFilters.callStatus !== '__all') {
+          let log = callLogs.find(c => c.partyName === inv.partyName);
+          let cs = log ? log.currentStatus : 'Not Called';
+          if (cs !== currentFilters.callStatus) return false;
+        }
+        return true;
+      });
+    }
+
+    // ============================================================
+    // RENDER KPI
+    // ============================================================
+    function renderKPI(agg) {
+      document.getElementById('kpiOutstanding').textContent = fmtCurrency(agg.totalOutstanding);
+      document.getElementById('kpiCollected').textContent = fmtCurrency(agg.totalCollected);
+      document.getElementById('kpiPendingAmount').textContent = fmtCurrency(agg.totalOutstanding);
+      document.getElementById('kpiHighRiskAmount').textContent = fmtCurrency((agg.riskBuckets.High || 0) + (agg.riskBuckets.Critical || 0));
+      document.getElementById('kpiPendingCount').textContent = agg.pendingCount;
+      document.getElementById('kpiTotalInvoices').textContent = agg.totalInvoiceCount;
+      document.getElementById('kpiPaidCount').textContent = agg.totalPaidCount;
+      document.getElementById('kpiCallingList').textContent = agg.callingListCount;
+    }
+
+    // ============================================================
+    // CHARTS
+    // ============================================================
+    let chartAging = null,
+      chartCallStatus = null,
+      chartOutstandingByCollector = null,
+      chartHighRiskByCollector = null;
+
+    function renderCharts(agg, invoices, callLogs) {
+      renderAgingChart(agg);
+      renderOutstandingByCollectorChart(agg);
+      renderHighRiskByCollectorChart(agg);
+      renderCallStatusChart(invoices, callLogs);
+      renderTopOverdueTable(agg);
+    }
+
+    function renderAgingChart(agg) {
+      let ctx = document.getElementById('chartAging').getContext('2d');
+      if (chartAging) chartAging.destroy();
+      let labels = ['Low (0-30d)', 'Medium (31-60d)', 'High (61-90d)', 'Critical (90+d)'];
+      let data = [agg.riskBuckets.Low || 0, agg.riskBuckets.Medium || 0, agg.riskBuckets.High || 0, agg.riskBuckets.Critical || 0];
+      let colors = [COLORS.low, COLORS.medium, COLORS.high, COLORS.critical];
+      let total = data.reduce((a, b) => a + b, 0);
+
+      chartAging = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels,
+          datasets: [{
+            data,
+            backgroundColor: colors,
+            borderColor: '#ffffff',
+            borderWidth: 3,
+            hoverOffset: 12,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#7B7B7B', font: { size: 11, weight: '600' }, boxWidth: 14, padding: 12, usePointStyle: true }
+            },
+            datalabels: {
+              color: '#fff',
+              font: { size: 11, weight: 'bold' },
+              formatter: (v) => {
+                if (total === 0) return '';
+                let pct = (v / total * 100).toFixed(1);
+                return pct + '%\n₹' + (v / 1000).toFixed(0) + 'K';
+              },
+              textAlign: 'center',
+              offset: 0,
+            },
+            tooltip: {
+              backgroundColor: '#222222',
+              titleFont: { size: 12, weight: '700' },
+              bodyFont: { size: 13, weight: '600' },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx2) => {
+                  let val = ctx2.parsed;
+                  let pct = total > 0 ? (val / total * 100).toFixed(1) : 0;
+                  return ' ₹' + Number(val).toLocaleString('en-IN') + '  (' + pct + '%)';
+                }
+              }
+            }
+          },
+          onClick: (e, elements) => {
+            if (elements.length > 0) {
+              let idx = elements[0].index;
+              let riskMap = ['Low', 'Medium', 'High', 'Critical'];
+              document.getElementById('filterRisk').value = riskMap[idx];
+              applyFilters();
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+    }
+
+    function renderOutstandingByCollectorChart(agg) {
+      let ctx = document.getElementById('chartOutstandingByCollector').getContext('2d');
+      if (chartOutstandingByCollector) chartOutstandingByCollector.destroy();
+      let data = agg.groupOutstanding;
+      let labels = data.length ? data.map(d => d[0]) : ['No Data'];
+      let values = data.length ? data.map(d => d[1]) : [0];
+      let barColors = ['#006466', '#065a60', '#1b3a4b', '#272640', '#4d194d'];
+
+      chartOutstandingByCollector = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Outstanding (₹)',
+            data: values,
+            backgroundColor: barColors.map(c => c + 'CC'),
+            borderColor: barColors,
+            borderWidth: 2,
+            borderRadius: 6,
+            borderSkipped: false,
+            barThickness: 36,
+            maxBarThickness: 44,
+            categoryPercentage: 0.7,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'end',
+              color: '#222222',
+              font: { size: 11, weight: '700' },
+              formatter: v => '₹' + Number(v).toLocaleString('en-IN')
+            },
+            tooltip: {
+              backgroundColor: '#222222',
+              titleFont: { size: 12, weight: '700' },
+              bodyFont: { size: 13, weight: '600' },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx2) => ' ₹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#7B7B7B', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
+              grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
+              border: { display: false }
+            },
+            y: {
+              ticks: { color: '#222222', font: { size: 11, weight: '700' } },
+              grid: { display: false },
+              border: { display: false }
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+    }
+
+    function renderHighRiskByCollectorChart(agg) {
+      let ctx = document.getElementById('chartHighRiskByCollector').getContext('2d');
+      if (chartHighRiskByCollector) chartHighRiskByCollector.destroy();
+      let data = agg.groupHighRisk;
+      let labels = data.length ? data.map(d => d[0]) : ['No Data'];
+      let values = data.length ? data.map(d => d[1]) : [0];
+      let barColors = ['#dc2626', '#ef4444', '#f97316', '#b91c1c', '#991b1b'];
+
+      chartHighRiskByCollector = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'High Risk (₹)',
+            data: values,
+            backgroundColor: barColors.map(c => c + 'CC'),
+            borderColor: barColors,
+            borderWidth: 2,
+            borderRadius: 6,
+            borderSkipped: false,
+            barThickness: 36,
+            maxBarThickness: 44,
+            categoryPercentage: 0.7,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            datalabels: {
+              anchor: 'end',
+              align: 'end',
+              color: '#222222',
+              font: { size: 11, weight: '700' },
+              formatter: v => '₹' + Number(v).toLocaleString('en-IN')
+            },
+            tooltip: {
+              backgroundColor: '#222222',
+              titleFont: { size: 12, weight: '700' },
+              bodyFont: { size: 13, weight: '600' },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx2) => ' ₹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#7B7B7B', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
+              grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
+              border: { display: false }
+            },
+            y: {
+              ticks: { color: '#222222', font: { size: 11, weight: '700' } },
+              grid: { display: false },
+              border: { display: false }
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+    }
+
+    function renderCallStatusChart(invoices, callLogs) {
+      let ctx = document.getElementById('chartCallStatus').getContext('2d');
+      if (chartCallStatus) chartCallStatus.destroy();
+      let statuses = ['Not Called', 'Spoke to Client', 'PTP - Promise to Pay', 'Disputed Bill', 'Unreachable'];
+      let counts = statuses.map(s => callLogs.filter(c => c.currentStatus === s).length);
+      let parties = [...new Set(invoices.filter(i => i.status !== 'Paid').map(i => i.partyName))];
+      let noLog = parties.filter(p => !callLogs.find(c => c.partyName === p)).length;
+      let allLabels = [...statuses, 'No Log'];
+      let allData = [...counts, noLog];
+      let allColors = ['#006466', COLORS.medium, COLORS.high, COLORS.critical, '#8B0000', '#555555'];
+      let total = allData.reduce((a, b) => a + b, 0);
+
+      chartCallStatus = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: allLabels,
+          datasets: [{
+            data: allData,
+            backgroundColor: allColors,
+            borderColor: '#ffffff',
+            borderWidth: 3,
+            hoverOffset: 10,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '55%',
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#7B7B7B', font: { size: 11, weight: '600' }, boxWidth: 14, padding: 12, usePointStyle: true }
+            },
+            datalabels: {
+              color: '#fff',
+              font: { size: 10, weight: 'bold' },
+              formatter: (v) => {
+                if (total === 0) return '';
+                return (v / total * 100).toFixed(1) + '%';
+              }
+            },
+            tooltip: {
+              backgroundColor: '#222222',
+              titleFont: { size: 12, weight: '700' },
+              bodyFont: { size: 13, weight: '600' },
+              padding: 12,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx2) => {
+                  let val = ctx2.parsed;
+                  let pct = total > 0 ? (val / total * 100).toFixed(1) : 0;
+                  return ' ' + ctx2.label + ': ' + val + ' (' + pct + '%)';
+                }
+              }
+            }
+          }
+        },
+        plugins: [ChartDataLabels]
+      });
+    }
+
+    function renderTopOverdueTable(agg) {
+      let tbody = document.getElementById('topOverdueBody');
+      let empty = document.getElementById('topOverdueEmpty');
+      let data = agg.top10Exposure;
+      if (!data || data.length === 0) {
+        tbody.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+      tbody.innerHTML = data.map((d, i) => {
+        let riskColor = d.amount > 100000 ? '#ef4444' : d.amount > 50000 ? '#f97316' : d.amount > 10000 ? '#eab308' : '#22c55e';
+        let partyEsc = d.name.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m] || m));
+        return `<tr>
+          <td class="text-brand-secondary/50 font-mono text-xs">${i + 1}</td>
+          <td class="font-semibold">${partyEsc}</td>
+          <td class="font-mono font-bold">${fmtCurrency(d.amount)}</td>
+          <td class="text-brand-secondary">${d.maxDays}d</td>
+          <td><span class="risk-badge" style="background:${riskColor}20;color:${riskColor};border:1px solid ${riskColor}40">${d.amount > 100000 ? 'Critical' : d.amount > 50000 ? 'High' : d.amount > 10000 ? 'Medium' : 'Low'}</span></td>
+          <td class="text-brand-secondary">${d.count}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    // ============================================================
+    // CALLING LIST
+    // ============================================================
+    async function renderCallingList() {
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+      let search = document.getElementById('callingSearch').value.toLowerCase().trim();
+      let sortField = document.getElementById('callingSort').value;
+      let filtered = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid');
+
+      // Apply search
+      if (search) {
+        filtered = filtered.filter(i => i.partyName.toLowerCase().includes(search) ||
+          i.invoiceNo.toLowerCase().includes(search) ||
+          i.groupName.toLowerCase().includes(search));
+      }
+
+      // Apply call status sub-filter
+      if (currentCallingSubFilter !== '__all') {
+        filtered = filtered.filter(i => {
+          let log = callLogs.find(c => c.partyName === i.partyName);
+          return (log ? log.currentStatus : 'Not Called') === currentCallingSubFilter;
+        });
+      }
+
+      // Sorting
+      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', risk: '_riskLabel' };
+      let key = sortKeys[sortField] || '_overdueDays';
+      filtered.sort((a, b) => {
+        let va = a[key], vb = b[key];
+        if (typeof va === 'string') va = va.toLowerCase();
+        if (typeof vb === 'string') vb = vb.toLowerCase();
+        if (va < vb) return callingSortAsc ? -1 : 1;
+        if (va > vb) return callingSortAsc ? 1 : -1;
+        return 0;
+      });
+
+      let tbody = document.getElementById('callingBody');
+      let emptyMsg = document.getElementById('callingEmptyMsg');
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '';
+        emptyMsg.style.display = 'block';
+        return;
+      }
+      emptyMsg.style.display = 'none';
+
+      tbody.innerHTML = filtered.map(inv => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        let callStatus = log ? log.currentStatus : 'Not Called';
+        let history = log ? log.remarksHistory : [];
+        let drawerId = 'drawer-' + inv.invoiceNo.replace(/[^a-zA-Z0-9]/g, '_');
+        let pName = htmlEscape(inv.partyName);
+        let iNo = htmlEscape(inv.invoiceNo);
+        let gName = htmlEscape(inv.groupName);
+
+        return `<tr>
+          <td class="font-semibold">${pName}</td>
+          <td class="font-mono text-sm">${iNo}</td>
+          <td><span class="text-xs">${gName}</span></td>
+          <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
+          <td class="text-center font-bold ${inv._overdueDays > 90 ? 'text-red-600' : ''}">${inv._overdueDays}d</td>
+          <td><span class="badge-${inv._riskLabel.toLowerCase()} px-2 py-0.5 rounded text-xs font-bold">${inv._riskLabel}</span></td>
+          <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
+          <td><span class="text-xs ${callStatus === 'Not Called' ? 'text-brand-secondary/50' : 'text-green-600'}">${htmlEscape(callStatus)}</span></td>
+          <td class="whitespace-nowrap">
+            <button onclick="openStatusModal('${encodeURIComponent(inv.partyName)}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="Update Status"><i class="fa-solid fa-pen"></i></button>
+            <button onclick="openWhatsApp('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.phone||'')}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+            <button onclick="openEmail('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.email||'')}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="Email"><i class="fa-solid fa-envelope"></i></button>
+            <button onclick="toggleDrawer('${drawerId}')" class="btn-secondary text-xs px-2 py-1" title="View History"><i class="fa-solid fa-chevron-down"></i></button>
+          </td>
+        </tr>
+        <tr id="${drawerId}" class="drawer-content">
+          <td colspan="9" class="bg-brand-tertiary p-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-2"><i class="fa-solid fa-clock-rotate-left mr-1"></i>Remarks History</p>
+                ${history.length === 0 ? '<p class="text-xs text-brand-secondary/50">No remarks recorded yet.</p>' :
+                  history.slice().reverse().map(r =>
+                    `<div class="text-xs mb-2 border-l-2 border-brand-highlight pl-2">
+                      <span class="text-brand-secondary/50">${r.Timestamp || ''}</span>
+                      <span class="text-brand-primary font-bold">[${r.Agent || ''}]</span>
+                      <span class="text-green-600">${r.Status || ''}</span>
+                      <p class="text-brand-secondary mt-0.5">${r.Text || ''}</p>
+                    </div>`
+                  ).join('')
+                }
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-2"><i class="fa-solid fa-pen-to-square mr-1"></i>Quick Update</p>
+                <select id="qStatus-${drawerId}" class="w-full text-xs mb-2">
+                  <option value="Not Called" ${callStatus === 'Not Called' ? 'selected' : ''}>Not Called</option>
+                  <option value="Spoke to Client" ${callStatus === 'Spoke to Client' ? 'selected' : ''}>Spoke to Client</option>
+                  <option value="PTP - Promise to Pay" ${callStatus === 'PTP - Promise to Pay' ? 'selected' : ''}>PTP</option>
+                  <option value="Disputed Bill" ${callStatus === 'Disputed Bill' ? 'selected' : ''}>Disputed Bill</option>
+                  <option value="Unreachable" ${callStatus === 'Unreachable' ? 'selected' : ''}>Unreachable</option>
+                </select>
+                <textarea id="qRemarks-${drawerId}" rows="2" class="w-full text-xs mb-2" placeholder="Quick remarks..."></textarea>
+                <button onclick="quickUpdate('${encodeURIComponent(inv.partyName)}', '${drawerId}')" class="btn-primary text-xs"><i class="fa-solid fa-floppy-disk mr-1"></i> Save</button>
+              </div>
+            </div>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    function toggleDrawer(id) {
+      let el = document.getElementById(id);
+      if (el) el.classList.toggle('open');
+    }
+
+    async function quickUpdate(encodedParty, drawerId) {
+      let partyName = decodeURIComponent(encodedParty);
+      let status = document.getElementById('qStatus-' + drawerId).value;
+      let remarks = document.getElementById('qRemarks-' + drawerId).value.trim();
+      await upsertCallLog(partyName, status, 'Agent', remarks);
+      showToast(`Updated ${partyName}`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // MASTER LEDGER
+    // ============================================================
+    async function renderLedger() {
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+      let search = document.getElementById('ledgerSearch').value.toLowerCase().trim();
+      let statusFilter = document.getElementById('ledgerStatusFilter').value;
+      let sortField = document.getElementById('ledgerSort').value;
+
+      let filtered = invoices.filter(inv => {
+        if (statusFilter !== '__all' && inv.status !== statusFilter) return false;
+        if (search && !inv.partyName.toLowerCase().includes(search) &&
+          !inv.invoiceNo.toLowerCase().includes(search) &&
+          !inv.groupName.toLowerCase().includes(search)) return false;
+        return true;
+      });
+
+      // Apply global risk filter
+      if (currentFilters.risk !== '__all') {
+        filtered = filtered.filter(i => i._riskLabel === currentFilters.risk);
+      }
+      if (currentFilters.group !== '__all') {
+        filtered = filtered.filter(i => i.groupName === currentFilters.group);
+      }
+
+      // Sorting
+      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', risk: '_riskLabel', date: 'dueDate' };
+      let key = sortKeys[sortField] || 'partyName';
+      filtered.sort((a, b) => {
+        let va = a[key], vb = b[key];
+        if (typeof va === 'string') va = va.toLowerCase();
+        if (typeof vb === 'string') vb = vb.toLowerCase();
+        if (va < vb) return ledgerSortAsc ? -1 : 1;
+        if (va > vb) return ledgerSortAsc ? 1 : -1;
+        return 0;
+      });
+
+      let tbody = document.getElementById('ledgerBody');
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="12" class="text-center text-brand-secondary/50">No records found</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(inv => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        let callStatus = log ? log.currentStatus : 'Not Called';
+        let rowClass = '';
+        if (inv.status === 'Paid') rowClass = 'row-paid';
+        else if (inv._riskLabel === 'Critical') rowClass = 'row-critical';
+        else if (inv._riskLabel === 'High') rowClass = 'row-high';
+        else if (inv._riskLabel === 'Medium') rowClass = 'row-medium';
+        let pName = htmlEscape(inv.partyName);
+        let iNo = htmlEscape(inv.invoiceNo);
+        let gName = htmlEscape(inv.groupName);
+
+        return `<tr class="${rowClass}">
+          <td class="font-semibold">${pName}</td>
+          <td class="font-mono text-sm">${iNo}</td>
+          <td><span class="text-xs">${gName}</span></td>
+          <td class="text-sm">${inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : 'N/A'}</td>
+          <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
+          <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv._overdueDays}d</td>
+          <td><span class="badge-${inv._riskLabel.toLowerCase()} px-2 py-0.5 rounded text-xs font-bold">${inv._riskLabel}</span></td>
+          <td class="font-mono text-sm">${fmtCurrency(inv.originalAmount)}</td>
+          <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
+          <td><span class="badge-${inv.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${inv.status}</span></td>
+          <td><span class="text-xs">${htmlEscape(callStatus)}</span></td>
+          <td class="whitespace-nowrap">
+            <button onclick="openWhatsApp('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.phone||'')}')" class="btn-secondary text-xs px-2 py-1" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
+            <button onclick="openEmail('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.email||'')}')" class="btn-secondary text-xs px-2 py-1" title="Email"><i class="fa-solid fa-envelope"></i></button>
+            <button onclick="openStatusModal('${encodeURIComponent(inv.partyName)}')" class="btn-secondary text-xs px-2 py-1" title="Call Status"><i class="fa-solid fa-phone"></i></button>
+          </td>
+        </tr>`;
+      }).join('');
+    }
+
+    // ============================================================
+    // CSV EXPORT
+    // ============================================================
+    async function exportCSV() {
+      showToast('Preparing CSV export...');
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+
+      let rows = invoices.map(inv => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        return {
+          'Party Name': inv.partyName,
+          'Invoice No': inv.invoiceNo,
+          'Group': inv.groupName,
+          'Invoice Date': inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : '',
+          'Due Date': inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : '',
+          'Overdue Days': inv._overdueDays,
+          'Risk Level': inv._riskLabel,
+          'Original Amount': inv.originalAmount,
+          'Pending Amount': inv.pendingAmount,
+          'Status': inv.status,
+          'Call Status': log ? log.currentStatus : 'Not Called',
+          'Phone': inv.phone || '',
+          'Email': inv.email || '',
+        };
+      });
+
+      let csv = Papa.unparse(rows);
+      let blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'skylimit-ardb-' + todayStr() + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('CSV exported successfully');
+    }
+
+    // ============================================================
+    // PDF EXPORT
+    // ============================================================
+    async function exportPDF() {
+      showToast('Generating PDF...');
+      const { jsPDF } = window.jspdf;
+      let doc = new jsPDF('landscape', 'mm', 'a4');
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+      let agg = computeAggregations(invoices);
+
+      // Title
+      doc.setFontSize(22);
+      doc.setTextColor(243, 198, 35);
+      doc.text('Skylimit AR Aging Dashboard', 20, 20);
+
+      doc.setFontSize(10);
+      doc.setTextColor(123, 123, 123);
+      doc.text('Generated: ' + nowStr(), 20, 28);
+
+      // KPI Summary
+      doc.setFontSize(12);
+      doc.setTextColor(34, 34, 34);
+      doc.text('Executive Summary', 20, 40);
+      doc.setFontSize(10);
+      doc.setTextColor(34, 34, 34);
+      doc.text('Total Outstanding: ' + fmtCurrency(agg.totalOutstanding), 20, 48);
+      doc.text('Total Parties: ' + agg.totalParties, 100, 48);
+      doc.text('Overdue %: ' + agg.overduePct.toFixed(1) + '%', 180, 48);
+      doc.text('Avg Overdue Days: ' + agg.avgOverdueDays, 260, 48);
+      doc.text('Critical Items: ' + agg.criticalCount, 20, 56);
+
+      // Risk Buckets
+      doc.text('Low Risk: ' + fmtCurrency(agg.riskBuckets.Low || 0), 100, 56);
+      doc.text('Medium Risk: ' + fmtCurrency(agg.riskBuckets.Medium || 0), 180, 56);
+      doc.text('High Risk: ' + fmtCurrency(agg.riskBuckets.High || 0), 20, 64);
+      doc.text('Critical Risk: ' + fmtCurrency(agg.riskBuckets.Critical || 0), 100, 64);
+
+      // Top 10 Exposure
+      doc.setFontSize(12);
+      doc.setTextColor(34, 34, 34);
+      doc.text('Top 10 Exposure', 20, 78);
+      doc.setFontSize(9);
+      doc.setTextColor(123, 123, 123);
+
+      let y = 86;
+      if (agg.top10Exposure.length > 0) {
+        for (let i = 0; i < Math.min(agg.top10Exposure.length, 10); i++) {
+          doc.text((i + 1) + '. ' + agg.top10Exposure[i].name + ': ' + fmtCurrency(agg.top10Exposure[i].amount), 20, y);
+          y += 6;
+        }
+      }
+
+      // Invoice Table
+      let tableData = invoices.map(inv => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        return [
+          inv.partyName,
+          inv.invoiceNo,
+          inv._overdueDays + 'd',
+          inv._riskLabel,
+          fmtCurrency(inv.pendingAmount),
+          inv.status,
+          log ? log.currentStatus : 'Not Called'
+        ];
+      });
+
+      doc.autoTable({
+        startY: y + 10,
+        head: [
+          ['Party Name', 'Invoice No', 'Overdue', 'Risk', 'Pending', 'Status', 'Call Status']
+        ],
+        body: tableData,
+        theme: 'grid',
+        headStyles: { fillColor: [34, 34, 34], textColor: [255, 255, 255], fontSize: 8 },
+        bodyStyles: { textColor: [34, 34, 34], fontSize: 7 },
+        alternateRowStyles: { fillColor: [248, 248, 248] },
+        styles: { cellPadding: 2, lineColor: [229, 229, 229] },
+      });
+
+      doc.save('skylimit-ardb-' + todayStr() + '.pdf');
+      showToast('PDF exported successfully');
+    }
+
+    // ============================================================
+    // CLEAR DB
+    // ============================================================
+    async function executeClearDB() {
+      await dbClear(STORES.invoices);
+      await dbClear(STORES.callLogs);
+      closeModal('clearModal');
+      showToast('Database purged successfully');
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // TAB SWITCHING
+    // ============================================================
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel' + tab.charAt(0).toUpperCase() + tab.slice(1)).style.display = 'block';
+      document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+
+      if (tab === 'calling') renderCallingList();
+      else if (tab === 'ledger') renderLedger();
+      else if (tab === 'payment') renderPaymentLog();
+    }
+
+    // ============================================================
+    // REFRESH DASHBOARD
+    // ============================================================
+    async function refreshDashboard() {
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+
+      // Update group filter
+      let groups = [...new Set(invoices.map(i => i.groupName))].sort();
+      let groupSel = document.getElementById('filterGroup');
+      let currentGroupVal = groupSel.value;
+      groupSel.innerHTML = '<option value="__all">All Groups</option>' +
+        groups.map(g => `<option value="${g}">${g}</option>`).join('');
+      groupSel.value = currentGroupVal;
+
+      // Apply filters
+      let filtered = filterData(invoices, callLogs);
+
+      // KPI
+      let agg = computeAggregations(filtered);
+      renderKPI(agg);
+
+      // Record count
+      document.getElementById('recordCount').textContent = filtered.length + ' records';
+
+      // Charts
+      renderCharts(agg, filtered, callLogs);
+
+      // Re-render active tab
+      let activeTab = document.querySelector('.tab-btn.active');
+      if (activeTab) {
+        let tabName = activeTab.id.replace('tab', '').toLowerCase();
+        if (tabName === 'calling') renderCallingList();
+        else if (tabName === 'ledger') renderLedger();
+        else if (tabName === 'payment') renderPaymentLog();
+      }
+
+      // Update record count for filtered view
+      document.getElementById('recordCount').textContent = filtered.length + ' records';
+    }
+
+    // ============================================================
+    // DRAG & DROP UPLOAD ZONE
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      let zone = document.getElementById('uploadZone');
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        zone.classList.add('dragover');
+      });
+      zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.classList.remove('dragover');
+        let file = e.dataTransfer.files[0];
+        if (file) {
+          document.getElementById('fileInput').files = e.dataTransfer.files;
+          handleFileSelect({ target: { files: [file] } });
+        }
+      });
+    });
+
+    // Close modals on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target === el) el.classList.remove('active');
+      });
+    });
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    async function init() {
+      try {
+        await openDB();
+        await migrateEscapedPartyNames();
+        showToast('Dashboard loaded. Upload Tally CSV to begin.');
+        await refreshDashboard();
+      } catch (err) {
+        console.error('Init error:', err);
+        showToast('Error initializing database: ' + err.message, true);
+      }
+    }
+
+    // One-time migration: unescape HTML entities in previously stored party names
+    async function migrateEscapedPartyNames() {
+      let invoices = await dbReadAll(STORES.invoices);
+      let changed = 0;
+      for (let inv of invoices) {
+        let unescaped = inv.partyName
+          .replace(/&amp;/g, '&')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&#x27;/g, "'");
+        if (unescaped !== inv.partyName) {
+          inv.partyName = unescaped;
+          await dbWrite(STORES.invoices, inv);
+          changed++;
+        }
+      }
+      // Also migrate callLogs if they reference escaped party names
+      let callLogs = await dbReadAll(STORES.callLogs);
+      for (let log of callLogs) {
+        let unescaped = log.partyName
+          .replace(/&amp;/g, '&')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&#x27;/g, "'");
+        if (unescaped !== log.partyName) {
+          log.partyName = unescaped;
+          await dbWrite(STORES.callLogs, log);
+          changed++;
+        }
+      }
+      if (changed > 0) {
+        console.log('Migration: unescaped ' + changed + ' record(s)');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
