@@ -329,13 +329,13 @@
       justify-content: center;
       padding: 100px 24px 48px;
       text-align: center;
-      overflow: hidden;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
+      overflow: hidden;
     }
 
     .hero-bg video {
@@ -1083,6 +1083,48 @@
       }
     }
 
+    .nav-dropdown { position: relative; display: inline-block; }
+    .nav-dropdown-btn {
+      color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      padding: 10px 20px; border-radius: 999px; transition: background 0.2s;
+      white-space: nowrap; background: none; border: none; font-family: var(--font);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-dropdown-btn:hover { background: rgba(255,255,255,0.1); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; right: 0; margin-top: 4px;
+      background: rgba(30,30,30,0.96); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 12px;
+      padding: 4px; min-width: 200px; display: none; z-index: 200;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown-menu.open { display: block; }
+    .nav-dropdown-menu a {
+      display: flex; align-items: center; gap: 8px;
+      padding: 9px 14px; border-radius: 8px;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      font-size: 0.8rem; font-weight: 500; transition: all 0.15s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .hero-dropdown { position: relative; display: inline-block; }
+    .hero-dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 6px;
+      background: rgba(20,20,20,0.96); backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+      padding: 4px; min-width: 210px; display: none; z-index: 200;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+    .hero-dropdown-menu.open { display: block; }
+    .hero-dropdown-menu a {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 8px;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.8rem; font-weight: 600; transition: all 0.15s;
+    }
+    .hero-dropdown-menu a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
     @media (max-width: 480px) {
       .site-nav {
         padding: 12px 12px;
@@ -1159,6 +1201,7 @@
       }
     }
   </style>
+    <script src="https://js.puter.com/v2/"></script>
 </head>
 
 <body>
@@ -1184,14 +1227,22 @@
         <a href="#" class="nav-link active">
           <i class="fa-solid fa-chart-line" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Prism Dash
         </a>
-        <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" class="nav-link" target="_blank"
-          rel="noopener noreferrer">
-          <i class="fa-solid fa-file-excel" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> Excel → JSON
-        </a>
-        <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" class="nav-link"
-          target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-exchange-alt" style="font-size:11px;opacity:0.6;margin-right:4px;"></i> CSV/JSON
-        </a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn" onclick="toggleDropdown('prism-nav-tools')">
+            <i class="fa-solid fa-toolbox" style="font-size:11px;opacity:0.6;"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size:9px;opacity:0.5;"></i>
+          </button>
+          <div class="nav-dropdown-menu" id="prism-nav-tools">
+            <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-excel" style="font-size:13px;opacity:0.6;"></i> Excel → JSON
+            </a>
+            <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-exchange-alt" style="font-size:13px;opacity:0.6;"></i> CSV / JSON Converter
+            </a>
+            <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-code" style="font-size:13px;opacity:0.6;"></i> CSV / TSV → JSON
+            </a>
+          </div>
+        </div>
       </div>
       <div class="nav-back">
         <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass"
@@ -1226,21 +1277,29 @@
       </p>
       <div class="hero-actions animate-fade-rise-delay-2">
         <button class="hero-btn hero-btn-primary"
-          onclick="document.getElementById('upload-screen').scrollIntoView({behavior:'smooth'});switchTab('file')">
+          onclick="resetDashboard();document.getElementById('upload-screen').scrollIntoView({behavior:'smooth'})">
           <i class="fa-solid fa-upload"></i> Upload JSON
         </button>
-        <a href="https://inakm.github.io/page/projects/index.html" class="hero-btn hero-btn-glass"
+        <a href="https://inakm.github.io/page/projects/dashboards/index.html" class="hero-btn hero-btn-glass"
           rel="noopener noreferrer">
-          <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i> View All Projects
+          <i class="fa-solid fa-arrow-right" style="font-size:11px;"></i> View All Dashboards
         </a>
-        <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" class="hero-btn hero-btn-glass"
-          target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-file-excel" style="font-size:11px;"></i> Excel → JSON
-        </a>
-        <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html"
-          class="hero-btn hero-btn-glass" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-exchange-alt" style="font-size:11px;"></i> CSV/JSON
-        </a>
+        <div class="hero-dropdown">
+          <button class="hero-btn hero-btn-glass" onclick="toggleDropdown('prism-hero-tools')" style="gap:6px;">
+            <i class="fa-solid fa-toolbox"></i> Tools <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i>
+          </button>
+          <div class="hero-dropdown-menu" id="prism-hero-tools">
+            <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-excel" style="font-size:14px;opacity:0.6;"></i> Excel → JSON
+            </a>
+            <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-exchange-alt" style="font-size:14px;opacity:0.6;"></i> CSV / JSON Converter
+            </a>
+            <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-file-code" style="font-size:14px;opacity:0.6;"></i> CSV / TSV → JSON
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1286,7 +1345,7 @@
           <div class="upload-heading">Drop your JSON file here</div>
           <div class="upload-desc">Accepts a JSON array with fields: Sales, Profit, Category, Region, Payment Mode,
             Segment, Order Date</div>
-          <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('file-input').click()">
+          <button class="upload-btn" id="choose-file-btn">
             <i class="fa-solid fa-folder-open" style="margin-right:6px;"></i>Choose File
           </button>
           <input type="file" id="file-input" accept=".json" />
@@ -1414,6 +1473,19 @@
   </footer>
 
   <script>
+    // ── Dropdown Toggle ───────────────────────────────────────────────────
+    function toggleDropdown(id) {
+      const menu = document.getElementById(id);
+      const isOpen = menu.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown-menu, .hero-dropdown-menu').forEach(m => m.classList.remove('open'));
+      if (!isOpen) menu.classList.add('open');
+    }
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav-dropdown') && !e.target.closest('.hero-dropdown')) {
+        document.querySelectorAll('.nav-dropdown-menu, .hero-dropdown-menu').forEach(m => m.classList.remove('open'));
+      }
+    });
+
     // ── Tab Switching ──────────────────────────────────────────────────────
     function switchTab(tab) {
       document.querySelectorAll('.upload-tab').forEach(t => t.classList.remove('active'));
@@ -1448,31 +1520,43 @@
     }
 
     // ── Custom Cursor ─────────────────────────────────────────────────────
-    const cursorDot = document.getElementById('cursor-dot');
-    const cursorOutline = document.getElementById('cursor-outline');
-    let mouseX = 0, mouseY = 0;
-    let outlineX = 0, outlineY = 0;
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!isTouch) {
+      const cursorDot = document.getElementById('cursor-dot');
+      const cursorOutline = document.getElementById('cursor-outline');
+      let mouseX = 0, mouseY = 0;
+      let outlineX = 0, outlineY = 0;
 
-    window.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
+      window.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+      });
 
-    function animateOutline() {
-      outlineX += (mouseX - outlineX) * 0.15;
-      outlineY += (mouseY - outlineY) * 0.15;
-      cursorOutline.style.left = outlineX + 'px';
-      cursorOutline.style.top = outlineY + 'px';
-      requestAnimationFrame(animateOutline);
+      document.documentElement.addEventListener('mouseleave', () => {
+        cursorDot.style.opacity = '0';
+        cursorOutline.style.opacity = '0';
+      });
+      document.documentElement.addEventListener('mouseenter', () => {
+        cursorDot.style.opacity = '1';
+        cursorOutline.style.opacity = '1';
+      });
+
+      function animateOutline() {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        cursorOutline.style.left = outlineX + 'px';
+        cursorOutline.style.top = outlineY + 'px';
+        requestAnimationFrame(animateOutline);
+      }
+      animateOutline();
+
+      document.querySelectorAll('a, button, .upload-tab, .drop-zone-inner, .kpi-card, .chart-card, .reset-btn').forEach(el => {
+        el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+        el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+      });
     }
-    animateOutline();
-
-    document.querySelectorAll('a, button, .upload-tab, .drop-zone-inner, .kpi-card, .chart-card, .reset-btn').forEach(el => {
-      el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
-      el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
-    });
 
     // ── Helpers ──────────────────────────────────────────────────────────
     function parseMoney(v) {
@@ -1533,11 +1617,13 @@
     // ── Upload / Drag ────────────────────────────────────────────────────
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
+    const chooseBtn = document.getElementById('choose-file-btn');
 
     dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over') });
     dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
     dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); const f = e.dataTransfer.files[0]; if (f) readFile(f) });
-    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('click', e => { if (e.target.closest('.upload-btn')) return; fileInput.click() });
+    chooseBtn.addEventListener('click', e => { e.stopPropagation(); fileInput.click() });
     fileInput.addEventListener('change', e => { const f = e.target.files[0]; if (f) readFile(f) });
 
     function readFile(file) {

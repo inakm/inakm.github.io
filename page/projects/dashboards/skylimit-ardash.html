@@ -110,8 +110,8 @@
       padding: 0;
     }
     body {
-      background-color: #ffffff;
-      color: #222222;
+      background-color: #000000; /* Dark mode */
+      color: #ffffff; /* Dark mode */
       overflow-x: hidden;
       font-family: 'Manrope', sans-serif;
     }
@@ -136,24 +136,24 @@
       mask-composite: exclude;
       pointer-events: none;
     }
-    .card-light {
-      background: #ffffff;
-      border: 1px solid #E5E5E5;
+    .liquid-glass border border-white/10 {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 1rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       transition: all 0.2s ease;
       min-width: 0;
     }
-    .card-light:hover {
+    .liquid-glass border border-white/10:hover {
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       border-color: #d0d0d0;
     }
     select,
     input,
     textarea {
-      background: #ffffff;
-      color: #222222;
-      border: 1.5px solid #E5E5E5;
+      background: #111111;
+      color: #ffffff; /* Dark mode */
+      border: 1.5px solid rgba(255,255,255,0.1);
       padding: 10px 16px;
       border-radius: 10px;
       font-family: 'Manrope', sans-serif;
@@ -182,12 +182,12 @@
     }
     select {
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%237B7B7B' d='M4 5.5l3 3 3-3'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237B7B7B' d='M3 4.5l3 3 3-3'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Crect x='0' y='0' width='12' height='12' rx='4' fill='%23f3c623' opacity='0.08'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, no-repeat;
+      background-position: right 14px center, right 8px center;
+      padding-right: 44px;
       cursor: pointer;
-      background-size: 16px;
+      background-size: 14px, 28px;
       min-height: 42px;
       font-weight: 600;
       font-size: 0.8rem;
@@ -195,13 +195,21 @@
     select option {
       padding: 12px 16px;
       font-weight: 500;
-      background: #ffffff;
-      color: #222222;
+      background: #111111;
+      color: #ffffff; /* Dark mode */
     }
     select optgroup {
       font-weight: 700;
-      color: #7B7B7B;
+      color: #a0a0a0;
       padding: 8px 12px;
+    }
+    @media (hover: hover) {
+      select:hover {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23222222' d='M3 4.5l3 3 3-3'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Crect x='0' y='0' width='12' height='12' rx='4' fill='%23f3c623' opacity='0.15'/%3E%3C/svg%3E");
+      }
+    }
+    select:focus {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23f3c623' d='M3 4.5l3 3 3-3'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Crect x='0' y='0' width='12' height='12' rx='4' fill='%23f3c623' opacity='0.18'/%3E%3C/svg%3E");
     }
     .tab-search-bar {
       display: flex;
@@ -221,11 +229,11 @@
     }
     .sort-btn {
       background: none;
-      border: 1.5px solid #E5E5E5;
+      border: 1.5px solid rgba(255,255,255,0.1);
       border-radius: 10px;
       padding: 8px 12px;
       cursor: pointer;
-      color: #7B7B7B;
+      color: #a0a0a0;
       transition: all 0.2s;
       display: flex;
       align-items: center;
@@ -237,30 +245,30 @@
     }
     .sort-btn:hover {
       border-color: #d0d0d0;
-      color: #222222;
-      background: #F8F8F8;
+      color: #ffffff; /* Dark mode */
+      background: rgba(255,255,255,0.05);
     }
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #F8F8F8;
+      background: rgba(255,255,255,0.05);
     }
     ::-webkit-scrollbar-thumb {
       background: #f3c623;
       border-radius: 4px;
     }
     .row-paid {
-      background-color: #f0fdf4 !important;
+      background-color: rgba(22, 163, 74, 0.1) !important;
     }
     .row-medium {
-      background-color: #fefce8 !important;
+      background-color: rgba(202, 138, 4, 0.1) !important;
     }
     .row-high {
-      background-color: #fff7ed !important;
+      background-color: rgba(234, 88, 12, 0.1) !important;
     }
     .row-critical {
-      background-color: #fef2f2 !important;
+      background-color: rgba(220, 38, 38, 0.1) !important;
     }
     .drawer-content {
       display: none;
@@ -269,20 +277,20 @@
       display: table-row;
     }
     .badge-low {
-      background: #dcfce7;
-      color: #16a34a;
+      background: rgba(22, 163, 74, 0.2);
+      color: #4ade80;
     }
     .badge-medium {
-      background: #fef9c3;
-      color: #ca8a04;
+      background: rgba(202, 138, 4, 0.2);
+      color: #facc15;
     }
     .badge-high {
-      background: #ffedd5;
-      color: #ea580c;
+      background: rgba(234, 88, 12, 0.2);
+      color: #fb923c;
     }
     .badge-critical {
-      background: #fee2e2;
-      color: #dc2626;
+      background: rgba(220, 38, 38, 0.2);
+      color: #f87171;
     }
     .badge-paid {
       background: #dcfce7;
@@ -311,8 +319,8 @@
     }
     .btn-secondary {
       background: transparent;
-      color: #222222;
-      border: 1px solid #E5E5E5;
+      color: #ffffff; /* Dark mode */
+      border: 1px solid rgba(255,255,255,0.1);
       padding: 8px 20px;
       border-radius: 9999px;
       font-weight: 600;
@@ -323,7 +331,7 @@
       text-transform: uppercase;
     }
     .btn-secondary:hover {
-      background: #F8F8F8;
+      background: rgba(255,255,255,0.05);
       border-color: #d0d0d0;
     }
     .btn-danger {
@@ -347,24 +355,24 @@
       border-collapse: collapse;
     }
     th {
-      background: #F8F8F8;
-      color: #7B7B7B;
+      background: rgba(255,255,255,0.05);
+      color: #a0a0a0;
       padding: 10px 12px;
       text-align: left;
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-weight: 700;
-      border-bottom: 2px solid #E5E5E5;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
       white-space: nowrap;
     }
     td {
       padding: 8px 12px;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       font-size: 0.85rem;
     }
     tr:hover td {
-      background: #F8F8F8;
+      background: rgba(255,255,255,0.05);
     }
     .modal-overlay {
       position: fixed;
@@ -382,8 +390,8 @@
       display: flex;
     }
     .modal-box {
-      background: #ffffff;
-      border: 1px solid #E5E5E5;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
       padding: 32px;
       max-width: 480px;
@@ -412,18 +420,18 @@
       letter-spacing: 0.05em;
       border-bottom: 2px solid transparent;
       transition: all 0.2s;
-      color: #7B7B7B;
+      color: #a0a0a0;
       background: transparent;
       border-top: none;
       border-left: none;
       border-right: none;
     }
     .tab-btn.active {
-      color: #222222;
+      color: #ffffff; /* Dark mode */
       border-bottom-color: #f3c623;
     }
     .tab-btn:hover:not(.active) {
-      color: #222222;
+      color: #ffffff; /* Dark mode */
       border-bottom-color: #E5E5E5;
     }
     .kpi-value {
@@ -457,8 +465,8 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: #ffffff;
-      border: 1.5px solid #E5E5E5;
+      background: #111111;
+      border: 1.5px solid rgba(255,255,255,0.1);
       border-radius: 0 0 12px 12px;
       max-height: 220px;
       overflow-y: auto;
@@ -470,11 +478,11 @@
       cursor: pointer;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #222222;
+      color: #ffffff; /* Dark mode */
       transition: background 0.15s;
     }
     .autocomplete-item:hover {
-      background: #F8F8F8;
+      background: rgba(255,255,255,0.05);
     }
     .autocomplete-item:not(:last-child) {
       border-bottom: 1px solid #f3f3f3;
@@ -505,27 +513,34 @@
     nav#mainNav {
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
     }
+    .nav-dropdown-wrap {
+      position: relative;
+    }
     .nav-dropdown {
+      display: none;
       position: absolute;
       top: 100%;
       right: 0;
-      margin-top: 8px;
-      background: #ffffff;
-      border: 1px solid #E5E5E5;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      min-width: 200px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(8px);
-      transition: all 0.2s ease;
+      margin-top: 10px;
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0,0,0,0.04);
+      min-width: 210px;
       z-index: 60;
-      padding: 6px;
+      padding: 8px;
     }
-    .nav-dropdown.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      right: 20px;
+      width: 12px;
+      height: 12px;
+      background: #111111;
+      border-left: 1px solid #E5E5E5;
+      border-top: 1px solid #E5E5E5;
+      transform: rotate(45deg);
     }
     .nav-dropdown a,
     .nav-dropdown button {
@@ -533,13 +548,13 @@
       align-items: center;
       gap: 12px;
       width: 100%;
-      padding: 11px 16px;
-      border-radius: 8px;
+      padding: 12px 16px;
+      border-radius: 10px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: #222222;
+      color: #ffffff; /* Dark mode */
       text-decoration: none;
-      transition: background 0.15s;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       border: none;
       background: none;
       cursor: pointer;
@@ -552,7 +567,13 @@
     }
     .nav-dropdown a:hover,
     .nav-dropdown button:hover {
-      background: #F8F8F8;
+      background: rgba(255,255,255,0.05);
+      transform: translateX(2px);
+    }
+    .nav-dropdown a:active,
+    .nav-dropdown button:active {
+      background: #f0f0f0;
+      transform: translateX(0);
     }
     @media (max-width: 768px) {
       .kpi-value {
@@ -591,65 +612,65 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #7B7B7B;
+      color: #a0a0a0;
     }
   </style>
+    <script src="https://js.puter.com/v2/"></script>
 </head>
-<body class="antialiased relative font-sans selection:bg-brand-primary selection:text-white">
+<body class="antialiased relative font-sans selection:bg-brand-highlight selection:text-black">
 
   <div id="toast" class="toast"></div>
 
   <!-- NAV -->
   <nav id="mainNav" class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
-    <div class="bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-full px-4 md:px-5 py-3 md:py-3.5 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+    <div class="bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-4 md:px-5 py-3 md:py-3.5 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
       <!-- Skylimit logo + brand -->
       <a href="#hero" class="flex items-center gap-2.5 shrink-0">
         <img src="https://skl2.techril.com/images/logo-sm.png" alt="Skylimit" class="h-7 md:h-8 w-auto">
-        <span class="hidden sm:block text-[13px] font-extrabold uppercase tracking-wider text-brand-primary leading-tight">AR<span class="text-brand-secondary/60"> / </span>Dashboard</span>
+        <span class="hidden sm:block text-[13px] font-extrabold uppercase tracking-wider text-white leading-tight">AR<span class="text-white/60/60"> / </span>Dashboard</span>
       </a>
       <!-- Desktop right side -->
-      <div class="hidden md:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-brand-secondary">
-        <a href="#kpiSection" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Overview</a>
-        <a href="#chartGrid" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Charts</a>
-        <a href="#topOverdueSection" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Overdue</a>
-        <a href="#panelLedger" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Ledger</a>
-        <a href="#panelPayment" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary whitespace-nowrap">Payment</a>
-        <span class="w-px h-5 bg-[#E5E5E5] mx-1"></span>
-        <button onclick="showUploadModal('xlsx')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-regular fa-file-excel mr-1"></i> XLSX</button>
-        <button onclick="showUploadModal('tally')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-solid fa-upload mr-1"></i> Tally</button>
-        <button onclick="showUploadModal('bank')" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary"><i class="fa-solid fa-building-columns mr-1"></i> Bank</button>
-        <div class="relative" id="exportDropdownWrap">
-          <button onclick="toggleExportDropdown()" class="hover:text-brand-primary transition-colors px-2.5 py-1.5 rounded-full hover:bg-brand-tertiary flex items-center gap-1"><i class="fa-solid fa-download mr-1"></i> Export <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
-          <div class="nav-dropdown" id="exportDropdown">
-            <button onclick="exportSyncFile(); closeExportDropdown()"><i class="fa-solid fa-cloud-arrow-up text-brand-secondary" style="width:18px"></i> Sync JSON</button>
-            <button onclick="exportCSV(); closeExportDropdown()"><i class="fa-solid fa-file-csv text-brand-secondary" style="width:18px"></i> CSV Report</button>
-            <button onclick="exportPDF(); closeExportDropdown()"><i class="fa-solid fa-file-pdf text-brand-secondary" style="width:18px"></i> PDF Report</button>
+      <div class="hidden md:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-white/60">
+        <!-- Input Dropdown -->
+        <div class="relative nav-dropdown-wrap" id="inputDropdownWrap">
+          <button onclick="toggleDropdown('inputDropdown')" class="hover:text-white transition-colors px-2.5 py-1.5 rounded-full hover:bg-white/5 flex items-center gap-1 whitespace-nowrap"><i class="fa-solid fa-upload mr-1"></i> Input <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
+          <div class="nav-dropdown" id="inputDropdown">
+            <button onclick="showUploadModal('master'); closeDropdown('inputDropdown')"><i class="fa-solid fa-book text-white/60" style="width:18px"></i> Master Report</button>
+            <button onclick="showUploadModal('payment'); closeDropdown('inputDropdown')"><i class="fa-solid fa-money-bill-wave text-white/60" style="width:18px"></i> Payment Logs</button>
+            <button onclick="showUploadModal('calling'); closeDropdown('inputDropdown')"><i class="fa-solid fa-phone text-white/60" style="width:18px"></i> Calling List</button>
           </div>
         </div>
+        <!-- Output Dropdown -->
+        <div class="relative nav-dropdown-wrap" id="outputDropdownWrap">
+          <button onclick="toggleDropdown('outputDropdown')" class="hover:text-white transition-colors px-2.5 py-1.5 rounded-full hover:bg-white/5 flex items-center gap-1 whitespace-nowrap"><i class="fa-solid fa-download mr-1"></i> Output <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
+          <div class="nav-dropdown" id="outputDropdown">
+            <button onclick="exportSyncFile(); closeDropdown('outputDropdown')"><i class="fa-solid fa-cloud-arrow-up text-white/60" style="width:18px"></i> Sync JSON</button>
+            <button onclick="exportCSV(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-csv text-white/60" style="width:18px"></i> CSV Report</button>
+            <button onclick="exportPDF(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-pdf text-white/60" style="width:18px"></i> PDF Report</button>
+          </div>
+        </div>
+        <span class="w-px h-5 bg-[#E5E5E5] mx-1"></span>
         <button onclick="showClearModal()" class="hover:text-red-600 transition-colors px-2.5 py-1.5 rounded-full hover:bg-red-50"><i class="fa-solid fa-trash-can mr-1"></i> Clear</button>
       </div>
       <!-- mobile menu toggle -->
       <div class="md:hidden flex gap-1.5">
-        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-brand-primary text-lg p-1"><i class="fa-solid fa-bars"></i></button>
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-white text-lg p-1"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden mt-2 bg-white/95 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl px-4 py-4 shadow-lg">
-      <div class="flex flex-col gap-1 text-sm font-medium text-brand-primary">
-        <a href="#kpiSection" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-gauge-high w-5 text-brand-secondary"></i> Overview</a>
-        <a href="#chartGrid" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-simple w-5 text-brand-secondary"></i> Charts</a>
-        <a href="#topOverdueSection" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-triangle-exclamation w-5 text-brand-secondary"></i> Top Overdue</a>
-        <a href="#panelLedger" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-book w-5 text-brand-secondary"></i> Master Ledger</a>
-        <a href="#panelPayment" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-money-bill w-5 text-brand-secondary"></i> Payment Desk</a>
-        <a href="#panelCalling" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-brand-secondary"></i> Calling List</a>
-        <hr class="border-[#E5E5E5] my-1">
-        <button onclick="showUploadModal('xlsx'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-regular fa-file-excel w-5 text-brand-secondary"></i> XLSX Report</button>
-        <button onclick="showUploadModal('tally'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-upload w-5 text-brand-secondary"></i> Tally CSV</button>
-        <button onclick="showUploadModal('bank'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-building-columns w-5 text-brand-secondary"></i> Bank CSV</button>
-        <hr class="border-[#E5E5E5] my-1">
-        <button onclick="exportSyncFile(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-cloud-arrow-up w-5 text-brand-secondary"></i> Export Sync (JSON)</button>
-        <button onclick="exportCSV(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-csv w-5 text-brand-secondary"></i> Export CSV</button>
-        <button onclick="exportPDF(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-brand-tertiary px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-pdf w-5 text-brand-secondary"></i> Export PDF</button>
-        <hr class="border-[#E5E5E5] my-1">
+    <div id="mobileMenu" class="hidden md:hidden mt-2 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl px-4 py-4 shadow-lg">
+      <div class="flex flex-col gap-1 text-sm font-medium text-white">
+        <!-- Input group -->
+        <div class="text-xs font-bold uppercase tracking-widest text-white/60/60 px-3 pt-1 pb-1">Input</div>
+        <button onclick="showUploadModal('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-book w-5 text-white/60"></i> Master Report</button>
+        <button onclick="showUploadModal('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-money-bill-wave w-5 text-white/60"></i> Payment Logs</button>
+        <button onclick="showUploadModal('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-white/60"></i> Calling List</button>
+        <hr class="border-white/10 my-1">
+        <!-- Output group -->
+        <div class="text-xs font-bold uppercase tracking-widest text-white/60/60 px-3 pt-1 pb-1">Output</div>
+        <button onclick="exportSyncFile(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-cloud-arrow-up w-5 text-white/60"></i> Sync JSON</button>
+        <button onclick="exportCSV(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-csv w-5 text-white/60"></i> CSV Report</button>
+        <button onclick="exportPDF(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-pdf w-5 text-white/60"></i> PDF Report</button>
+        <hr class="border-white/10 my-1">
         <button onclick="showClearModal(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-red-50 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-600"><i class="fa-solid fa-trash-can w-5"></i> Clear Database</button>
       </div>
     </div>
@@ -657,18 +678,18 @@
 
   <!-- HERO -->
   <header id="hero" class="relative pt-20 pb-10 md:pt-24 md:pb-12 flex flex-col justify-center items-center px-4 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-brand-tertiary/40 via-white to-white pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black to-black pointer-events-none"></div>
     <div class="absolute top-0 left-1/3 w-72 h-72 bg-brand-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 right-1/3 w-56 h-56 bg-brand-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
     <div class="text-center z-10 relative">
-      <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-brand-primary">
+      <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">
         AR Aging Dashboard
       </h1>
-      <p class="mt-1.5 text-xs md:text-sm text-brand-secondary/60 max-w-sm mx-auto">Real-time receivables intelligence &amp; automated collection workflow</p>
-      <div class="mt-3 flex items-center justify-center gap-2 text-[10px] md:text-[11px] text-brand-secondary font-semibold">
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-calendar text-[9px]"></i> RECEIVABLES</span>
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-file-invoice text-[9px]"></i> AGING</span>
-        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brand-tertiary/60 border border-[#E5E5E5]"><i class="fa-solid fa-arrow-up-right-dots text-[9px]"></i> RISK</span>
+      <p class="mt-1.5 text-xs md:text-sm text-white/60/60 max-w-sm mx-auto">Real-time receivables intelligence &amp; automated collection workflow</p>
+      <div class="mt-3 flex items-center justify-center gap-2 text-[10px] md:text-[11px] text-white/60 font-semibold">
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5/60 border border-white/10"><i class="fa-solid fa-calendar text-[9px]"></i> RECEIVABLES</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5/60 border border-white/10"><i class="fa-solid fa-file-invoice text-[9px]"></i> AGING</span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/5/60 border border-white/10"><i class="fa-solid fa-arrow-up-right-dots text-[9px]"></i> RISK</span>
       </div>
     </div>
   </header>
@@ -677,50 +698,50 @@
 
     <!-- KPI CARDS -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 kpi-grid" id="kpiSection">
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Outstanding</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
         <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Collected</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Collected</p>
         <p class="kpi-value text-green-600" id="kpiCollected">₹0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Pending Amount</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Pending Amount</p>
         <p class="kpi-value text-brand-highlight" id="kpiPendingAmount">₹0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">High Risk Aging</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">High Risk Aging</p>
         <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Pending Invoices</p>
-        <p class="kpi-value text-brand-primary" id="kpiPendingCount">0</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Pending Invoices</p>
+        <p class="kpi-value text-white" id="kpiPendingCount">0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Total Invoices</p>
-        <p class="kpi-value text-brand-primary" id="kpiTotalInvoices">0</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Invoices</p>
+        <p class="kpi-value text-white" id="kpiTotalInvoices">0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Paid Invoices</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Paid Invoices</p>
         <p class="kpi-value text-green-600" id="kpiPaidCount">0</p>
       </div>
-      <div class="card-light rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-1">Calling List</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Calling List</p>
         <p class="kpi-value text-red-600" id="kpiCallingList">0</p>
       </div>
     </section>
 
     <!-- FILTERS -->
-    <section class="flex flex-wrap items-center gap-3 mb-6 p-4 bg-brand-tertiary/40 rounded-2xl border border-[#E5E5E5]">
+    <section class="flex flex-wrap items-center gap-3 mb-6 p-4 bg-white/5/40 rounded-2xl border border-white/10">
       <div class="flex items-center gap-2">
-        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Group:</label>
+        <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Group:</label>
         <select id="filterGroup" onchange="applyFilters()" class="min-w-[150px]">
           <option value="__all">All Groups</option>
         </select>
       </div>
       <div class="flex items-center gap-2">
-        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Risk:</label>
+        <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Risk:</label>
         <select id="filterRisk" onchange="applyFilters()" class="min-w-[150px]">
           <option value="__all">All Risk Levels</option>
           <option value="Low">Low (0-30d)</option>
@@ -730,7 +751,7 @@
         </select>
       </div>
       <div class="flex items-center gap-2">
-        <label class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary">Call Status:</label>
+        <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Call Status:</label>
         <select id="filterCallStatus" onchange="applyFilters()" class="min-w-[150px]">
           <option value="__all">All Statuses</option>
           <option value="Not Called">Not Called</option>
@@ -741,24 +762,24 @@
         </select>
       </div>
       <button onclick="resetFilters()" class="btn-secondary text-xs whitespace-nowrap"><i class="fa-solid fa-rotate-left mr-1"></i> Reset</button>
-      <span class="text-xs text-brand-secondary/50 ml-auto whitespace-nowrap" id="recordCount">0 records</span>
+      <span class="text-xs text-white/60/50 ml-auto whitespace-nowrap" id="recordCount">0 records</span>
     </section>
 
     <!-- CHARTS -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 chart-grid" id="chartGrid">
-      <div class="card-light rounded-xl p-5 chart-box">
+      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Aging Distribution</p>
         <canvas id="chartAging"></canvas>
       </div>
-      <div class="card-light rounded-xl p-5 chart-box">
+      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Outstanding by Collector</p>
         <canvas id="chartOutstandingByCollector"></canvas>
       </div>
-      <div class="card-light rounded-xl p-5 chart-box">
+      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">High Risk by Collector</p>
         <canvas id="chartHighRiskByCollector"></canvas>
       </div>
-      <div class="card-light rounded-xl p-5 chart-box">
+      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Call Status Summary</p>
         <canvas id="chartCallStatus"></canvas>
       </div>
@@ -766,8 +787,8 @@
 
     <!-- TOP 10 OVERDUE PARTIES -->
     <section class="mb-8" id="topOverdueSection">
-      <div class="card-light rounded-xl p-4 md:p-5">
-        <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-4 text-center font-bold">TOP 10 OVERDUE PARTIES</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-4 text-center font-bold">TOP 10 OVERDUE PARTIES</p>
         <div class="overflow-x-auto">
           <table id="topOverdueTable">
             <thead>
@@ -783,13 +804,13 @@
             <tbody id="topOverdueBody"></tbody>
           </table>
         </div>
-        <p class="text-xs text-brand-secondary/50 text-center mt-3" id="topOverdueEmpty">No overdue data</p>
+        <p class="text-xs text-white/60/50 text-center mt-3" id="topOverdueEmpty">No overdue data</p>
       </div>
     </section>
 
     <!-- TABS -->
     <section class="mb-4">
-      <div class="flex border-b border-[#E5E5E5]">
+      <div class="flex border-b border-white/10">
         <button class="tab-btn active" onclick="switchTab('ledger')" id="tabLedger"><i class="fa-solid fa-book mr-2"></i> Master Ledger</button>
         <button class="tab-btn" onclick="switchTab('payment')" id="tabPayment"><i class="fa-solid fa-money-bill mr-2"></i> Payment Desk</button>
         <button class="tab-btn" onclick="switchTab('calling')" id="tabCalling"><i class="fa-solid fa-phone mr-2"></i> Calling List</button>
@@ -798,7 +819,7 @@
 
     <!-- TAB: MASTER LEDGER -->
     <div id="panelLedger" class="tab-panel">
-      <div class="card-light rounded-xl p-4 md:p-6">
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
           <div class="input-wrapper flex-1 min-w-[200px]">
             <i class="fa-solid fa-search input-icon"></i>
@@ -844,32 +865,40 @@
 
     <!-- TAB: PAYMENT DESK -->
     <div id="panelPayment" class="tab-panel" style="display:none">
-      <div class="card-light rounded-xl p-4 md:p-6">
-        <p class="text-sm uppercase tracking-widest text-brand-secondary/70 mb-4"><i class="fa-solid fa-money-bill-wave mr-2"></i>Log Payment Received</p>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
+        <p class="text-sm uppercase tracking-widest text-white/60/70 mb-4"><i class="fa-solid fa-money-bill-wave mr-2"></i>Log Payment Received</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Date</label>
+            <input type="date" id="paymentDate" class="w-full">
+          </div>
           <div class="relative">
-            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Customer</label>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Party Name</label>
             <input type="text" id="paymentCustomer" placeholder="Type customer name..." oninput="suggestCustomers()" class="w-full">
             <div class="autocomplete-items hidden" id="paymentSuggestions"></div>
           </div>
           <div>
-            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Invoice</label>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Invoice</label>
             <select id="paymentInvoice" class="w-full"><option value="">-- Select customer first --</option></select>
           </div>
           <div>
-            <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary mb-1.5">Amount Received (₹)</label>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount Received (₹)</label>
             <input type="number" id="paymentAmount" placeholder="0.00" min="0" step="0.01" class="w-full">
+          </div>
+          <div>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Remark</label>
+            <input type="text" id="paymentRemark" placeholder="e.g. Paid by Cheque, Bank Transfer..." class="w-full">
           </div>
           <div class="flex items-end">
             <button onclick="logPayment()" class="btn-primary w-full"><i class="fa-solid fa-check mr-2"></i>Record Payment</button>
           </div>
         </div>
-        <hr class="border-[#E5E5E5] my-6">
-        <p class="text-sm uppercase tracking-widest text-brand-secondary/70 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Recent Payments</p>
-        <div class="overflow-x-auto max-h-[300px] overflow-y-auto">
+        <hr class="border-white/10 my-6">
+        <p class="text-sm uppercase tracking-widest text-white/60/70 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Payment Log</p>
+        <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
           <table>
             <thead>
-              <tr><th>Party Name</th><th>Invoice No</th><th>Amount (₹)</th><th>Status</th></tr>
+              <tr><th>Date</th><th>Party Name</th><th>Invoice No</th><th>Amount (₹)</th><th>Remark</th><th>Actions</th></tr>
             </thead>
             <tbody id="paymentLogBody"></tbody>
           </table>
@@ -879,7 +908,7 @@
 
     <!-- TAB: CALLING LIST -->
     <div id="panelCalling" class="tab-panel" style="display:none">
-      <div class="card-light rounded-xl p-4 md:p-6">
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
           <div class="input-wrapper flex-1 min-w-[200px]">
             <i class="fa-solid fa-search input-icon"></i>
@@ -894,7 +923,7 @@
           <button class="sort-btn" id="callingSortDir" onclick="toggleCallingSort()"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
         </div>
         <div class="flex flex-wrap gap-1.5 mb-4 items-center">
-          <span class="text-[11px] font-bold uppercase tracking-widest text-brand-secondary mr-2">Call Status:</span>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-white/60 mr-2">Call Status:</span>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('__all')" id="callSubAll">All</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Not Called')" id="callSubNotCalled">Not Called</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Spoke to Client')" id="callSubSpoke">Spoke</button>
@@ -920,37 +949,73 @@
             <tbody id="callingBody"></tbody>
           </table>
         </div>
-        <p class="text-center text-brand-secondary/50 text-sm mt-4" id="callingEmptyMsg">No overdue items. All caught up!</p>
+        <p class="text-center text-white/60/50 text-sm mt-4" id="callingEmptyMsg">No overdue items. All caught up!</p>
       </div>
     </div>
 
     <!-- PRIVACY NOTICE -->
-    <div class="mt-10 flex items-start gap-3 p-4 rounded-2xl border border-[#E5E5E5] bg-brand-tertiary/40">
+    <div class="mt-10 flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/5/40">
       <div class="w-9 h-9 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
         <i class="fa-solid fa-shield-halved text-blue-500 text-sm"></i>
       </div>
-      <div class="text-xs md:text-sm text-brand-secondary leading-relaxed">
-        <strong class="text-brand-primary">Your data stays on your device.</strong>
+      <div class="text-xs md:text-sm text-white/60 leading-relaxed">
+        <strong class="text-white">Your data stays on your device.</strong>
         All records — invoices, payments, call logs — are stored locally in your browser's IndexedDB using the Tally ERP data you upload. Nothing is transmitted to any server, collected, or shared. You retain full control and may clear or export your data at any time.
       </div>
     </div>
 
   </main>
 
+  <!-- EDIT PAYMENT MODAL -->
+  <div id="editPaymentModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider">Edit Payment</h3>
+        <button onclick="closeModal('editPaymentModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Date</label>
+          <input type="date" id="editPaymentDate" class="w-full">
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Party Name</label>
+          <input type="text" id="editPaymentParty" class="w-full" readonly>
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Invoice</label>
+          <input type="text" id="editPaymentInvoice" class="w-full" readonly>
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount (₹)</label>
+          <input type="number" id="editPaymentAmount" step="0.01" min="0" class="w-full">
+        </div>
+        <div class="md:col-span-2">
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Remark</label>
+          <input type="text" id="editPaymentRemark" class="w-full">
+        </div>
+      </div>
+      <div class="mt-4 flex justify-end gap-2">
+        <button onclick="closeModal('editPaymentModal')" class="btn-secondary text-xs">Cancel</button>
+        <button onclick="saveEditPayment()" class="btn-primary text-xs"><i class="fa-solid fa-floppy-disk mr-1"></i> Save Changes</button>
+      </div>
+    </div>
+  </div>
+
   <!-- UPLOAD MODAL -->
   <div class="modal-overlay" id="uploadModal">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider" id="uploadModalTitle">Upload File</h3>
-        <button onclick="closeModal('uploadModal')" class="text-brand-secondary/70 hover:text-brand-primary text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-brand-tertiary">&times;</button>
+        <button onclick="closeModal('uploadModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
       </div>
-      <p class="text-sm text-brand-secondary/70 mb-4" id="uploadModalDesc">Select a CSV file to upload.</p>
+      <p class="text-sm text-white/60/70 mb-4" id="uploadModalDesc">Select a CSV file to upload.</p>
       <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
-        <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-tertiary border border-[#E5E5E5] flex items-center justify-center">
+        <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
           <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-highlight"></i>
         </div>
-        <p class="text-sm font-semibold text-brand-primary">Drop file here or click to browse</p>
-        <p class="text-xs text-brand-secondary/60 mt-1" id="uploadZoneHint">Supports .csv, .xlsx, and .json files</p>
+        <p class="text-sm font-semibold text-white">Drop file here or click to browse</p>
+        <p class="text-xs text-white/60/60 mt-1" id="uploadZoneHint">Supports .csv, .xlsx, and .json files</p>
       </div>
       <input type="file" id="fileInput" accept=".csv,.json" style="display:none" onchange="handleFileSelect(event)">
       <div class="mt-4 flex justify-end gap-2">
@@ -964,10 +1029,10 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider text-red-600"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Destroy Database</h3>
-        <button onclick="closeModal('clearModal')" class="text-brand-secondary/70 hover:text-white text-xl">&times;</button>
+        <button onclick="closeModal('clearModal')" class="text-white/60/70 hover:text-white text-xl">&times;</button>
       </div>
-      <p class="text-sm text-brand-secondary/70 mb-4">This action will permanently delete ALL data including invoice records, call logs, and payment history. This cannot be undone.</p>
-      <p class="text-sm text-brand-secondary mb-2 font-medium">Type <strong class="text-red-600">DELETE</strong> to confirm:</p>
+      <p class="text-sm text-white/60/70 mb-4">This action will permanently delete ALL data including invoice records, call logs, and payment history. This cannot be undone.</p>
+      <p class="text-sm text-white/60 mb-2 font-medium">Type <strong class="text-red-600">DELETE</strong> to confirm:</p>
       <input type="text" id="deleteConfirmInput" placeholder="Type DELETE here..." oninput="document.getElementById('deleteConfirmBtn').disabled = this.value !== 'DELETE'" class="w-full mb-4">
       <div class="flex justify-end gap-2">
         <button onclick="closeModal('clearModal')" class="btn-secondary text-xs">Cancel</button>
@@ -981,11 +1046,11 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider">Update Call Status</h3>
-        <button onclick="closeModal('statusChangeModal')" class="text-brand-secondary/70 hover:text-white text-xl">&times;</button>
+        <button onclick="closeModal('statusChangeModal')" class="text-white/60/70 hover:text-white text-xl">&times;</button>
       </div>
-      <p class="text-sm text-brand-secondary mb-3 font-medium" id="statusChangeParty">Party:</p>
+      <p class="text-sm text-white/60 mb-3 font-medium" id="statusChangeParty">Party:</p>
       <div class="mb-3">
-        <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary block mb-1.5">Status</label>
+        <label class="text-xs font-bold uppercase tracking-widest text-white/60 block mb-1.5">Status</label>
         <select id="statusChangeSelect" class="w-full">
           <option value="Not Called">Not Called</option>
           <option value="Spoke to Client">Spoke to Client</option>
@@ -995,7 +1060,7 @@
         </select>
       </div>
       <div class="mb-3">
-        <label class="text-xs font-bold uppercase tracking-widest text-brand-secondary block mb-1.5">Remarks</label>
+        <label class="text-xs font-bold uppercase tracking-widest text-white/60 block mb-1.5">Remarks</label>
         <textarea id="statusChangeRemarks" rows="3" class="w-full" placeholder="Enter remarks or notes..."></textarea>
       </div>
       <div class="flex justify-end gap-2">
@@ -1010,12 +1075,14 @@
     // CONFIGURATION
     // ============================================================
     const DB_NAME = 'SkylimitARDb';
-    const DB_VERSION = 1;
-    const STORES = { invoices: 'invoices', callLogs: 'callLogs' };
+    const DB_VERSION = 2;
+    const STORES = { invoices: 'invoices', callLogs: 'callLogs', payments: 'payments' };
 
     // Register datalabels plugin globally if available
     if (typeof ChartDataLabels !== 'undefined') {
       try { Chart.register(ChartDataLabels); } catch(e) { console.warn('DataLabels plugin registration failed:', e); }
+    Chart.defaults.color = '#a0a0a0';
+    Chart.defaults.scale.grid.color = 'rgba(255, 255, 255, 0.1)';
     }
 
     const COLORS = {
@@ -1057,6 +1124,11 @@
           }
           if (!d.objectStoreNames.contains(STORES.callLogs)) {
             const s = d.createObjectStore(STORES.callLogs, { keyPath: 'partyName' });
+          }
+          if (!d.objectStoreNames.contains(STORES.payments)) {
+            const s = d.createObjectStore(STORES.payments, { keyPath: 'id', autoIncrement: true });
+            s.createIndex('invoiceNo', 'invoiceNo', { unique: false });
+            s.createIndex('partyName', 'partyName', { unique: false });
           }
         };
         req.onsuccess = (e) => { db = e.target.result;
@@ -1208,111 +1280,191 @@
     }
 
     // ============================================================
-    // TALLY CSV PARSER
+    // XLSX PARSER: MASTER REPORT
     // ============================================================
-    function parseTallyCSV(text) {
-      let result = Papa.parse(text, { header: true, skipEmptyLines: true });
-      let rows = result.data;
-      if (!rows || rows.length === 0) { showToast('No data found in CSV', true); return []; }
+    function parseMasterReport(bytes) {
+      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
+      let ws = wb.Sheets[wb.SheetNames[0]];
+      let rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+      if (!rows || rows.length === 0) throw new Error('No data rows found in Master Report');
 
-      // Detect columns by common names
-      let cols = Object.keys(rows[0]);
-      let colMap = {};
-      let nameMap = {
-        'ref no': 'refNo',
-        'refno': 'refNo',
-        'ref. no': 'refNo',
-        'ref. no.': 'refNo',
-        'invoice no': 'refNo',
-        'invoice': 'refNo',
-        'particulars': 'particulars',
-        'particular': 'particulars',
-        'party name': 'particulars',
-        'name': 'particulars',
-        'date': 'date',
-        'due date': 'dueDate',
-        'original amount': 'amount',
-        'pending amount': 'pending',
-        'amount': 'amount',
-        'pending': 'pending',
-        'group': 'groupName',
-        'group name': 'groupName',
-        'ledger group': 'groupName',
-      };
-      for (let c of cols) {
-        let key = c.toLowerCase().trim();
-        if (nameMap[key]) colMap[nameMap[key]] = c;
+      function findCol(variants) {
+        let cols = Object.keys(rows[0]);
+        for (let v of variants) {
+          let found = cols.find(c => c.toLowerCase().trim() === v.toLowerCase().trim());
+          if (found) return found;
+        }
+        for (let v of variants) {
+          let found = cols.find(c => c.toLowerCase().trim().includes(v.toLowerCase().trim()));
+          if (found) return found;
+        }
+        return null;
       }
 
+      let colParty = findCol(['CUSTOMER NAME', 'Customer Name']);
+      let colInvNo = findCol(['Invoice No', 'Invoice_No', 'INVOICE NO']);
+      let colDate = findCol(['Date', 'Invoice Date']);
+      let colDue = findCol(['Due Date', 'Due_Date']);
+      let colAmt = findCol(['Invoice Amount', 'Invoice_Amount']);
+      let colPaid = findCol(['Paid Amount', 'Paid_Amount']);
+      let colPending = findCol(['Outstanding Amount', 'Outstanding_Amount']);
+      let colGroup = findCol(['Source Sheet', 'Source_Sheet']);
+      let colStatus = findCol(['Status', ' Status']);
+      let colRemarks = findCol(['Remarks']);
+
       let invoices = [];
-      let currentParty = '';
-      let currentGroup = '';
-
       for (let row of rows) {
-        let refNo = colMap.refNo ? (row[colMap.refNo] || '').trim() : '';
-        let particulars = colMap.particulars ? (row[colMap.particulars] || '').trim() : '';
-        let date = colMap.date ? (row[colMap.date] || '').trim() : '';
-        let dueDate = colMap.dueDate ? (row[colMap.dueDate] || '').trim() : '';
-        let amtStr = colMap.amount ? (row[colMap.amount] || '').trim() : '';
-        let pendingStr = colMap.pending ? (row[colMap.pending] || '').trim() : '';
-        let grp = colMap.groupName ? (row[colMap.groupName] || '').trim() : '';
-        if (grp) currentGroup = grp;
+        let invNo = colInvNo ? (row[colInvNo] || '').toString().trim() : '';
+        let partyName = colParty ? (row[colParty] || '').toString().trim() : '';
+        if (!invNo) continue;
 
-        // Detect party header row: if particulars has value but refNo is empty
-        if (particulars && !refNo) {
-          currentParty = particulars;
-          continue;
-        }
-        if (!refNo) continue;
+        let dueDateVal = colDue ? row[colDue] : null;
+        let invDateVal = colDate ? row[colDate] : null;
+        let invDate = parseExcelDate(invDateVal);
+        let dueDate = parseExcelDate(dueDateVal);
+        let groupName = colGroup ? (row[colGroup] || '').toString().trim() : 'General';
+        let amtStr = colAmt ? (row[colAmt] || '').toString().trim() : '';
+        let pendingStr = colPending ? (row[colPending] || '').toString().trim() : '';
+        let paidStr = colPaid ? (row[colPaid] || '').toString().trim() : '';
+        let rawStatus = colStatus ? (row[colStatus] || '').toString().trim() : '';
 
-        let invDate = parseTallyDate(date);
-        let invDueDate = parseTallyDate(dueDate);
-        let amount = parseCurrency(pendingStr) || parseCurrency(amtStr);
+        let paidAmount = parseCurrency(paidStr);
+        let originalAmt = parseCurrency(amtStr);
+        let pending = parseCurrency(pendingStr) || originalAmt;
+        let status = (rawStatus.toUpperCase() === 'PAID' || (paidAmount > 0 && pending <= 0)) ? 'Paid' : 'Unpaid';
 
         invoices.push({
-          invoiceNo: refNo,
-          partyName: currentParty || 'Unknown',
-          groupName: currentGroup || 'General',
+          invoiceNo: invNo,
+          partyName: partyName || 'Unknown',
+          groupName: groupName,
           invoiceDate: invDate || new Date(),
-          dueDate: invDueDate || new Date(),
-          originalAmount: amount,
-          pendingAmount: amount,
-          status: 'Unpaid',
-          isManuallyPaid: false,
+          dueDate: dueDate || new Date(),
+          originalAmount: originalAmt || pending,
+          pendingAmount: pending,
+          status: status,
+          isManuallyPaid: status === 'Paid',
           phone: '',
           email: ''
         });
       }
-
-      if (invoices.length === 0) { showToast('No bill line items found. Check CSV column mapping.', true); return []; }
+      if (invoices.length === 0) throw new Error('No valid invoice rows found in Master Report');
       return invoices;
     }
 
     // ============================================================
-    // BANK STATEMENT CSV PARSER
+    // XLSX PARSER: PAYMENT LOGS
     // ============================================================
-    function parseBankCSV(text) {
-      let result = Papa.parse(text, { header: true, skipEmptyLines: true });
-      let rows = result.data;
-      if (!rows || rows.length === 0) { showToast('No data found in bank CSV', true); return []; }
+    function parsePaymentLogs(bytes) {
+      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
+      let ws = wb.Sheets[wb.SheetNames[0]];
+      let rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+      if (!rows || rows.length === 0) throw new Error('No data rows found in Payment Logs');
 
-      let cols = Object.keys(rows[0]);
-      let invCol = null,
-        amtCol = null;
-      for (let c of cols) {
-        let k = c.toLowerCase().trim();
-        if (k.includes('invoice') || k.includes('ref') || k.includes('bill')) invCol = c;
-        if (k.includes('amount') || k.includes('payment') || k.includes('received')) amtCol = c;
+      function findCol(variants) {
+        let cols = Object.keys(rows[0]);
+        for (let v of variants) {
+          let found = cols.find(c => c.toLowerCase().trim() === v.toLowerCase().trim());
+          if (found) return found;
+        }
+        return null;
       }
-      if (!invCol || !amtCol) { showToast('Bank CSV must have Invoice and Amount columns', true); return []; }
+
+      let colInv = findCol(['Invoice', 'Invoice No', 'Invoice_No']);
+      let colParty = findCol(['Party Name', 'PartyName', 'Customer']);
+      let colAmt = findCol(['Amount', 'Payment Amount']);
+      let colDate = findCol(['Date', 'Payment Date']);
+      let colRemark = findCol(['Remark', 'Remarks', 'Narration']);
 
       let payments = [];
       for (let row of rows) {
-        let inv = (row[invCol] || '').trim();
-        let amt = parseCurrency(row[amtCol]);
-        if (inv && amt > 0) payments.push({ invoiceNo: inv, amount: amt });
+        let inv = colInv ? (row[colInv] || '').toString().trim() : '';
+        let party = colParty ? (row[colParty] || '').toString().trim() : '';
+        let amt = parseCurrency(colAmt ? row[colAmt] : 0);
+        let pmtDate = colDate ? parseExcelDate(row[colDate]) : new Date();
+        let remark = colRemark ? (row[colRemark] || '').toString().trim() : '';
+        if (!inv || amt <= 0) continue;
+        payments.push({ invoiceNo: inv, partyName: party, amount: amt, date: pmtDate, remark: remark });
       }
+      if (payments.length === 0) throw new Error('No valid payment rows found');
       return payments;
+    }
+
+    // ============================================================
+    // XLSX PARSER: CALLING LIST
+    // ============================================================
+    function parseCallingList(bytes) {
+      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
+      let ws = wb.Sheets[wb.SheetNames[0]];
+      let rows = XLSX.utils.sheet_to_json(ws, { defval: '', header: 1 });
+      if (!rows || rows.length < 5) throw new Error('Calling List has insufficient rows');
+
+      // Find the header row (contains 'S.No', 'Customer Name', etc.)
+      let headerRowIdx = -1;
+      for (let i = 0; i < Math.min(rows.length, 8); i++) {
+        let row = rows[i];
+        if (row && row.some(c => String(c).trim() === 'S.No') && row.some(c => String(c).trim() === 'Customer Name')) {
+          headerRowIdx = i;
+          break;
+        }
+      }
+      if (headerRowIdx === -1) throw new Error('Could not find header row in Calling List');
+
+      let headers = rows[headerRowIdx].map(h => String(h).trim());
+      let dataRows = rows.slice(headerRowIdx + 1).filter(r => r.some(c => String(c).trim() !== ''));
+
+      function colIndex(variants) {
+        for (let v of variants) {
+          let idx = headers.findIndex(h => h.toLowerCase() === v.toLowerCase());
+          if (idx !== -1) return idx;
+        }
+        return -1;
+      }
+
+      let iSNo = colIndex(['S.No', 'SNo', 'S No']);
+      let iCust = colIndex(['Customer Name', 'Customer', 'Party Name']);
+      let iInv = colIndex(['Invoice No', 'Invoice_No', 'Invoice Number']);
+      let iInvDate = colIndex(['Invoice Date', 'Date']);
+      let iDue = colIndex(['Due Date', 'Due_Date']);
+      let iAmt = colIndex(['Outstanding Amount', 'Amount', 'Pending Amount']);
+      let iOD = colIndex(['Days Overdue', 'Overdue Days', 'Overdue']);
+      let iBucket = colIndex(['Aging Bucket', 'Bucket']);
+      let iStatus = colIndex(['Status']);
+      let iPrevRem = colIndex(['Previous Remarks', 'Remarks']);
+      let iCallStatus = colIndex(['Call Status']);
+      let iNewRem = colIndex(['New Remark', 'Remark']);
+
+      let items = [];
+      for (let row of dataRows) {
+        let invNo = iInv !== -1 ? String(row[iInv] || '').trim() : '';
+        let custName = iCust !== -1 ? String(row[iCust] || '').trim() : '';
+        if (!invNo) continue;
+
+        let invDate = iInvDate !== -1 ? parseExcelDate(row[iInvDate]) : null;
+        let dueDate = iDue !== -1 ? parseExcelDate(row[iDue]) : null;
+        let amt = iAmt !== -1 ? parseCurrency(row[iAmt]) : 0;
+        let overdueDays = iOD !== -1 ? parseInt(String(row[iOD] || '0').replace(/[^0-9]/g, '')) || 0 : 0;
+        let bucket = iBucket !== -1 ? String(row[iBucket] || '').trim() : '';
+        let status = iStatus !== -1 ? String(row[iStatus] || '').trim() : 'PENDING';
+        let prevRemarks = iPrevRem !== -1 ? String(row[iPrevRem] || '').trim() : '';
+        let callStatus = iCallStatus !== -1 ? String(row[iCallStatus] || '').trim() : 'Not Called';
+        let newRemark = iNewRem !== -1 ? String(row[iNewRem] || '').trim() : '';
+
+        items.push({
+          invoiceNo: invNo,
+          partyName: custName || 'Unknown',
+          invoiceDate: invDate,
+          dueDate: dueDate,
+          pendingAmount: amt,
+          overdueDays: overdueDays,
+          agingBucket: bucket,
+          status: status,
+          previousRemarks: prevRemarks,
+          callStatus: callStatus,
+          newRemark: newRemark
+        });
+      }
+      if (items.length === 0) throw new Error('No valid invoice rows found in Calling List');
+      return items;
     }
 
     // ============================================================
@@ -1442,20 +1594,21 @@
       document.getElementById(id).classList.remove('active');
     }
 
-    function toggleExportDropdown() {
-      let dd = document.getElementById('exportDropdown');
-      dd.classList.toggle('show');
+    function toggleDropdown(id) {
+      let dd = document.getElementById(id);
+      if (!dd) return;
+      dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
     }
-    function closeExportDropdown() {
-      document.getElementById('exportDropdown').classList.remove('show');
+    function closeDropdown(id) {
+      let dd = document.getElementById(id);
+      if (dd) dd.style.display = 'none';
     }
-    // Close export dropdown on outside click
+    // Close dropdowns on outside click
     document.addEventListener('click', function(e) {
-      let wrap = document.getElementById('exportDropdownWrap');
-      if (wrap && !wrap.contains(e.target)) {
-        let dd = document.getElementById('exportDropdown');
-        if (dd) dd.classList.remove('show');
-      }
+      if (e.target.closest('.nav-dropdown-wrap')) return;
+      document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+        dd.style.display = 'none';
+      });
     });
 
     // ============================================================
@@ -1482,24 +1635,25 @@
       let hint = document.getElementById('uploadZoneHint');
       let input = document.getElementById('fileInput');
       input.value = '';
-      input.accept = mode === 'sync' ? '.json' : mode === 'xlsx' ? '.xlsx,.xls' : '.csv';
+      input.accept = '.xlsx,.xls';
 
-      if (mode === 'xlsx') {
-        title.textContent = 'Upload XLSX AR Report';
-        desc.textContent = 'Upload the May_ARAgingReport_AKM.xlsx (or any AR report) — reads the MASTER_AR_REPORT sheet. Invoice, Customer, Amount, Due Date, and Status columns mapped automatically.';
-        hint.textContent = 'Supports .xlsx files (MASTER_AR_REPORT sheet)';
-      } else if (mode === 'tally') {
-        title.textContent = 'Upload Tally BWO CSV';
-        desc.textContent = 'Upload a Tally Bill-Wise Outstanding CSV export. The parser handles hierarchy (party headers + bill lines).';
-        hint.textContent = 'Supports .csv files (Tally BWO export)';
-      } else if (mode === 'bank') {
-        title.textContent = 'Upload Bank Statement CSV';
-        desc.textContent = 'Upload a CSV with Invoice_Number and Payment_Amount_Received columns.';
-        hint.textContent = 'Supports .csv files';
+      if (mode === 'master') {
+        title.textContent = 'Upload Master Report';
+        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Risk Level, Remarks, Status.';
+        hint.textContent = 'Supports .xlsx files (Master Report)';
+      } else if (mode === 'payment') {
+        title.textContent = 'Upload Payment Logs';
+        desc.textContent = 'Upload the PAYMENTS_LOGS.xlsx — reads columns: Date, Party Name, Amount, Remark, Invoice. Paid invoices are marked PAID in the ledger and removed from the Calling List.';
+        hint.textContent = 'Supports .xlsx files (Payment Logs)';
+      } else if (mode === 'calling') {
+        title.textContent = 'Upload Calling List';
+        desc.textContent = 'Upload the CALLING_LIST.xlsx — reads columns from the data header row: S.No, Customer Name, Invoice No, Invoice Date, Due Date, Outstanding Amount, Days Overdue, Aging Bucket, Status, Previous Remarks, Call Status, New Remark.';
+        hint.textContent = 'Supports .xlsx files (Calling List)';
       } else if (mode === 'sync') {
         title.textContent = 'Import Sync File';
         desc.textContent = 'Upload a previously exported .json sync file to merge data across agents.';
         hint.textContent = 'Supports .json sync files';
+        input.accept = '.json';
       }
       document.getElementById('uploadModal').classList.add('active');
     }
@@ -1517,216 +1671,37 @@
       let file = event.target.files[0];
       if (!file) return;
       closeModal('uploadModal');
-      if (currentUploadMode === 'xlsx') {
-        let reader = new FileReader();
-        reader.onload = async (e) => {
-          try {
-            let data = new Uint8Array(e.target.result);
-            await processXLSXUpload(data);
-          } catch (err) {
-            showToast('Error: ' + err.message, true);
-            console.error(err);
-          }
-        };
-        reader.readAsArrayBuffer(file);
-      } else {
-        let reader = new FileReader();
-        reader.onload = async (e) => {
-          let content = e.target.result;
-          try {
-            if (currentUploadMode === 'tally') await processTallyUpload(content);
-            else if (currentUploadMode === 'bank') await processBankUpload(content);
-            else if (currentUploadMode === 'sync') await processSyncImport(content);
-          } catch (err) {
-            showToast('Error: ' + err.message, true);
-            console.error(err);
-          }
-        };
-        reader.readAsText(file);
-      }
+      let reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          let data = new Uint8Array(e.target.result);
+          if (currentUploadMode === 'master') await processMasterReportUpload(data);
+          else if (currentUploadMode === 'payment') await processPaymentLogsUpload(data);
+          else if (currentUploadMode === 'calling') await processCallingListUpload(data);
+          else if (currentUploadMode === 'sync') await processSyncImport(new TextDecoder().decode(data));
+        } catch (err) {
+          showToast('Error: ' + err.message, true);
+          console.error(err);
+        }
+      };
+      reader.readAsArrayBuffer(file);
     }
 
     // ============================================================
-    // TALLY UPLOAD PIPELINE
+    // EXCEL DATE PARSER (shared)
     // ============================================================
-    async function processTallyUpload(content) {
-      showToast('Parsing Tally CSV...');
-      let parsed = parseTallyCSV(content);
-      if (parsed.length === 0) return;
-
-      let imported = 0,
-        skipped = 0,
-        updated = 0;
-      for (let inv of parsed) {
-        let existing = await dbRead(STORES.invoices, inv.invoiceNo);
-        if (!existing) {
-          await dbWrite(STORES.invoices, inv);
-          imported++;
-        } else if (existing.isManuallyPaid) {
-          skipped++;
-        } else {
-          existing.pendingAmount = inv.pendingAmount;
-          existing.originalAmount = inv.originalAmount;
-          existing.dueDate = inv.dueDate;
-          existing.invoiceDate = inv.invoiceDate;
-          existing.groupName = inv.groupName;
-          if (existing.status === 'Paid' && existing.pendingAmount > 0) existing.status = 'Unpaid';
-          await dbWrite(STORES.invoices, existing);
-          updated++;
-        }
-      }
-      showToast(`Tally import: ${imported} new, ${updated} updated, ${skipped} skipped (manually paid)`);
-      await refreshDashboard();
-    }
-
-    // ============================================================
-    // BANK UPLOAD PIPELINE
-    // ============================================================
-    async function processBankUpload(content) {
-      showToast('Processing bank statement...');
-      let payments = parseBankCSV(content);
-      if (payments.length === 0) return;
-
-      let matched = 0,
-        notFound = 0;
-      for (let pmt of payments) {
-        let inv = await dbRead(STORES.invoices, pmt.invoiceNo);
-        if (inv) {
-          inv.pendingAmount = Math.max(0, inv.pendingAmount - pmt.amount);
-          if (inv.pendingAmount <= 0) {
-            inv.pendingAmount = 0;
-            inv.status = 'Paid';
-            inv.isManuallyPaid = true;
-          }
-          await dbWrite(STORES.invoices, inv);
-          matched++;
-        } else {
-          notFound++;
-        }
-      }
-      showToast(`Bank payments: ${matched} matched, ${notFound} invoice(s) not found`);
-      await refreshDashboard();
-    }
-
-    // ============================================================
-    // XLSX AR REPORT PARSER & PIPELINE
-    // ============================================================
-    function parseXLSX(bytes) {
-      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
-      let sheetName = 'MASTER_AR_REPORT';
-      let ws = wb.Sheets[sheetName];
-      if (!ws) {
-        let found = wb.SheetNames.filter(n => n !== 'HOME' && n !== 'D' && n !== 't');
-        if (found.length === 0) throw new Error('No data sheet found. Expected: ' + sheetName);
-        sheetName = found[0];
-        ws = wb.Sheets[sheetName];
-      }
-      let rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
-      if (!rows || rows.length === 0) throw new Error('No data rows found in sheet "' + sheetName + '"');
-
-      let invoices = [];
-
-      // Map known column name variations to normalised keys
-      function findCol(variants) {
-        let cols = Object.keys(rows[0]);
-        for (let v of variants) {
-          let found = cols.find(c => c.toLowerCase().trim() === v.toLowerCase().trim());
-          if (found) return found;
-        }
-        // fuzzy match
-        for (let v of variants) {
-          let found = cols.find(c => c.toLowerCase().trim().includes(v.toLowerCase().trim()));
-          if (found) return found;
-        }
-        return null;
-      }
-
-      let colInvNo = findCol(['Invoice No', 'Invoice_No', 'INVOICE NO', 'InvoiceNo', 'Invoice Number']);
-      let colParty = findCol(['CUSTOMER NAME', 'Customer Name', 'Customer', 'Party Name', 'PartyName', 'Name']);
-      let colAmt = findCol(['Invoice Amount', 'Invoice_Amount', 'Amount', 'Original Amount', 'Bill Amount']);
-      let colDue = findCol(['Due Date', 'Due_Date', 'DueDate']);
-      let colPending = findCol(['Outstanding Amount', 'Outstanding_Amount', 'Pending Amount', 'Pending', 'Balance']);
-      let colPaid = findCol(['Paid Amount', 'Paid_Amount', 'Payment Received', 'Amount Received']);
-      let colDate = findCol(['Date', 'Invoice Date']);
-      let colGroup = findCol(['Source Sheet', 'Source_Sheet', 'Source', 'Group', 'Group Name', 'Agent']);
-      let colStatus = findCol(['Status', ' Status']);
-      let colRemarks = findCol(['Remarks']);
-
-      // Fallback: any column that trimmed == 'status'
-      if (!colStatus) {
-        let cols = Object.keys(rows[0]);
-        colStatus = cols.find(c => c.trim().toLowerCase() === 'status');
-      }
-
-      for (let row of rows) {
-        let invNo = colInvNo ? (row[colInvNo] || '').toString().trim() : '';
-        let partyName = colParty ? (row[colParty] || '').toString().trim() : '';
-        if (!invNo) continue;
-
-        let amtStr = colAmt ? (row[colAmt] || '').toString().trim() : '';
-        let pendingStr = colPending ? (row[colPending] || '').toString().trim() : '';
-        let paidStr = colPaid ? (row[colPaid] || '').toString().trim() : '';
-
-        let amount = parseFloat(pendingStr) || parseFloat(amtStr) || 0;
-
-        let dueDateVal = colDue ? row[colDue] : null;
-        let invDateVal = colDate ? row[colDate] : null;
-
-        // Parse dates from Excel serial numbers or strings
-        let invDate = parseExcelDate(invDateVal);
-        let dueDate = parseExcelDate(dueDateVal);
-
-        let groupName = colGroup ? (row[colGroup] || '').toString().trim() : 'General';
-
-        // Normalize status
-        let rawStatus = colStatus ? (row[colStatus] || '').toString().trim() : '';
-        let status = rawStatus.toUpperCase() === 'PAID' ? 'Paid' : 'Unpaid';
-
-        // Override status if pending is 0 or paid amount >= invoice amount
-        let paidAmount = parseFloat(paidStr) || 0;
-        let originalAmt = parseFloat(amtStr) || 0;
-        let pending = parseFloat(pendingStr) || 0;
-
-        if (paidAmount > 0 && pending <= 0) status = 'Paid';
-        if (originalAmt > 0 && paidAmount >= originalAmt) status = 'Paid';
-
-        invoices.push({
-          invoiceNo: invNo,
-          partyName: partyName || 'Unknown',
-          groupName: groupName || 'General',
-          invoiceDate: invDate || new Date(),
-          dueDate: dueDate || new Date(),
-          originalAmount: originalAmt || amount,
-          pendingAmount: pending || amount,
-          status: status === 'Paid' ? 'Paid' : 'Unpaid',
-          isManuallyPaid: status === 'Paid',
-          phone: '',
-          email: ''
-        });
-      }
-
-      if (invoices.length === 0) throw new Error('No valid invoice rows found after parsing. Check column mapping.');
-      return invoices;
-    }
-
     function parseExcelDate(val) {
       if (!val) return null;
-      // If it's a Date object
       if (val instanceof Date && !isNaN(val)) return val;
-      // If it's a number (Excel serial date)
       if (typeof val === 'number') {
-        // Excel serial date: days since 1900-01-01 (with the 1900 leap year bug)
         let d = new Date(Date.UTC(1899, 11, 30));
         d.setUTCDate(d.getUTCDate() + val);
         return d;
       }
-      // If it's a string
       let str = String(val).trim();
       if (!str) return null;
-      // Try ISO / common formats
       let d = new Date(str);
       if (!isNaN(d)) return d;
-      // Try DD-MM-YYYY or MM-DD-YYYY
       let parts = str.split(/[-\/.]/);
       if (parts.length === 3) {
         let y = parseInt(parts[2]), m = parseInt(parts[1]) - 1, day = parseInt(parts[0]);
@@ -1737,13 +1712,14 @@
       return null;
     }
 
-    async function processXLSXUpload(bytes) {
-      showToast('Parsing XLSX AR report...');
+    // ============================================================
+    // MASTER REPORT UPLOAD PIPELINE
+    // ============================================================
+    async function processMasterReportUpload(bytes) {
+      showToast('Parsing Master Report...');
       let parsed;
-      try {
-        parsed = parseXLSX(bytes);
-      } catch (err) {
-        showToast('XLSX parse error: ' + err.message, true);
+      try { parsed = parseMasterReport(bytes); } catch (err) {
+        showToast('Master Report parse error: ' + err.message, true);
         return;
       }
       if (parsed.length === 0) return;
@@ -1768,7 +1744,107 @@
           updated++;
         }
       }
-      showToast(`XLSX import: ${imported} new, ${updated} updated, ${skipped} skipped (manually paid)`);
+      showToast(`Master Report: ${imported} new, ${updated} updated, ${skipped} skipped (manually paid)`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // PAYMENT LOGS UPLOAD PIPELINE
+    // ============================================================
+    async function processPaymentLogsUpload(bytes) {
+      showToast('Processing Payment Logs...');
+      let pmts;
+      try { pmts = parsePaymentLogs(bytes); } catch (err) {
+        showToast('Payment Logs parse error: ' + err.message, true);
+        return;
+      }
+      if (pmts.length === 0) return;
+
+      let matched = 0, notFound = 0, stored = 0;
+      for (let pmt of pmts) {
+        let inv = await dbRead(STORES.invoices, pmt.invoiceNo);
+        if (!inv) {
+          notFound++;
+          continue;
+        }
+        let pmtRecord = {
+          partyName: pmt.partyName || inv.partyName,
+          invoiceNo: pmt.invoiceNo,
+          amount: pmt.amount,
+          date: pmt.date || new Date(),
+          remark: pmt.remark || '',
+          createdAt: new Date(),
+          imported: true
+        };
+        await dbWrite(STORES.payments, pmtRecord);
+        stored++;
+        matched++;
+        await recalculateInvoice(pmt.invoiceNo);
+      }
+      showToast(`Payment Logs: ${stored} payment(s) recorded, ${notFound} invoice(s) not found in ledger`);
+      await refreshDashboard();
+    }
+
+    // ============================================================
+    // CALLING LIST UPLOAD PIPELINE
+    // ============================================================
+    async function processCallingListUpload(bytes) {
+      showToast('Processing Calling List...');
+      let items;
+      try { items = parseCallingList(bytes); } catch (err) {
+        showToast('Calling List parse error: ' + err.message, true);
+        return;
+      }
+      if (items.length === 0) return;
+
+      let updated = 0, newLogs = 0;
+      for (let item of items) {
+        let inv = await dbRead(STORES.invoices, item.invoiceNo);
+        if (inv) {
+          // Update call status from calling list
+          if (item.callStatus && item.callStatus !== 'Not Called') {
+            let existing = await getCallLog(inv.partyName);
+            if (!existing) {
+              await upsertCallLog(inv.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
+              newLogs++;
+            } else if (existing.currentStatus !== item.callStatus) {
+              await upsertCallLog(inv.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
+              updated++;
+            }
+          }
+        } else {
+          // Invoice not in DB yet — create a placeholder so Calling List can display it
+          let dueDate = item.dueDate || item.invoiceDate || new Date();
+          if (!item.dueDate && item.invoiceDate) {
+            // Approximate due date from invoice date + 30 days if not given
+            dueDate = new Date(item.invoiceDate);
+            dueDate.setDate(dueDate.getDate() + 30);
+          }
+          // Add as unpaid invoice to show in calling list
+          await dbWrite(STORES.invoices, {
+            invoiceNo: item.invoiceNo,
+            partyName: item.partyName,
+            groupName: 'General',
+            invoiceDate: item.invoiceDate || new Date(),
+            dueDate: dueDate,
+            originalAmount: item.pendingAmount,
+            pendingAmount: item.pendingAmount,
+            status: 'Unpaid',
+            isManuallyPaid: false,
+            phone: '',
+            email: ''
+          });
+        }
+
+        // Sync call status from calling list
+        if (item.callStatus && item.callStatus !== 'Not Called' && item.partyName) {
+          let cl = await getCallLog(item.partyName);
+          if (!cl) {
+            await upsertCallLog(item.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
+          }
+        }
+      }
+      showToast(`Calling List: ${newLogs} new call logs, ${updated} updated`);
       await refreshDashboard();
     }
 
@@ -1779,8 +1855,9 @@
       showToast('Preparing sync export...');
       let invoices = await dbReadAll(STORES.invoices);
       let callLogs = await dbReadAll(STORES.callLogs);
+      let payments = await dbReadAll(STORES.payments);
       let payload = {
-        version: 1,
+        version: 2,
         exportedAt: nowStr(),
         invoices: invoices.map(i => ({
           invoiceNo: i.invoiceNo,
@@ -1799,6 +1876,16 @@
           partyName: c.partyName,
           currentStatus: c.currentStatus,
           remarksHistory: c.remarksHistory
+        })),
+        payments: payments.map(p => ({
+          id: p.id,
+          partyName: p.partyName,
+          invoiceNo: p.invoiceNo,
+          amount: p.amount,
+          date: p.date,
+          remark: p.remark,
+          createdAt: p.createdAt,
+          imported: p.imported
         }))
       };
       let blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -1862,7 +1949,6 @@
           await dbWrite(STORES.callLogs, cl);
           callCount++;
         } else if (cl.remarksHistory && cl.remarksHistory.length > 0) {
-          // Append-only merge: add new remarks not already present
           let existingTimestamps = new Set(existing.remarksHistory.map(r => r.Timestamp + r.Text));
           let newRemarks = cl.remarksHistory.filter(r => !existingTimestamps.has(r.Timestamp + r.Text));
           if (newRemarks.length > 0) {
@@ -1873,7 +1959,29 @@
           callCount++;
         }
       }
-      showToast(`Sync merged: ${invCount} invoices, ${callCount} call logs`);
+
+      if (payload.payments && payload.payments.length > 0) {
+        let pmtCount = 0;
+        for (let pmt of payload.payments) {
+          let existing = await dbRead(STORES.payments, pmt.id);
+          if (!existing) {
+            await dbWrite(STORES.payments, {
+              id: pmt.id,
+              partyName: pmt.partyName,
+              invoiceNo: pmt.invoiceNo,
+              amount: pmt.amount,
+              date: pmt.date ? new Date(pmt.date) : new Date(),
+              remark: pmt.remark || '',
+              createdAt: pmt.createdAt ? new Date(pmt.createdAt) : new Date(),
+              imported: pmt.imported || false
+            });
+            pmtCount++;
+          }
+        }
+        showToast(`Sync merged: ${invCount} invoices, ${callCount} call logs, ${pmtCount} payments`);
+      } else {
+        showToast(`Sync merged: ${invCount} invoices, ${callCount} call logs`);
+      }
       await refreshDashboard();
     }
 
@@ -1916,10 +2024,31 @@
       });
     }
 
+    async function recalculateInvoice(invNo) {
+      let inv = await dbRead(STORES.invoices, invNo);
+      if (!inv) return;
+      let payments = await dbReadAll(STORES.payments);
+      let totalPaid = payments
+        .filter(p => p.invoiceNo === invNo)
+        .reduce((sum, p) => sum + p.amount, 0);
+      inv.pendingAmount = Math.max(0, inv.originalAmount - totalPaid);
+      if (inv.pendingAmount <= 0) {
+        inv.pendingAmount = 0;
+        inv.status = 'Paid';
+        inv.isManuallyPaid = totalPaid > 0;
+      } else {
+        inv.status = 'Unpaid';
+        inv.isManuallyPaid = false;
+      }
+      await dbWrite(STORES.invoices, inv);
+    }
+
     async function logPayment() {
+      let date = document.getElementById('paymentDate').value;
       let party = document.getElementById('paymentCustomer').value.trim();
       let invNo = document.getElementById('paymentInvoice').value;
       let amt = parseFloat(document.getElementById('paymentAmount').value);
+      let remark = document.getElementById('paymentRemark').value.trim();
 
       if (!party || !invNo || !amt || amt <= 0) {
         showToast('Please fill all payment fields correctly', true);
@@ -1929,15 +2058,22 @@
       let inv = await dbRead(STORES.invoices, invNo);
       if (!inv) { showToast('Invoice not found', true); return; }
 
-      inv.pendingAmount = Math.max(0, inv.pendingAmount - amt);
-      if (inv.pendingAmount <= 0) {
-        inv.pendingAmount = 0;
-        inv.status = 'Paid';
-        inv.isManuallyPaid = true;
-      }
-      await dbWrite(STORES.invoices, inv);
+      let pmtDate = date ? new Date(date) : new Date();
+      let pmtRecord = {
+        partyName: party,
+        invoiceNo: invNo,
+        amount: amt,
+        date: pmtDate,
+        remark: remark || '',
+        createdAt: new Date()
+      };
+      await dbWrite(STORES.payments, pmtRecord);
+      await recalculateInvoice(invNo);
 
+      document.getElementById('paymentDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('paymentCustomer').value = '';
       document.getElementById('paymentAmount').value = '';
+      document.getElementById('paymentRemark').value = '';
       document.getElementById('paymentInvoice').innerHTML = '<option value="">-- Select customer first --</option>';
       showToast(`Payment logged: ${fmtCurrency(amt)} applied to ${invNo}`);
       await refreshDashboard();
@@ -1945,22 +2081,92 @@
     }
 
     function renderPaymentLog() {
-      dbReadAll(STORES.invoices).then(invoices => {
-        let paid = invoices.filter(i => i.isManuallyPaid).slice(-50).reverse();
+      dbReadAll(STORES.payments).then(payments => {
+        let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
         let tbody = document.getElementById('paymentLogBody');
-        if (paid.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="4" class="text-center text-brand-secondary/50">No manual payments recorded</td></tr>';
+        if (sorted.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="text-center text-white/60/50">No payments recorded yet</td></tr>';
           return;
         }
-        tbody.innerHTML = paid.map(i =>
-          `<tr class="${i.status === 'Paid' ? 'row-paid' : ''}">
-            <td>${i.partyName}</td>
-            <td>${i.invoiceNo}</td>
-            <td>${fmtCurrency(i.originalAmount - i.pendingAmount)}</td>
-            <td><span class="badge-${i.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${i.status}</span></td>
-          </tr>`
-        ).join('');
+        tbody.innerHTML = sorted.map(p => {
+          let d = p.date ? new Date(p.date).toLocaleDateString() : '-';
+          let pName = htmlEscape(p.partyName);
+          let iNo = htmlEscape(p.invoiceNo);
+          let remark = htmlEscape(p.remark || '');
+          return `<tr>
+            <td class="text-sm whitespace-nowrap">${d}</td>
+            <td class="font-semibold">${pName}</td>
+            <td class="font-mono text-sm">${iNo}</td>
+            <td class="font-mono text-sm font-bold">${fmtCurrency(p.amount)}</td>
+            <td class="text-sm text-white/60/80 max-w-[200px] truncate" title="${remark}">${remark}</td>
+            <td class="whitespace-nowrap">
+              <button onclick="editPayment(${p.id})" class="btn-secondary text-xs px-2 py-1 mr-1" title="Edit"><i class="fa-solid fa-pen"></i></button>
+              <button onclick="deletePayment(${p.id})" class="btn-secondary text-xs px-2 py-1 text-red-600 hover:bg-red-50" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>`;
+        }).join('');
       });
+    }
+
+    let editPaymentId = null;
+
+    function editPayment(id) {
+      dbReadAll(STORES.payments).then(payments => {
+        let p = payments.find(x => x.id === id);
+        if (!p) { showToast('Payment not found', true); return; }
+        editPaymentId = id;
+        document.getElementById('editPaymentDate').value = p.date ? new Date(p.date).toISOString().split('T')[0] : '';
+        document.getElementById('editPaymentParty').value = p.partyName || '';
+        document.getElementById('editPaymentInvoice').value = p.invoiceNo || '';
+        document.getElementById('editPaymentAmount').value = p.amount || '';
+        document.getElementById('editPaymentRemark').value = p.remark || '';
+        document.getElementById('editPaymentModal').classList.add('active');
+      });
+    }
+
+    async function saveEditPayment() {
+      if (!editPaymentId) return;
+      let p = await dbRead(STORES.payments, editPaymentId);
+      if (!p) { showToast('Payment not found', true); return; }
+
+      let oldAmount = p.amount;
+      let oldInvoice = p.invoiceNo;
+      let newAmount = parseFloat(document.getElementById('editPaymentAmount').value);
+      let newDate = document.getElementById('editPaymentDate').value;
+      let newRemark = document.getElementById('editPaymentRemark').value.trim();
+
+      if (!newAmount || newAmount <= 0) {
+        showToast('Amount must be greater than 0', true);
+        return;
+      }
+
+      p.amount = newAmount;
+      p.remark = newRemark;
+      p.date = newDate ? new Date(newDate) : p.date;
+      p.updatedAt = new Date();
+      await dbWrite(STORES.payments, p);
+
+      await recalculateInvoice(p.invoiceNo);
+      if (oldInvoice !== p.invoiceNo) {
+        await recalculateInvoice(oldInvoice);
+      }
+
+      closeModal('editPaymentModal');
+      editPaymentId = null;
+      showToast('Payment updated successfully');
+      await refreshDashboard();
+      renderPaymentLog();
+    }
+
+    async function deletePayment(id) {
+      if (!confirm('Delete this payment record? This will recalculate the invoice balance.')) return;
+      let p = await dbRead(STORES.payments, id);
+      if (!p) { showToast('Payment not found', true); return; }
+      await dbDelete(STORES.payments, id);
+      await recalculateInvoice(p.invoiceNo);
+      showToast('Payment deleted');
+      await refreshDashboard();
+      renderPaymentLog();
     }
 
     // ============================================================
@@ -2369,12 +2575,12 @@
         let riskColor = d.amount > 100000 ? '#ef4444' : d.amount > 50000 ? '#f97316' : d.amount > 10000 ? '#eab308' : '#22c55e';
         let partyEsc = d.name.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m] || m));
         return `<tr>
-          <td class="text-brand-secondary/50 font-mono text-xs">${i + 1}</td>
+          <td class="text-white/60/50 font-mono text-xs">${i + 1}</td>
           <td class="font-semibold">${partyEsc}</td>
           <td class="font-mono font-bold">${fmtCurrency(d.amount)}</td>
-          <td class="text-brand-secondary">${d.maxDays}d</td>
+          <td class="text-white/60">${d.maxDays}d</td>
           <td><span class="risk-badge" style="background:${riskColor}20;color:${riskColor};border:1px solid ${riskColor}40">${d.amount > 100000 ? 'Critical' : d.amount > 50000 ? 'High' : d.amount > 10000 ? 'Medium' : 'Low'}</span></td>
-          <td class="text-brand-secondary">${d.count}</td>
+          <td class="text-white/60">${d.count}</td>
         </tr>`;
       }).join('');
     }
@@ -2443,7 +2649,7 @@
           <td class="text-center font-bold ${inv._overdueDays > 90 ? 'text-red-600' : ''}">${inv._overdueDays}d</td>
           <td><span class="badge-${inv._riskLabel.toLowerCase()} px-2 py-0.5 rounded text-xs font-bold">${inv._riskLabel}</span></td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
-          <td><span class="text-xs ${callStatus === 'Not Called' ? 'text-brand-secondary/50' : 'text-green-600'}">${htmlEscape(callStatus)}</span></td>
+          <td><span class="text-xs ${callStatus === 'Not Called' ? 'text-white/60/50' : 'text-green-600'}">${htmlEscape(callStatus)}</span></td>
           <td class="whitespace-nowrap">
             <button onclick="openStatusModal('${encodeURIComponent(inv.partyName)}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="Update Status"><i class="fa-solid fa-pen"></i></button>
             <button onclick="openWhatsApp('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.phone||'')}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
@@ -2452,23 +2658,23 @@
           </td>
         </tr>
         <tr id="${drawerId}" class="drawer-content">
-          <td colspan="9" class="bg-brand-tertiary p-4">
+          <td colspan="9" class="bg-white/5 p-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-2"><i class="fa-solid fa-clock-rotate-left mr-1"></i>Remarks History</p>
-                ${history.length === 0 ? '<p class="text-xs text-brand-secondary/50">No remarks recorded yet.</p>' :
+                <p class="text-xs uppercase tracking-widest text-white/60/70 mb-2"><i class="fa-solid fa-clock-rotate-left mr-1"></i>Remarks History</p>
+                ${history.length === 0 ? '<p class="text-xs text-white/60/50">No remarks recorded yet.</p>' :
                   history.slice().reverse().map(r =>
                     `<div class="text-xs mb-2 border-l-2 border-brand-highlight pl-2">
-                      <span class="text-brand-secondary/50">${r.Timestamp || ''}</span>
-                      <span class="text-brand-primary font-bold">[${r.Agent || ''}]</span>
+                      <span class="text-white/60/50">${r.Timestamp || ''}</span>
+                      <span class="text-white font-bold">[${r.Agent || ''}]</span>
                       <span class="text-green-600">${r.Status || ''}</span>
-                      <p class="text-brand-secondary mt-0.5">${r.Text || ''}</p>
+                      <p class="text-white/60 mt-0.5">${r.Text || ''}</p>
                     </div>`
                   ).join('')
                 }
               </div>
               <div>
-                <p class="text-xs uppercase tracking-widest text-brand-secondary/70 mb-2"><i class="fa-solid fa-pen-to-square mr-1"></i>Quick Update</p>
+                <p class="text-xs uppercase tracking-widest text-white/60/70 mb-2"><i class="fa-solid fa-pen-to-square mr-1"></i>Quick Update</p>
                 <select id="qStatus-${drawerId}" class="w-full text-xs mb-2">
                   <option value="Not Called" ${callStatus === 'Not Called' ? 'selected' : ''}>Not Called</option>
                   <option value="Spoke to Client" ${callStatus === 'Spoke to Client' ? 'selected' : ''}>Spoke to Client</option>
@@ -2539,7 +2745,7 @@
 
       let tbody = document.getElementById('ledgerBody');
       if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="12" class="text-center text-brand-secondary/50">No records found</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="12" class="text-center text-white/60/50">No records found</td></tr>';
         return;
       }
 
@@ -2704,6 +2910,7 @@
     async function executeClearDB() {
       await dbClear(STORES.invoices);
       await dbClear(STORES.callLogs);
+      await dbClear(STORES.payments);
       closeModal('clearModal');
       showToast('Database purged successfully');
       await refreshDashboard();
@@ -2720,7 +2927,7 @@
 
       if (tab === 'calling') renderCallingList();
       else if (tab === 'ledger') renderLedger();
-      else if (tab === 'payment') renderPaymentLog();
+      else if (tab === 'payment') { renderPaymentLog(); setDefaultPaymentDate(); }
     }
 
     // ============================================================
@@ -2767,7 +2974,13 @@
     // ============================================================
     // DRAG & DROP UPLOAD ZONE
     // ============================================================
+    function setDefaultPaymentDate() {
+      let el = document.getElementById('paymentDate');
+      if (el) el.value = new Date().toISOString().split('T')[0];
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      setDefaultPaymentDate();
       let zone = document.getElementById('uploadZone');
       zone.addEventListener('dragover', (e) => {
         e.preventDefault();

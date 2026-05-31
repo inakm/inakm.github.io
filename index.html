@@ -415,6 +415,7 @@ i
             background-size: 80px 80px;
         }
     </style>
+    <script src="https://js.puter.com/v2/"></script>
 </head>
 
 <body class="antialiased selection:bg-brand-primary selection:text-white">
@@ -2690,6 +2691,106 @@ i
                 default: return 'fa-solid fa-file';
             }
         }
+    </script>
+    <!-- AI Assistant Widget -->
+    <div id="ai-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="ai-chat-window" class="hidden w-80 sm:w-96 mb-4 bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl shadow-2xl overflow-hidden flex-col transition-all transform origin-bottom-right">
+            <div class="bg-brand-primary p-4 flex justify-between items-center text-white">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot text-brand-highlight"></i>
+                    <h3 class="font-bold text-sm">Portfolio Assistant</h3>
+                </div>
+                <button id="ai-close-btn" class="text-white/70 hover:text-white transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="ai-messages" class="p-4 h-80 overflow-y-auto flex flex-col gap-3 bg-brand-tertiary/30 text-sm">
+                <div class="bg-white p-3 rounded-lg rounded-tl-none self-start shadow-sm border border-[#E5E5E5] max-w-[85%]">
+                    Hi! I'm Anjani's AI Assistant. Ask me anything about his projects, skills, or experience!
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-[#E5E5E5] flex gap-2">
+                <input type="text" id="ai-input" class="flex-1 bg-brand-tertiary border border-[#E5E5E5] rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand-highlight transition-colors text-black" placeholder="Ask a question..." />
+                <button id="ai-send-btn" class="bg-brand-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-[#444] transition-colors shadow-md shrink-0">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+        <button id="ai-toggle-btn" class="w-14 h-14 rounded-full bg-brand-primary text-white shadow-[0_10px_25px_rgba(0,0,0,0.2)] flex items-center justify-center hover:scale-105 transition-transform border border-white/10 group">
+            <i class="fa-solid fa-robot text-xl group-hover:text-brand-highlight transition-colors"></i>
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('ai-toggle-btn');
+            const closeBtn = document.getElementById('ai-close-btn');
+            const chatWindow = document.getElementById('ai-chat-window');
+            const messagesContainer = document.getElementById('ai-messages');
+            const inputField = document.getElementById('ai-input');
+            const sendBtn = document.getElementById('ai-send-btn');
+
+            let chatHistory = [
+                { role: 'system', content: "You are an AI assistant for Anjani Kumar Mishra's portfolio website. Anjani is a Finance & Analytics Professional, ACCA Part-Qualified (8/13 passed), specializing in financial analysis, Bloomberg (BQL), PowerBI, and AI automation. He has built dashboards like 'Prism', 'RMM', 'VEVOi', 'Skylimit AR Aging', and more. Keep your answers concise, helpful, and professional. Only answer questions related to his portfolio, finance, data analytics, and professional background. If asked for his resume or contact, point them to the 'Download My CV' and 'Let's Talk' sections." }
+            ];
+
+            function toggleChat() {
+                if (chatWindow.classList.contains('hidden')) {
+                    chatWindow.classList.remove('hidden');
+                    chatWindow.classList.add('flex');
+                    inputField.focus();
+                } else {
+                    chatWindow.classList.add('hidden');
+                    chatWindow.classList.remove('flex');
+                }
+            }
+
+            toggleBtn.addEventListener('click', toggleChat);
+            closeBtn.addEventListener('click', toggleChat);
+
+            function addMessage(content, isUser = false) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `p-3 rounded-lg ${isUser ? 'bg-brand-primary text-white self-end rounded-tr-none' : 'bg-white text-brand-primary self-start rounded-tl-none border border-[#E5E5E5]'} shadow-sm max-w-[85%]`;
+                msgDiv.textContent = content;
+                messagesContainer.appendChild(msgDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            async function handleSend() {
+                const text = inputField.value.trim();
+                if (!text) return;
+                
+                inputField.value = '';
+                addMessage(text, true);
+                chatHistory.push({ role: 'user', content: text });
+                
+                // Add loading indicator
+                const loadingId = 'loading-' + Date.now();
+                const loadingDiv = document.createElement('div');
+                loadingDiv.id = loadingId;
+                loadingDiv.className = 'p-3 rounded-lg bg-white text-brand-primary self-start rounded-tl-none border border-[#E5E5E5] shadow-sm max-w-[85%] text-xs text-brand-secondary italic';
+                loadingDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Thinking...';
+                messagesContainer.appendChild(loadingDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                try {
+                    const response = await puter.ai.chat(chatHistory);
+                    document.getElementById(loadingId).remove();
+                    
+                    addMessage(response.message.content, false);
+                    chatHistory.push(response.message);
+                } catch (err) {
+                    if (document.getElementById(loadingId)) {
+                        document.getElementById(loadingId).remove();
+                    }
+                    addMessage("Oops, I'm having trouble connecting right now. Please try again later.", false);
+                    console.error("AI Assistant Error:", err);
+                }
+            }
+
+            sendBtn.addEventListener('click', handleSend);
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+        });
     </script>
 </body>
 
