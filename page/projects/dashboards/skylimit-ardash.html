@@ -136,17 +136,17 @@
       mask-composite: exclude;
       pointer-events: none;
     }
-    .liquid-glass border border-white/10 {
-      background: #111111;
+    .liquid-glass.border {
+      background: #1a1a1a;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       transition: all 0.2s ease;
       min-width: 0;
     }
-    .liquid-glass border border-white/10:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-      border-color: #d0d0d0;
+    .liquid-glass.border:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255,255,255,0.2);
     }
     select,
     input,
@@ -276,22 +276,6 @@
     .drawer-content.open {
       display: table-row;
     }
-    .badge-low {
-      background: rgba(22, 163, 74, 0.2);
-      color: #4ade80;
-    }
-    .badge-medium {
-      background: rgba(202, 138, 4, 0.2);
-      color: #facc15;
-    }
-    .badge-high {
-      background: rgba(234, 88, 12, 0.2);
-      color: #fb923c;
-    }
-    .badge-critical {
-      background: rgba(220, 38, 38, 0.2);
-      color: #f87171;
-    }
     .badge-paid {
       background: #dcfce7;
       color: #16a34a;
@@ -301,11 +285,11 @@
       color: #dc2626;
     }
     .btn-primary {
-      background: #222222;
-      color: #fff;
+      background: #f3c623;
+      color: #000000;
       padding: 8px 20px;
       border-radius: 9999px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.75rem;
       letter-spacing: 0.05em;
       cursor: pointer;
@@ -314,8 +298,8 @@
       text-transform: uppercase;
     }
     .btn-primary:hover {
-      background: #444444;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      background: #d4ae12;
+      box-shadow: 0 4px 20px rgba(243, 198, 35, 0.3);
     }
     .btn-secondary {
       background: transparent;
@@ -454,9 +438,26 @@
       color: #b0b0b0;
       pointer-events: none;
       font-size: 0.85rem;
+      z-index: 2;
     }
     .input-wrapper input {
       padding-left: 40px;
+    }
+    .search-enhanced input {
+      border-radius: 9999px;
+      padding-left: 44px;
+      padding-right: 20px;
+      font-size: 0.8rem;
+      min-height: 42px;
+      transition: all 0.3s ease;
+    }
+    .search-enhanced input:focus {
+      border-color: #f3c623;
+      box-shadow: 0 0 0 4px rgba(243, 198, 35, 0.12), 0 2px 12px rgba(243, 198, 35, 0.08);
+    }
+    .search-enhanced .input-icon {
+      left: 16px;
+      font-size: 0.8rem;
     }
 
     .autocomplete-items {
@@ -485,7 +486,7 @@
       background: rgba(255,255,255,0.05);
     }
     .autocomplete-item:not(:last-child) {
-      border-bottom: 1px solid #f3f3f3;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .toast {
       position: fixed;
@@ -538,8 +539,8 @@
       width: 12px;
       height: 12px;
       background: #111111;
-      border-left: 1px solid #E5E5E5;
-      border-top: 1px solid #E5E5E5;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid rgba(255,255,255,0.15);
       transform: rotate(45deg);
     }
     .nav-dropdown a,
@@ -617,7 +618,7 @@
   </style>
     <script src="https://js.puter.com/v2/"></script>
 </head>
-<body class="antialiased relative font-sans selection:bg-brand-highlight selection:text-black">
+<body class="antialiased relative font-sans selection:bg-brand-highlight selection:text-black" style="color-scheme: dark;">
 
   <div id="toast" class="toast"></div>
 
@@ -649,7 +650,7 @@
             <button onclick="exportPDF(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-pdf text-white/60" style="width:18px"></i> PDF Report</button>
           </div>
         </div>
-        <span class="w-px h-5 bg-[#E5E5E5] mx-1"></span>
+        <span class="w-px h-5 bg-white/10 mx-1"></span>
         <button onclick="showClearModal()" class="hover:text-red-600 transition-colors px-2.5 py-1.5 rounded-full hover:bg-red-50"><i class="fa-solid fa-trash-can mr-1"></i> Clear</button>
       </div>
       <!-- mobile menu toggle -->
@@ -711,7 +712,7 @@
         <p class="kpi-value text-brand-highlight" id="kpiPendingAmount">₹0</p>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">High Risk Aging</p>
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">90+ Days Aging</p>
         <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
@@ -728,7 +729,24 @@
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
         <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Calling List</p>
-        <p class="kpi-value text-red-600" id="kpiCallingList">0</p>
+        <p class="kpi-value" id="kpiCallingList">0</p>
+      </div>
+    </section>
+
+    <!-- AGING BUCKET SUMMARY -->
+    <section class="mb-6" id="agingBucketSection">
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 font-bold">Aging Bucket Summary</p>
+          <div class="flex items-center gap-2">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-white/60">Age Based On:</label>
+            <select id="ageBasisSelect" onchange="toggleAgeBasis()" class="min-w-[130px] text-xs">
+              <option value="dueDate">Due Date</option>
+              <option value="invoiceDate">Invoice Date</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="agingBucketGrid"></div>
       </div>
     </section>
 
@@ -741,23 +759,22 @@
         </select>
       </div>
       <div class="flex items-center gap-2">
-        <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Risk:</label>
-        <select id="filterRisk" onchange="applyFilters()" class="min-w-[150px]">
-          <option value="__all">All Risk Levels</option>
-          <option value="Low">Low (0-30d)</option>
-          <option value="Medium">Medium (31-60d)</option>
-          <option value="High">High (61-90d)</option>
-          <option value="Critical">Critical (90+d)</option>
+        <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Aging:</label>
+        <select id="filterAgingBucket" onchange="applyFilters()" class="min-w-[150px]">
+          <option value="__all">All Buckets</option>
+          <option value="Current (0-30d)">Current (0-30d)</option>
+          <option value="31-60 Days">31-60 Days</option>
+          <option value="61-90 Days">61-90 Days</option>
+          <option value="90+ Days">90+ Days</option>
         </select>
       </div>
       <div class="flex items-center gap-2">
         <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Call Status:</label>
         <select id="filterCallStatus" onchange="applyFilters()" class="min-w-[150px]">
           <option value="__all">All Statuses</option>
-          <option value="Not Called">Not Called</option>
-          <option value="Spoke to Client">Spoke to Client</option>
-          <option value="PTP - Promise to Pay">PTP</option>
-          <option value="Disputed Bill">Disputed Bill</option>
+          <option value="Not Called">Pending (Not Called)</option>
+          <option value="Completed">Completed</option>
+          <option value="Disputed Bill">Disputed</option>
           <option value="Unreachable">Unreachable</option>
         </select>
       </div>
@@ -768,15 +785,15 @@
     <!-- CHARTS -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 chart-grid" id="chartGrid">
       <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
-        <p class="chart-title mb-3 text-center">Aging Distribution</p>
+        <p class="chart-title mb-3 text-center">Aging Bucket Distribution</p>
         <canvas id="chartAging"></canvas>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
-        <p class="chart-title mb-3 text-center">Outstanding by Collector</p>
+        <p class="chart-title mb-3 text-center">Outstanding by Group</p>
         <canvas id="chartOutstandingByCollector"></canvas>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
-        <p class="chart-title mb-3 text-center">High Risk by Collector</p>
+        <p class="chart-title mb-3 text-center">90+ Days by Group</p>
         <canvas id="chartHighRiskByCollector"></canvas>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
@@ -788,7 +805,18 @@
     <!-- TOP 10 OVERDUE PARTIES -->
     <section class="mb-8" id="topOverdueSection">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-4 text-center font-bold">TOP 10 OVERDUE PARTIES</p>
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 font-bold">TOP OVERDUE PARTIES</p>
+          <div class="flex items-center gap-2">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-white/60">Show</label>
+            <select id="topOverdueLimit" onchange="changeTopOverdueLimit(this.value)" class="min-w-[90px] text-xs">
+              <option value="10">Top 10</option>
+              <option value="25">Top 25</option>
+              <option value="50">Top 50</option>
+              <option value="100">Top 100</option>
+            </select>
+          </div>
+        </div>
         <div class="overflow-x-auto">
           <table id="topOverdueTable">
             <thead>
@@ -797,7 +825,7 @@
                 <th>Party Name</th>
                 <th>Outstanding (₹)</th>
                 <th>Max Overdue (Days)</th>
-                <th>Risk Level</th>
+                <th>Aging Bucket</th>
                 <th>Invoices</th>
               </tr>
             </thead>
@@ -811,9 +839,9 @@
     <!-- TABS -->
     <section class="mb-4">
       <div class="flex border-b border-white/10">
-        <button class="tab-btn active" onclick="switchTab('ledger')" id="tabLedger"><i class="fa-solid fa-book mr-2"></i> Master Ledger</button>
-        <button class="tab-btn" onclick="switchTab('payment')" id="tabPayment"><i class="fa-solid fa-money-bill mr-2"></i> Payment Desk</button>
-        <button class="tab-btn" onclick="switchTab('calling')" id="tabCalling"><i class="fa-solid fa-phone mr-2"></i> Calling List</button>
+        <button class="tab-btn active" onclick="switchTab('ledger')" id="tabLedger"><i class="fa-solid fa-book mr-2"></i> Master Ledger <span id="badgeLedger" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-brand-highlight text-black ml-1"></span></button>
+        <button class="tab-btn" onclick="switchTab('payment')" id="tabPayment"><i class="fa-solid fa-money-bill mr-2"></i> Payment Desk <span id="badgePayment" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-white/10 text-white/70 ml-1"></span></button>
+        <button class="tab-btn" onclick="switchTab('calling')" id="tabCalling"><i class="fa-solid fa-phone mr-2"></i> Calling List <span id="badgeCalling" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-red-600 text-white ml-1"></span></button>
       </div>
     </section>
 
@@ -821,15 +849,15 @@
     <div id="panelLedger" class="tab-panel">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
-          <div class="input-wrapper flex-1 min-w-[200px]">
+          <div class="input-wrapper search-enhanced flex-1 min-w-[200px]">
             <i class="fa-solid fa-search input-icon"></i>
-            <input type="text" id="ledgerSearch" placeholder="Search by party, invoice, group..." oninput="renderLedger()" class="w-full">
+            <input type="text" id="ledgerSearch" placeholder="Search party, invoice, group..." oninput="debouncedRenderLedger()" class="w-full">
           </div>
           <select id="ledgerSort" onchange="renderLedger()">
             <option value="party">Sort: Party</option>
             <option value="amount">Sort: Amount</option>
             <option value="overdue">Sort: Overdue Days</option>
-            <option value="risk">Sort: Risk</option>
+            <option value="aging">Sort: Aging Bucket</option>
             <option value="date">Sort: Due Date</option>
           </select>
           <button class="sort-btn" id="ledgerSortDir" onclick="toggleLedgerSort()"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
@@ -848,13 +876,12 @@
                 <th>Group</th>
                 <th>Date</th>
                 <th>Due Date</th>
+                <th>Aging Bucket</th>
                 <th>Overdue</th>
-                <th>Risk</th>
                 <th>Original (₹)</th>
                 <th>Pending (₹)</th>
                 <th>Status</th>
                 <th>Call Status</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody id="ledgerBody"></tbody>
@@ -894,7 +921,10 @@
           </div>
         </div>
         <hr class="border-white/10 my-6">
-        <p class="text-sm uppercase tracking-widest text-white/60/70 mb-4"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Payment Log</p>
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-sm uppercase tracking-widest text-white/60/70"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Payment Log</p>
+          <button onclick="exportPaymentLogsExcel()" class="btn-primary text-xs whitespace-nowrap"><i class="fa-solid fa-file-excel mr-1"></i> Export Excel</button>
+        </div>
         <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
           <table>
             <thead>
@@ -910,24 +940,25 @@
     <div id="panelCalling" class="tab-panel" style="display:none">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
-          <div class="input-wrapper flex-1 min-w-[200px]">
+          <div class="input-wrapper search-enhanced flex-1 min-w-[200px]">
             <i class="fa-solid fa-search input-icon"></i>
-            <input type="text" id="callingSearch" placeholder="Search party, invoice, group..." oninput="renderCallingList()" class="w-full">
+            <input type="text" id="callingSearch" placeholder="Search party, invoice, group..." oninput="debouncedRenderCallingList()" class="w-full">
           </div>
           <select id="callingSort" onchange="renderCallingList()">
             <option value="overdue">Sort: Overdue Days</option>
+            <option value="aging">Sort: Aging Bucket</option>
             <option value="party">Sort: Party</option>
             <option value="amount">Sort: Amount</option>
-            <option value="risk">Sort: Risk</option>
+            <option value="group">Sort: Group</option>
           </select>
           <button class="sort-btn" id="callingSortDir" onclick="toggleCallingSort()"><i class="fa-solid fa-arrow-down-wide-short"></i></button>
+          <button onclick="exportCallingListExcel()" class="btn-primary text-xs whitespace-nowrap"><i class="fa-solid fa-file-excel mr-1"></i> Export Excel</button>
         </div>
         <div class="flex flex-wrap gap-1.5 mb-4 items-center">
           <span class="text-[11px] font-bold uppercase tracking-widest text-white/60 mr-2">Call Status:</span>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('__all')" id="callSubAll">All</button>
-          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Not Called')" id="callSubNotCalled">Not Called</button>
-          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Spoke to Client')" id="callSubSpoke">Spoke</button>
-          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('PTP - Promise to Pay')" id="callSubPTP">PTP</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Not Called')" id="callSubPending">Pending (Not Called)</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Completed')" id="callSubCompleted">Completed</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Disputed Bill')" id="callSubDisputed">Disputed</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Unreachable')" id="callSubUnreachable">Unreachable</button>
         </div>
@@ -940,7 +971,7 @@
                 <th>Group</th>
                 <th>Due Date</th>
                 <th>Overdue Days</th>
-                <th>Risk</th>
+                <th>Aging Bucket</th>
                 <th>Pending (₹)</th>
                 <th>Call Status</th>
                 <th>Actions</th>
@@ -1052,10 +1083,9 @@
       <div class="mb-3">
         <label class="text-xs font-bold uppercase tracking-widest text-white/60 block mb-1.5">Status</label>
         <select id="statusChangeSelect" class="w-full">
-          <option value="Not Called">Not Called</option>
-          <option value="Spoke to Client">Spoke to Client</option>
-          <option value="PTP - Promise to Pay">PTP - Promise to Pay</option>
-          <option value="Disputed Bill">Disputed Bill</option>
+          <option value="Not Called">Pending (Not Called)</option>
+          <option value="Completed">Completed</option>
+          <option value="Disputed Bill">Disputed</option>
           <option value="Unreachable">Unreachable</option>
         </select>
       </div>
@@ -1081,9 +1111,8 @@
     // Register datalabels plugin globally if available
     if (typeof ChartDataLabels !== 'undefined') {
       try { Chart.register(ChartDataLabels); } catch(e) { console.warn('DataLabels plugin registration failed:', e); }
-    Chart.defaults.color = '#a0a0a0';
-    Chart.defaults.scale.grid.color = 'rgba(255, 255, 255, 0.1)';
     }
+    Chart.defaults.color = '#a0a0a0';
 
     const COLORS = {
       low: '#22c55e',
@@ -1095,18 +1124,21 @@
       highlight: '#f3c623',
     };
 
-    const RISK_LABELS = ['Low', 'Medium', 'High', 'Critical'];
-    const RISK_RANGES = [
+    const AGING_BUCKET_LABELS = ['Current (0-30d)', '31-60 Days', '61-90 Days', '90+ Days'];
+    const AGING_BUCKET_RANGES = [
       { min: 0, max: 30 },
       { min: 31, max: 60 },
       { min: 61, max: 90 },
       { min: 91, max: Infinity }
     ];
+    const AGING_BUCKET_COLORS = ['#22c55e', '#eab308', '#f97316', '#ef4444'];
 
     let db = null;
     let currentCallingSubFilter = '__all';
     let currentUploadMode = null;
     let currentStatusChangeParty = null;
+    let ageBasis = 'dueDate'; // 'dueDate' or 'invoiceDate'
+    let topOverdueLimit = 10;
 
     // ============================================================
     // INDEXEDDB MANAGER
@@ -1247,16 +1279,29 @@
       return diff > 0 ? diff : 0;
     }
 
-    function getRiskLabel(overdueDays) {
-      for (let i = 0; i < RISK_RANGES.length; i++) {
-        if (overdueDays >= RISK_RANGES[i].min && overdueDays <= RISK_RANGES[i].max) return RISK_LABELS[i];
+    function calcAgeDays(inv) {
+      if (ageBasis === 'invoiceDate') {
+        if (!inv.invoiceDate) return 0;
+        let now = new Date();
+        now.setHours(0, 0, 0, 0);
+        let invDate = new Date(inv.invoiceDate);
+        invDate.setHours(0, 0, 0, 0);
+        let diff = Math.floor((now - invDate) / (1000 * 60 * 60 * 24));
+        return diff > 0 ? diff : 0;
       }
-      return 'Low';
+      return calcOverdueDays(inv.dueDate);
     }
 
-    function getRiskColor(risk) {
-      const map = { Low: COLORS.low, Medium: COLORS.medium, High: COLORS.high, Critical: COLORS.critical };
-      return map[risk] || COLORS.highlight;
+    function getAgingBucketLabel(ageDays) {
+      for (let i = 0; i < AGING_BUCKET_RANGES.length; i++) {
+        if (ageDays >= AGING_BUCKET_RANGES[i].min && ageDays <= AGING_BUCKET_RANGES[i].max) return AGING_BUCKET_LABELS[i];
+      }
+      return AGING_BUCKET_LABELS[0];
+    }
+
+    function getAgingBucketColor(bucket) {
+      let idx = AGING_BUCKET_LABELS.indexOf(bucket);
+      return idx >= 0 ? AGING_BUCKET_COLORS[idx] : '#22c55e';
     }
 
     function todayStr() {
@@ -1278,6 +1323,17 @@
         '0') + ' ' +
         String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
     }
+
+    // Debounce utility
+    function debounce(fn, ms) {
+      let timer;
+      return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), ms);
+      };
+    }
+    const debouncedRenderLedger = debounce(renderLedger, 300);
+    const debouncedRenderCallingList = debounce(renderCallingList, 300);
 
     // ============================================================
     // XLSX PARSER: MASTER REPORT
@@ -1402,7 +1458,7 @@
       let headerRowIdx = -1;
       for (let i = 0; i < Math.min(rows.length, 8); i++) {
         let row = rows[i];
-        if (row && row.some(c => String(c).trim() === 'S.No') && row.some(c => String(c).trim() === 'Customer Name')) {
+        if (row && row.some(c => String(c).trim() === 'S.No') && (row.some(c => String(c).trim() === 'Customer Name') || row.some(c => String(c).trim() === 'Party Name'))) {
           headerRowIdx = i;
           break;
         }
@@ -1472,10 +1528,11 @@
     // ============================================================
     function enrichInvoice(inv) {
       let overdue = calcOverdueDays(inv.dueDate);
+      let ageDays = calcAgeDays(inv);
       return Object.assign({}, inv, {
         _overdueDays: overdue,
-        _riskLabel: getRiskLabel(overdue),
-        _riskColor: getRiskColor(getRiskLabel(overdue))
+        _ageDays: ageDays,
+        _agingBucket: getAgingBucketLabel(ageDays)
       });
     }
 
@@ -1517,11 +1574,11 @@
       let pendingCount = 0;
       let overdueCount = 0;
       let totalOverdueDays = 0;
-      let criticalCount = 0;
-      let riskBuckets = { Low: 0, Medium: 0, High: 0, Critical: 0 };
+      let agingBuckets = {};
+      AGING_BUCKET_LABELS.forEach(l => { agingBuckets[l] = 0; });
       let groupMap = {};
       let groupOutstanding = {};
-      let groupHighRisk = {};
+      let group90Plus = {};
       let partySet = new Set();
       let partyExposure = {};
       let partyOverdueDays = {};
@@ -1539,14 +1596,13 @@
             totalOverdueDays += e._overdueDays;
             if (e._overdueDays > 30) callingListCount++;
           }
-          if (e._riskLabel === 'Critical') criticalCount++;
-          riskBuckets[e._riskLabel] = (riskBuckets[e._riskLabel] || 0) + e.pendingAmount;
+          agingBuckets[e._agingBucket] = (agingBuckets[e._agingBucket] || 0) + e.pendingAmount;
           partyExposure[e.partyName] = (partyExposure[e.partyName] || 0) + e.pendingAmount;
           partyOverdueDays[e.partyName] = Math.max(partyOverdueDays[e.partyName] || 0, e._overdueDays);
           partyInvoiceCount[e.partyName] = (partyInvoiceCount[e.partyName] || 0) + 1;
           groupOutstanding[e.groupName] = (groupOutstanding[e.groupName] || 0) + e.pendingAmount;
-          if (e._riskLabel === 'High' || e._riskLabel === 'Critical') {
-            groupHighRisk[e.groupName] = (groupHighRisk[e.groupName] || 0) + e.pendingAmount;
+          if (e._agingBucket === '90+ Days') {
+            group90Plus[e.groupName] = (group90Plus[e.groupName] || 0) + e.pendingAmount;
           }
         } else {
           totalPaidCount++;
@@ -1558,7 +1614,6 @@
       let sortedExposure = Object.entries(partyExposure)
         .map(([name, amt]) => ({ name, amount: amt, maxDays: partyOverdueDays[name] || 0, count: partyInvoiceCount[name] || 1 }))
         .sort((a, b) => b.amount - a.amount);
-      let top10 = sortedExposure.slice(0, 10);
 
       return {
         totalOutstanding,
@@ -1569,13 +1624,12 @@
         totalParties: partySet.size,
         overduePct: overdueCount > 0 ? (overdueCount / (invoices.filter(i => i.status !== 'Paid').length || 1)) * 100 : 0,
         avgOverdueDays: overdueCount > 0 ? Math.round(totalOverdueDays / overdueCount) : 0,
-        criticalCount,
         callingListCount,
-        riskBuckets,
+        agingBuckets,
         groups: Object.keys(groupMap).sort(),
-        top10Exposure: top10,
+        sortedExposure,
         groupOutstanding: Object.entries(groupOutstanding).sort((a, b) => b[1] - a[1]),
-        groupHighRisk: Object.entries(groupHighRisk).sort((a, b) => b[1] - a[1]),
+        group90Plus: Object.entries(group90Plus).sort((a, b) => b[1] - a[1]),
       };
     }
 
@@ -1639,7 +1693,7 @@
 
       if (mode === 'master') {
         title.textContent = 'Upload Master Report';
-        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Risk Level, Remarks, Status.';
+        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Remarks, Status.';
         hint.textContent = 'Supports .xlsx files (Master Report)';
       } else if (mode === 'payment') {
         title.textContent = 'Upload Payment Logs';
@@ -2169,6 +2223,28 @@
       renderPaymentLog();
     }
 
+    async function exportPaymentLogsExcel() {
+      let payments = await dbReadAll(STORES.payments);
+      let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
+      let rows = [['S.No', 'Date', 'Party Name', 'Invoice No', 'Amount', 'Remark']];
+      sorted.forEach((p, idx) => {
+        let d = p.date ? new Date(p.date).toLocaleDateString('en-IN') : '-';
+        rows.push([idx + 1, d, p.partyName || '', p.invoiceNo || '', p.amount || 0, p.remark || '']);
+      });
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.aoa_to_sheet(rows);
+      XLSX.utils.book_append_sheet(wb, ws, 'Payment Logs');
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let blob = new Blob([wbout], { type: 'application/octet-stream' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'PAYMENT_LOGS_' + todayStr() + '.xlsx';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Payment Logs exported as Excel');
+    }
+
     // ============================================================
     // CALL STATUS MANAGEMENT
     // ============================================================
@@ -2177,7 +2253,9 @@
       currentStatusChangeParty = partyName;
       document.getElementById('statusChangeParty').textContent = 'Party: ' + partyName;
       getCallLog(partyName).then(log => {
-        document.getElementById('statusChangeSelect').value = log ? log.currentStatus : 'Not Called';
+        let curStatus = log ? log.currentStatus : 'Not Called';
+        if (curStatus === 'Spoke to Client' || curStatus === 'PTP - Promise to Pay') curStatus = 'Completed';
+        document.getElementById('statusChangeSelect').value = curStatus;
         document.getElementById('statusChangeRemarks').value = '';
       });
       document.getElementById('statusChangeModal').classList.add('active');
@@ -2209,15 +2287,15 @@
       partyName = decodeURIComponent(partyName);
       let subject = `Overdue Invoice ${invoiceNo} - Payment Reminder`;
       let body =
-        `Dear ${partyName},%0D%0A%0D%0AThis is a reminder that invoice ${invoiceNo} is overdue by ${overdueDays} days.%0D%0A%0D%0APending Balance: ${fmtCurrency(pendingAmount)}%0D%0ADue Date: ${new Date().toLocaleDateString()}%0D%0A%0D%0APlease arrange payment at the earliest to avoid any credit hold.%0D%0A%0D%0AThank you.`;
-      let url = `mailto:${email || ''}?subject=${encodeURIComponent(subject)}&body=${body}`;
+        `Dear ${partyName},\r\n\r\nThis is a reminder that invoice ${invoiceNo} is overdue by ${overdueDays} days.\r\n\r\nPending Balance: ${fmtCurrency(pendingAmount)}\r\nDue Date: ${new Date().toLocaleDateString()}\r\n\r\nPlease arrange payment at the earliest to avoid any credit hold.\r\n\r\nThank you.`;
+      let url = `mailto:${email || ''}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.open(url, '_blank');
     }
 
     // ============================================================
     // FILTERS
     // ============================================================
-    let currentFilters = { group: '__all', risk: '__all', callStatus: '__all' };
+    let currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all' };
     let ledgerSortAsc = false;
     let callingSortAsc = false;
 
@@ -2231,19 +2309,30 @@
       document.getElementById('callingSortDir').innerHTML = callingSortAsc ? '<i class="fa-solid fa-arrow-up-wide-short"></i>' : '<i class="fa-solid fa-arrow-down-wide-short"></i>';
       renderCallingList();
     }
+    function toggleAgeBasis() {
+      ageBasis = document.getElementById('ageBasisSelect').value;
+      renderAgingBucketSummary();
+      renderLedger();
+      renderCallingList();
+    }
 
     function applyFilters() {
       currentFilters.group = document.getElementById('filterGroup').value;
-      currentFilters.risk = document.getElementById('filterRisk').value;
+      currentFilters.agingBucket = document.getElementById('filterAgingBucket').value;
       currentFilters.callStatus = document.getElementById('filterCallStatus').value;
       refreshDashboard();
     }
 
     function resetFilters() {
       document.getElementById('filterGroup').value = '__all';
-      document.getElementById('filterRisk').value = '__all';
+      document.getElementById('filterAgingBucket').value = '__all';
       document.getElementById('filterCallStatus').value = '__all';
-      currentFilters = { group: '__all', risk: '__all', callStatus: '__all' };
+      currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all' };
+      refreshDashboard();
+    }
+
+    function changeTopOverdueLimit(val) {
+      topOverdueLimit = parseInt(val) || 10;
       refreshDashboard();
     }
 
@@ -2251,8 +2340,8 @@
       currentCallingSubFilter = filter;
       // Update button active states
       document.querySelectorAll('[id^="callSub"]').forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('btn-secondary'); });
-      let map = { __all: 'callSubAll', 'Not Called': 'callSubNotCalled', 'Spoke to Client': 'callSubSpoke',
-        'PTP - Promise to Pay': 'callSubPTP', 'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
+      let map = { __all: 'callSubAll', 'Not Called': 'callSubPending', 'Completed': 'callSubCompleted',
+        'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
       let btn = document.getElementById(map[filter]);
       if (btn) { btn.classList.remove('btn-secondary'); btn.classList.add('bg-brand-primary', 'text-white'); }
       renderCallingList();
@@ -2260,12 +2349,17 @@
 
     function filterData(invoices, callLogs) {
       return invoices.filter(inv => {
+        let e = enrichInvoice(inv);
         if (currentFilters.group !== '__all' && inv.groupName !== currentFilters.group) return false;
-        if (currentFilters.risk !== '__all' && enrichInvoice(inv)._riskLabel !== currentFilters.risk) return false;
+        if (currentFilters.agingBucket !== '__all' && e._agingBucket !== currentFilters.agingBucket) return false;
         if (currentFilters.callStatus !== '__all') {
           let log = callLogs.find(c => c.partyName === inv.partyName);
           let cs = log ? log.currentStatus : 'Not Called';
-          if (cs !== currentFilters.callStatus) return false;
+          if (currentFilters.callStatus === 'Completed') {
+            if (cs !== 'Completed' && cs !== 'Spoke to Client' && cs !== 'PTP - Promise to Pay') return false;
+          } else if (cs !== currentFilters.callStatus) {
+            return false;
+          }
         }
         return true;
       });
@@ -2278,11 +2372,45 @@
       document.getElementById('kpiOutstanding').textContent = fmtCurrency(agg.totalOutstanding);
       document.getElementById('kpiCollected').textContent = fmtCurrency(agg.totalCollected);
       document.getElementById('kpiPendingAmount').textContent = fmtCurrency(agg.totalOutstanding);
-      document.getElementById('kpiHighRiskAmount').textContent = fmtCurrency((agg.riskBuckets.High || 0) + (agg.riskBuckets.Critical || 0));
+      document.getElementById('kpiHighRiskAmount').textContent = fmtCurrency(agg.agingBuckets['90+ Days'] || 0);
       document.getElementById('kpiPendingCount').textContent = agg.pendingCount;
       document.getElementById('kpiTotalInvoices').textContent = agg.totalInvoiceCount;
       document.getElementById('kpiPaidCount').textContent = agg.totalPaidCount;
-      document.getElementById('kpiCallingList').textContent = agg.callingListCount;
+      let callingEl = document.getElementById('kpiCallingList');
+      callingEl.textContent = agg.callingListCount;
+      callingEl.className = 'kpi-value ' + (agg.callingListCount > 0 ? 'text-red-600' : 'text-green-600');
+    }
+
+    async function renderAgingBucketSummary(invoices) {
+      if (!invoices) invoices = await getEnrichedInvoices();
+      let grid = document.getElementById('agingBucketGrid');
+      let buckets = {};
+      AGING_BUCKET_LABELS.forEach((l, i) => {
+        buckets[l] = { count: 0, amount: 0, color: AGING_BUCKET_COLORS[i], idx: i };
+      });
+      invoices.filter(i => i.status !== 'Paid').forEach(inv => {
+        let b = inv._agingBucket || getAgingBucketLabel(inv._ageDays);
+        if (buckets[b]) {
+          buckets[b].count++;
+          buckets[b].amount += inv.pendingAmount;
+        }
+      });
+      let totalAmt = Object.values(buckets).reduce((s, b) => s + b.amount, 0);
+      let totalCount = Object.values(buckets).reduce((s, b) => s + b.count, 0);
+      grid.innerHTML = AGING_BUCKET_LABELS.map(label => {
+        let b = buckets[label];
+        let pct = totalAmt > 0 ? ((b.amount / totalAmt) * 100).toFixed(1) : 0;
+        let barWidth = Math.max(pct, 2);
+        return `<div class="liquid-glass border border-white/10 rounded-xl p-3 md:p-4 text-center" style="border-left:4px solid ${b.color}">
+          <p class="text-[10px] uppercase tracking-widest font-bold" style="color:${b.color}">${label}</p>
+          <p class="text-lg md:text-xl font-extrabold mt-1" style="color:${b.color}">${fmtCurrency(b.amount)}</p>
+          <p class="text-xs text-white/60/70 mt-0.5">${b.count} invoice${b.count !== 1 ? 's' : ''}</p>
+          <div class="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
+            <div class="h-full rounded-full transition-all duration-500" style="width:${barWidth}%;background:${b.color}"></div>
+          </div>
+          <p class="text-[10px] text-white/60/50 mt-1">${pct}% of total</p>
+        </div>`;
+      }).join('');
     }
 
     // ============================================================
@@ -2304,9 +2432,9 @@
     function renderAgingChart(agg) {
       let ctx = document.getElementById('chartAging').getContext('2d');
       if (chartAging) chartAging.destroy();
-      let labels = ['Low (0-30d)', 'Medium (31-60d)', 'High (61-90d)', 'Critical (90+d)'];
-      let data = [agg.riskBuckets.Low || 0, agg.riskBuckets.Medium || 0, agg.riskBuckets.High || 0, agg.riskBuckets.Critical || 0];
-      let colors = [COLORS.low, COLORS.medium, COLORS.high, COLORS.critical];
+      let labels = AGING_BUCKET_LABELS;
+      let data = AGING_BUCKET_LABELS.map(l => agg.agingBuckets[l] || 0);
+      let colors = AGING_BUCKET_COLORS;
       let total = data.reduce((a, b) => a + b, 0);
 
       chartAging = new Chart(ctx, {
@@ -2358,8 +2486,8 @@
           onClick: (e, elements) => {
             if (elements.length > 0) {
               let idx = elements[0].index;
-              let riskMap = ['Low', 'Medium', 'High', 'Critical'];
-              document.getElementById('filterRisk').value = riskMap[idx];
+              let bucketMap = AGING_BUCKET_LABELS;
+              document.getElementById('filterAgingBucket').value = bucketMap[idx];
               applyFilters();
             }
           }
@@ -2437,7 +2565,7 @@
     function renderHighRiskByCollectorChart(agg) {
       let ctx = document.getElementById('chartHighRiskByCollector').getContext('2d');
       if (chartHighRiskByCollector) chartHighRiskByCollector.destroy();
-      let data = agg.groupHighRisk;
+      let data = agg.group90Plus;
       let labels = data.length ? data.map(d => d[0]) : ['No Data'];
       let values = data.length ? data.map(d => d[1]) : [0];
       let barColors = ['#dc2626', '#ef4444', '#f97316', '#b91c1c', '#991b1b'];
@@ -2447,7 +2575,7 @@
         data: {
           labels,
           datasets: [{
-            label: 'High Risk (₹)',
+            label: '90+ Days (₹)',
             data: values,
             backgroundColor: barColors.map(c => c + 'CC'),
             borderColor: barColors,
@@ -2503,13 +2631,18 @@
     function renderCallStatusChart(invoices, callLogs) {
       let ctx = document.getElementById('chartCallStatus').getContext('2d');
       if (chartCallStatus) chartCallStatus.destroy();
-      let statuses = ['Not Called', 'Spoke to Client', 'PTP - Promise to Pay', 'Disputed Bill', 'Unreachable'];
-      let counts = statuses.map(s => callLogs.filter(c => c.currentStatus === s).length);
+      let statuses = ['Not Called', 'Completed', 'Disputed Bill', 'Unreachable'];
+      let counts = statuses.map(s => {
+        if (s === 'Completed') {
+          return callLogs.filter(c => c.currentStatus === 'Completed' || c.currentStatus === 'Spoke to Client' || c.currentStatus === 'PTP - Promise to Pay').length;
+        }
+        return callLogs.filter(c => c.currentStatus === s).length;
+      });
       let parties = [...new Set(invoices.filter(i => i.status !== 'Paid').map(i => i.partyName))];
       let noLog = parties.filter(p => !callLogs.find(c => c.partyName === p)).length;
       let allLabels = [...statuses, 'No Log'];
       let allData = [...counts, noLog];
-      let allColors = ['#006466', COLORS.medium, COLORS.high, COLORS.critical, '#8B0000', '#555555'];
+      let allColors = ['#006466', '#22c55e', COLORS.critical, '#8B0000', '#555555'];
       let total = allData.reduce((a, b) => a + b, 0);
 
       chartCallStatus = new Chart(ctx, {
@@ -2564,22 +2697,25 @@
     function renderTopOverdueTable(agg) {
       let tbody = document.getElementById('topOverdueBody');
       let empty = document.getElementById('topOverdueEmpty');
-      let data = agg.top10Exposure;
-      if (!data || data.length === 0) {
+      let data = agg.sortedExposure || [];
+      let limited = data.slice(0, topOverdueLimit);
+      if (!limited || limited.length === 0) {
         tbody.innerHTML = '';
         empty.style.display = 'block';
         return;
       }
       empty.style.display = 'none';
-      tbody.innerHTML = data.map((d, i) => {
-        let riskColor = d.amount > 100000 ? '#ef4444' : d.amount > 50000 ? '#f97316' : d.amount > 10000 ? '#eab308' : '#22c55e';
+      tbody.innerHTML = limited.map((d, i) => {
+        let bucketIdx = d.maxDays > 90 ? 3 : d.maxDays > 60 ? 2 : d.maxDays > 30 ? 1 : 0;
+        let bucketColor = AGING_BUCKET_COLORS[bucketIdx] || '#22c55e';
+        let bucketLabel = AGING_BUCKET_LABELS[bucketIdx] || 'Current (0-30d)';
         let partyEsc = d.name.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m] || m));
         return `<tr>
           <td class="text-white/60/50 font-mono text-xs">${i + 1}</td>
           <td class="font-semibold">${partyEsc}</td>
           <td class="font-mono font-bold">${fmtCurrency(d.amount)}</td>
           <td class="text-white/60">${d.maxDays}d</td>
-          <td><span class="risk-badge" style="background:${riskColor}20;color:${riskColor};border:1px solid ${riskColor}40">${d.amount > 100000 ? 'Critical' : d.amount > 50000 ? 'High' : d.amount > 10000 ? 'Medium' : 'Low'}</span></td>
+          <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${bucketLabel}</span></td>
           <td class="text-white/60">${d.count}</td>
         </tr>`;
       }).join('');
@@ -2606,12 +2742,16 @@
       if (currentCallingSubFilter !== '__all') {
         filtered = filtered.filter(i => {
           let log = callLogs.find(c => c.partyName === i.partyName);
-          return (log ? log.currentStatus : 'Not Called') === currentCallingSubFilter;
+          let status = log ? log.currentStatus : 'Not Called';
+          if (currentCallingSubFilter === 'Completed') {
+            return status === 'Completed' || status === 'Spoke to Client' || status === 'PTP - Promise to Pay';
+          }
+          return status === currentCallingSubFilter;
         });
       }
 
       // Sorting
-      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', risk: '_riskLabel' };
+      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', aging: '_ageDays', group: 'groupName' };
       let key = sortKeys[sortField] || '_overdueDays';
       filtered.sort((a, b) => {
         let va = a[key], vb = b[key];
@@ -2647,9 +2787,9 @@
           <td><span class="text-xs">${gName}</span></td>
           <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
           <td class="text-center font-bold ${inv._overdueDays > 90 ? 'text-red-600' : ''}">${inv._overdueDays}d</td>
-          <td><span class="badge-${inv._riskLabel.toLowerCase()} px-2 py-0.5 rounded text-xs font-bold">${inv._riskLabel}</span></td>
+          <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${AGING_BUCKET_COLORS[AGING_BUCKET_LABELS.indexOf(inv._agingBucket)] || '#22c55e'}22;color:${AGING_BUCKET_COLORS[AGING_BUCKET_LABELS.indexOf(inv._agingBucket)] || '#22c55e'}">${inv._agingBucket}</span></td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
-          <td><span class="text-xs ${callStatus === 'Not Called' ? 'text-white/60/50' : 'text-green-600'}">${htmlEscape(callStatus)}</span></td>
+          <td><span class="text-xs ${callStatus === 'Not Called' ? 'text-white/60/50' : 'text-green-600'}">${callStatus === 'Not Called' ? 'Pending (Not Called)' : callStatus === 'Spoke to Client' || callStatus === 'PTP - Promise to Pay' || callStatus === 'Completed' ? 'Completed' : htmlEscape(callStatus)}</span></td>
           <td class="whitespace-nowrap">
             <button onclick="openStatusModal('${encodeURIComponent(inv.partyName)}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="Update Status"><i class="fa-solid fa-pen"></i></button>
             <button onclick="openWhatsApp('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.phone||'')}')" class="btn-secondary text-xs px-2 py-1 mr-1" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
@@ -2676,10 +2816,9 @@
               <div>
                 <p class="text-xs uppercase tracking-widest text-white/60/70 mb-2"><i class="fa-solid fa-pen-to-square mr-1"></i>Quick Update</p>
                 <select id="qStatus-${drawerId}" class="w-full text-xs mb-2">
-                  <option value="Not Called" ${callStatus === 'Not Called' ? 'selected' : ''}>Not Called</option>
-                  <option value="Spoke to Client" ${callStatus === 'Spoke to Client' ? 'selected' : ''}>Spoke to Client</option>
-                  <option value="PTP - Promise to Pay" ${callStatus === 'PTP - Promise to Pay' ? 'selected' : ''}>PTP</option>
-                  <option value="Disputed Bill" ${callStatus === 'Disputed Bill' ? 'selected' : ''}>Disputed Bill</option>
+                  <option value="Not Called" ${callStatus === 'Not Called' ? 'selected' : ''}>Pending (Not Called)</option>
+                  <option value="Completed" ${callStatus === 'Spoke to Client' || callStatus === 'PTP - Promise to Pay' ? 'selected' : ''}>Completed</option>
+                  <option value="Disputed Bill" ${callStatus === 'Disputed Bill' ? 'selected' : ''}>Disputed</option>
                   <option value="Unreachable" ${callStatus === 'Unreachable' ? 'selected' : ''}>Unreachable</option>
                 </select>
                 <textarea id="qRemarks-${drawerId}" rows="2" class="w-full text-xs mb-2" placeholder="Quick remarks..."></textarea>
@@ -2705,6 +2844,71 @@
       await refreshDashboard();
     }
 
+    async function exportCallingListExcel() {
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+      let search = document.getElementById('callingSearch').value.toLowerCase().trim();
+      let items = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid');
+      if (search) {
+        items = items.filter(i => i.partyName.toLowerCase().includes(search) ||
+          i.invoiceNo.toLowerCase().includes(search) ||
+          i.groupName.toLowerCase().includes(search));
+      }
+      if (currentCallingSubFilter !== '__all') {
+        items = items.filter(i => {
+          let log = callLogs.find(c => c.partyName === i.partyName);
+          let status = log ? log.currentStatus : 'Not Called';
+          if (currentCallingSubFilter === 'Completed') {
+            return status === 'Completed' || status === 'Spoke to Client' || status === 'PTP - Promise to Pay';
+          }
+          return status === currentCallingSubFilter;
+        });
+      }
+      let sortField = document.getElementById('callingSort').value;
+      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', aging: '_ageDays', group: 'groupName' };
+      let key = sortKeys[sortField] || '_overdueDays';
+      items.sort((a, b) => {
+        let va = a[key], vb = b[key];
+        if (typeof va === 'string') va = va.toLowerCase();
+        if (typeof vb === 'string') vb = vb.toLowerCase();
+        if (va < vb) return callingSortAsc ? -1 : 1;
+        if (va > vb) return callingSortAsc ? 1 : -1;
+        return 0;
+      });
+      let rows = [['S.No', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Outstanding Amount', 'Days Overdue', 'Aging Bucket', 'Status', 'Previous Remarks', 'Call Status', 'New Remark']];
+      items.forEach((inv, idx) => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        let callStatus = log ? log.currentStatus : 'Not Called';
+        let lastRemark = log && log.remarksHistory && log.remarksHistory.length > 0 ? log.remarksHistory[log.remarksHistory.length - 1].Text : '';
+        rows.push([
+          idx + 1,
+          inv.partyName,
+          inv.invoiceNo,
+          inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString('en-IN') : '',
+          inv.dueDate ? new Date(inv.dueDate).toLocaleDateString('en-IN') : '',
+          inv.pendingAmount,
+          inv._overdueDays,
+          inv._agingBucket,
+          inv.status,
+          lastRemark,
+          callStatus,
+          ''
+        ]);
+      });
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.aoa_to_sheet(rows);
+      XLSX.utils.book_append_sheet(wb, ws, 'Calling List');
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let blob = new Blob([wbout], { type: 'application/octet-stream' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'CALLING_LIST_' + todayStr() + '.xlsx';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Calling List exported as Excel');
+    }
+
     // ============================================================
     // MASTER LEDGER
     // ============================================================
@@ -2723,16 +2927,12 @@
         return true;
       });
 
-      // Apply global risk filter
-      if (currentFilters.risk !== '__all') {
-        filtered = filtered.filter(i => i._riskLabel === currentFilters.risk);
-      }
       if (currentFilters.group !== '__all') {
         filtered = filtered.filter(i => i.groupName === currentFilters.group);
       }
 
       // Sorting
-      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', risk: '_riskLabel', date: 'dueDate' };
+      let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', aging: '_ageDays', date: 'dueDate' };
       let key = sortKeys[sortField] || 'partyName';
       filtered.sort((a, b) => {
         let va = a[key], vb = b[key];
@@ -2745,7 +2945,7 @@
 
       let tbody = document.getElementById('ledgerBody');
       if (filtered.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="12" class="text-center text-white/60/50">No records found</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="11" class="text-center text-white/60/50">No records found</td></tr>';
         return;
       }
 
@@ -2754,30 +2954,27 @@
         let callStatus = log ? log.currentStatus : 'Not Called';
         let rowClass = '';
         if (inv.status === 'Paid') rowClass = 'row-paid';
-        else if (inv._riskLabel === 'Critical') rowClass = 'row-critical';
-        else if (inv._riskLabel === 'High') rowClass = 'row-high';
-        else if (inv._riskLabel === 'Medium') rowClass = 'row-medium';
+        else if (inv._agingBucket === '90+ Days') rowClass = 'row-critical';
+        else if (inv._agingBucket === '61-90 Days') rowClass = 'row-high';
+        else if (inv._agingBucket === '31-60 Days') rowClass = 'row-medium';
         let pName = htmlEscape(inv.partyName);
         let iNo = htmlEscape(inv.invoiceNo);
         let gName = htmlEscape(inv.groupName);
 
+        let bucketIdx = AGING_BUCKET_LABELS.indexOf(inv._agingBucket);
+        let bucketColor = bucketIdx >= 0 ? AGING_BUCKET_COLORS[bucketIdx] : '#22c55e';
         return `<tr class="${rowClass}">
           <td class="font-semibold">${pName}</td>
           <td class="font-mono text-sm">${iNo}</td>
           <td><span class="text-xs">${gName}</span></td>
           <td class="text-sm">${inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : 'N/A'}</td>
           <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
-          <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv._overdueDays}d</td>
-          <td><span class="badge-${inv._riskLabel.toLowerCase()} px-2 py-0.5 rounded text-xs font-bold">${inv._riskLabel}</span></td>
+          <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span></td>
+          <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv.status === 'Paid' ? '—' : inv._overdueDays + 'd'}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.originalAmount)}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
           <td><span class="badge-${inv.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${inv.status}</span></td>
-          <td><span class="text-xs">${htmlEscape(callStatus)}</span></td>
-          <td class="whitespace-nowrap">
-            <button onclick="openWhatsApp('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.phone||'')}')" class="btn-secondary text-xs px-2 py-1" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></button>
-            <button onclick="openEmail('${encodeURIComponent(inv.partyName)}','${encodeURIComponent(inv.invoiceNo)}',${inv.pendingAmount},${inv._overdueDays},'${encodeURIComponent(inv.email||'')}')" class="btn-secondary text-xs px-2 py-1" title="Email"><i class="fa-solid fa-envelope"></i></button>
-            <button onclick="openStatusModal('${encodeURIComponent(inv.partyName)}')" class="btn-secondary text-xs px-2 py-1" title="Call Status"><i class="fa-solid fa-phone"></i></button>
-          </td>
+          <td><span class="text-xs">${callStatus === 'Not Called' ? 'Pending (Not Called)' : callStatus === 'Spoke to Client' || callStatus === 'PTP - Promise to Pay' || callStatus === 'Completed' ? 'Completed' : htmlEscape(callStatus)}</span></td>
         </tr>`;
       }).join('');
     }
@@ -2798,12 +2995,12 @@
           'Group': inv.groupName,
           'Invoice Date': inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : '',
           'Due Date': inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : '',
+          'Aging Bucket': inv._agingBucket,
           'Overdue Days': inv._overdueDays,
-          'Risk Level': inv._riskLabel,
           'Original Amount': inv.originalAmount,
           'Pending Amount': inv.pendingAmount,
           'Status': inv.status,
-          'Call Status': log ? log.currentStatus : 'Not Called',
+          'Call Status': log ? (log.currentStatus === 'Not Called' ? 'Pending (Not Called)' : log.currentStatus === 'Spoke to Client' || log.currentStatus === 'PTP - Promise to Pay' ? 'Completed' : log.currentStatus) : 'Pending (Not Called)',
           'Phone': inv.phone || '',
           'Email': inv.email || '',
         };
@@ -2831,75 +3028,192 @@
       let callLogs = await getCallLogs();
       let agg = computeAggregations(invoices);
 
-      // Title
-      doc.setFontSize(22);
-      doc.setTextColor(243, 198, 35);
-      doc.text('Skylimit AR Aging Dashboard', 20, 20);
+      const PAGE_W = doc.internal.pageSize.getWidth();
+      const PAGE_H = doc.internal.pageSize.getHeight();
+      const MARGIN = 20;
+      const COLORS = { gold: [243, 198, 35], dark: [26, 26, 26], gray: [123, 123, 123], white: [255, 255, 255], lightBg: [245, 245, 245] };
 
-      doc.setFontSize(10);
-      doc.setTextColor(123, 123, 123);
-      doc.text('Generated: ' + nowStr(), 20, 28);
-
-      // KPI Summary
-      doc.setFontSize(12);
-      doc.setTextColor(34, 34, 34);
-      doc.text('Executive Summary', 20, 40);
-      doc.setFontSize(10);
-      doc.setTextColor(34, 34, 34);
-      doc.text('Total Outstanding: ' + fmtCurrency(agg.totalOutstanding), 20, 48);
-      doc.text('Total Parties: ' + agg.totalParties, 100, 48);
-      doc.text('Overdue %: ' + agg.overduePct.toFixed(1) + '%', 180, 48);
-      doc.text('Avg Overdue Days: ' + agg.avgOverdueDays, 260, 48);
-      doc.text('Critical Items: ' + agg.criticalCount, 20, 56);
-
-      // Risk Buckets
-      doc.text('Low Risk: ' + fmtCurrency(agg.riskBuckets.Low || 0), 100, 56);
-      doc.text('Medium Risk: ' + fmtCurrency(agg.riskBuckets.Medium || 0), 180, 56);
-      doc.text('High Risk: ' + fmtCurrency(agg.riskBuckets.High || 0), 20, 64);
-      doc.text('Critical Risk: ' + fmtCurrency(agg.riskBuckets.Critical || 0), 100, 64);
-
-      // Top 10 Exposure
-      doc.setFontSize(12);
-      doc.setTextColor(34, 34, 34);
-      doc.text('Top 10 Exposure', 20, 78);
-      doc.setFontSize(9);
-      doc.setTextColor(123, 123, 123);
-
-      let y = 86;
-      if (agg.top10Exposure.length > 0) {
-        for (let i = 0; i < Math.min(agg.top10Exposure.length, 10); i++) {
-          doc.text((i + 1) + '. ' + agg.top10Exposure[i].name + ': ' + fmtCurrency(agg.top10Exposure[i].amount), 20, y);
-          y += 6;
+      // Helper: add page footer
+      const addFooter = () => {
+        let pageCount = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= pageCount; i++) {
+          doc.setPage(i);
+          doc.setFontSize(7);
+          doc.setTextColor(...COLORS.gray);
+          doc.text('Skylimit AR Aging Dashboard — Generated ' + nowStr(), MARGIN, PAGE_H - 10);
+          doc.text('Page ' + i + ' of ' + pageCount, PAGE_W - MARGIN, PAGE_H - 10, { align: 'right' });
         }
-      }
+      };
 
-      // Invoice Table
-      let tableData = invoices.map(inv => {
-        let log = callLogs.find(c => c.partyName === inv.partyName);
-        return [
-          inv.partyName,
-          inv.invoiceNo,
-          inv._overdueDays + 'd',
-          inv._riskLabel,
-          fmtCurrency(inv.pendingAmount),
-          inv.status,
-          log ? log.currentStatus : 'Not Called'
-        ];
+      // --- PAGE 1: HEADER ---
+      doc.setFillColor(...COLORS.dark);
+      doc.rect(0, 0, PAGE_W, 45, 'F');
+      doc.setFontSize(26);
+      doc.setTextColor(...COLORS.gold);
+      doc.text('Skylimit AR Aging Dashboard', MARGIN, 22);
+      doc.setFontSize(10);
+      doc.setTextColor(...COLORS.gray);
+      doc.text('AR Aging Report | Generated: ' + nowStr(), MARGIN, 34);
+      doc.setDrawColor(...COLORS.gold);
+      doc.setLineWidth(0.5);
+      doc.line(MARGIN, 42, PAGE_W - MARGIN, 42);
+
+      // --- EXECUTIVE SUMMARY (KPI Table) ---
+      let y = 55;
+      doc.setFontSize(14);
+      doc.setTextColor(...COLORS.dark);
+      doc.text('Executive Summary', MARGIN, y);
+      y += 8;
+
+      let kpiData = [
+        ['Total Outstanding', fmtCurrency(agg.totalOutstanding)],
+        ['Total Collected', fmtCurrency(agg.totalCollected)],
+        ['Pending Invoices', agg.pendingCount.toString()],
+        ['90+ Days Aging', fmtCurrency(agg.agingBuckets['90+ Days'] || 0)],
+        ['Total Invoices', agg.totalInvoiceCount.toString()],
+        ['Paid Invoices', agg.totalPaidCount.toString()],
+        ['Total Parties', agg.totalParties.toString()],
+        ['Calling List Items', agg.callingListCount.toString()],
+        ['Overdue %', agg.overduePct.toFixed(1) + '%'],
+        ['Avg Overdue Days', agg.avgOverdueDays.toString()],
+      ];
+
+      doc.autoTable({
+        startY: y,
+        body: kpiData,
+        columns: [
+          { header: 'Metric', dataKey: 0 },
+          { header: 'Value', dataKey: 1 },
+        ],
+        theme: 'grid',
+        headStyles: { fillColor: [...COLORS.dark], textColor: [...COLORS.white], fontSize: 9, fontStyle: 'bold' },
+        bodyStyles: { textColor: [...COLORS.dark], fontSize: 9 },
+        alternateRowStyles: { fillColor: [...COLORS.lightBg] },
+        styles: { cellPadding: 3, lineColor: [220, 220, 220] },
+        tableWidth: 240,
+        margin: { left: MARGIN },
+        columnStyles: { 0: { cellWidth: 140 }, 1: { cellWidth: 100, halign: 'right', fontStyle: 'bold' } },
+      });
+
+      // --- AGING BUCKET BREAKDOWN ---
+      y = doc.lastAutoTable.finalY + 12;
+      doc.setFontSize(14);
+      doc.setTextColor(...COLORS.dark);
+      doc.text('Aging Bucket Breakdown', MARGIN, y);
+      y += 8;
+
+      let bucketTotal = Object.values(agg.agingBuckets).reduce((s, v) => s + v, 0);
+      let bucketRows = AGING_BUCKET_LABELS.map((l, i) => {
+        let amt = agg.agingBuckets[l] || 0;
+        let pct = bucketTotal > 0 ? ((amt / bucketTotal) * 100).toFixed(1) : '0.0';
+        return [l, fmtCurrency(amt), pct + '%'];
+      });
+      bucketRows.push(['Total', fmtCurrency(bucketTotal), '100.0%']);
+
+      doc.autoTable({
+        startY: y,
+        body: bucketRows,
+        columns: [
+          { header: 'Aging Bucket', dataKey: 0 },
+          { header: 'Outstanding (₹)', dataKey: 1 },
+          { header: '% of Total', dataKey: 2 },
+        ],
+        theme: 'grid',
+        headStyles: { fillColor: [...COLORS.dark], textColor: [...COLORS.white], fontSize: 9, fontStyle: 'bold' },
+        bodyStyles: { textColor: [...COLORS.dark], fontSize: 9 },
+        alternateRowStyles: { fillColor: [...COLORS.lightBg] },
+        styles: { cellPadding: 3, lineColor: [220, 220, 220] },
+        tableWidth: 240,
+        margin: { left: MARGIN },
+        columnStyles: { 0: { cellWidth: 100 }, 1: { cellWidth: 80, halign: 'right' }, 2: { cellWidth: 60, halign: 'right' } },
+        didParseCell: (data) => {
+          if (data.row.index === bucketRows.length - 1) {
+            data.cell.styles.fontStyle = 'bold';
+            data.cell.styles.fillColor = [243, 198, 35, 0.15];
+          }
+        },
+      });
+
+      // --- TOP 10 OVERDUE PARTIES ---
+      y = doc.lastAutoTable.finalY + 12;
+      doc.setFontSize(14);
+      doc.setTextColor(...COLORS.dark);
+      doc.text('Top 10 Overdue Parties', MARGIN, y);
+      y += 8;
+
+      let top10Rows = (agg.sortedExposure || []).slice(0, 10).map((d, i) => {
+        let bucketIdx = d.maxDays > 90 ? 3 : d.maxDays > 60 ? 2 : d.maxDays > 30 ? 1 : 0;
+        return [(i + 1).toString(), d.name, fmtCurrency(d.amount), d.maxDays + 'd', AGING_BUCKET_LABELS[bucketIdx], d.count.toString()];
       });
 
       doc.autoTable({
-        startY: y + 10,
-        head: [
-          ['Party Name', 'Invoice No', 'Overdue', 'Risk', 'Pending', 'Status', 'Call Status']
+        startY: y,
+        body: top10Rows.length > 0 ? top10Rows : [['—', 'No overdue data', '—', '—', '—', '—']],
+        columns: [
+          { header: '#', dataKey: 0 },
+          { header: 'Party Name', dataKey: 1 },
+          { header: 'Outstanding (₹)', dataKey: 2 },
+          { header: 'Max Overdue', dataKey: 3 },
+          { header: 'Aging Bucket', dataKey: 4 },
+          { header: 'Invoices', dataKey: 5 },
         ],
-        body: tableData,
         theme: 'grid',
-        headStyles: { fillColor: [34, 34, 34], textColor: [255, 255, 255], fontSize: 8 },
-        bodyStyles: { textColor: [34, 34, 34], fontSize: 7 },
-        alternateRowStyles: { fillColor: [248, 248, 248] },
-        styles: { cellPadding: 2, lineColor: [229, 229, 229] },
+        headStyles: { fillColor: [...COLORS.dark], textColor: [...COLORS.white], fontSize: 8, fontStyle: 'bold' },
+        bodyStyles: { textColor: [...COLORS.dark], fontSize: 8 },
+        alternateRowStyles: { fillColor: [...COLORS.lightBg] },
+        styles: { cellPadding: 2.5, lineColor: [220, 220, 220] },
+        tableWidth: 240,
+        margin: { left: MARGIN },
+        columnStyles: { 0: { cellWidth: 12, halign: 'center' }, 1: { cellWidth: 72 }, 2: { cellWidth: 52, halign: 'right' }, 3: { cellWidth: 28, halign: 'center' }, 4: { cellWidth: 48 }, 5: { cellWidth: 28, halign: 'center' } },
       });
 
+      // --- FULL INVOICE LEDGER ---
+      if (invoices.length > 0) {
+        if (doc.lastAutoTable.finalY > PAGE_H - 60) {
+          doc.addPage();
+        }
+        y = (doc.lastAutoTable.finalY > PAGE_H - 60 ? MARGIN : doc.lastAutoTable.finalY + 12);
+        doc.setFontSize(14);
+        doc.setTextColor(...COLORS.dark);
+        doc.text('Invoice Ledger', MARGIN, y);
+        y += 8;
+
+        let tableData = invoices.map(inv => {
+          let log = callLogs.find(c => c.partyName === inv.partyName);
+          let cs = log ? log.currentStatus : 'Not Called';
+          if (cs === 'Spoke to Client' || cs === 'PTP - Promise to Pay') cs = 'Completed';
+          return [
+            inv.partyName,
+            inv.invoiceNo,
+            inv._overdueDays + 'd',
+            inv._agingBucket,
+            fmtCurrency(inv.pendingAmount),
+            inv.status,
+            cs
+          ];
+        });
+
+        doc.autoTable({
+          startY: y,
+          head: [['Party Name', 'Invoice No', 'Overdue', 'Aging Bucket', 'Pending (₹)', 'Status', 'Call Status']],
+          body: tableData,
+          theme: 'grid',
+          headStyles: { fillColor: [...COLORS.dark], textColor: [...COLORS.white], fontSize: 7, fontStyle: 'bold' },
+          bodyStyles: { textColor: [...COLORS.dark], fontSize: 7 },
+          alternateRowStyles: { fillColor: [...COLORS.lightBg] },
+          styles: { cellPadding: 2, lineColor: [220, 220, 220] },
+          margin: { left: MARGIN, right: MARGIN },
+          tableWidth: 'auto',
+          didDrawPage: (data) => {
+            // Section header on new pages
+            doc.setFontSize(9);
+            doc.setTextColor(...COLORS.dark);
+            doc.text('Invoice Ledger (continued)', MARGIN, data.cursor.y - 2);
+          },
+        });
+      }
+
+      addFooter();
       doc.save('skylimit-ardb-' + todayStr() + '.pdf');
       showToast('PDF exported successfully');
     }
@@ -2928,6 +3242,20 @@
       if (tab === 'calling') renderCallingList();
       else if (tab === 'ledger') renderLedger();
       else if (tab === 'payment') { renderPaymentLog(); setDefaultPaymentDate(); }
+      updateTabBadges();
+    }
+
+    async function updateTabBadges() {
+      let invoices = await getEnrichedInvoices();
+      let payments = await dbReadAll(STORES.payments);
+      let badgeLedger = document.getElementById('badgeLedger');
+      let badgePayment = document.getElementById('badgePayment');
+      let badgeCalling = document.getElementById('badgeCalling');
+      let ledgerCount = invoices.filter(i => i.status !== 'Paid').length;
+      let callingCount = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid').length;
+      if (ledgerCount > 0) { badgeLedger.textContent = ledgerCount; badgeLedger.classList.remove('hidden'); } else badgeLedger.classList.add('hidden');
+      if (payments.length > 0) { badgePayment.textContent = payments.length; badgePayment.classList.remove('hidden'); } else badgePayment.classList.add('hidden');
+      if (callingCount > 0) { badgeCalling.textContent = callingCount; badgeCalling.classList.remove('hidden'); } else badgeCalling.classList.add('hidden');
     }
 
     // ============================================================
@@ -2952,6 +3280,9 @@
       let agg = computeAggregations(filtered);
       renderKPI(agg);
 
+      // Aging Bucket Summary (uses filtered data to stay consistent with KPIs)
+      renderAgingBucketSummary(filtered);
+
       // Record count
       document.getElementById('recordCount').textContent = filtered.length + ' records';
 
@@ -2969,6 +3300,7 @@
 
       // Update record count for filtered view
       document.getElementById('recordCount').textContent = filtered.length + ' records';
+      updateTabBadges();
     }
 
     // ============================================================
@@ -2992,7 +3324,10 @@
         zone.classList.remove('dragover');
         let file = e.dataTransfer.files[0];
         if (file) {
-          document.getElementById('fileInput').files = e.dataTransfer.files;
+          let input = document.getElementById('fileInput');
+          let dt = new DataTransfer();
+          dt.items.add(file);
+          input.files = dt.files;
           handleFileSelect({ target: { files: [file] } });
         }
       });
@@ -3061,5 +3396,9 @@
 
     init();
   </script>
+
+  <footer class="text-center text-xs text-white/40 pb-6">
+    This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a>
+  </footer>
 </body>
 </html>
