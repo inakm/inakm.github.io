@@ -270,6 +270,18 @@
     .row-critical {
       background-color: rgba(220, 38, 38, 0.1) !important;
     }
+    .col-filter-btn {
+      background: none; border: none; color: #7B7B7B; cursor: pointer; padding: 2px 4px; margin-left: 2px; border-radius: 4px; vertical-align: middle; transition: all 0.15s;
+    }
+    .col-filter-btn:hover { background: rgba(255,255,255,0.1); color: #f3c623; }
+    .col-filter-popup {
+      background: #1e1e1e; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 4px 0; min-width: 160px; z-index: 1000; box-shadow: 0 8px 32px rgba(0,0,0,0.5); max-height: 240px; overflow-y: auto;
+    }
+    .col-filter-opt {
+      padding: 6px 14px; font-size: 0.75rem; color: #d0d0d0; cursor: pointer; transition: background 0.1s; white-space: nowrap;
+    }
+    .col-filter-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .col-filter-opt.active { color: #f3c623; font-weight: 600; }
     .drawer-content {
       display: none;
     }
@@ -648,6 +660,9 @@
             <button onclick="exportSyncFile(); closeDropdown('outputDropdown')"><i class="fa-solid fa-cloud-arrow-up text-white/60" style="width:18px"></i> Sync JSON</button>
             <button onclick="exportCSV(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-csv text-white/60" style="width:18px"></i> CSV Report</button>
             <button onclick="exportPDF(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-pdf text-white/60" style="width:18px"></i> PDF Report</button>
+            <div class="h-px bg-white/10 my-1"></div>
+            <button onclick="exportInvoiceAgingReport(); closeDropdown('outputDropdown')"><i class="fa-solid fa-file-invoice text-white/60" style="width:18px"></i> Invoice Aging Report</button>
+            <button onclick="exportVendorPaymentTrends(); closeDropdown('outputDropdown')"><i class="fa-solid fa-chart-line text-white/60" style="width:18px"></i> Payment Trends Report</button>
           </div>
         </div>
         <span class="w-px h-5 bg-white/10 mx-1"></span>
@@ -671,6 +686,8 @@
         <button onclick="exportSyncFile(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-cloud-arrow-up w-5 text-white/60"></i> Sync JSON</button>
         <button onclick="exportCSV(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-csv w-5 text-white/60"></i> CSV Report</button>
         <button onclick="exportPDF(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-pdf w-5 text-white/60"></i> PDF Report</button>
+        <button onclick="exportInvoiceAgingReport(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-invoice w-5 text-white/60"></i> Invoice Aging Report</button>
+        <button onclick="exportVendorPaymentTrends(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-chart-line w-5 text-white/60"></i> Payment Trends Report</button>
         <hr class="border-white/10 my-1">
         <button onclick="showClearModal(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-red-50 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-600"><i class="fa-solid fa-trash-can w-5"></i> Clear Database</button>
       </div>
@@ -696,6 +713,35 @@
   </header>
 
   <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20 relative z-10">
+
+    <!-- ZERO-STATE GUIDANCE -->
+    <section id="zeroState" class="liquid-glass border border-white/10 rounded-2xl p-8 md:p-12 mb-6 text-center">
+      <div class="max-w-lg mx-auto">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-brand-highlight/10 border border-brand-highlight/20 flex items-center justify-center">
+          <i class="fa-solid fa-file-invoice text-2xl text-brand-highlight"></i>
+        </div>
+        <h2 class="text-xl md:text-2xl font-bold text-white mb-2">Get Started with AR Tracking</h2>
+        <p class="text-sm text-white/60/70 mb-6">Upload your Tally ERP reports to start monitoring receivables in real-time.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-left">
+          <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+            <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">1</span></div>
+            <p class="text-xs font-bold text-white uppercase tracking-wide">Export from Tally</p>
+            <p class="text-xs text-white/60/60 mt-1">From Tally ERP, go to <strong>Display → Statement of Accounts → Outstanding</strong> and export as Excel.</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+            <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">2</span></div>
+            <p class="text-xs font-bold text-white uppercase tracking-wide">Upload Master Report</p>
+            <p class="text-xs text-white/60/60 mt-1">Click <strong>Input → Master Report</strong> in the nav bar and select your exported Excel file.</p>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+            <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">3</span></div>
+            <p class="text-xs font-bold text-white uppercase tracking-wide">Track &amp; Collect</p>
+            <p class="text-xs text-white/60/60 mt-1">View aging, log payments, update call statuses, and export reports — all in your browser.</p>
+          </div>
+        </div>
+        <button onclick="showUploadModal('master')" class="btn-primary text-sm"><i class="fa-solid fa-upload mr-2"></i> Upload Master Report Now</button>
+      </div>
+    </section>
 
     <!-- KPI CARDS -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 kpi-grid" id="kpiSection">
@@ -731,8 +777,13 @@
         <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Calling List</p>
         <p class="kpi-value" id="kpiCallingList">0</p>
       </div>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Today Collected</p>
+        <p class="kpi-value text-green-600" id="kpiTodayCollected">₹0</p>
+      </div>
     </section>
 
+    <div id="dashboardContent">
     <!-- AGING BUCKET SUMMARY -->
     <section class="mb-6" id="agingBucketSection">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
@@ -873,15 +924,15 @@
               <tr>
                 <th>Party Name</th>
                 <th>Invoice No</th>
-                <th>Group</th>
+                <th>Group <button class="col-filter-btn" data-col="group" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Date</th>
                 <th>Due Date</th>
-                <th>Aging Bucket</th>
+                <th>Aging Bucket <button class="col-filter-btn" data-col="agingBucket" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Overdue</th>
                 <th>Original (₹)</th>
                 <th>Pending (₹)</th>
-                <th>Status</th>
-                <th>Call Status</th>
+                <th>Status <button class="col-filter-btn" data-col="status" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
+                <th>Call Status <button class="col-filter-btn" data-col="callStatus" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
               </tr>
             </thead>
             <tbody id="ledgerBody"></tbody>
@@ -921,8 +972,14 @@
           </div>
         </div>
         <hr class="border-white/10 my-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
           <p class="text-sm uppercase tracking-widest text-white/60/70"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Payment Log</p>
+          <div class="flex items-center gap-2 flex-1 max-w-xs">
+            <div class="input-wrapper search-enhanced w-full">
+              <i class="fa-solid fa-search input-icon"></i>
+              <input type="text" id="paymentSearch" placeholder="Search party, invoice, remark..." oninput="debouncedRenderPaymentLog()" class="w-full">
+            </div>
+          </div>
           <button onclick="exportPaymentLogsExcel()" class="btn-primary text-xs whitespace-nowrap"><i class="fa-solid fa-file-excel mr-1"></i> Export Excel</button>
         </div>
         <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
@@ -959,6 +1016,7 @@
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('__all')" id="callSubAll">All</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Not Called')" id="callSubPending">Pending (Not Called)</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Completed')" id="callSubCompleted">Completed</button>
+          <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Follow-up')" id="callSubFollowup">Follow-up</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Disputed Bill')" id="callSubDisputed">Disputed</button>
           <button class="btn-secondary text-[11px] px-3 py-1.5" onclick="filterCallingSub('Unreachable')" id="callSubUnreachable">Unreachable</button>
         </div>
@@ -968,12 +1026,12 @@
               <tr>
                 <th>Party Name</th>
                 <th>Invoice No</th>
-                <th>Group</th>
+                <th>Group <button class="col-filter-btn" data-col="group" data-table="calling" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Due Date</th>
                 <th>Overdue Days</th>
-                <th>Aging Bucket</th>
+                <th>Aging Bucket <button class="col-filter-btn" data-col="agingBucket" data-table="calling" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Pending (₹)</th>
-                <th>Call Status</th>
+                <th>Call Status <button class="col-filter-btn" data-col="callStatus" data-table="calling" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -983,6 +1041,60 @@
         <p class="text-center text-white/60/50 text-sm mt-4" id="callingEmptyMsg">No overdue items. All caught up!</p>
       </div>
     </div>
+
+    <!-- ADVANCED METRICS -->
+    <section class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-6 mt-10" id="advancedMetricsSection">
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">DSO (Days)</p>
+        <p class="kpi-value text-brand-highlight" id="kpiDSO">0</p>
+      </div>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">CEI (%)</p>
+        <p class="kpi-value text-green-600" id="kpiCEI">0%</p>
+      </div>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Avg Days Delinquent</p>
+        <p class="kpi-value" id="kpiADD">0</p>
+      </div>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">90+ Delinquency %</p>
+        <p class="kpi-value text-red-600" id="kpiDelRatio">0%</p>
+      </div>
+      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Bad Debt Risk (₹)</p>
+        <p class="kpi-value text-red-600" id="kpiBadDebt">₹0</p>
+      </div>
+    </section>
+
+    </div><!-- /dashboardContent -->
+
+    <!-- GUIDE SECTION -->
+    <details class="mt-10 mb-4 liquid-glass border border-white/10 rounded-2xl overflow-hidden" id="guideSection">
+      <summary class="p-4 md:p-5 cursor-pointer flex items-center justify-between text-sm font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors">
+        <span><i class="fa-solid fa-circle-question mr-2 text-brand-highlight"></i> How This Dashboard Works</span>
+        <i class="fa-solid fa-chevron-down text-xs text-white/40"></i>
+      </summary>
+      <div class="px-4 md:px-5 pb-5 text-xs md:text-sm text-white/70 leading-relaxed space-y-3">
+        <p><strong class="text-white">What is Accounts Receivable (AR) Aging?</strong> AR aging categorizes unpaid invoices by how long they've been outstanding. It helps you identify which customers are paying on time and which ones need follow-up.</p>
+        <p><strong class="text-white">How to use this dashboard:</strong></p>
+        <ol class="list-decimal pl-5 space-y-1">
+          <li><strong class="text-white">Upload</strong> your Master Report from Tally ERP (Input → Master Report) to populate the ledger with all invoices.</li>
+          <li><strong class="text-white">Upload</strong> Payment Logs (Input → Payment Logs) or log payments manually in the Payment Desk tab to track what's been collected.</li>
+          <li><strong class="text-white">Upload</strong> a Calling List (Input → Calling List) to sync call statuses and remarks from your collection team.</li>
+          <li><strong class="text-white">Use the Calling List tab</strong> to prioritize follow-ups on invoices overdue &gt;30 days. Update call statuses after each interaction.</li>
+          <li><strong class="text-white">Export reports</strong> (Output → CSV/PDF/Sync JSON) to share with stakeholders or archive daily snapshots.</li>
+        </ol>
+        <p><strong class="text-white">Tips for better cash flow:</strong></p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Focus on <strong class="text-red-400">90+ Day</strong> aging items first — these have the highest risk of becoming bad debt.</li>
+          <li>Use WhatsApp/Email buttons in the Calling List to send quick payment reminders.</li>
+          <li>Track the <strong class="text-brand-highlight">Today Collected</strong> KPI daily to measure collection team performance.</li>
+          <li>Log all payments promptly to keep the DSO (Days Sales Outstanding) metric accurate.</li>
+          <li>Export and backup your data via Sync JSON regularly — all data is stored only in your browser.</li>
+        </ul>
+        <p class="text-white/50 text-xs pt-2 border-t border-white/5">Data source: Tally ERP. All processing happens locally in your browser — nothing is uploaded to any server.</p>
+      </div>
+    </details>
 
     <!-- PRIVACY NOTICE -->
     <div class="mt-10 flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/5/40">
@@ -1324,6 +1436,13 @@
         String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
     }
 
+    function fmtDate(d) {
+      if (!d) return '';
+      let dt = new Date(d);
+      if (isNaN(dt)) return '';
+      return dt.getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][dt.getMonth()] + '-' + String(dt.getFullYear()).slice(-2);
+    }
+
     // Debounce utility
     function debounce(fn, ms) {
       let timer;
@@ -1334,6 +1453,7 @@
     }
     const debouncedRenderLedger = debounce(renderLedger, 300);
     const debouncedRenderCallingList = debounce(renderCallingList, 300);
+    const debouncedRenderPaymentLog = debounce(renderPaymentLog, 300);
 
     // ============================================================
     // XLSX PARSER: MASTER REPORT
@@ -1363,7 +1483,7 @@
       let colDue = findCol(['Due Date', 'Due_Date']);
       let colAmt = findCol(['Invoice Amount', 'Invoice_Amount']);
       let colPaid = findCol(['Paid Amount', 'Paid_Amount']);
-      let colPending = findCol(['Outstanding Amount', 'Outstanding_Amount']);
+      let colPending = findCol(['Pending Amount', 'Outstanding Amount', 'Outstanding_Amount']);
       let colGroup = findCol(['Source Sheet', 'Source_Sheet']);
       let colStatus = findCol(['Status', ' Status']);
       let colRemarks = findCol(['Remarks']);
@@ -1481,13 +1601,13 @@
       let iInv = colIndex(['Invoice No', 'Invoice_No', 'Invoice Number']);
       let iInvDate = colIndex(['Invoice Date', 'Date']);
       let iDue = colIndex(['Due Date', 'Due_Date']);
-      let iAmt = colIndex(['Outstanding Amount', 'Amount', 'Pending Amount']);
+      let iAmt = colIndex(['Pending Amount', 'Outstanding Amount', 'Amount']);
       let iOD = colIndex(['Days Overdue', 'Overdue Days', 'Overdue']);
       let iBucket = colIndex(['Aging Bucket', 'Bucket']);
       let iStatus = colIndex(['Status']);
       let iPrevRem = colIndex(['Previous Remarks', 'Remarks']);
-      let iCallStatus = colIndex(['Call Status']);
-      let iNewRem = colIndex(['New Remark', 'Remark']);
+      let iCallStatus = colIndex(['Calling Status', 'Call Status']);
+      let iNewRem = colIndex(['New Remarks', 'New Remark', 'Remark']);
 
       let items = [];
       for (let row of dataRows) {
@@ -1503,6 +1623,10 @@
         let status = iStatus !== -1 ? String(row[iStatus] || '').trim() : 'PENDING';
         let prevRemarks = iPrevRem !== -1 ? String(row[iPrevRem] || '').trim() : '';
         let callStatus = iCallStatus !== -1 ? String(row[iCallStatus] || '').trim() : 'Not Called';
+        // Normalize Excel calling statuses to dashboard categories
+        if (callStatus === 'Disputed') callStatus = 'Disputed Bill';
+        else if (callStatus === 'Pending') callStatus = 'Not Called';
+        else if (callStatus === '') callStatus = 'Not Called';
         let newRemark = iNewRem !== -1 ? String(row[iNewRem] || '').trim() : '';
 
         items.push({
@@ -1568,6 +1692,7 @@
     // ============================================================
     function computeAggregations(invoices) {
       let totalOutstanding = 0;
+      let totalOriginalAmount = 0;
       let totalCollected = 0;
       let totalInvoiceCount = invoices.length;
       let totalPaidCount = 0;
@@ -1587,6 +1712,7 @@
 
       for (let inv of invoices) {
         let e = enrichInvoice(inv);
+        totalOriginalAmount += e.originalAmount;
         if (e.status !== 'Paid') {
           totalOutstanding += e.pendingAmount;
           pendingCount++;
@@ -1611,12 +1737,19 @@
         groupMap[e.groupName] = (groupMap[e.groupName] || 0) + 1;
       }
 
+      let dso = totalOriginalAmount > 0 ? Math.round((totalOutstanding / totalOriginalAmount) * 365) : 0;
+      let cei = (totalOutstanding + totalCollected) > 0 ? Math.round((totalCollected / (totalOutstanding + totalCollected)) * 100) : 0;
+      let add = overdueCount > 0 ? Math.round(totalOverdueDays / overdueCount) : 0;
+      let delRatio90 = totalOutstanding > 0 ? parseFloat(((agingBuckets['90+ Days'] || 0) / totalOutstanding * 100).toFixed(1)) : 0;
+      let badDebt = (agingBuckets['Current (0-30d)'] || 0) * 0.01 + (agingBuckets['31-60 Days'] || 0) * 0.10 + (agingBuckets['61-90 Days'] || 0) * 0.25 + (agingBuckets['90+ Days'] || 0) * 0.50;
+
       let sortedExposure = Object.entries(partyExposure)
         .map(([name, amt]) => ({ name, amount: amt, maxDays: partyOverdueDays[name] || 0, count: partyInvoiceCount[name] || 1 }))
         .sort((a, b) => b.amount - a.amount);
 
       return {
         totalOutstanding,
+        totalOriginalAmount,
         totalCollected,
         totalInvoiceCount,
         totalPaidCount,
@@ -1625,6 +1758,11 @@
         overduePct: overdueCount > 0 ? (overdueCount / (invoices.filter(i => i.status !== 'Paid').length || 1)) * 100 : 0,
         avgOverdueDays: overdueCount > 0 ? Math.round(totalOverdueDays / overdueCount) : 0,
         callingListCount,
+        dso,
+        cei,
+        add,
+        delRatio90,
+        badDebt,
         agingBuckets,
         groups: Object.keys(groupMap).sort(),
         sortedExposure,
@@ -1693,7 +1831,7 @@
 
       if (mode === 'master') {
         title.textContent = 'Upload Master Report';
-        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Remarks, Status.';
+        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Pending Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Remarks, Status.';
         hint.textContent = 'Supports .xlsx files (Master Report)';
       } else if (mode === 'payment') {
         title.textContent = 'Upload Payment Logs';
@@ -1701,7 +1839,7 @@
         hint.textContent = 'Supports .xlsx files (Payment Logs)';
       } else if (mode === 'calling') {
         title.textContent = 'Upload Calling List';
-        desc.textContent = 'Upload the CALLING_LIST.xlsx — reads columns from the data header row: S.No, Customer Name, Invoice No, Invoice Date, Due Date, Outstanding Amount, Days Overdue, Aging Bucket, Status, Previous Remarks, Call Status, New Remark.';
+        desc.textContent = 'Upload the CALLING_LIST.xlsx — reads columns from the data header row: S.No, Customer Name, Invoice No, Invoice Date, Due Date, Pending Amount, Days Overdue, Calling Status, Previous Remarks, New Remarks.';
         hint.textContent = 'Supports .xlsx files (Calling List)';
       } else if (mode === 'sync') {
         title.textContent = 'Import Sync File';
@@ -1746,22 +1884,28 @@
     // ============================================================
     function parseExcelDate(val) {
       if (!val) return null;
-      if (val instanceof Date && !isNaN(val)) return val;
+      if (val instanceof Date && !isNaN(val)) {
+        // Add 12h to avoid XLSX near-midnight timezone artifacts (~10s offset from IST)
+        let adj = new Date(val.getTime() + 12 * 60 * 60 * 1000);
+        return new Date(adj.getFullYear(), adj.getMonth(), adj.getDate());
+      }
       if (typeof val === 'number') {
-        let d = new Date(Date.UTC(1899, 11, 30));
-        d.setUTCDate(d.getUTCDate() + val);
-        return d;
+        let d = new Date(1899, 11, 30);
+        d.setDate(d.getDate() + val);
+        let adj = new Date(d.getTime() + 12 * 60 * 60 * 1000);
+        return new Date(adj.getFullYear(), adj.getMonth(), adj.getDate());
       }
       let str = String(val).trim();
       if (!str) return null;
-      let d = new Date(str);
-      if (!isNaN(d)) return d;
+      if (/^\d{4}-\d{2}-\d{2}$/.test(str)) {
+        let parts = str.split('-');
+        return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+      }
       let parts = str.split(/[-\/.]/);
       if (parts.length === 3) {
         let y = parseInt(parts[2]), m = parseInt(parts[1]) - 1, day = parseInt(parts[0]);
         if (y < 100) y += 2000;
-        d = new Date(y, m, day);
-        if (!isNaN(d)) return d;
+        return new Date(y, m, day);
       }
       return null;
     }
@@ -1793,7 +1937,6 @@
           existing.invoiceDate = inv.invoiceDate;
           existing.groupName = inv.groupName;
           existing.status = inv.status;
-          if (existing.status === 'Paid' && existing.pendingAmount > 0) existing.status = 'Unpaid';
           await dbWrite(STORES.invoices, existing);
           updated++;
         }
@@ -1852,29 +1995,15 @@
       if (items.length === 0) return;
 
       let updated = 0, newLogs = 0;
+      let partyCallStatus = {}; // track best status per party across multiple invoice rows
       for (let item of items) {
         let inv = await dbRead(STORES.invoices, item.invoiceNo);
-        if (inv) {
-          // Update call status from calling list
-          if (item.callStatus && item.callStatus !== 'Not Called') {
-            let existing = await getCallLog(inv.partyName);
-            if (!existing) {
-              await upsertCallLog(inv.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
-              newLogs++;
-            } else if (existing.currentStatus !== item.callStatus) {
-              await upsertCallLog(inv.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
-              updated++;
-            }
-          }
-        } else {
-          // Invoice not in DB yet — create a placeholder so Calling List can display it
+        if (!inv) {
           let dueDate = item.dueDate || item.invoiceDate || new Date();
           if (!item.dueDate && item.invoiceDate) {
-            // Approximate due date from invoice date + 30 days if not given
             dueDate = new Date(item.invoiceDate);
             dueDate.setDate(dueDate.getDate() + 30);
           }
-          // Add as unpaid invoice to show in calling list
           await dbWrite(STORES.invoices, {
             invoiceNo: item.invoiceNo,
             partyName: item.partyName,
@@ -1890,15 +2019,43 @@
           });
         }
 
-        // Sync call status from calling list
-        if (item.callStatus && item.callStatus !== 'Not Called' && item.partyName) {
-          let cl = await getCallLog(item.partyName);
-          if (!cl) {
-            await upsertCallLog(item.partyName, item.callStatus, 'Agent', item.newRemark || item.previousRemarks || '');
+        // Track best (non-default) call status per party
+        if (item.partyName && item.callStatus && item.callStatus !== 'Not Called') {
+          partyCallStatus[item.partyName] = item.callStatus;
+        }
+      }
+
+      // Apply call status and remarks to call logs per party
+      for (let item of items) {
+        if (!item.partyName) continue;
+        let status = partyCallStatus[item.partyName] || item.callStatus || 'Not Called';
+        let existing = await getCallLog(item.partyName);
+        let combinedRemark = item.newRemark || item.previousRemarks || '';
+        if (!existing) {
+          // Always create a call log so the calling status is preserved
+          await upsertCallLog(item.partyName, status, 'Import', combinedRemark);
+          newLogs++;
+        } else if (existing) {
+          let hasNewInfo = false;
+          if (status !== 'Not Called' && existing.currentStatus !== status) {
+            existing.currentStatus = status;
+            hasNewInfo = true;
+          }
+          if (combinedRemark) {
+            let last = existing.remarksHistory && existing.remarksHistory.length > 0 ? existing.remarksHistory[existing.remarksHistory.length - 1] : null;
+            if (!last || last.Text !== combinedRemark) {
+              if (!existing.remarksHistory) existing.remarksHistory = [];
+              existing.remarksHistory.push({ Timestamp: nowStr(), Agent: 'Import', Status: status, Text: combinedRemark });
+              hasNewInfo = true;
+            }
+          }
+          if (hasNewInfo) {
+            await dbWrite(STORES.callLogs, existing);
+            updated++;
           }
         }
       }
-      showToast(`Calling List: ${newLogs} new call logs, ${updated} updated`);
+      showToast(`Calling List: ${newLogs} new logs, ${updated} updated`);
       await refreshDashboard();
     }
 
@@ -2112,7 +2269,7 @@
       let inv = await dbRead(STORES.invoices, invNo);
       if (!inv) { showToast('Invoice not found', true); return; }
 
-      let pmtDate = date ? new Date(date) : new Date();
+      let pmtDate = date ? new Date(date + 'T00:00:00') : new Date();
       let pmtRecord = {
         partyName: party,
         invoiceNo: invNo,
@@ -2136,14 +2293,23 @@
 
     function renderPaymentLog() {
       dbReadAll(STORES.payments).then(payments => {
-        let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
+        let search = (document.getElementById('paymentSearch')?.value || '').toLowerCase().trim();
+        let filtered = payments.slice();
+        if (search) {
+          filtered = filtered.filter(p =>
+            (p.partyName || '').toLowerCase().includes(search) ||
+            (p.invoiceNo || '').toLowerCase().includes(search) ||
+            (p.remark || '').toLowerCase().includes(search)
+          );
+        }
+        let sorted = filtered.sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
         let tbody = document.getElementById('paymentLogBody');
         if (sorted.length === 0) {
           tbody.innerHTML = '<tr><td colspan="6" class="text-center text-white/60/50">No payments recorded yet</td></tr>';
           return;
         }
         tbody.innerHTML = sorted.map(p => {
-          let d = p.date ? new Date(p.date).toLocaleDateString() : '-';
+          let d = p.date ? fmtDate(p.date) : '-';
           let pName = htmlEscape(p.partyName);
           let iNo = htmlEscape(p.invoiceNo);
           let remark = htmlEscape(p.remark || '');
@@ -2226,20 +2392,22 @@
     async function exportPaymentLogsExcel() {
       let payments = await dbReadAll(STORES.payments);
       let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
-      let rows = [['S.No', 'Date', 'Party Name', 'Invoice No', 'Amount', 'Remark']];
+      let rows = [['Date', 'Party Name', 'Amount', 'Remark', 'Invoice']];
       sorted.forEach((p, idx) => {
-        let d = p.date ? new Date(p.date).toLocaleDateString('en-IN') : '-';
-        rows.push([idx + 1, d, p.partyName || '', p.invoiceNo || '', p.amount || 0, p.remark || '']);
+          let d = p.date ? fmtDate(p.date) : '';
+        let amt = p.amount || 0;
+        let amtStr = Number.isInteger(amt) ? amt.toString() : amt.toFixed(2);
+        rows.push([d, p.partyName || '', amtStr, p.remark || '', p.invoiceNo || '']);
       });
       let wb = XLSX.utils.book_new();
       let ws = XLSX.utils.aoa_to_sheet(rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'Payment Logs');
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
       let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
       a.href = url;
-      a.download = 'PAYMENT_LOGS_' + todayStr() + '.xlsx';
+      a.download = 'PAYMENTS_' + todayStr() + '.xlsx';
       a.click();
       URL.revokeObjectURL(url);
       showToast('Payment Logs exported as Excel');
@@ -2287,7 +2455,7 @@
       partyName = decodeURIComponent(partyName);
       let subject = `Overdue Invoice ${invoiceNo} - Payment Reminder`;
       let body =
-        `Dear ${partyName},\r\n\r\nThis is a reminder that invoice ${invoiceNo} is overdue by ${overdueDays} days.\r\n\r\nPending Balance: ${fmtCurrency(pendingAmount)}\r\nDue Date: ${new Date().toLocaleDateString()}\r\n\r\nPlease arrange payment at the earliest to avoid any credit hold.\r\n\r\nThank you.`;
+        `Dear ${partyName},\r\n\r\nThis is a reminder that invoice ${invoiceNo} is overdue by ${overdueDays} days.\r\n\r\nPending Balance: ${fmtCurrency(pendingAmount)}\r\nDue Date: ${fmtDate(new Date())}\r\n\r\nPlease arrange payment at the earliest to avoid any credit hold.\r\n\r\nThank you.`;
       let url = `mailto:${email || ''}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.open(url, '_blank');
     }
@@ -2295,7 +2463,7 @@
     // ============================================================
     // FILTERS
     // ============================================================
-    let currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all' };
+    let currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all', status: '__all' };
     let ledgerSortAsc = false;
     let callingSortAsc = false;
 
@@ -2320,6 +2488,7 @@
       currentFilters.group = document.getElementById('filterGroup').value;
       currentFilters.agingBucket = document.getElementById('filterAgingBucket').value;
       currentFilters.callStatus = document.getElementById('filterCallStatus').value;
+      currentFilters.status = document.getElementById('ledgerStatusFilter').value;
       refreshDashboard();
     }
 
@@ -2327,7 +2496,8 @@
       document.getElementById('filterGroup').value = '__all';
       document.getElementById('filterAgingBucket').value = '__all';
       document.getElementById('filterCallStatus').value = '__all';
-      currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all' };
+      document.getElementById('ledgerStatusFilter').value = '__all';
+      currentFilters = { group: '__all', agingBucket: '__all', callStatus: '__all', status: '__all' };
       refreshDashboard();
     }
 
@@ -2341,7 +2511,7 @@
       // Update button active states
       document.querySelectorAll('[id^="callSub"]').forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('btn-secondary'); });
       let map = { __all: 'callSubAll', 'Not Called': 'callSubPending', 'Completed': 'callSubCompleted',
-        'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
+        'Follow-up': 'callSubFollowup', 'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
       let btn = document.getElementById(map[filter]);
       if (btn) { btn.classList.remove('btn-secondary'); btn.classList.add('bg-brand-primary', 'text-white'); }
       renderCallingList();
@@ -2352,6 +2522,7 @@
         let e = enrichInvoice(inv);
         if (currentFilters.group !== '__all' && inv.groupName !== currentFilters.group) return false;
         if (currentFilters.agingBucket !== '__all' && e._agingBucket !== currentFilters.agingBucket) return false;
+        if (currentFilters.status !== '__all' && inv.status !== currentFilters.status) return false;
         if (currentFilters.callStatus !== '__all') {
           let log = callLogs.find(c => c.partyName === inv.partyName);
           let cs = log ? log.currentStatus : 'Not Called';
@@ -2363,6 +2534,66 @@
         }
         return true;
       });
+    }
+
+    // Column filter dropdown (Excel-like)
+    async function toggleColFilter(ev) {
+      ev.stopPropagation();
+      let btn = ev.currentTarget;
+      let col = btn.dataset.col;
+      let table = btn.dataset.table;
+      let existing = btn.parentNode.querySelector('.col-filter-popup');
+      if (existing) { existing.remove(); return; }
+
+      let options;
+      let currentVal;
+      if (col === 'group') {
+        currentVal = currentFilters.group;
+        options = [{ value: '__all', label: '(All)' }];
+        // Populate from known groups (async but cache)
+        let allInv = await dbReadAll(STORES.invoices);
+        let groups = [...new Set(allInv.map(i => i.groupName).filter(Boolean))].sort();
+        groups.forEach(g => options.push({ value: g, label: g }));
+      } else if (col === 'agingBucket') {
+        currentVal = currentFilters.agingBucket;
+        options = [{ value: '__all', label: '(All)' }, 'Current (0-30d)', '31-60 Days', '61-90 Days', '90+ Days'].map(v => typeof v === 'string' ? { value: v, label: v } : v);
+      } else if (col === 'callStatus') {
+        currentVal = currentFilters.callStatus;
+        options = [{ value: '__all', label: '(All)' }, { value: 'Not Called', label: 'Pending (Not Called)' }, { value: 'Completed', label: 'Completed' }, { value: 'Disputed Bill', label: 'Disputed' }, { value: 'Unreachable', label: 'Unreachable' }];
+      } else if (col === 'status') {
+        currentVal = currentFilters.status;
+        options = [{ value: '__all', label: '(All)' }, { value: 'Unpaid', label: 'Unpaid' }, { value: 'Paid', label: 'Paid' }];
+      }
+
+      let popup = document.createElement('div');
+      popup.className = 'col-filter-popup';
+      popup.innerHTML = options.map(o =>
+        `<div class="col-filter-opt${o.value === currentVal ? ' active' : ''}" data-value="${o.value}">${o.label}</div>`
+      ).join('');
+
+      popup.querySelectorAll('.col-filter-opt').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          let val = el.dataset.value;
+          if (col === 'group') { currentFilters.group = val; document.getElementById('filterGroup').value = val; }
+          else if (col === 'agingBucket') { currentFilters.agingBucket = val; document.getElementById('filterAgingBucket').value = val; }
+          else if (col === 'callStatus') { currentFilters.callStatus = val; document.getElementById('filterCallStatus').value = val; }
+          else if (col === 'status') { currentFilters.status = val; document.getElementById('ledgerStatusFilter').value = val; }
+          popup.remove();
+          refreshDashboard();
+        });
+      });
+
+      // Position below the button
+      let rect = btn.getBoundingClientRect();
+      popup.style.position = 'fixed';
+      popup.style.top = (rect.bottom + 4) + 'px';
+      popup.style.left = Math.max(8, Math.min(rect.left, window.innerWidth - 180)) + 'px';
+      document.body.appendChild(popup);
+
+      // Close on outside click
+      let close = (e) => { if (!popup.contains(e.target) && e.target !== btn) { popup.remove(); document.removeEventListener('click', close); } };
+      setTimeout(() => document.addEventListener('click', close), 10);
     }
 
     // ============================================================
@@ -2379,6 +2610,12 @@
       let callingEl = document.getElementById('kpiCallingList');
       callingEl.textContent = agg.callingListCount;
       callingEl.className = 'kpi-value ' + (agg.callingListCount > 0 ? 'text-red-600' : 'text-green-600');
+      document.getElementById('kpiTodayCollected').textContent = fmtCurrency(agg.todayCollected || 0);
+      document.getElementById('kpiDSO').textContent = agg.dso || 0;
+      document.getElementById('kpiCEI').textContent = (agg.cei || 0) + '%';
+      document.getElementById('kpiADD').textContent = agg.add || 0;
+      document.getElementById('kpiDelRatio').textContent = (agg.delRatio90 || 0) + '%';
+      document.getElementById('kpiBadDebt').textContent = fmtCurrency(Math.round(agg.badDebt || 0));
     }
 
     async function renderAgingBucketSummary(invoices) {
@@ -2530,7 +2767,7 @@
             datalabels: {
               anchor: 'end',
               align: 'end',
-              color: '#222222',
+              color: '#d0d0d0',
               font: { size: 11, weight: '700' },
               formatter: v => '₹' + Number(v).toLocaleString('en-IN')
             },
@@ -2547,12 +2784,12 @@
           },
           scales: {
             x: {
-              ticks: { color: '#7B7B7B', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
-              grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
+              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
+              grid: { color: 'rgba(255,255,255,0.06)', drawBorder: false },
               border: { display: false }
             },
             y: {
-              ticks: { color: '#222222', font: { size: 11, weight: '700' } },
+              ticks: { color: '#d0d0d0', font: { size: 11, weight: '700' } },
               grid: { display: false },
               border: { display: false }
             }
@@ -2596,7 +2833,7 @@
             datalabels: {
               anchor: 'end',
               align: 'end',
-              color: '#222222',
+              color: '#d0d0d0',
               font: { size: 11, weight: '700' },
               formatter: v => '₹' + Number(v).toLocaleString('en-IN')
             },
@@ -2613,12 +2850,12 @@
           },
           scales: {
             x: {
-              ticks: { color: '#7B7B7B', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
-              grid: { color: 'rgba(0,0,0,0.06)', drawBorder: false },
+              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
+              grid: { color: 'rgba(255,255,255,0.06)', drawBorder: false },
               border: { display: false }
             },
             y: {
-              ticks: { color: '#222222', font: { size: 11, weight: '700' } },
+              ticks: { color: '#d0d0d0', font: { size: 11, weight: '700' } },
               grid: { display: false },
               border: { display: false }
             }
@@ -2631,18 +2868,21 @@
     function renderCallStatusChart(invoices, callLogs) {
       let ctx = document.getElementById('chartCallStatus').getContext('2d');
       if (chartCallStatus) chartCallStatus.destroy();
-      let statuses = ['Not Called', 'Completed', 'Disputed Bill', 'Unreachable'];
+      let callingParties = [...new Set(invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30).map(i => i.partyName))];
+      let relevantLogs = callLogs.filter(c => callingParties.includes(c.partyName));
+      let statuses = ['Not Called', 'Completed', 'Follow-up', 'Disputed Bill', 'Unreachable'];
       let counts = statuses.map(s => {
         if (s === 'Completed') {
-          return callLogs.filter(c => c.currentStatus === 'Completed' || c.currentStatus === 'Spoke to Client' || c.currentStatus === 'PTP - Promise to Pay').length;
+          return relevantLogs.filter(c => c.currentStatus === 'Completed' || c.currentStatus === 'Spoke to Client' || c.currentStatus === 'PTP - Promise to Pay').length;
         }
-        return callLogs.filter(c => c.currentStatus === s).length;
+        return relevantLogs.filter(c => c.currentStatus === s).length;
       });
-      let parties = [...new Set(invoices.filter(i => i.status !== 'Paid').map(i => i.partyName))];
-      let noLog = parties.filter(p => !callLogs.find(c => c.partyName === p)).length;
-      let allLabels = [...statuses, 'No Log'];
-      let allData = [...counts, noLog];
-      let allColors = ['#006466', '#22c55e', COLORS.critical, '#8B0000', '#555555'];
+      let withLog = new Set(relevantLogs.map(c => c.partyName));
+      let noLog = callingParties.filter(p => !withLog.has(p)).length;
+      let allLabels = statuses.slice();
+      let allData = counts.slice();
+      if (noLog > 0) { allLabels.push('No Log'); allData.push(noLog); }
+      let allColors = ['#006466', '#22c55e', '#f59e0b', '#dc2626', '#8B0000', '#555555'];
       let total = allData.reduce((a, b) => a + b, 0);
 
       chartCallStatus = new Chart(ctx, {
@@ -2729,7 +2969,25 @@
       let callLogs = await getCallLogs();
       let search = document.getElementById('callingSearch').value.toLowerCase().trim();
       let sortField = document.getElementById('callingSort').value;
-      let filtered = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid');
+      let filtered = invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30);
+
+      // Apply column filters
+      if (currentFilters.group !== '__all') {
+        filtered = filtered.filter(i => i.groupName === currentFilters.group);
+      }
+      if (currentFilters.agingBucket !== '__all') {
+        filtered = filtered.filter(i => i._agingBucket === currentFilters.agingBucket);
+      }
+      if (currentFilters.callStatus !== '__all') {
+        filtered = filtered.filter(i => {
+          let log = callLogs.find(c => c.partyName === i.partyName);
+          let status = log ? log.currentStatus : 'Not Called';
+          if (currentFilters.callStatus === 'Completed') {
+            return status === 'Completed' || status === 'Spoke to Client' || status === 'PTP - Promise to Pay';
+          }
+          return status === currentFilters.callStatus;
+        });
+      }
 
       // Apply search
       if (search) {
@@ -2780,12 +3038,16 @@
         let pName = htmlEscape(inv.partyName);
         let iNo = htmlEscape(inv.invoiceNo);
         let gName = htmlEscape(inv.groupName);
+        let rowClass = '';
+        if (inv._agingBucket === '90+ Days') rowClass = 'row-critical';
+        else if (inv._agingBucket === '61-90 Days') rowClass = 'row-high';
+        else if (inv._agingBucket === '31-60 Days') rowClass = 'row-medium';
 
-        return `<tr>
+        return `<tr class="${rowClass}">
           <td class="font-semibold">${pName}</td>
           <td class="font-mono text-sm">${iNo}</td>
           <td><span class="text-xs">${gName}</span></td>
-          <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
+          <td class="text-sm">${inv.dueDate ? fmtDate(inv.dueDate) : 'N/A'}</td>
           <td class="text-center font-bold ${inv._overdueDays > 90 ? 'text-red-600' : ''}">${inv._overdueDays}d</td>
           <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${AGING_BUCKET_COLORS[AGING_BUCKET_LABELS.indexOf(inv._agingBucket)] || '#22c55e'}22;color:${AGING_BUCKET_COLORS[AGING_BUCKET_LABELS.indexOf(inv._agingBucket)] || '#22c55e'}">${inv._agingBucket}</span></td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
@@ -2847,8 +3109,9 @@
     async function exportCallingListExcel() {
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
+      let allPayments = await dbReadAll(STORES.payments);
       let search = document.getElementById('callingSearch').value.toLowerCase().trim();
-      let items = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid');
+      let items = invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30);
       if (search) {
         items = items.filter(i => i.partyName.toLowerCase().includes(search) ||
           i.invoiceNo.toLowerCase().includes(search) ||
@@ -2875,23 +3138,32 @@
         if (va > vb) return callingSortAsc ? 1 : -1;
         return 0;
       });
-      let rows = [['S.No', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Outstanding Amount', 'Days Overdue', 'Aging Bucket', 'Status', 'Previous Remarks', 'Call Status', 'New Remark']];
+      let rows = [['S.No', 'Source Sheet', 'Date', 'Invoice No', 'Invoice Amount', 'Customer Name', 'Pending Amount', 'Due Date', 'Paid Amount', 'Outstanding Amount', 'Days Overdue', 'Calling Status', 'Previous Remarks', 'New Remarks']];
       items.forEach((inv, idx) => {
         let log = callLogs.find(c => c.partyName === inv.partyName);
-        let callStatus = log ? log.currentStatus : 'Not Called';
+        let rawStatus = log ? log.currentStatus : 'Not Called';
+        let callStatus = rawStatus === 'Spoke to Client' || rawStatus === 'PTP - Promise to Pay' ? 'Completed' : rawStatus;
         let lastRemark = log && log.remarksHistory && log.remarksHistory.length > 0 ? log.remarksHistory[log.remarksHistory.length - 1].Text : '';
+        let invPayments = allPayments.filter(p => p.invoiceNo === inv.invoiceNo);
+        let totalPaid = invPayments.reduce((s, p) => s + p.amount, 0);
+        let paidAmt = inv.originalAmount - inv.pendingAmount;
+        if (paidAmt < 0) paidAmt = 0;
+        let invDateStr = inv.invoiceDate ? fmtDate(inv.invoiceDate) : '';
+        let dueDateStr = inv.dueDate ? fmtDate(inv.dueDate) : '';
         rows.push([
           idx + 1,
-          inv.partyName,
+          inv.groupName || 'General',
+          invDateStr,
           inv.invoiceNo,
-          inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString('en-IN') : '',
-          inv.dueDate ? new Date(inv.dueDate).toLocaleDateString('en-IN') : '',
+          inv.originalAmount,
+          inv.partyName,
+          inv.pendingAmount,
+          dueDateStr,
+          paidAmt,
           inv.pendingAmount,
           inv._overdueDays,
-          inv._agingBucket,
-          inv.status,
-          lastRemark,
           callStatus,
+          lastRemark,
           ''
         ]);
       });
@@ -2910,26 +3182,117 @@
     }
 
     // ============================================================
+    // EXPORT: TRACKING INVOICE AGING REPORT
+    // ============================================================
+    async function exportInvoiceAgingReport() {
+      showToast('Generating Invoice Aging Report...');
+      let invoices = await getEnrichedInvoices();
+      let callLogs = await getCallLogs();
+      let rows = [['S.No', 'Source Sheet', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Original Amount', 'Pending Amount', 'Paid Amount', 'Days Overdue', 'Aging Bucket', 'Status', 'Call Status']];
+      invoices.forEach((inv, idx) => {
+        let log = callLogs.find(c => c.partyName === inv.partyName);
+        let raw = log ? log.currentStatus : 'Not Called';
+        let cs = raw === 'Spoke to Client' || raw === 'PTP - Promise to Pay' ? 'Completed' : raw;
+        let paidAmt = Math.max(0, inv.originalAmount - inv.pendingAmount);
+        rows.push([
+          idx + 1,
+          inv.groupName || 'General',
+          inv.partyName,
+          inv.invoiceNo,
+          inv.invoiceDate ? fmtDate(inv.invoiceDate) : '',
+          inv.dueDate ? fmtDate(inv.dueDate) : '',
+          inv.originalAmount,
+          inv.pendingAmount,
+          paidAmt,
+          inv._overdueDays,
+          inv._agingBucket,
+          inv.status,
+          cs
+        ]);
+      });
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.aoa_to_sheet(rows);
+      XLSX.utils.book_append_sheet(wb, ws, 'Invoice Aging');
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let blob = new Blob([wbout], { type: 'application/octet-stream' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'INVOICE_AGING_' + todayStr() + '.xlsx';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Invoice Aging Report exported');
+    }
+
+    // ============================================================
+    // EXPORT: VENDOR PAYMENT TRENDS REPORT
+    // ============================================================
+    async function exportVendorPaymentTrends() {
+      showToast('Generating Vendor Payment Trends...');
+      let payments = await dbReadAll(STORES.payments);
+      let groupBy = {};
+      for (let p of payments) {
+        let key = p.partyName || 'Unknown';
+        if (!groupBy[key]) groupBy[key] = { party: key, total: 0, count: 0, months: {}, lastDate: null };
+        groupBy[key].total += p.amount;
+        groupBy[key].count++;
+        let d = new Date(p.date || p.createdAt);
+        let monthKey = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+        groupBy[key].months[monthKey] = (groupBy[key].months[monthKey] || 0) + p.amount;
+        if (!groupBy[key].lastDate || d > groupBy[key].lastDate) groupBy[key].lastDate = d;
+      }
+      let allMonths = [...new Set(Object.values(groupBy).flatMap(g => Object.keys(g.months)))].sort();
+      let header = ['S.No', 'Party Name', 'Total Paid (₹)', 'Invoice Count', 'Last Payment Date', ...allMonths];
+      let rows = [header];
+      Object.values(groupBy).sort((a, b) => b.total - a.total).forEach((g, idx) => {
+        let row = [idx + 1, g.party, g.total, g.count, g.lastDate ? fmtDate(g.lastDate) : ''];
+        allMonths.forEach(m => row.push(g.months[m] || 0));
+        rows.push(row);
+      });
+      let wb = XLSX.utils.book_new();
+      let ws = XLSX.utils.aoa_to_sheet(rows);
+      XLSX.utils.book_append_sheet(wb, ws, 'Payment Trends');
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let blob = new Blob([wbout], { type: 'application/octet-stream' });
+      let url = URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'VENDOR_PAYMENT_TRENDS_' + todayStr() + '.xlsx';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Vendor Payment Trends exported');
+    }
+
+    // ============================================================
     // MASTER LEDGER
     // ============================================================
     async function renderLedger() {
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
+      let allPayments = await dbReadAll(STORES.payments);
       let search = document.getElementById('ledgerSearch').value.toLowerCase().trim();
       let statusFilter = document.getElementById('ledgerStatusFilter').value;
       let sortField = document.getElementById('ledgerSort').value;
 
       let filtered = invoices.filter(inv => {
         if (statusFilter !== '__all' && inv.status !== statusFilter) return false;
+        if (currentFilters.status !== '__all' && inv.status !== currentFilters.status) return false;
+        if (currentFilters.group !== '__all' && inv.groupName !== currentFilters.group) return false;
+        if (currentFilters.agingBucket !== '__all' && inv._agingBucket !== currentFilters.agingBucket) return false;
+        if (currentFilters.callStatus !== '__all') {
+          let log = callLogs.find(c => c.partyName === inv.partyName);
+          let cs = log ? log.currentStatus : 'Not Called';
+          if (currentFilters.callStatus === 'Completed') {
+            if (cs !== 'Completed' && cs !== 'Spoke to Client' && cs !== 'PTP - Promise to Pay') return false;
+          } else if (cs !== currentFilters.callStatus) {
+            return false;
+          }
+        }
         if (search && !inv.partyName.toLowerCase().includes(search) &&
           !inv.invoiceNo.toLowerCase().includes(search) &&
           !inv.groupName.toLowerCase().includes(search)) return false;
         return true;
       });
-
-      if (currentFilters.group !== '__all') {
-        filtered = filtered.filter(i => i.groupName === currentFilters.group);
-      }
 
       // Sorting
       let sortKeys = { party: 'partyName', amount: 'pendingAmount', overdue: '_overdueDays', aging: '_ageDays', date: 'dueDate' };
@@ -2963,18 +3326,27 @@
 
         let bucketIdx = AGING_BUCKET_LABELS.indexOf(inv._agingBucket);
         let bucketColor = bucketIdx >= 0 ? AGING_BUCKET_COLORS[bucketIdx] : '#22c55e';
+
+        let statusCell;
+        if (inv.status === 'Paid') {
+          let invPayments = allPayments.filter(p => p.invoiceNo === inv.invoiceNo).sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
+          let lastRemark = invPayments.length > 0 ? htmlEscape(invPayments[0].remark || 'Paid') : 'Paid';
+          statusCell = `<span class="text-xs text-green-600/80 italic">${lastRemark}</span>`;
+        } else {
+          statusCell = `<span class="text-xs">${callStatus === 'Not Called' ? 'Pending (Not Called)' : callStatus === 'Spoke to Client' || callStatus === 'PTP - Promise to Pay' || callStatus === 'Completed' ? 'Completed' : htmlEscape(callStatus)}</span>`;
+        }
         return `<tr class="${rowClass}">
           <td class="font-semibold">${pName}</td>
           <td class="font-mono text-sm">${iNo}</td>
           <td><span class="text-xs">${gName}</span></td>
-          <td class="text-sm">${inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : 'N/A'}</td>
-          <td class="text-sm">${inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : 'N/A'}</td>
+          <td class="text-sm">${inv.invoiceDate ? fmtDate(inv.invoiceDate) : 'N/A'}</td>
+          <td class="text-sm">${inv.dueDate ? fmtDate(inv.dueDate) : 'N/A'}</td>
           <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span></td>
           <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv.status === 'Paid' ? '—' : inv._overdueDays + 'd'}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.originalAmount)}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
           <td><span class="badge-${inv.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${inv.status}</span></td>
-          <td><span class="text-xs">${callStatus === 'Not Called' ? 'Pending (Not Called)' : callStatus === 'Spoke to Client' || callStatus === 'PTP - Promise to Pay' || callStatus === 'Completed' ? 'Completed' : htmlEscape(callStatus)}</span></td>
+          <td>${statusCell}</td>
         </tr>`;
       }).join('');
     }
@@ -2993,8 +3365,8 @@
           'Party Name': inv.partyName,
           'Invoice No': inv.invoiceNo,
           'Group': inv.groupName,
-          'Invoice Date': inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : '',
-          'Due Date': inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : '',
+          'Invoice Date': inv.invoiceDate ? fmtDate(inv.invoiceDate) : '',
+          'Due Date': inv.dueDate ? fmtDate(inv.dueDate) : '',
           'Aging Bucket': inv._agingBucket,
           'Overdue Days': inv._overdueDays,
           'Original Amount': inv.originalAmount,
@@ -3264,6 +3636,7 @@
     async function refreshDashboard() {
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
+      let payments = await dbReadAll(STORES.payments);
 
       // Update group filter
       let groups = [...new Set(invoices.map(i => i.groupName))].sort();
@@ -3276,8 +3649,27 @@
       // Apply filters
       let filtered = filterData(invoices, callLogs);
 
+      // Toggle zero-state
+      let hasData = invoices.length > 0 || payments.length > 0;
+      document.getElementById('zeroState').style.display = hasData ? 'none' : 'block';
+      document.getElementById('kpiSection').style.display = hasData ? 'grid' : 'none';
+      document.getElementById('dashboardContent').style.display = hasData ? 'block' : 'none';
+      document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
+
       // KPI
       let agg = computeAggregations(filtered);
+      // Override callingListCount to match inclusive filter (disputed/imported invoices too)
+      agg.callingListCount = filtered.filter(i => i.status === 'Unpaid').filter(i => {
+        let hasLog = callLogs.some(c => c.partyName === i.partyName && c.currentStatus !== 'Not Called');
+        return i._overdueDays > 30 || hasLog;
+      }).length;
+      let today = new Date();
+      agg.todayCollected = payments
+        .filter(p => {
+          let pd = new Date(p.date || p.createdAt);
+          return pd.getFullYear() === today.getFullYear() && pd.getMonth() === today.getMonth() && pd.getDate() === today.getDate();
+        })
+        .reduce((s, p) => s + p.amount, 0);
       renderKPI(agg);
 
       // Aging Bucket Summary (uses filtered data to stay consistent with KPIs)

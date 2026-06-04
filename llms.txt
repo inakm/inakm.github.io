@@ -1,4 +1,23 @@
 # AKM Portfolio
-Anjani Kumar Mishra (AKM) is a Finance Analyst & Fintech Developer based in Hyderabad, India.
-He specializes in ACCA, Financial Modeling, Bloomberg Query Language (BQL), Blockchain/Crypto, and AI Tools.
-Contact him at inakm@proton.me or visit his portfolio at https://inakm.github.io.
+Anjani Kumar Mishra (AKM) is a Finance Analyst, FP&A Enthusiast & Fintech Developer based in Hyderabad, India.
+He specializes in ACCA (13 papers, Applied Skills completed), Financial Modeling (DCF, 3-Statement, Sensitivity Analysis), Bloomberg Query Language (BQL), and AI-powered Fintech development.
+
+## Expertise
+- **Core Finance:** Financial Analysis, DCF Modeling, IFRS, Variance Analysis, Ratio Analysis, Risk Management, Audit Readiness
+- **Fintech & Data:** BQL in Excel, Crypto/DeFi, Client-Side BI Dashboards, Excel Power Query
+- **Tech Stack:** HTML/CSS/Tailwind/JS, Chart.js, IndexedDB, PapaParse, PowerBI, Bloomberg Terminal
+- **AI:** Generative AI Prompt Engineering, NotebookLM, AI-Assisted Financial Modeling
+
+## Key Projects
+- **Skylimit AR Aging Dashboard** — Full-featured Accounts Receivable dashboard with XLSX import, IndexedDB local storage, Chart.js visualizations, automated client messaging, DSO/CEI/ADD KPI tracking, multi-agent sync
+- **GatiGo** — 3-year DCF model for a tech-driven carpooling startup with sensitivity analysis, CVP break-even, pricing strategy, investor pitch
+- **RVNL Equity Research** — Comprehensive 3-statement financial model, DCF valuation, ratio analysis, audit summary for Rail Vikas Nigam Ltd
+- **BQL Analysis Hub** — Bloomberg Query Language projects: bond screening, ESG scoring, revenue growth analysis, industry debt trends
+- **Citi FP&A Virtual Experience** — RWA analysis, YE'22 financial model, corporate reporting slide decks via Forage
+- **Interactive Dashboards** — Prism Sales (Plotly.js), RMM Regional Analytics (Chart.js), VEVOi Video Analytics, CarLIMIT Sales Performance, and PowerBI portfolio (Prism Store, FM Power, CarLIMIT, Billionaires Statistics)
+
+## Contact
+- Portfolio: https://inakm.github.io
+- LinkedIn: https://linkedin.com/in/inakmm
+- GitHub: https://github.com/inakm
+- Email: inakm@proton.me

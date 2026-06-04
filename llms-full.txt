@@ -6,7 +6,7 @@
 **Location:** Hyderabad, India
 **Age:** 20 (Born ~2006)
 **Pronouns:** He/Him
-**Objective:** Seeking entry-level roles or internships in FP&A (Financial Planning & Analysis) or Finance Operations.
+**Objective:** Seeking entry-level roles or internships in FP&A (Financial Planning & Analysis), Corporate Finance, or Finance Operations.
 **Contact:** inakm@proton.me
 **Websites/Links:**
 - Portfolio: https://inakm.github.io
@@ -16,79 +16,168 @@
 - Discord: @in_akm
 
 ## Educational Background
-**1. Association of Chartered Certified Accountants (ACCA)**
-- Status: Ongoing (Trainee)
-- Progress: Applied Knowledge completed; Applied Skills (8 out of 13 papers cleared).
 
-**2. Bachelor of Commerce (Hons)**
-- Institution: Gandhi Institute of Technology and Management (GITAM) University (2023 - 2026)
-- Focus: IFRS, financial analysis, auditing, and global accounting standards.
+### 1. Association of Chartered Certified Accountants (ACCA)
+- **Status:** Ongoing (Trainee) — 13 papers completed
+- **Applied Knowledge:** All papers completed
+- **Applied Skills:** All 6 papers completed (Accountant in Business, Management Accounting, Financial Accounting, Corporate & Business Law, Performance Management, Taxation, Financial Reporting, Audit & Assurance, Financial Management)
+- **Strategic Professional:** In progress (Advanced Financial Management, Advanced Performance Management, Advanced Audit & Assurance)
 
-**3. Intermediate (CBSE) Commerce**
-- Institution: Creane Memorial High School (2021 - 2023)
-- Subjects: Accountancy, Business Studies, Economics.
+### 2. Bachelor of Commerce (Hons)
+- **Institution:** Gandhi Institute of Technology and Management (GITAM) University (2023 - 2026)
+- **Focus:** IFRS, financial analysis, auditing, global accounting standards
+
+### 3. Intermediate (CBSE) Commerce
+- **Institution:** Creane Memorial High School (2021 - 2023)
+- **Subjects:** Accountancy, Business Studies, Economics
 
 ## Professional Experience
-**Mindsparc Innovations Pvt. Ltd.**
-- Role: Finance & Operations Intern
-- Timeline: May 2025 - July 2025
-- Responsibilities:
-  - Transaction-level data validation for consistency across recurring finance operations.
-  - Generating Excel-based financial summaries for management review and variance checks.
-  - Auditing datasets for logical consistency before reporting cycles.
-  - Maintaining finance documentation for audit readiness.
 
-**F9XR Team**
-- Role: Founding Member
-- Timeline: 2024 - Present
-- Description: AI-Powered Web Design & Local SEO Growth Agency building tailored architectures for Salons, Clinics, and Global Brands.
+### Mindsparc Innovations Pvt. Ltd.
+- **Role:** Finance & Operations Intern
+- **Timeline:** May 2025 - July 2025
+- **Responsibilities:**
+  - Transaction-level data validation for consistency across recurring finance operations
+  - Generating Excel-based financial summaries for management review and variance checks
+  - Auditing datasets for logical consistency before reporting cycles
+  - Maintaining finance documentation for audit readiness
+
+### F9XR Team
+- **Role:** Founding Member
+- **Timeline:** 2024 - Present
+- **Description:** AI-Powered Web Design & Local SEO Growth Agency building tailored architectures for Salons, Clinics, and Global Brands
 
 ## Hard Skills & Technical Expertise
-- **Core Finance:** Financial Analysis, Discounted Cash Flow (DCF) Modeling, MS Excel, Power Query, Accounting, IFRS Standards, Variance Checks, Audit Readiness, Risk Management, Ratio Analysis.
-- **Fintech & Data:** Bloomberg Query Language (BQL) in Excel, Crypto Development, Decentralized Finance (DeFi) mechanics.
-- **Tools & Platforms:** Bloomberg Terminal, Generative AI (Prompt Engineering), NotebookLM, DeepSeek, Claude, Workiva, Alteryx, ChatGPT.
-- **Software/Coding:** Frontend web development (HTML/CSS/Tailwind JS/React), API integrations, Local SEO optimization.
+
+### Core Finance
+- Financial Analysis & Modeling (DCF, 3-Statement, Sensitivity Analysis)
+- MS Excel (Advanced: Power Query, Pivot Tables, Array Formulas)
+- Variance Analysis & Financial Reporting
+- IFRS Standards & Global Accounting
+- Risk Management & Ratio Analysis
+- Audit Readiness & Internal Controls
+- CVP / Break-Even Analysis
+- Working Capital Management
+- AR Aging & Credit Risk Assessment
+
+### Fintech & Data
+- Bloomberg Query Language (BQL) in Excel
+- Decentralized Finance (DeFi) mechanics
+- Crypto Portfolio Tracking & Analytics
+- Client-Side BI Dashboards (IndexedDB, Chart.js, Plotly.js)
+- Excel Power Query & Data Transformation
+
+### Tools & Platforms
+- Bloomberg Terminal
+- PowerBI (Dashboard Design, DAX)
+- Generative AI (Prompt Engineering, NotebookLM, Claude, ChatGPT)
+- GitHub & Version Control
+- Workiva, Alteryx
+
+### Software Development
+- Frontend: HTML5, CSS3, TailwindCSS, JavaScript (Vanilla)
+- Data Visualization: Chart.js, Plotly.js, D3 concepts
+- Storage: IndexedDB, LocalStorage
+- File Processing: XLSX (SheetJS), PapaParse (CSV)
+- APIs: REST integration, JSON-LD structured data
+- Build-free architecture (no bundlers, single-file SPAs)
 
 ## Soft Skills & Philosophy
-- **Key Traits:** Self-Motivation, Adaptability, Patience, Analytical Thinking.
-- **Interests:** Stock Market, Blogging, Travel, Cultures.
-- **Philosophy:** AKM aims to bridge traditional corporate finance frameworks with modern decentralized technology. He focuses on taking complicated financial data and transforming it into clear, actionable strategies that drive business growth. 
+- **Key Traits:** Self-Motivation, Adaptability, Patience, Analytical Thinking, Detail-Oriented
+- **Interests:** Stock Market, Blogging, Travel, Cultures, Financial Technology
+- **Philosophy:** AKM bridges traditional corporate finance frameworks with modern decentralized technology. He transforms complex financial data into clear, actionable strategies that drive business growth.
 
-## Detailed Project Portfolio (Selected Works)
-**1. GatiGo**
-- Category: Finance / Startup
-- Description: A 3-year Discounted Cash Flow (DCF) model integrating sensitivity analysis. AKM designed cost structures, pricing assumptions, and expense tracking. Documented end-to-end payment workflows and approval pipelines.
-- URL: https://inakm.github.io/page/projects/gatigo.html
+## Detailed Project Portfolio
 
-**2. Rail Vikas Nigam Ltd (RVNL) Analysis**
-- Category: Equity Research
-- Description: Comprehensive equity research and financial modeling of RVNL's business operations. Deep dive into annual reports and performance metrics.
-- URL: https://inakm.github.io/page/projects/rvnl.html
+### Skylimit AR Aging Dashboard (Flagship)
+- **Category:** Fintech / BI Dashboard
+- **URL:** https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html
+- **Description:** Full-featured Accounts Receivable aging dashboard built as a single HTML file with zero external runtime dependencies. Features:
+  - XLSX import pipeline for Master Reports, Calling Lists, and Payment Logs
+  - IndexedDB local storage for offline-capable data persistence
+  - Multi-tab interface: Master Ledger, Calling List, Payment Desk, Output Reports
+  - Dynamic KPI cards: Today Collected, Top Overdue, DSO, CEI, ADD, 90+ Delinquency %, Bad Debt Risk
+  - Doughnut charts for Aging Buckets, Call Status Summary, and Payment Trends
+  - Multi-agent sync for team collaboration
+  - Automated client messaging via mailto
+  - XLSX/CSV/PDF export for all reports
+  - Dark mode UI with TailwindCSS
+  - Column filters, search, and sort on all data tables
 
-**3. iCryptos Dash**
-- Category: Web3 / Fintech
-- Description: Dashboard for tracking crypto earnings, airdrops, and investments globally. Real-time data visualization of asset portfolios.
+### GatiGo — Startup DCF Model
+- **Category:** Finance / Startup Modeling
+- **URL:** https://inakm.github.io/page/projects/gatigo.html
+- **Description:** Comprehensive 3-year DCF financial model for a tech-driven carpooling startup. Includes:
+  - Revenue forecasting with pricing strategy assumptions
+  - Cost structure design and expense tracking
+  - Sensitivity analysis on key valuation drivers
+  - CVP / break-even analysis
+  - Investor pitch documentation and payment workflow design
 
-**4. FoilAI**
-- Category: AI / Tech
-- Description: Front-end engineering for a generative AI image platform tailored toward artists, focusing entirely on an intuitive UI/UX.
+### RVNL — Equity Research
+- **Category:** Equity Research / Financial Modeling
+- **URL:** https://inakm.github.io/page/projects/rvnl.html
+- **Description:** Deep-dive equity research and financial modeling of Rail Vikas Nigam Limited:
+  - 3-statement integrated financial model (Income Statement, Balance Sheet, Cash Flow)
+  - DCF valuation with WACC calculation
+  - Ratio analysis (liquidity, solvency, profitability, efficiency)
+  - Audit summary and internal control assessment
+  - Business model research and industry analysis
 
-**5. BQL Analysis Hub**
-- Category: Finance / Data
-- Description: Compilation of Bloomberg Query Language (BQL) projects that showcase advanced financial data retrieval and dynamic manipulation natively in MS Excel.
+### BQL Analysis Hub
+- **Category:** Finance / Data Analytics
+- **URL:** https://inakm.github.io/page/projects/bql.html
+- **Description:** Collection of Bloomberg Query Language projects demonstrating:
+  - Corporate bond screening and analysis
+  - Environmental, Social & Governance (ESG) scoring
+  - Revenue growth analysis across sectors
+  - Inflation and unemployment data assessment
+  - Industry debt trend analysis
+
+### Citi FP&A Virtual Experience
+- **Category:** Finance / FP&A
+- **URL:** https://inakm.github.io/page/projects/citi-forage.html
+- **Description:** Citi FP&A virtual job simulation via Forage:
+  - Risk-Weighted Asset (RWA) analysis
+  - Year-End 2022 financial model
+  - Corporate reporting slide decks
+  - Financial Planning & Analysis summaries
+
+### Interactive Dashboards Portfolio
+- **Prism Sales Dashboard** (Plotly.js) — Interactive sales analytics with revenue/profit trends, category & region breakdown, payment mode analysis: https://inakm.github.io/page/projects/dashboards/Prism.html
+- **RMM Regional Analytics** (Chart.js) — Geographical and financial dashboard for RMM sales distributions: https://inakm.github.io/page/projects/dashboards/RMM.html
+- **VEVOi Video Analytics** (Chart.js) — Video performance tracking with engagement metrics: https://inakm.github.io/page/projects/dashboards/VEVOi.html
+- **CarLIMIT Sales Performance** (Plotly.js) — US state choropleth maps, revenue/profit insights, shipping mode analytics: https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html
+- **PowerBI Portfolio** — Collection of .pbix dashboards: Prism Store Sales, FM Power Dashboard, CarLIMIT Sales, RMM Sales, Vrinda Store Analysis, Prism Real Estate, Billionaires Statistics
+
+### Other Notable Projects
+- **FHEL (Fresh and Healthy Enterprises Limited)** — Financial health analysis and modeling for a logistics company: https://inakm.github.io/page/projects/fhel.html
+- **Gujarat Toolroom Ltd (GUJTLRM)** — Investment analysis and valuation: https://inakm.github.io/page/projects/gujtlrm.html
+- **ACCA FM & AFM** — Financial Management practice files, DCF exercises, exam preparation: https://inakm.github.io/page/projects/acca-fm.html
+- **FoilAI** — Front-end engineering for generative AI image platform: https://foilai.in/
+- **iCryptos Dash** — Crypto earnings and portfolio tracking dashboard: https://ttearncrypto.github.io/dashboards
+- **AI Prompts Hub** — Prompt engineering tools for job scraping, business model analysis, equity research: https://inakm.github.io/page/prompts/index.html
+- **Stanza Living Assessments** — AI-assessed evaluations (83/100 PPT, 79.5/100 Sales Pitch) and on-ground market research in Koramangala, Bangalore
 
 ## Credentials & Certifications
-- Bloomberg Finance Fundamentals (BFF) - Ongoing
-- Bloomberg Environmental Social Governance - Ongoing
-- Bloomberg Global Trading Challenge (Nov 2025)
-- Bloomberg Market Concepts (BMC) (Mar 2026)
-- Bloomberg Spreadsheet Analysis (BQL) Certificate (Mar 2026)
-- Fundamentals of Investing - SoFi (Oct 2024)
-- Risk Management in Personal Finance - SoFi (Oct 2024)
+- ACCA — 13 papers completed (Applied Knowledge + Applied Skills)
+- Bloomberg Market Concepts (BMC) — Mar 2026
+- Bloomberg Spreadsheet Analysis (BQL) Certificate — Mar 2026
+- Bloomberg Finance Fundamentals (BFF) — Ongoing
+- Bloomberg Environmental Social Governance — Ongoing
+- Bloomberg Global Trading Challenge — Nov 2025
+- Fundamentals of Investing — SoFi (Oct 2024)
+- Risk Management in Personal Finance — SoFi (Oct 2024)
+- NISM Certifications — SEBI Investor Awareness
 
 ## Writing & Academia
-- Published multiple internal academic case studies on platforms like Scribd and SlideShare (e.g. SBI Governance Report, Adani Power Performance Management, Business Takeovers, Goods & Services Tax, Advocacy Threats).
-- Has dynamic blogs connected via Blogger API for "Crypto Radar News" and "TONTUF Money".
+- Published multiple internal academic case studies: SBI Governance Report, Adani Power Performance Management, Business Takeovers, Goods & Services Tax, Advocacy Threats
+- Dynamic blogs via Blogger API: "Crypto Radar News" and "TONTUF Money"
+- Study resources for ACCA Advanced Audit & Assurance (AAA), Business Strategy, IFRS
 
-## SEO & Accessibility Configurations
-This profile architecture uses strict semantic HTML, OpenSearch descriptors, robots.txt routing, and is heavily optimized for LLM crawlers via this text endpoint.
+## Portfolio Architecture
+- **Domain:** https://inakm.github.io (GitHub Pages)
+- **Tech:** Pure HTML/CSS/JS with TailwindCSS CDN, no build tools
+- **SEO:** JSON-LD structured data (Person, WebApplication, BreadcrumbList schemas), semantic HTML, OpenSearch descriptors, robots.txt
+- **LLM Optimization:** This file and llms.txt serve as LLM crawler entry points with complete portfolio context
+- **Security:** No server-side dependencies, client-only architecture, environment-free deployment
