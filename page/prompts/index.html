@@ -4,302 +4,845 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Prompts Hub | Anjani Kumar Mishra</title>
-    <link rel="icon" type="image/png" href="../../mypfpf.png">
-    <meta name="description" content="AI Prompts Hub for advanced data querying and financial modeling.">
+
+    <link rel="canonical" href="https://inakm.github.io/page/prompts/">
+
+    <meta name="description" content="AI-powered prompt engines for business model analysis, equity research, job scraping, and CV optimization — built by Anjani Kumar Mishra.">
+    <meta name="keywords" content="AI prompts, business model analysis, equity research, job scraper, CV optimizer, prompt engineering, finance AI, Anjani Kumar Mishra">
     <meta name="author" content="Anjani Kumar Mishra">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#222222">
+
+    <link rel="icon" type="image/png" href="../../mypfpf.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../mypfpf.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inakm.github.io/page/prompts/">
+    <meta property="og:title" content="AI Prompts Hub | Anjani Kumar Mishra">
+    <meta property="og:description" content="AI-powered prompt engines built for finance, research, and recruitment workflows.">
+    <meta property="og:image" content="https://inakm.github.io/og-image.png">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@in_akmm">
+    <meta name="twitter:creator" content="@in_akmm">
+    <meta name="twitter:title" content="AI Prompts Hub | Anjani Kumar Mishra">
+    <meta name="twitter:description" content="AI-powered prompt engines built for finance, research, and recruitment workflows.">
+    <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
+    <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Anton', 'sans-serif'],
-                        body: ['Manrope', 'sans-serif'],
+                        sans: ['Manrope', 'sans-serif'],
                         mono: ['Courier New', 'monospace'],
                     },
                     colors: {
                         brand: {
-                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
-                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
-                            white: '#ffffff', highlight: '#ff6b6b', accentPbi: '#f3c623', accentBql: '#02e2b0', accentEqty: '#48cae4'
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
+                            white: '#ffffff',
+                            highlight: '#f3c623'
                         }
-                    },
-                    backgroundImage: {
-                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
                     }
                 }
             }
         }
     </script>
+
     <style>
         body {
-            background-color: #0b0c10;
-            background-image: linear-gradient(135deg, #1b3a4b 0%, #0b0c10 50%, #272640 100%);
-            color: #d5cfe1; overflow-x: hidden;
-        }
-        .bg-grid { background-size: 50px 50px; background-position: center; }
-        
-        .card-scraper {
-            background: rgba(33, 47, 69, 0.4); border: 1px solid rgba(243, 198, 35, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card-scraper:hover {
-            transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(243, 198, 35, 0.2);
-            border-color: #f3c623; background: rgba(33, 47, 69, 0.8);
+            background-color: #ffffff;
+            color: #222222;
+            overflow-x: hidden;
+            font-family: 'Manrope', sans-serif;
         }
 
-        .card-analyzer {
-            background: rgba(33, 47, 69, 0.4); border: 1px solid rgba(2, 226, 176, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card-analyzer:hover {
-            transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(2, 226, 176, 0.2);
-            border-color: #02e2b0; background: rgba(33, 47, 69, 0.8);
+        @media (pointer: fine) {
+            body { cursor: none; }
+            * { cursor: none !important; }
         }
 
-        .card-equity {
-            background: rgba(33, 47, 69, 0.4); border: 1px solid rgba(72, 202, 228, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+            mix-blend-mode: difference;
+            transition: opacity 0.3s ease;
         }
-        .card-equity:hover {
-            transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(72, 202, 228, 0.2);
-            border-color: #48cae4; background: rgba(33, 47, 69, 0.8);
+        .cursor-dot { width: 8px; height: 8px; background-color: white; }
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid white;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255, 255, 255, 0.1); }
+
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.01);
+            background-blend-mode: luminosity;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: none;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.4px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.45) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
-        .card-cv {
-            background: rgba(33, 47, 69, 0.4); border: 1px solid rgba(255, 107, 107, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @keyframes fade-rise {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .card-cv:hover {
-            transform: translateY(-10px); box-shadow: 0 20px 40px -10px rgba(255, 107, 107, 0.2);
-            border-color: #ff6b6b; background: rgba(33, 47, 69, 0.8);
+        .animate-fade-rise { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .animate-fade-rise-delay { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+        .animate-fade-rise-delay-2 { animation: fade-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+
+        .magnetic-wrap { display: inline-block; }
+        .magnetic-inner {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
         }
 
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #0b0c10; }
-        ::-webkit-scrollbar-thumb { background: #ff6b6b; border: 2px solid #0b0c10; border-radius: 4px; }
-        
-        .mobile-menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(11, 12, 16, 0.98); backdrop-filter: blur(20px);
-            z-index: 45; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; opacity: 0; visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: scale(1.05);
-        }
-        .mobile-menu-overlay.active { opacity: 1; visibility: visible; transform: scale(1); }
-        .hamburger-icon {
-            display: flex; flex-direction: column; justify-content: space-around; width: 24px; height: 20px;
-            background: transparent; border: none; cursor: pointer; padding: 0; z-index: 55;
-        }
-        .hamburger-icon span { width: 24px; height: 2px; background: white; transition: all 0.3s linear; position: relative; transform-origin: 1px; }
-        .hamburger-icon.open span:nth-child(1) { transform: rotate(45deg); }
-        .hamburger-icon.open span:nth-child(2) { opacity: 0; }
-        .hamburger-icon.open span:nth-child(3) { transform: rotate(-45deg); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-            min-width: 200px; background: rgba(11, 12, 16, 0.95); backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); padding: 0.5rem 0; z-index: 100; margin-top: 0.5rem;
+        .header-light .liquid-glass {
+            background: rgba(0, 0, 0, 0.05);
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-item {
-            display: block; padding: 0.75rem 1.5rem; color: #d5cfe1; font-size: 0.75rem;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.2s ease;
+        .header-light .nav-text { color: #222222; }
+        .header-light .nav-btn { background: #222222; color: #ffffff; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #f3c623; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffd666; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .mega-menu {
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            z-index: 50;
+            pointer-events: none;
         }
-        .dropdown-item:hover { background: rgba(255, 107, 107, 0.2); color: #ff6b6b; padding-left: 1.75rem; }
+        .mega-menu::before {
+            content: ''; position: absolute; top: -20px; left: 0;
+            width: 100%; height: 20px;
+        }
+        .nav-item-wrapper:hover .mega-menu {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(10px);
+            pointer-events: auto;
+        }
+
+        .nav-pill {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .header-light .nav-pill {
+            background: #ffffff;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .header-light .nav-pill .nav-text { color: #222222; }
+        .header-light .nav-pill a:hover { background: #F8F8F8; }
+
+        #searchOverlay {
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #searchOverlay.active { opacity: 1; visibility: visible; }
+
+        #mobileMenuBtn, #mobileMenuClose { cursor: pointer; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee { animation: marquee 30s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
+
+        .grid-lines {
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        .prompt-card {
+            background: #ffffff;
+            border: 1px solid #E5E5E5;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .prompt-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(243, 198, 35, 0.3);
+        }
     </style>
     <script src="https://js.puter.com/v2/"></script>
+  <link rel="stylesheet" href="../../view-transitions.css">
 </head>
-<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-white">
+<body class="antialiased selection:bg-brand-primary selection:text-white">
 
-    <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
-        <div class="bg-brand-deepSpace/80 backdrop-blur-xl border border-white/10 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-black/50">
-            <a href="../../index.html" class="group text-xl font-display uppercase tracking-wider text-white hover:text-brand-highlight transition-colors flex items-center gap-2">
-                AKM<span class="text-brand-highlight group-hover:text-white">.</span>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <div class="absolute top-0 left-0 w-full h-screen z-0 pointer-events-none bg-brand-primary">
+        <div class="absolute inset-0 grid-lines opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+    </div>
+
+    <nav id="mainNav"
+        class="fixed top-0 left-0 w-full z-50 px-4 md:px-12 py-4 transition-all duration-300 -translate-y-0">
+
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center relative gap-y-4">
+
+            <a href="../../index.html" class="magnetic-wrap group shrink-0">
+                <div class="magnetic-inner text-2xl font-bold tracking-tighter nav-text text-white flex items-center gap-1">
+                    AKM<span class="nav-text text-white/50 text-sm font-medium tracking-normal mt-1">Portfolio</span>
+                </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-brand-lavender">
-                <a href="../../index.html#about" class="hover:text-white transition-colors">Profile</a>
-                <a href="../../index.html#experience" class="hover:text-white transition-colors">Work</a>
-                <a href="../../index.html#skills" class="hover:text-white transition-colors">Expertise</a>
-                <div class="dropdown">
-                    <button class="hover:text-brand-highlight transition-colors focus:outline-none focus:text-brand-highlight uppercase tracking-widest flex items-center gap-1">
-                        Builds <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="../projects/index.html" class="dropdown-item">Portfolio Hub</a>
-                        <a href="index.html" class="dropdown-item text-brand-highlight">AI Prompts</a>
-                        <a href="../career-directory.html" class="dropdown-item">Career Directory</a>
+            <button id="mobileMenuBtn"
+                class="md:hidden w-10 h-10 rounded-full flex items-center justify-center nav-text text-white hover:bg-white/10 transition-colors shrink-0"
+                aria-label="Menu">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+
+            <div class="hidden md:flex items-center justify-center md:absolute md:left-1/2 md:-translate-x-1/2 nav-pill rounded-full px-2 py-1 gap-1">
+                <a href="../../index.html#about"
+                    class="px-5 py-2.5 rounded-full nav-text text-white font-medium text-sm hover:bg-white/10 transition-colors shrink-0">Profile</a>
+
+                <div class="relative nav-item-wrapper group shrink-0">
+                    <a href="../projects/index.html"
+                        class="px-5 py-2.5 rounded-full nav-text text-white font-medium text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+                        Projects <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </a>
+
+                    <div class="mega-menu w-[650px] p-5">
+                        <div class="grid grid-cols-5 gap-6">
+                            <div class="col-span-2 border-r border-black/5 pr-6">
+                                <h3 class="text-[10px] font-bold uppercase tracking-widest text-brand-secondary mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-chart-pie"></i> Dashboards
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li><a href="../projects/dashboards/Prism.html" class="flex items-center gap-3 group/link">
+                                            <div class="w-7 h-7 rounded-md bg-black/5 flex items-center justify-center text-brand-primary group-hover/link:bg-brand-primary group-hover/link:text-white transition-colors">
+                                                <i class="fa-solid fa-bolt text-[10px]"></i>
+                                            </div><span class="text-brand-primary text-sm font-bold group-hover/link:text-[#0a66c2] transition-colors">Prism</span>
+                                        </a></li>
+                                    <li><a href="../projects/dashboards/RMM.html" class="flex items-center gap-3 group/link">
+                                            <div class="w-7 h-7 rounded-md bg-black/5 flex items-center justify-center text-brand-primary group-hover/link:bg-brand-primary group-hover/link:text-white transition-colors">
+                                                <i class="fa-solid fa-chart-line text-[10px]"></i>
+                                            </div><span class="text-brand-primary text-sm font-bold group-hover/link:text-[#0a66c2] transition-colors">RMM</span>
+                                        </a></li>
+                                    <li><a href="../projects/dashboards/VEVOi.html" class="flex items-center gap-3 group/link">
+                                            <div class="w-7 h-7 rounded-md bg-black/5 flex items-center justify-center text-brand-primary group-hover/link:bg-brand-primary group-hover/link:text-white transition-colors">
+                                                <i class="fa-solid fa-video text-[10px]"></i>
+                                            </div><span class="text-brand-primary text-sm font-bold group-hover/link:text-[#0a66c2] transition-colors">VEVOi</span>
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <div class="col-span-3">
+                                <h3 class="text-[10px] font-bold uppercase tracking-widest text-brand-secondary mb-4 flex items-center gap-2">
+                                    <i class="fa-solid fa-folder-open"></i> Projects
+                                </h3>
+                                <div class="grid grid-cols-2 gap-x-4 gap-y-3">
+                                    <a href="../projects/bql.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">BQL Analysis</a>
+                                    <a href="../projects/citi-forage.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">Citi Forage</a>
+                                    <a href="../projects/excelproj.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">Excel Proj</a>
+                                    <a href="../projects/fhel.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">FHEL</a>
+                                    <a href="../projects/gatigo.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">Gatigo</a>
+                                    <a href="../projects/gujtlrm.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">Gujarat Alarm</a>
+                                    <a href="../projects/powerbi.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">PowerBI</a>
+                                    <a href="../projects/rvnl.html" class="text-[13px] font-medium text-brand-primary hover:text-[#0a66c2] transition-colors">RVNL</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 pt-4 border-t border-black/5 flex justify-between items-center">
+                            <div>
+                                <h4 class="text-[13px] font-bold text-brand-primary mb-0.5">View Full Portfolio</h4>
+                                <p class="text-[11px] text-brand-secondary">Explore all my detailed case studies.</p>
+                            </div>
+                            <a href="../projects/index.html" class="bg-[#0a66c2] text-white px-5 py-2 rounded-full text-[11px] font-bold hover:shadow-lg transition-all">Explore Projects</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative nav-item-wrapper group">
+                    <a href="index.html"
+                        class="px-5 py-2.5 rounded-full nav-text text-white font-medium text-sm flex items-center gap-2 bg-white/10 transition-colors">
+                        Prompts <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </a>
+
+                    <div class="mega-menu w-[280px] p-4">
+                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-brand-secondary mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-terminal"></i> AI Prompts
+                        </h3>
+                        <ul class="space-y-1">
+                            <li><a href="bmodel-analysis.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary mb-0.5">Business Model Analysis</div>
+                                    <div class="text-[10px] text-brand-secondary">Strategic planning & analysis.</div>
+                                </a></li>
+                            <li><a href="cvfindjob.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary mb-0.5">CV / Job Finder</div>
+                                    <div class="text-[10px] text-brand-secondary">Optimize resume and applications.</div>
+                                </a></li>
+                            <li><a href="equityresrch.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary mb-0.5">Equity Research</div>
+                                    <div class="text-[10px] text-brand-secondary">Market analysis frameworks.</div>
+                                </a></li>
+                            <li><a href="job-scaraper.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary mb-0.5">Job Scraper</div>
+                                    <div class="text-[10px] text-brand-secondary">Automated lead generation.</div>
+                                </a></li>
+                        </ul>
+                        <div class="mt-3 pt-3 border-t border-black/5 text-center">
+                            <a href="index.html" class="text-[11px] font-bold text-[#0a66c2] hover:underline">View All Prompts</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative nav-item-wrapper group">
+                    <a href="#"
+                        class="px-5 py-2.5 rounded-full nav-text text-white font-medium text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+                        Other <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                    </a>
+
+                    <div class="mega-menu w-[220px] p-3">
+                        <ul class="space-y-1">
+                            <li><a href="../career-directory.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary flex items-center gap-2"><i class="fa-solid fa-briefcase text-brand-secondary/70"></i> Career Directory</div>
+                                </a></li>
+                            <li><a href="../resources.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary flex items-center gap-2"><i class="fa-solid fa-book-open text-brand-secondary/70"></i> Resources</div>
+                                </a></li>
+                            <li><a href="../index.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
+                                    <div class="text-[13px] font-bold text-brand-primary flex items-center gap-2"><i class="fa-solid fa-sitemap text-brand-secondary/70"></i> All Pages Index</div>
+                                </a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-4 z-50">
-                <a href="mailto:inakm@proton.me" class="hidden sm:inline-block bg-white text-brand-deepSpace px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-highlight hover:text-white transition-all shadow-lg whitespace-nowrap">
-                    Let's Talk
-                </a>
-                <button id="mobileMenuBtn" class="md:hidden hamburger-icon ml-2" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
-                    <span></span><span></span><span></span>
+            <div class="flex items-center gap-4 shrink-0">
+                <button onclick="openSearch()"
+                    class="w-10 h-10 rounded-full flex items-center justify-center nav-text text-white hover:bg-white/10 transition-colors"
+                    aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+                <a href="../contact.html" class="magnetic-wrap hidden sm:block">
+                    <div class="magnetic-inner nav-btn bg-white text-black px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_10px_20px_rgba(0,0,0,0.1)] border border-transparent hover:border-[#E5E5E5]">
+                        Let's Talk
+                    </div>
+                </a>
             </div>
+
         </div>
     </nav>
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div id="mobileMenu" class="mobile-menu-overlay md:hidden">
-        <nav class="flex flex-col items-center gap-8 text-2xl font-display uppercase tracking-wider text-brand-lavender w-full overflow-y-auto max-h-[80vh] py-8">
-            <a href="../../index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Home</a>
-            <a href="../projects/index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Portfolio Hub</a>
-            <a href="index.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">AI Prompts</a>
-            <a href="../career-directory.html" class="hover:text-brand-highlight transition-colors w-full text-center py-2 relative group" onclick="toggleMobileMenu()">Career Directory</a>
-            <a href="mailto:inakm@proton.me" class="bg-brand-highlight text-brand-deepSpace px-8 py-4 rounded-full text-lg mt-4 font-bold" onclick="toggleMobileMenu()">Let's Talk</a>
-        </nav>
+    <div id="mobileMenu"
+        class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-between items-center p-4 border-b border-[#E5E5E5]">
+                <span class="text-xl font-bold text-brand-primary">Menu</span>
+                <button id="mobileMenuClose"
+                    class="w-10 h-10 rounded-full flex items-center justify-center text-brand-primary hover:bg-brand-tertiary transition-colors"
+                    aria-label="Close menu">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <nav class="flex-1 overflow-y-auto p-4">
+                <ul class="space-y-2">
+                    <li><a href="../../index.html#about"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Profile</a>
+                    </li>
+                    <li><a href="../projects/index.html"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Projects</a>
+                    </li>
+                    <li><a href="index.html"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Prompts</a>
+                    </li>
+                    <li><a href="../career-directory.html"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Career Directory</a></li>
+                    <li><a href="../resources.html"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">Resources</a>
+                    </li>
+                    <li><a href="../index.html"
+                            class="block px-4 py-3 text-lg font-medium text-brand-primary rounded-lg hover:bg-brand-tertiary transition-colors">All Pages</a></li>
+                </ul>
+                <div class="mt-8 pt-8 border-t border-[#E5E5E5] space-y-3">
+                    <a href="../contact.html"
+                        class="block w-full text-center bg-brand-primary text-white px-6 py-3 rounded-full font-bold">Let's Talk</a>
+                    <a href="../../Mishra_AnjaniKr_2026.pdf" target="_blank" rel="noopener noreferrer"
+                        class="block w-full text-center border border-[#E5E5E5] text-brand-primary px-6 py-3 rounded-full font-bold">Download CV</a>
+                </div>
+            </nav>
+        </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <header class="relative min-h-[50vh] flex flex-col justify-center items-center px-4 overflow-hidden pt-32 pb-10">
-        <div class="text-center z-10 relative">
-            <h1 class="text-[14vw] md:text-[10vw] leading-[0.8] font-display uppercase text-brand-highlight mix-blend-overlay opacity-20 select-none">
-                INTELLIGENCE
-            </h1>
-            <h1 class="text-[12vw] md:text-[8vw] leading-[0.8] font-display uppercase text-transparent bg-clip-text bg-gradient-to-r from-brand-highlight via-white to-brand-lavender mt-0 md:mt-[-1vw] drop-shadow-2xl">
-                PROMPTS HUB
-            </h1>
-            <p class="mt-6 md:mt-8 text-base md:text-xl font-mono text-brand-lavender border-y border-white/10 py-3 inline-block font-medium shadow-2xl bg-black/20 px-8 rounded-full">
-                DYNAMIC AI ENGINES <span class="text-brand-highlight px-2">::</span> ACCELERATED WORKFLOWS
-            </p>
-        </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 md:px-6 py-10 relative z-10">
-
-        <section class="mb-32">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Scraper Card -->
-                <a href="job-scaraper.html" class="card-scraper p-8 md:p-12 rounded-2xl flex flex-col items-start group relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-[10rem] text-brand-accentPbi opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                        <i class="fa-solid fa-spider"></i>
-                    </div>
-                    
-                    <div class="bg-brand-accentPbi/10 p-4 rounded-xl mb-6 border border-brand-accentPbi/30 group-hover:bg-brand-accentPbi/20 transition-colors">
-                        <i class="fa-solid fa-briefcase text-3xl text-brand-accentPbi shadow-sm"></i>
-                    </div>
-                    
-                    <span class="font-mono text-xs font-bold text-brand-accentPbi tracking-widest uppercase block mb-3 border border-brand-accentPbi px-2 py-1 bg-brand-accentPbi/5">ACQUISITION ENGINE</span>
-                    <h2 class="text-3xl md:text-4xl font-display uppercase text-white mb-4 group-hover:text-brand-accentPbi transition-colors shadow-sm">Job Scraper</h2>
-                    
-                    <p class="text-gray-400 font-body leading-relaxed mb-8">
-                        An elite talent acquisition prompt generator. Dynamically inject specific demographics, negative keywords, and exact database constraints to programmatically generate precise, unhallucinated scraping instructions.
-                    </p>
-                    
-                    <div class="mt-auto flex items-center text-brand-accentPbi font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
-                        Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </a>
-
-                <!-- Analyzer Card -->
-                <a href="bmodel-analysis.html" class="card-analyzer p-8 md:p-12 rounded-2xl flex flex-col items-start group relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-[10rem] text-brand-accentBql opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                        <i class="fa-solid fa-microscope"></i>
-                    </div>
-                    
-                    <div class="bg-brand-accentBql/10 p-4 rounded-xl mb-6 border border-brand-accentBql/30 group-hover:bg-brand-accentBql/20 transition-colors">
-                        <i class="fa-solid fa-chart-line text-3xl text-brand-accentBql shadow-sm"></i>
-                    </div>
-                    
-                    <span class="font-mono text-xs font-bold text-brand-accentBql tracking-widest uppercase block mb-3 border border-brand-accentBql px-2 py-1 bg-brand-accentBql/5">FUNDAMENTAL ENGINE</span>
-                    <h2 class="text-3xl md:text-4xl font-display uppercase text-white mb-4 group-hover:text-brand-accentBql transition-colors shadow-sm">Model Analyzer</h2>
-                    
-                    <p class="text-gray-400 font-body leading-relaxed mb-8">
-                        An institutional equity research templating tool. Structure business model constraints, management governance scrutiny, and order-book logic into a powerful prompt yielding concise, structured, senior-level analysis.
-                    </p>
-                    
-                    <div class="mt-auto flex items-center text-brand-accentBql font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
-                        Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </a>
-
-                <!-- Equity Card -->
-                <a href="equityresrch.html" class="card-equity p-8 md:p-12 rounded-2xl flex flex-col items-start group relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-[10rem] text-brand-accentEqty opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    
-                    <div class="bg-brand-accentEqty/10 p-4 rounded-xl mb-6 border border-brand-accentEqty/30 group-hover:bg-brand-accentEqty/20 transition-colors">
-                        <i class="fa-solid fa-file-invoice-dollar text-3xl text-brand-accentEqty shadow-sm"></i>
-                    </div>
-                    
-                    <span class="font-mono text-xs font-bold text-brand-accentEqty tracking-widest uppercase block mb-3 border border-brand-accentEqty px-2 py-1 bg-brand-accentEqty/5">REPORT ENGINE</span>
-                    <h2 class="text-3xl md:text-4xl font-display uppercase text-white mb-4 group-hover:text-brand-accentEqty transition-colors shadow-sm">Equity Research</h2>
-                    
-                    <p class="text-gray-400 font-body leading-relaxed mb-8">
-                        A rigorous fundamental analysis workflow. Ingests earnings calls history, timeline horizons, and target components to spin up an elite investment thesis and comprehensive equity breakdown structure.
-                    </p>
-                    
-                    <div class="mt-auto flex items-center text-brand-accentEqty font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
-                        Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </a>
-
-                <!-- CV Job Hunter Card -->
-                <a href="cvfindjob.html" class="card-cv p-8 md:p-12 rounded-2xl flex flex-col items-start group relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 text-[10rem] text-brand-highlight opacity-5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    
-                    <div class="bg-brand-highlight/10 p-4 rounded-xl mb-6 border border-brand-highlight/30 group-hover:bg-brand-highlight/20 transition-colors">
-                        <i class="fa-solid fa-magnifying-glass-chart text-3xl text-brand-highlight shadow-sm"></i>
-                    </div>
-                    
-                    <span class="font-mono text-xs font-bold text-brand-highlight tracking-widest uppercase block mb-3 border border-brand-highlight px-2 py-1 bg-brand-highlight/5">RECRUITMENT AGENT</span>
-                    <h2 class="text-3xl md:text-4xl font-display uppercase text-white mb-4 group-hover:text-brand-highlight transition-colors shadow-sm">CV Job Hunter</h2>
-                    
-                    <p class="text-gray-400 font-body leading-relaxed mb-8">
-                        An elite AI recruitment engine. Feed it your desired experience levels, geography, and sector focus to dynamically cross-reference market openings and generate prioritized role targeting matrices.
-                    </p>
-                    
-                    <div class="mt-auto flex items-center text-brand-highlight font-mono text-sm font-bold uppercase tracking-wider group-hover:translate-x-2 transition-transform">
-                        Launch Engine <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </div>
-                </a>
-
+    <main class="relative z-10 min-h-screen flex flex-col">
+        <section class="min-h-[50vh] flex flex-col justify-center items-center px-4 pt-32 pb-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-highlight uppercase mb-6 bg-white/10 px-4 py-2 rounded-full border border-white/10 animate-fade-rise">
+                    <i class="fa-solid fa-terminal"></i> AI Prompt Engineering
+                </span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] mb-4 animate-fade-rise-delay text-white drop-shadow-2xl">
+                    AI Prompts<br /><span class="text-3xl md:text-5xl lg:text-6xl text-brand-highlight block mt-4">Engine Hub</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/70 font-medium max-w-xl mx-auto animate-fade-rise-delay-2 leading-relaxed">
+                    Specialized prompt engines built for finance, research, recruitment, and strategic analysis workflows.
+                </p>
             </div>
         </section>
 
+        <div id="whiteCanvas"
+            class="bg-[#ffffff] text-brand-primary rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] -mt-16 pt-16 pb-20 flex-1">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase">Prompt Library</span>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-brand-primary mt-3">Choose Your Engine</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <a href="job-scaraper.html"
+                        class="prompt-card rounded-2xl p-6 md:p-8 flex flex-col group">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-12 h-12 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                                <i class="fa-solid fa-spider text-amber-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-primary">Job Scraper</h3>
+                                <p class="text-xs text-brand-secondary font-medium">Acquisition Engine</p>
+                            </div>
+                        </div>
+                        <p class="text-brand-secondary text-sm leading-relaxed flex-1 mb-6">
+                            An elite talent acquisition prompt generator. Injects specific demographics, negative keywords, and database constraints to generate precise, unhallucinated scraping instructions.
+                        </p>
+                        <div class="flex items-center justify-between text-xs pt-4 border-t border-[#E5E5E5]">
+                            <span class="font-bold text-amber-600 uppercase tracking-wider"><i class="fa-solid fa-briefcase mr-1"></i> Recruitment</span>
+                            <span class="text-brand-primary font-bold group-hover:translate-x-1 transition-transform">Launch Engine <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="bmodel-analysis.html"
+                        class="prompt-card rounded-2xl p-6 md:p-8 flex flex-col group">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                                <i class="fa-solid fa-microscope text-emerald-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-primary">Model Analyzer</h3>
+                                <p class="text-xs text-brand-secondary font-medium">Fundamental Engine</p>
+                            </div>
+                        </div>
+                        <p class="text-brand-secondary text-sm leading-relaxed flex-1 mb-6">
+                            An institutional equity research templating tool. Structures business model constraints, governance scrutiny, and order-book logic into concise, senior-level analysis.
+                        </p>
+                        <div class="flex items-center justify-between text-xs pt-4 border-t border-[#E5E5E5]">
+                            <span class="font-bold text-emerald-600 uppercase tracking-wider"><i class="fa-solid fa-chart-line mr-1"></i> Research</span>
+                            <span class="text-brand-primary font-bold group-hover:translate-x-1 transition-transform">Launch Engine <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="equityresrch.html"
+                        class="prompt-card rounded-2xl p-6 md:p-8 flex flex-col group">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                                <i class="fa-solid fa-file-invoice-dollar text-blue-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-primary">Equity Research</h3>
+                                <p class="text-xs text-brand-secondary font-medium">Report Engine</p>
+                            </div>
+                        </div>
+                        <p class="text-brand-secondary text-sm leading-relaxed flex-1 mb-6">
+                            A rigorous fundamental analysis workflow. Ingests earnings calls, timeline horizons, and target components to produce an elite investment thesis and equity breakdown.
+                        </p>
+                        <div class="flex items-center justify-between text-xs pt-4 border-t border-[#E5E5E5]">
+                            <span class="font-bold text-blue-600 uppercase tracking-wider"><i class="fa-solid fa-chart-pie mr-1"></i> Analysis</span>
+                            <span class="text-brand-primary font-bold group-hover:translate-x-1 transition-transform">Launch Engine <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+
+                    <a href="cvfindjob.html"
+                        class="prompt-card rounded-2xl p-6 md:p-8 flex flex-col group">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-12 h-12 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
+                                <i class="fa-solid fa-user-tie text-rose-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-primary">CV Job Hunter</h3>
+                                <p class="text-xs text-brand-secondary font-medium">Recruitment Agent</p>
+                            </div>
+                        </div>
+                        <p class="text-brand-secondary text-sm leading-relaxed flex-1 mb-6">
+                            An elite AI recruitment engine. Feeds experience levels, geography, and sector focus to cross-reference market openings and generate prioritized role targeting matrices.
+                        </p>
+                        <div class="flex items-center justify-between text-xs pt-4 border-t border-[#E5E5E5]">
+                            <span class="font-bold text-rose-600 uppercase tracking-wider"><i class="fa-solid fa-magnifying-glass-chart mr-1"></i> Career</span>
+                            <span class="text-brand-primary font-bold group-hover:translate-x-1 transition-transform">Launch Engine <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="relative bg-black pt-20 pb-10 border-t-4 border-brand-highlight">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h3 class="text-3xl font-display uppercase mb-8 text-white">Anjani Kumar Mishra</h3>
-            <p class="text-gray-400 font-mono text-base mb-8">FINANCE // FINTECH // ANALYSIS</p>
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="https://linkedin.com/in/inakmm" target="_blank" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/inakm" target="_blank" class="text-gray-400 hover:text-brand-lavender transition-colors text-2xl"><i class="fa-brands fa-github"></i></a>
-                <a href="mailto:inakm@proton.me" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
+    <div id="searchOverlay"
+        class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-24 md:pt-32 px-4">
+        <div class="bg-white/95 backdrop-blur-3xl w-full max-w-xl rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.25)] overflow-hidden border border-white/80 transform scale-95 opacity-0 transition-all duration-300"
+            id="searchModal">
+            <div class="relative border-b border-black/5">
+                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-brand-secondary text-lg"></i>
+                <input type="text" id="searchInput"
+                    class="w-full py-4 pl-12 pr-12 bg-transparent text-lg font-medium text-brand-primary focus:outline-none placeholder:text-brand-secondary/70"
+                    placeholder="Search portfolio...">
+                <button onclick="closeSearch()"
+                    class="absolute right-5 top-1/2 -translate-y-1/2 text-brand-secondary hover:text-brand-primary transition-colors text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
-                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+            <div class="max-h-[50vh] overflow-y-auto p-2" id="searchResults">
+                <div class="p-6 text-center text-brand-secondary">
+                    <i class="fa-solid fa-keyboard text-3xl mb-3 opacity-30"></i>
+                    <p class="text-sm">Start typing to search across the portfolio.</p>
+                </div>
             </div>
+            <div class="bg-black/5 px-4 py-2.5 text-[10px] font-medium text-brand-secondary border-t border-white/40 flex justify-between">
+                <span><kbd class="bg-white/50 border border-black/5 rounded px-1.5 py-0.5 shadow-sm font-mono mr-1">ESC</kbd> to close</span>
+                <span class="font-mono">22 pages indexed</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brand-primary text-white/60 py-10 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-6">
+                <a href="https://linkedin.com/in/inakmm" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-brand-highlight transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/inakm" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-brand-highlight transition-colors text-xl"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:inakm@proton.me" class="text-white/40 hover:text-brand-highlight transition-colors text-xl"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brand-primary text-white shadow-[0_10px_25px_rgba(0,0,0,0.2)] flex items-center justify-center hover:scale-105 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none z-40 border border-white/10">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.getElementById('mobileMenuBtn');
-            if (menu && btn) {
-                menu.classList.toggle('active');
-                btn.classList.toggle('open');
-                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorOutline = document.getElementById('cursor-outline');
+            const magneticElements = document.querySelectorAll('.magnetic-wrap');
+
+            if (isFinePointer && cursorDot && cursorOutline) {
+                let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+                let outlineX = mouseX; let outlineY = mouseY;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX; mouseY = e.clientY;
+                    cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    cursorDot.style.opacity = '0';
+                    cursorOutline.style.opacity = '0';
+                });
+
+                document.addEventListener('mouseenter', () => {
+                    cursorDot.style.opacity = '1';
+                    cursorOutline.style.opacity = '1';
+                });
+
+                const animate = () => {
+                    let distX = mouseX - outlineX; let distY = mouseY - outlineY;
+                    outlineX += distX * 0.15; outlineY += distY * 0.15;
+                    cursorOutline.style.left = `${outlineX}px`; cursorOutline.style.top = `${outlineY}px`;
+                    requestAnimationFrame(animate);
+                };
+                animate();
+
+                const interactables = document.querySelectorAll('a, button, input, textarea, select');
+                interactables.forEach(el => {
+                    el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active'));
+                    el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
+                });
+            } else {
+                cursorDot?.remove();
+                cursorOutline?.remove();
             }
-        }
+
+            magneticElements.forEach((el) => {
+                const inner = el.querySelector('.magnetic-inner');
+                if (!inner) return;
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const pullX = (e.clientX - (rect.left + rect.width / 2)) * 0.4;
+                    const pullY = (e.clientY - (rect.top + rect.height / 2)) * 0.4;
+                    inner.style.transform = `translate(${pullX}px, ${pullY}px)`;
+                    if (isFinePointer && cursorOutline) cursorOutline.classList.add('hover-active');
+                });
+                el.addEventListener('mouseleave', () => {
+                    inner.style.transform = `translate(0px, 0px)`;
+                    if (isFinePointer && cursorOutline) cursorOutline.classList.remove('hover-active');
+                });
+            });
+
+            const nav = document.getElementById('mainNav');
+            const whiteCanvas = document.getElementById('whiteCanvas');
+            let lastScrollY = 0;
+            let navHidden = false;
+
+            window.addEventListener('scroll', () => {
+                const canvasTop = whiteCanvas.getBoundingClientRect().top;
+                const currentScrollY = window.scrollY;
+
+                if (canvasTop < 100) {
+                    nav.classList.add('header-light');
+                } else {
+                    nav.classList.remove('header-light');
+                }
+
+                if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                    if (!navHidden) {
+                        nav.style.transform = 'translateY(-120%)';
+                        navHidden = true;
+                    }
+                } else {
+                    if (navHidden) {
+                        nav.style.transform = 'translateY(0)';
+                        navHidden = false;
+                    }
+                }
+                lastScrollY = currentScrollY;
+            });
+
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                    backToTop.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                } else {
+                    backToTop.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                    backToTop.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                }
+            });
+
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                const key = e.key.toLowerCase();
+                if (key === '/') {
+                    e.preventDefault();
+                    openSearch();
+                } else if (key === 't') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            const searchIndex = [
+                { title: "Career Directory", url: "../career-directory.html", category: "Other" },
+                { title: "Contact", url: "../contact.html", category: "Other" },
+                { title: "Page Index", url: "../index.html", category: "Other" },
+                { title: "Resources", url: "../resources.html", category: "Other" },
+
+                { title: "BQL Analysis", url: "../projects/bql.html", category: "Projects" },
+                { title: "Citi Forage", url: "../projects/citi-forage.html", category: "Projects" },
+                { title: "Excel Project", url: "../projects/excelproj.html", category: "Projects" },
+                { title: "FHEL Analysis", url: "../projects/fhel.html", category: "Projects" },
+                { title: "Gatigo", url: "../projects/gatigo.html", category: "Projects" },
+                { title: "Gujarat Alarm", url: "../projects/gujtlrm.html", category: "Projects" },
+                { title: "Projects Index", url: "../projects/index.html", category: "Projects" },
+                { title: "PowerBI Portfolio", url: "../projects/powerbi.html", category: "Projects" },
+                { title: "RVNL Analysis", url: "../projects/rvnl.html", category: "Projects" },
+
+                { title: "Prism Dashboard", url: "../projects/dashboards/Prism.html", category: "Dashboards" },
+                { title: "RMM Dashboard", url: "../projects/dashboards/RMM.html", category: "Dashboards" },
+                { title: "VEVOi Dashboard", url: "../projects/dashboards/VEVOi.html", category: "Dashboards" },
+
+                { title: "Business Model Analysis Prompt", url: "bmodel-analysis.html", category: "Prompts" },
+                { title: "CV Job Finder Prompt", url: "cvfindjob.html", category: "Prompts" },
+                { title: "Equity Research Prompt", url: "equityresrch.html", category: "Prompts" },
+                { title: "Prompts Index", url: "index.html", category: "Prompts" },
+                { title: "Job Scraper Prompt", url: "job-scaraper.html", category: "Prompts" }
+            ];
+
+            const searchOverlay = document.getElementById('searchOverlay');
+            const searchModal = document.getElementById('searchModal');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            window.openSearch = function () {
+                searchOverlay.classList.add('active');
+                setTimeout(() => {
+                    searchModal.classList.remove('scale-95', 'opacity-0');
+                    searchModal.classList.add('scale-100', 'opacity-100');
+                    searchInput.focus();
+                }, 10);
+                document.body.style.overflow = 'hidden';
+                renderSearchResults('');
+            };
+
+            window.closeSearch = function () {
+                searchModal.classList.remove('scale-100', 'opacity-100');
+                searchModal.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    searchOverlay.classList.remove('active');
+                }, 300);
+                document.body.style.overflow = '';
+                searchInput.value = '';
+            };
+
+            searchOverlay.addEventListener('click', (e) => {
+                if (e.target === searchOverlay) closeSearch();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+                    closeSearch();
+                }
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    if (searchOverlay.classList.contains('active')) closeSearch();
+                    else openSearch();
+                }
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                renderSearchResults(e.target.value);
+            });
+
+            function renderSearchResults(query) {
+                const q = query.toLowerCase().trim();
+                if (!q) {
+                    const categories = {};
+                    searchIndex.forEach(item => {
+                        if (!categories[item.category]) categories[item.category] = [];
+                        categories[item.category].push(item);
+                    });
+                    let html = '<div class="p-3">';
+                    Object.keys(categories).forEach(cat => {
+                        html += `<div class="mb-4 last:mb-0">
+                            <h4 class="text-[10px] font-bold uppercase tracking-widest text-brand-secondary px-3 mb-2">${cat}</h4>`;
+                        categories[cat].forEach(item => {
+                            html += `<a href="${item.url}" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-black/5 transition-colors group">
+                                <span class="w-2 h-2 rounded-full ${cat === 'Prompts' ? 'bg-amber-400' : cat === 'Projects' ? 'bg-emerald-500' : cat === 'Dashboards' ? 'bg-blue-500' : 'bg-brand-secondary'}"></span>
+                                <span class="text-sm font-medium text-brand-primary group-hover:text-[#0a66c2] transition-colors">${item.title}</span>
+                            </a>`;
+                        });
+                        html += '</div>';
+                    });
+                    html += '</div>';
+                    searchResults.innerHTML = html;
+                    return;
+                }
+
+                const results = searchIndex.filter(item =>
+                    item.title.toLowerCase().includes(q) || item.category.toLowerCase().includes(q)
+                );
+
+                if (results.length === 0) {
+                    searchResults.innerHTML = `<div class="p-8 text-center text-brand-secondary"><i class="fa-solid fa-search-minus text-3xl mb-3 opacity-30"></i><p class="text-sm">No results found for "<strong class="text-brand-primary">${query}</strong>".</p></div>`;
+                    return;
+                }
+
+                let html = '<div class="p-2">';
+                results.forEach(item => {
+                    html += `<a href="${item.url}" class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-black/5 transition-colors group" onclick="closeSearch()">
+                        <span class="w-2 h-2 rounded-full ${item.category === 'Prompts' ? 'bg-amber-400' : item.category === 'Projects' ? 'bg-emerald-500' : item.category === 'Dashboards' ? 'bg-blue-500' : 'bg-brand-secondary'}"></span>
+                        <span class="text-sm font-medium text-brand-primary group-hover:text-[#0a66c2] transition-colors">${item.title}</span>
+                    </a>`;
+                });
+                html += '</div>';
+                searchResults.innerHTML = html;
+            }
+
+            if (mobileMenuBtn && mobileMenuClose && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('translate-x-full');
+                    mobileMenu.classList.toggle('translate-x-0');
+                    document.body.style.overflow = mobileMenu.classList.contains('translate-x-0') ? 'hidden' : '';
+                });
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                    document.body.style.overflow = '';
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('translate-x-full');
+                        mobileMenu.classList.remove('translate-x-0');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
     </script>
 </body>
 </html>

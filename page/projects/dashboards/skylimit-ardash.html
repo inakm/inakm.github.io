@@ -629,6 +629,7 @@
     }
   </style>
     <script src="https://js.puter.com/v2/"></script>
+  <link rel="stylesheet" href="../../../view-transitions.css">
 </head>
 <body class="antialiased relative font-sans selection:bg-brand-highlight selection:text-black" style="color-scheme: dark;">
 
@@ -2868,7 +2869,7 @@
     function renderCallStatusChart(invoices, callLogs) {
       let ctx = document.getElementById('chartCallStatus').getContext('2d');
       if (chartCallStatus) chartCallStatus.destroy();
-      let callingParties = [...new Set(invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30).map(i => i.partyName))];
+      let callingParties = [...new Set(invoices.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0 && i._overdueDays > 30).map(i => i.partyName))];
       let relevantLogs = callLogs.filter(c => callingParties.includes(c.partyName));
       let statuses = ['Not Called', 'Completed', 'Follow-up', 'Disputed Bill', 'Unreachable'];
       let counts = statuses.map(s => {
@@ -2969,7 +2970,7 @@
       let callLogs = await getCallLogs();
       let search = document.getElementById('callingSearch').value.toLowerCase().trim();
       let sortField = document.getElementById('callingSort').value;
-      let filtered = invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30);
+      let filtered = invoices.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0 && i._overdueDays > 30);
 
       // Apply column filters
       if (currentFilters.group !== '__all') {
@@ -3111,7 +3112,7 @@
       let callLogs = await getCallLogs();
       let allPayments = await dbReadAll(STORES.payments);
       let search = document.getElementById('callingSearch').value.toLowerCase().trim();
-      let items = invoices.filter(i => i.status === 'Unpaid' && i._overdueDays > 30);
+      let items = invoices.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0 && i._overdueDays > 30);
       if (search) {
         items = items.filter(i => i.partyName.toLowerCase().includes(search) ||
           i.invoiceNo.toLowerCase().includes(search) ||
@@ -3624,7 +3625,7 @@
       let badgePayment = document.getElementById('badgePayment');
       let badgeCalling = document.getElementById('badgeCalling');
       let ledgerCount = invoices.filter(i => i.status !== 'Paid').length;
-      let callingCount = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid').length;
+      let callingCount = invoices.filter(i => i._overdueDays > 30 && i.status === 'Unpaid' && i.pendingAmount > 0).length;
       if (ledgerCount > 0) { badgeLedger.textContent = ledgerCount; badgeLedger.classList.remove('hidden'); } else badgeLedger.classList.add('hidden');
       if (payments.length > 0) { badgePayment.textContent = payments.length; badgePayment.classList.remove('hidden'); } else badgePayment.classList.add('hidden');
       if (callingCount > 0) { badgeCalling.textContent = callingCount; badgeCalling.classList.remove('hidden'); } else badgeCalling.classList.add('hidden');
@@ -3659,7 +3660,7 @@
       // KPI
       let agg = computeAggregations(filtered);
       // Override callingListCount to match inclusive filter (disputed/imported invoices too)
-      agg.callingListCount = filtered.filter(i => i.status === 'Unpaid').filter(i => {
+      agg.callingListCount = filtered.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0).filter(i => {
         let hasLog = callLogs.some(c => c.partyName === i.partyName && c.currentStatus !== 'Not Called');
         return i._overdueDays > 30 || hasLog;
       }).length;

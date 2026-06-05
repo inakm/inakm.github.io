@@ -44,3 +44,7 @@ the input and output excel file structure should be same, make sure the output e
 i mean the output (export) excel file should also have similar structure as we have the file in input.
 
 CALLING List tab should be auto populated from all the invoices in MASTER LEDGER where overdue days > 30 days and when users upload the CALLING LIST excel file we can get the previous remarks which is mentioned in that excel file in that excel file and calling status too.
+
+
+
+

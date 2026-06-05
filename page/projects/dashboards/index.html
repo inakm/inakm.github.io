@@ -9,9 +9,9 @@
     <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/">
 
     <meta name="description"
-        content="Explore interactive HTML dashboards: sales analytics, regional performance, financial visualizations, and video analytics by Anjani Kumar Mishra.">
+        content="Explore interactive HTML dashboards: sales analytics, regional performance, financial visualizations, AR aging tracker, and video analytics by Anjani Kumar Mishra.">
     <meta name="keywords"
-        content="interactive dashboards, HTML dashboards, Plotly.js, sales analytics, regional analytics, financial visualization, video analytics, Anjani Kumar Mishra, CarLIMIT, Prism, RMM, VEVOi">
+        content="interactive dashboards, HTML dashboards, Plotly.js, sales analytics, regional analytics, financial visualization, AR aging, accounts receivable, video analytics, Anjani Kumar Mishra, CarLIMIT, Prism, RMM, VEVOi, Skylimit">
     <meta name="author" content="Anjani Kumar Mishra">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -78,6 +78,12 @@
                     "position": 4,
                     "name": "CarLIMIT Sales Performance Dashboard",
                     "description": "Interactive sales performance dashboard with revenue, profit, and segment insights"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Skylimit AR Aging Dashboard",
+                    "description": "Accounts Receivable aging dashboard with Tally ERP integration and automated collection workflow"
                 }
             ]
         }
@@ -307,6 +313,7 @@
         }
     </style>
     <script src="https://js.puter.com/v2/"></script>
+  <link rel="stylesheet" href="../../../view-transitions.css">
 </head>
 
 <body class="antialiased selection:bg-brand-highlight selection:text-black">
@@ -353,8 +360,8 @@
                 Interactive Dashboards
             </h1>
             <p class="text-lg text-white/60 max-w-2xl">
-                A collection of HTML-based interactive dashboards built with Plotly.js for sales analytics,
-                regional performance tracking, and data visualization.
+                A collection of HTML-based interactive dashboards for sales analytics,
+                regional performance tracking, accounts receivable aging, and data visualization.
             </p>
         </div>
 
@@ -460,6 +467,31 @@
                         <div
                             class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
                             <span><i class="fa-solid fa-chart-bar mr-1"></i> Plotly.js</span>
+                            <span class="text-brand-highlight font-bold">View Dashboard <i
+                                    class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Skylimit AR Aging Dashboard -->
+                <a href="skylimit-ardash.html"
+                    class="liquid-glass rounded-2xl dashboard-card overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-highlight/50">
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
+                                <i class="fa-solid fa-file-invoice text-amber-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Skylimit AR Aging</h3>
+                                <p class="text-xs text-white/50">Accounts Receivable dashboard</p>
+                            </div>
+                        </div>
+                        <p class="text-white/70 text-sm mb-6 flex-1">
+                            Real-time receivables intelligence with Tally ERP integration, multi-agent sync, aging analysis, payment tracking, and automated collection workflow.
+                        </p>
+                        <div
+                            class="flex items-center justify-between text-xs text-white/40 pt-4 border-t border-white/5">
+                            <span><i class="fa-solid fa-calculator mr-1"></i> Tally ERP</span>
                             <span class="text-brand-highlight font-bold">View Dashboard <i
                                     class="fa-solid fa-arrow-right"></i></span>
                         </div>

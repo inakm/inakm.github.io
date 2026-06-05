@@ -1,0 +1,15 @@
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: 250ms ease-out both fadeOut;
+  }
+  ::view-transition-new(root) {
+    animation: 350ms 100ms ease-out both fadeIn;
+  }
+}
+
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } }
