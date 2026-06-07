@@ -1168,6 +1168,21 @@
     </div>
   </div>
 
+  <!-- FILE PREVIEW MODAL -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal-box" style="max-width:720px">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider" id="previewModalTitle">File Preview</h3>
+        <button onclick="closePreviewModal()" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
+      </div>
+      <div id="previewContent"></div>
+      <div class="mt-4 flex justify-end gap-2">
+        <button onclick="closePreviewModal()" class="btn-secondary text-xs">Cancel</button>
+        <button onclick="confirmImport()" class="btn-primary text-xs"><i class="fa-solid fa-check mr-1"></i> Import to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
   <!-- CLEAR DB MODAL -->
   <div class="modal-overlay" id="clearModal">
     <div class="modal-box">
@@ -1252,6 +1267,9 @@
     let currentStatusChangeParty = null;
     let ageBasis = 'dueDate'; // 'dueDate' or 'invoiceDate'
     let topOverdueLimit = 10;
+    let pendingImportBytes = null;
+    let pendingImportMode = null;
+    let pendingFileName = '';
 
     // ============================================================
     // INDEXEDDB MANAGER
@@ -1606,9 +1624,35 @@
       let iOD = colIndex(['Days Overdue', 'Overdue Days', 'Overdue']);
       let iBucket = colIndex(['Aging Bucket', 'Bucket']);
       let iStatus = colIndex(['Status']);
-      let iPrevRem = colIndex(['Previous Remarks', 'Remarks']);
       let iCallStatus = colIndex(['Calling Status', 'Call Status']);
-      let iNewRem = colIndex(['New Remarks', 'New Remark', 'Remark']);
+
+      // Smart remark column detection: find all remark-like columns and assign properly
+      let iPrevRem = -1, iNewRem = -1;
+      let allRemCols = [];
+      headers.forEach((h, idx) => {
+        let hl = h.toLowerCase();
+        if (hl.includes('remarks') || hl.includes('remark')) {
+          allRemCols.push({ idx, header: h, isPrev: hl.includes('previous'), isNew: hl.includes('new') });
+        }
+      });
+      // Prefer exact Previous / New columns
+      let prevExact = allRemCols.find(r => r.isPrev);
+      let newExact = allRemCols.find(r => r.isNew && (!prevExact || r.idx !== prevExact.idx));
+      if (prevExact) iPrevRem = prevExact.idx;
+      if (newExact) iNewRem = newExact.idx;
+      // Fallback: if only a plain "Remarks" exists, assign it to Previous
+      if (iPrevRem === -1 && iNewRem === -1) {
+        let plain = allRemCols.find(r => !r.isPrev && !r.isNew);
+        if (plain) iPrevRem = plain.idx;
+      } else if (iPrevRem === -1) {
+        // Has New but no Previous — try plain "Remarks" that isn't New
+        let plain = allRemCols.find(r => !r.isPrev && !r.isNew && r.idx !== iNewRem);
+        if (plain) iPrevRem = plain.idx;
+      } else if (iNewRem === -1) {
+        // Has Previous but no New — try plain "Remarks" that isn't Previous
+        let plain = allRemCols.find(r => !r.isPrev && !r.isNew && r.idx !== iPrevRem);
+        if (plain) iNewRem = plain.idx;
+      }
 
       let items = [];
       for (let row of dataRows) {
@@ -1858,20 +1902,161 @@
     }
 
     // ============================================================
+    // FILE PREVIEW MODAL
+    // ============================================================
+    function getRawPreviewData(bytes) {
+      let wb = XLSX.read(bytes, { type: 'array', cellDates: true });
+      let ws = wb.Sheets[wb.SheetNames[0]];
+      let allRows = XLSX.utils.sheet_to_json(ws, { defval: '', header: 1 });
+      allRows = allRows.filter(r => r.some(c => String(c).trim() !== ''));
+      if (allRows.length === 0) return { headers: [], sampleRows: [], totalRows: 0 };
+      // Find first row that looks like a header (3+ filled cells or contains known keywords)
+      let startIdx = 0;
+      let knownKeys = ['s.no', 'customer name', 'party name', 'invoice no', 'source sheet', 'date'];
+      for (let i = 0; i < Math.min(allRows.length, 12); i++) {
+        let row = allRows[i];
+        let filled = row.filter(c => String(c).trim() !== '').length;
+        let rowText = row.map(c => String(c).trim().toLowerCase()).join(' ');
+        let hasKey = knownKeys.some(k => rowText.includes(k));
+        if (filled >= 3 || hasKey) { startIdx = i; break; }
+      }
+      let headers = (allRows[startIdx] || []).map(h => String(h).trim());
+      let dataRows = allRows.slice(startIdx + 1);
+      let totalRows = dataRows.length;
+      let sampleRows = dataRows.slice(0, 5);
+      return { headers, sampleRows, totalRows };
+    }
+
+    function showFilePreview(mode, bytes, fileName) {
+      pendingImportBytes = bytes;
+      pendingImportMode = mode;
+      pendingFileName = fileName;
+
+      let raw;
+      try { raw = getRawPreviewData(bytes); } catch (e) {
+        showToast('Could not read file for preview: ' + e.message, true);
+        return;
+      }
+      if (!raw.headers || raw.headers.length === 0) {
+        showToast('File appears empty or unreadable', true);
+        return;
+      }
+      let title = mode === 'master' ? 'Master Report Preview' : mode === 'payment' ? 'Payment Logs Preview' : 'Calling List Preview';
+      let modeLabel = mode === 'master' ? 'Master Report' : mode === 'payment' ? 'Payment Logs' : 'Calling List';
+      let remarkInfo = '';
+
+      // For calling list, show remark column detection
+      if (mode === 'calling') {
+        let hdrs = raw.headers;
+        let remCols = hdrs.filter(h => /remarks|remark/i.test(h));
+        if (remCols.length > 0) {
+          remarkInfo = `<div class="text-xs text-white/70 mt-2 p-2 rounded bg-white/5 border border-white/10">
+            <i class="fa-solid fa-circle-info text-brand-highlight mr-1"></i>
+            <strong>${remCols.length}</strong> remark column(s) detected: ${remCols.map(r => `<code class="text-brand-highlight">${htmlEscape(r)}</code>`).join(', ')}
+            ${remCols.length > 1 ? '<span class="text-green-500 ml-1">— Both will be preserved</span>' : ''}
+          </div>`;
+        }
+      }
+
+      document.getElementById('previewModalTitle').textContent = title;
+
+      let hCount = raw.headers.length;
+      let html = `
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4 text-sm">
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <p class="text-[10px] uppercase tracking-widest text-white/50">File</p>
+            <p class="font-semibold truncate">${htmlEscape(fileName)}</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Type</p>
+            <p class="font-semibold">${modeLabel}</p>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Rows / Columns</p>
+            <p class="font-semibold">${raw.totalRows} rows / ${hCount} columns</p>
+          </div>
+        </div>`;
+
+      if (remarkInfo) html += remarkInfo;
+
+      html += `
+        <div class="text-xs text-white/60 mb-2 font-bold uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-table"></i> Columns Detected
+        </div>
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          ${raw.headers.map(h => `<span class="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-white/10">${htmlEscape(h)}</span>`).join('')}
+        </div>
+        <div class="text-xs text-white/60 mb-2 font-bold uppercase tracking-wider">
+          Preview <span class="text-white/50 font-normal normal-case">(first ${raw.sampleRows.length} of ${raw.totalRows} rows)</span>
+        </div>
+        <div class="overflow-x-auto max-h-[260px] overflow-y-auto border border-white/10 rounded-xl">
+          <table class="text-xs w-full">
+            <thead>
+              <tr>${raw.headers.map(h => `<th class="px-3 py-2 whitespace-nowrap">${htmlEscape(h)}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+              ${raw.sampleRows.length === 0 ? '<tr><td colspan="' + hCount + '" class="text-center text-white/40 px-3 py-4">No data rows</td></tr>' :
+                raw.sampleRows.map(row =>
+                  `<tr>${raw.headers.map((h, ci) => `<td class="px-3 py-1.5 whitespace-nowrap max-w-[200px] truncate">${htmlEscape(String(row[ci] !== undefined ? row[ci] : ''))}</td>`).join('')}</tr>`
+                ).join('')}
+              ${raw.totalRows > raw.sampleRows.length ? `<tr><td colspan="${hCount}" class="text-center text-white/40 px-3 py-3 italic border-t border-white/5">… ${raw.totalRows - raw.sampleRows.length} more row(s) — only preview shown</td></tr>` : ''}
+            </tbody>
+          </table>
+        </div>`;
+
+      document.getElementById('previewContent').innerHTML = html;
+      document.getElementById('previewModal').classList.add('active');
+    }
+
+    function closePreviewModal() {
+      document.getElementById('previewModal').classList.remove('active');
+      pendingImportBytes = null;
+      pendingImportMode = null;
+      pendingFileName = '';
+    }
+
+    async function confirmImport() {
+      let bytes = pendingImportBytes;
+      let mode = pendingImportMode;
+      closePreviewModal();
+      if (!bytes || !mode) return;
+      try {
+        if (mode === 'master') await processMasterReportUpload(bytes);
+        else if (mode === 'payment') await processPaymentLogsUpload(bytes);
+        else if (mode === 'calling') await processCallingListUpload(bytes);
+        else if (mode === 'sync') await processSyncImport(new TextDecoder().decode(bytes));
+      } catch (err) {
+        showToast('Error: ' + err.message, true);
+        console.error(err);
+      }
+    }
+
+    // ============================================================
     // FILE HANDLING
     // ============================================================
     function handleFileSelect(event) {
       let file = event.target.files[0];
       if (!file) return;
       closeModal('uploadModal');
+      if (currentUploadMode === 'sync') {
+        // Sync files bypass preview (direct import)
+        let reader = new FileReader();
+        reader.onload = async (e) => {
+          try {
+            await processSyncImport(e.target.result);
+          } catch (err) {
+            showToast('Error: ' + err.message, true);
+            console.error(err);
+          }
+        };
+        reader.readAsText(file);
+        return;
+      }
       let reader = new FileReader();
       reader.onload = async (e) => {
         try {
           let data = new Uint8Array(e.target.result);
-          if (currentUploadMode === 'master') await processMasterReportUpload(data);
-          else if (currentUploadMode === 'payment') await processPaymentLogsUpload(data);
-          else if (currentUploadMode === 'calling') await processCallingListUpload(data);
-          else if (currentUploadMode === 'sync') await processSyncImport(new TextDecoder().decode(data));
+          showFilePreview(currentUploadMode, data, file.name);
         } catch (err) {
           showToast('Error: ' + err.message, true);
           console.error(err);
@@ -2031,22 +2216,41 @@
         if (!item.partyName) continue;
         let status = partyCallStatus[item.partyName] || item.callStatus || 'Not Called';
         let existing = await getCallLog(item.partyName);
-        let combinedRemark = item.newRemark || item.previousRemarks || '';
+
+        // Build remark entries: preserve both Previous and New Remarks separately
+        let remarkEntries = [];
+        if (item.previousRemarks) {
+          remarkEntries.push({ agent: 'Import', status, text: '[Previous] ' + item.previousRemarks });
+        }
+        if (item.newRemark && item.newRemark !== item.previousRemarks) {
+          remarkEntries.push({ agent: 'Import', status, text: '[New] ' + item.newRemark });
+        } else if (item.newRemark && !item.previousRemarks) {
+          remarkEntries.push({ agent: 'Import', status, text: item.newRemark });
+        }
+
         if (!existing) {
-          // Always create a call log so the calling status is preserved
-          await upsertCallLog(item.partyName, status, 'Import', combinedRemark);
+          let logEntry = { partyName: item.partyName, currentStatus: status, remarksHistory: [] };
+          if (remarkEntries.length > 0) {
+            remarkEntries.forEach(r => {
+              logEntry.remarksHistory.push({ Timestamp: nowStr(), Agent: r.agent, Status: r.status, Text: r.text });
+            });
+          } else {
+            logEntry.remarksHistory.push({ Timestamp: nowStr(), Agent: 'Import', Status: status, Text: '' });
+          }
+          await dbWrite(STORES.callLogs, logEntry);
           newLogs++;
-        } else if (existing) {
+        } else {
           let hasNewInfo = false;
           if (status !== 'Not Called' && existing.currentStatus !== status) {
             existing.currentStatus = status;
             hasNewInfo = true;
           }
-          if (combinedRemark) {
-            let last = existing.remarksHistory && existing.remarksHistory.length > 0 ? existing.remarksHistory[existing.remarksHistory.length - 1] : null;
-            if (!last || last.Text !== combinedRemark) {
-              if (!existing.remarksHistory) existing.remarksHistory = [];
-              existing.remarksHistory.push({ Timestamp: nowStr(), Agent: 'Import', Status: status, Text: combinedRemark });
+          if (!existing.remarksHistory) existing.remarksHistory = [];
+          let existingTexts = new Set(existing.remarksHistory.map(r => r.Text));
+          for (let r of remarkEntries) {
+            if (!existingTexts.has(r.text)) {
+              existing.remarksHistory.push({ Timestamp: nowStr(), Agent: r.agent, Status: r.status, Text: r.text });
+              existingTexts.add(r.text);
               hasNewInfo = true;
             }
           }
@@ -3729,7 +3933,10 @@
     // Close modals on overlay click
     document.querySelectorAll('.modal-overlay').forEach(el => {
       el.addEventListener('click', (e) => {
-        if (e.target === el) el.classList.remove('active');
+        if (e.target === el) {
+          el.classList.remove('active');
+          if (el.id === 'previewModal') closePreviewModal();
+        }
       });
     });
 
