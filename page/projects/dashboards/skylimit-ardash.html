@@ -13,8 +13,8 @@
   <meta name="revisit-after" content="7 days">
   <meta name="theme-color" content="#222222">
   <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html">
-  <link rel="icon" type="image/png" href="../../../mypfpf.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../mypfpf.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html">
   <meta property="og:title" content="Skylimit AR Aging Dashboard | Anjani Kumar Mishra">
@@ -745,42 +745,46 @@
     </section>
 
     <!-- KPI CARDS -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 kpi-grid" id="kpiSection">
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
-        <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
+    <section id="kpiSection" class="mb-6 space-y-3 md:space-y-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 kpi-grid">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
+          <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Collected</p>
+          <p class="kpi-value text-green-600" id="kpiCollected">₹0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">90+ Days Aging</p>
+          <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Today Collected</p>
+          <p class="kpi-value text-green-600" id="kpiTodayCollected">₹0</p>
+        </div>
       </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Collected</p>
-        <p class="kpi-value text-green-600" id="kpiCollected">₹0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Pending Amount</p>
-        <p class="kpi-value text-brand-highlight" id="kpiPendingAmount">₹0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">90+ Days Aging</p>
-        <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Pending Invoices</p>
-        <p class="kpi-value text-white" id="kpiPendingCount">0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Invoices</p>
-        <p class="kpi-value text-white" id="kpiTotalInvoices">0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Paid Invoices</p>
-        <p class="kpi-value text-green-600" id="kpiPaidCount">0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Calling List</p>
-        <p class="kpi-value" id="kpiCallingList">0</p>
-      </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Today Collected</p>
-        <p class="kpi-value text-green-600" id="kpiTodayCollected">₹0</p>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 kpi-grid">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Parties</p>
+          <p class="kpi-value text-white" id="kpiTotalParties">0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Invoices</p>
+          <p class="kpi-value text-white" id="kpiTotalInvoices">0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Pending Invoices</p>
+          <p class="kpi-value text-white" id="kpiPendingCount">0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Paid Invoices</p>
+          <p class="kpi-value text-green-600" id="kpiPaidCount">0</p>
+        </div>
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
+          <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Calling List</p>
+          <p class="kpi-value" id="kpiCallingList">0</p>
+        </div>
       </div>
     </section>
 
@@ -917,6 +921,11 @@
             <option value="__all">All Statuses</option>
             <option value="Unpaid">Unpaid</option>
             <option value="Paid">Paid</option>
+          </select>
+          <label class="text-[10px] font-bold uppercase tracking-widest text-white/60 ml-1">Age:</label>
+          <select id="ledgerAgeBasis" onchange="toggleLedgerAgeBasis()" class="min-w-[110px] text-xs">
+            <option value="dueDate">Due Date</option>
+            <option value="invoiceDate">Invoice Date</option>
           </select>
         </div>
         <div class="overflow-x-auto max-h-[500px] overflow-y-auto">
@@ -1093,6 +1102,78 @@
           <li>Log all payments promptly to keep the DSO (Days Sales Outstanding) metric accurate.</li>
           <li>Export and backup your data via Sync JSON regularly — all data is stored only in your browser.</li>
         </ul>
+        <div class="pt-3">
+          <p class="text-xs font-bold text-white uppercase tracking-wider mb-3"><i class="fa-solid fa-file-arrow-down mr-1 text-brand-highlight"></i> Sample Files &amp; Expected Format</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5 flex flex-col">
+              <p class="text-xs font-bold text-white uppercase tracking-wide mb-2"><i class="fa-solid fa-book mr-1 text-brand-highlight"></i> Master Report</p>
+              <div class="overflow-x-auto mb-2 flex-1 max-h-[220px] overflow-y-auto">
+                <table class="text-[10px] w-full">
+                  <thead><tr><th class="px-2 py-1 text-white/60 font-bold uppercase tracking-wider">Expected Columns</th></tr></thead>
+                  <tbody>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">S.No</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Source Sheet</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Date</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Invoice No</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Invoice Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Customer Name</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Pending Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Due Date</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Paid Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Outstanding Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Days Overdue</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Aging Bucket</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Risk Level</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Remarks</td></tr>
+                    <tr><td class="px-2 py-0.5">Status</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <a href="../../../Data/testdata-skylimit/MASTER_REPORT_TEST.xlsx" download class="btn-primary text-[10px] inline-block w-full text-center py-1.5 mt-auto"><i class="fa-solid fa-download mr-1"></i> Download .xlsx</a>
+            </div>
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5 flex flex-col">
+              <p class="text-xs font-bold text-white uppercase tracking-wide mb-2"><i class="fa-solid fa-money-bill-wave mr-1 text-brand-highlight"></i> Payment Logs</p>
+              <div class="overflow-x-auto mb-2 flex-1 max-h-[220px] overflow-y-auto">
+                <table class="text-[10px] w-full">
+                  <thead><tr><th class="px-2 py-1 text-white/60 font-bold uppercase tracking-wider">Expected Columns</th></tr></thead>
+                  <tbody>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Date</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Party Name</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Remark</td></tr>
+                    <tr><td class="px-2 py-0.5">Invoice</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <a href="../../../Data/testdata-skylimit/PAYMENTs_TEST.xlsx" download class="btn-primary text-[10px] inline-block w-full text-center py-1.5 mt-auto"><i class="fa-solid fa-download mr-1"></i> Download .xlsx</a>
+            </div>
+            <div class="bg-white/5 rounded-xl p-3 border border-white/5 flex flex-col">
+              <p class="text-xs font-bold text-white uppercase tracking-wide mb-2"><i class="fa-solid fa-phone mr-1 text-brand-highlight"></i> Calling List</p>
+              <div class="overflow-x-auto mb-2 flex-1 max-h-[220px] overflow-y-auto">
+                <table class="text-[10px] w-full">
+                  <thead><tr><th class="px-2 py-1 text-white/60 font-bold uppercase tracking-wider">Expected Columns</th></tr></thead>
+                  <tbody>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">S.No</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Source Sheet</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Date</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Invoice No</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Invoice Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Customer Name</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Pending Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Due Date</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Paid Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Outstanding Amount</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Days Overdue</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Calling Status</td></tr>
+                    <tr><td class="px-2 py-0.5 border-b border-white/5">Previous Remarks</td></tr>
+                    <tr><td class="px-2 py-0.5">New Remarks</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <a href="../../../Data/testdata-skylimit/CALLING_LIST_TEST.xlsx" download class="btn-primary text-[10px] inline-block w-full text-center py-1.5 mt-auto"><i class="fa-solid fa-download mr-1"></i> Download .xlsx</a>
+            </div>
+          </div>
+        </div>
         <p class="text-white/50 text-xs pt-2 border-t border-white/5">Data source: Tally ERP. All processing happens locally in your browser — nothing is uploaded to any server.</p>
       </div>
     </details>
@@ -1161,7 +1242,7 @@
         <p class="text-sm font-semibold text-white">Drop file here or click to browse</p>
         <p class="text-xs text-white/60/60 mt-1" id="uploadZoneHint">Supports .csv, .xlsx, and .json files</p>
       </div>
-      <input type="file" id="fileInput" accept=".csv,.json" style="display:none" onchange="handleFileSelect(event)">
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.json" style="display:none" onchange="handleFileSelect(event)">
       <div class="mt-4 flex justify-end gap-2">
         <button onclick="closeModal('uploadModal')" class="btn-secondary text-xs">Cancel</button>
       </div>
@@ -1670,7 +1751,7 @@
         let callStatus = iCallStatus !== -1 ? String(row[iCallStatus] || '').trim() : 'Not Called';
         // Normalize Excel calling statuses to dashboard categories
         if (callStatus === 'Disputed') callStatus = 'Disputed Bill';
-        else if (callStatus === 'Pending') callStatus = 'Not Called';
+        else if (callStatus === 'Pending' || callStatus === 'New') callStatus = 'Not Called';
         else if (callStatus === '') callStatus = 'Not Called';
         let newRemark = iNewRem !== -1 ? String(row[iNewRem] || '').trim() : '';
 
@@ -2684,9 +2765,16 @@
     }
     function toggleAgeBasis() {
       ageBasis = document.getElementById('ageBasisSelect').value;
-      renderAgingBucketSummary();
-      renderLedger();
-      renderCallingList();
+      let ledgerEl = document.getElementById('ledgerAgeBasis');
+      if (ledgerEl) ledgerEl.value = ageBasis;
+      refreshDashboard();
+    }
+
+    function toggleLedgerAgeBasis() {
+      ageBasis = document.getElementById('ledgerAgeBasis').value;
+      let mainEl = document.getElementById('ageBasisSelect');
+      if (mainEl) mainEl.value = ageBasis;
+      refreshDashboard();
     }
 
     function applyFilters() {
@@ -2807,15 +2895,15 @@
     function renderKPI(agg) {
       document.getElementById('kpiOutstanding').textContent = fmtCurrency(agg.totalOutstanding);
       document.getElementById('kpiCollected').textContent = fmtCurrency(agg.totalCollected);
-      document.getElementById('kpiPendingAmount').textContent = fmtCurrency(agg.totalOutstanding);
       document.getElementById('kpiHighRiskAmount').textContent = fmtCurrency(agg.agingBuckets['90+ Days'] || 0);
-      document.getElementById('kpiPendingCount').textContent = agg.pendingCount;
+      document.getElementById('kpiTodayCollected').textContent = fmtCurrency(agg.todayCollected || 0);
+      document.getElementById('kpiTotalParties').textContent = agg.totalParties || 0;
       document.getElementById('kpiTotalInvoices').textContent = agg.totalInvoiceCount;
+      document.getElementById('kpiPendingCount').textContent = agg.pendingCount;
       document.getElementById('kpiPaidCount').textContent = agg.totalPaidCount;
       let callingEl = document.getElementById('kpiCallingList');
       callingEl.textContent = agg.callingListCount;
       callingEl.className = 'kpi-value ' + (agg.callingListCount > 0 ? 'text-red-600' : 'text-green-600');
-      document.getElementById('kpiTodayCollected').textContent = fmtCurrency(agg.todayCollected || 0);
       document.getElementById('kpiDSO').textContent = agg.dso || 0;
       document.getElementById('kpiCEI').textContent = (agg.cei || 0) + '%';
       document.getElementById('kpiADD').textContent = agg.add || 0;
@@ -3857,7 +3945,7 @@
       // Toggle zero-state
       let hasData = invoices.length > 0 || payments.length > 0;
       document.getElementById('zeroState').style.display = hasData ? 'none' : 'block';
-      document.getElementById('kpiSection').style.display = hasData ? 'grid' : 'none';
+      document.getElementById('kpiSection').style.display = hasData ? 'block' : 'none';
       document.getElementById('dashboardContent').style.display = hasData ? 'block' : 'none';
       document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
 
@@ -3895,8 +3983,6 @@
         else if (tabName === 'payment') renderPaymentLog();
       }
 
-      // Update record count for filtered view
-      document.getElementById('recordCount').textContent = filtered.length + ' records';
       updateTabBadges();
     }
 
