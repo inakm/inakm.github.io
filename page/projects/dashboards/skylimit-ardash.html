@@ -2261,30 +2261,16 @@
       }
       if (items.length === 0) return;
 
-      let updated = 0, newLogs = 0;
+      let updated = 0, newLogs = 0, skipped = 0;
+      let matchedInvNos = new Set();
       let partyCallStatus = {}; // track best status per party across multiple invoice rows
       for (let item of items) {
         let inv = await dbRead(STORES.invoices, item.invoiceNo);
         if (!inv) {
-          let dueDate = item.dueDate || item.invoiceDate || new Date();
-          if (!item.dueDate && item.invoiceDate) {
-            dueDate = new Date(item.invoiceDate);
-            dueDate.setDate(dueDate.getDate() + 30);
-          }
-          await dbWrite(STORES.invoices, {
-            invoiceNo: item.invoiceNo,
-            partyName: item.partyName,
-            groupName: 'General',
-            invoiceDate: item.invoiceDate || new Date(),
-            dueDate: dueDate,
-            originalAmount: item.pendingAmount,
-            pendingAmount: item.pendingAmount,
-            status: 'Unpaid',
-            isManuallyPaid: false,
-            phone: '',
-            email: ''
-          });
+          skipped++;
+          continue; // Skip invoices not in dashboard (may have been paid/removed)
         }
+        matchedInvNos.add(item.invoiceNo);
 
         // Track best (non-default) call status per party
         if (item.partyName && item.callStatus && item.callStatus !== 'Not Called') {
@@ -2295,6 +2281,7 @@
       // Apply call status and remarks to call logs per party
       for (let item of items) {
         if (!item.partyName) continue;
+        if (!matchedInvNos.has(item.invoiceNo)) continue; // Skip if invoice not in dashboard
         let status = partyCallStatus[item.partyName] || item.callStatus || 'Not Called';
         let existing = await getCallLog(item.partyName);
 
@@ -2341,7 +2328,7 @@
           }
         }
       }
-      showToast(`Calling List: ${newLogs} new logs, ${updated} updated`);
+      showToast(`Calling List: ${newLogs} new logs, ${updated} updated, ${skipped} skipped (not in dashboard)`);
       await refreshDashboard();
     }
 
@@ -3634,7 +3621,7 @@
           <td><span class="text-xs">${gName}</span></td>
           <td class="text-sm">${inv.invoiceDate ? fmtDate(inv.invoiceDate) : 'N/A'}</td>
           <td class="text-sm">${inv.dueDate ? fmtDate(inv.dueDate) : 'N/A'}</td>
-          <td><span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span></td>
+          <td>${inv.status === 'Paid' ? '<span class="text-white/30">—</span>' : `<span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span>`}</td>
           <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv.status === 'Paid' ? '—' : inv._overdueDays + 'd'}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.originalAmount)}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
