@@ -1,3 +1,56 @@
+# robots.txt for inakm.github.io
+# Anjani Kumar Mishra - Finance & Analytics Portfolio
+
+# Allow all standard search engines full access
 User-agent: *
 Allow: /
+Disallow: /v0/
+Disallow: /testdata/
+Disallow: /Data/testdata-skylimit/
+Disallow: /Data/SQL_Proj/
+Disallow: /Data/RMM/
+Disallow: /Data/VEVOi/
+Disallow: /myprojects/ACCA-FM/
+Disallow: /todo
+
+# Explicitly allow AI search crawlers for AI discovery
+User-agent: GPTBot
+Allow: /
+Allow: /page/projects/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /v0/
+Disallow: /testdata/
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /page/projects/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /v0/
+Disallow: /testdata/
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /page/projects/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /v0/
+Disallow: /testdata/
+
+User-agent: Google-Extended
+Allow: /
+Allow: /page/projects/
+Allow: /llms.txt
+Disallow: /v0/
+Disallow: /testdata/
+
+# Allow archive.org to cache resources
+User-agent: ia_archiver
+Allow: /
+
+# Crawl rate optimization for GitHub Pages
+Crawl-delay: 2
+
+# Sitemaps
 Sitemap: https://inakm.github.io/sitemap.xml
