@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | AKM Portfolio</title>
+    <meta name="description" content="Support Anjani Kumar Mishra's work in finance, analytics, and open-source content.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#222222',
+                            secondary: '#7B7B7B',
+                            tertiary: '#F8F8F8',
+                            white: '#ffffff',
+                            highlight: '#f3c623'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #222222;
+            overflow-x: hidden;
+            font-family: 'Manrope', sans-serif;
+            cursor: none;
+        }
+        * { cursor: none !important; }
+
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+            mix-blend-mode: difference;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: white; }
+        .cursor-outline { width: 40px; height: 40px; border: 1px solid white; transition: width 0.2s, height 0.2s, background-color 0.2s; }
+        .cursor-outline.hover-active { width: 60px; height: 60px; background-color: rgba(255, 255, 255, 0.1); }
+
+        .liquid-glass-light {
+            background: rgba(0,0,0,0.02);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 9999px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+        }
+
+        .magnetic-wrap { display: inline-block; }
+        .magnetic-inner { display: inline-block; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
+
+        .support-card {
+            background: #ffffff;
+            border: 1px solid #E5E5E5;
+            border-radius: 2rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .support-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+    </style>
+    <script src="https://js.puter.com/v2/"></script>
+  <link rel="stylesheet" href="../view-transitions.css">
+</head>
+<body class="antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
+
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <nav class="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl">
+        <div class="liquid-glass-light px-6 py-4 flex justify-between items-center">
+            
+            <a href="/" class="magnetic-wrap group">
+                <div class="magnetic-inner text-xl font-bold tracking-tight text-brand-primary flex items-center gap-2">
+                    AKM<span class="text-brand-secondary text-sm font-normal">Portfolio</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold tracking-widest uppercase text-brand-secondary">
+                <a href="/me/index.html" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Profile</div></a>
+                <a href="/" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Work</div></a>
+                <a href="/page/projects/" class="magnetic-wrap"><div class="magnetic-inner hover:text-brand-primary transition-colors">Builds</div></a>
+            </div>
+
+            <div class="flex items-center">
+                <a href="contact.html" class="magnetic-wrap">
+                    <div class="magnetic-inner bg-brand-primary text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+                        Let's Talk
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center pt-32 pb-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto w-full">
+            
+            <!-- Header -->
+            <div class="max-w-2xl mb-16">
+                <h1 class="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.9] text-brand-primary mb-6">
+                    Support.<br>
+                    <span class="text-[#E5E5E5]">Donate.</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-medium tracking-tight text-brand-secondary">
+                    If my work &mdash; financial models, dashboards, templates, or open-source content &mdash; has helped you, consider buying me a coffee.
+                </p>
+            </div>
+
+            <!-- Support Options Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+                <!-- UPI -->
+                <div class="support-card flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-brand-tertiary rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-mobile-screen-button text-2xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold tracking-tight text-brand-primary mb-2">UPI</h3>
+                    <p class="text-brand-secondary text-sm mb-6">Scan or pay via any UPI app</p>
+                    <div class="bg-brand-tertiary rounded-xl p-4 w-full mb-4">
+                        <p class="text-lg font-mono font-bold tracking-tight text-brand-primary break-all">inakm@fam</p>
+                    </div>
+                    <p class="text-xs text-brand-secondary">Google Pay &middot; PhonePe &middot; Paytm</p>
+                </div>
+
+                <!-- PayPal -->
+                <div class="support-card flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-brand-tertiary rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-brands fa-paypal text-2xl text-[#0070BA]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold tracking-tight text-brand-primary mb-2">PayPal</h3>
+                    <p class="text-brand-secondary text-sm mb-6">Send via PayPal to</p>
+                    <a href="https://paypal.me/inakm" class="magnetic-wrap w-full">
+                        <div class="magnetic-inner bg-[#0070BA] text-white w-full py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-paypal"></i> paypal.me/inakm
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Crypto -->
+                <div class="support-card flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-brand-tertiary rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-coins text-2xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold tracking-tight text-brand-primary mb-2">Crypto</h3>
+                    <p class="text-brand-secondary text-sm mb-6">USDT / USDC (BEP-20)</p>
+                    <div class="bg-brand-tertiary rounded-xl p-4 w-full">
+                        <p class="text-xs font-mono font-bold tracking-tight text-brand-primary break-all">0x9FaC675C405bD7eACb2289E8Bc84A31b5ad88B49</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Message -->
+            <div class="bg-brand-tertiary rounded-[3rem] p-10 md:p-16 border border-[#E5E5E5] max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-tighter text-brand-primary mb-4">Grateful for your support</h2>
+                <p class="text-lg text-brand-secondary mb-8 max-w-lg mx-auto">
+                    Every contribution helps me create more free resources, tools, and content for the community. Thank you!
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 text-xs font-bold tracking-widest uppercase text-brand-secondary">
+                    <span class="bg-white px-4 py-2 rounded-full">#Finance</span>
+                    <span class="bg-white px-4 py-2 rounded-full">#Analytics</span>
+                    <span class="bg-white px-4 py-2 rounded-full">#OpenSource</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="max-w-7xl mx-auto w-full px-6 md:px-12 pt-10 pb-10 border-t border-[#E5E5E5]">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-xl font-bold tracking-tighter text-brand-primary">AKM<span class="text-brand-secondary font-medium">.Portfolio</span></div>
+            <div class="text-xs font-bold tracking-widest text-brand-secondary uppercase">
+                &copy; 2026 Anjani Kumar Mishra
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorOutline = document.getElementById('cursor-outline');
+            const magneticElements = document.querySelectorAll('.magnetic-wrap');
+
+            let mouseX = window.innerWidth / 2; let mouseY = window.innerHeight / 2;
+            let outlineX = mouseX; let outlineY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
+            });
+
+            const animate = () => {
+                let distX = mouseX - outlineX; let distY = mouseY - outlineY;
+                outlineX += distX * 0.15; outlineY += distY * 0.15;
+                cursorOutline.style.left = `${outlineX}px`; cursorOutline.style.top = `${outlineY}px`;
+                requestAnimationFrame(animate);
+            };
+            animate();
+
+            magneticElements.forEach((el) => {
+                const inner = el.querySelector('.magnetic-inner');
+                if(!inner) return;
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const pullX = (e.clientX - (rect.left + rect.width / 2)) * 0.4;
+                    const pullY = (e.clientY - (rect.top + rect.height / 2)) * 0.4;
+                    inner.style.transform = `translate(${pullX}px, ${pullY}px)`;
+                    cursorOutline.classList.add('hover-active');
+                });
+                el.addEventListener('mouseleave', () => {
+                    inner.style.transform = `translate(0px, 0px)`;
+                    cursorOutline.classList.remove('hover-active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

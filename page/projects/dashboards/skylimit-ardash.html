@@ -1094,6 +1094,9 @@
           <li><strong class="text-white">Use the Calling List tab</strong> to prioritize follow-ups on invoices overdue &gt;30 days. Update call statuses after each interaction.</li>
           <li><strong class="text-white">Export reports</strong> (Output → CSV/PDF/Sync JSON) to share with stakeholders or archive daily snapshots.</li>
         </ol>
+        <div class="py-6 flex justify-center">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/295dqkFoz-g?si=i8eOkjt9-Z30KCVl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="max-w-full rounded-xl"></iframe>
+        </div>
         <p><strong class="text-white">Tips for better cash flow:</strong></p>
         <ul class="list-disc pl-5 space-y-1">
           <li>Focus on <strong class="text-red-400">90+ Day</strong> aging items first — these have the highest risk of becoming bad debt.</li>
@@ -1617,6 +1620,7 @@
           dueDate: dueDate || new Date(),
           originalAmount: originalAmt || pending,
           pendingAmount: pending,
+          initialPendingAmount: pending,
           status: status,
           isManuallyPaid: status === 'Paid',
           phone: '',
@@ -2199,6 +2203,7 @@
           skipped++;
         } else {
           existing.pendingAmount = inv.pendingAmount;
+          existing.initialPendingAmount = inv.pendingAmount;
           existing.originalAmount = inv.originalAmount;
           existing.dueDate = inv.dueDate;
           existing.invoiceDate = inv.invoiceDate;
@@ -2409,6 +2414,7 @@
             dueDate: inv.dueDate ? new Date(inv.dueDate) : new Date(),
             originalAmount: inv.originalAmount || 0,
             pendingAmount: inv.pendingAmount || 0,
+            initialPendingAmount: inv.initialPendingAmount || inv.pendingAmount || inv.originalAmount || 0,
             status: inv.status || 'Unpaid',
             isManuallyPaid: inv.isManuallyPaid || false,
             phone: inv.phone || '',
@@ -2418,6 +2424,7 @@
         } else {
           // Merge: update pending amount and manual status
           existing.pendingAmount = inv.pendingAmount;
+          existing.initialPendingAmount = inv.initialPendingAmount || inv.pendingAmount || inv.originalAmount || existing.initialPendingAmount;
           existing.isManuallyPaid = inv.isManuallyPaid || existing.isManuallyPaid;
           if (inv.status) existing.status = inv.status;
           if (inv.phone) existing.phone = inv.phone;
@@ -2515,7 +2522,8 @@
       let totalPaid = payments
         .filter(p => p.invoiceNo === invNo)
         .reduce((sum, p) => sum + p.amount, 0);
-      inv.pendingAmount = Math.max(0, inv.originalAmount - totalPaid);
+      let basePending = (inv.initialPendingAmount !== undefined && inv.initialPendingAmount !== null) ? inv.initialPendingAmount : inv.originalAmount;
+      inv.pendingAmount = Math.max(0, basePending - totalPaid);
       if (inv.pendingAmount <= 0) {
         inv.pendingAmount = 0;
         inv.status = 'Paid';
@@ -4070,8 +4078,11 @@
     init();
   </script>
 
-  <footer class="text-center text-xs text-white/40 pb-6">
-    This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a>
+  <footer class="text-center text-xs text-white/40 pb-6 space-y-3">
+    <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> &middot; Built by <a href="https://f9xr.github.io" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
+    <p>
+      <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" width="200" height="43" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000" class="mx-auto"></a>
+    </p>
   </footer>
 </body>
 </html>
