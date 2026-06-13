@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anjani Kumar Mishra - Finance Analyst</title>
     <meta name="description" content="About Anjani Kumar Mishra — finance and analytics professional with expertise in financial modeling, PowerBI, Excel, and data visualization.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://inakm.github.io/me/">
+    <meta property="og:title" content="Anjani Kumar Mishra - Finance Analyst">
+    <meta property="og:description" content="About Anjani Kumar Mishra — finance and analytics professional with expertise in financial modeling, PowerBI, Excel, and data visualization.">
+    <meta property="og:image" content="https://inakm.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@in_akmm">
+    <meta name="twitter:creator" content="@in_akmm">
+    <meta name="twitter:title" content="Anjani Kumar Mishra - Finance Analyst">
+    <meta name="twitter:description" content="About Anjani Kumar Mishra — finance and analytics professional with expertise in financial modeling, PowerBI, Excel, and data visualization.">
+    <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <style>
@@ -17,19 +37,7 @@
 
         
         .custom-cursor {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            background: url('assets/custom_cursor.png') no-repeat center center;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-        }
-
-        
-        body:not(.touch-device) {
-            cursor: none;
+            display: none;
         }
 
         body {
@@ -261,16 +269,8 @@
             margin-bottom: 10px;
         }
 
-        
-        @font-face {
-            font-family: 'Angel Wish';
-            src: url('assets/Angel_wish.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         #profile-name {
-            font-family: 'Angel Wish', sans-serif;
+            font-family: 'Courier New', monospace;
             font-size: 32px;
             font-weight: bold;
             letter-spacing: 3px;
@@ -849,8 +849,6 @@
 </head>
 <body class="home-theme" onload="initMedia()">
     
-    <div class="custom-cursor"></div>
-
     
     <div id="start-screen">
         <div id="start-text"></div>
@@ -858,9 +856,7 @@
 
     <div class="container">
         
-        <video id="background" autoplay loop muted playsinline webkit-playsinline>
-            <source src="assets/background.mp4" type="video/mp4">
-        </video>
+        <div id="background" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center, #1a1a2e 0%, #000000 100%);"></div>
 
         
         <div class="glitch-overlay"></div>
@@ -875,7 +871,7 @@
         <div id="profile-block">
             <div class="profile-header">
                 <div class="profile-container">
-                    <img src="assets/profile.gif" alt="Profile" class="profile-picture">
+                    <div class="profile-picture" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#00CED1,#f3c623);font-size:48px;font-weight:bold;color:#fff;">AKM</div>
                 </div>
                 <div class="profile-info">
                     <div class="name-and-badges">
@@ -883,21 +879,17 @@
                         <div class="badge-box">
                             <div class="badge-box-inner">
                                 <div class="badge-group">
-                                    <div class="badge-container">
-                                        <img src="assets/staff.gif" alt="ACCA" class="badge">
-                                        <span class="tooltip">ACCA Candidate</span>
+                                    <div class="badge-container" style="background:rgba(255,255,255,0.1);padding:4px 8px;border-radius:4px;font-size:11px;cursor:default;">
+                                        ACCA Candidate
                                     </div>
-                                    <div class="badge-container">
-                                        <img src="assets/owner.gif" alt="Finance Analyst" class="badge">
-                                        <span class="tooltip">Finance Analyst</span>
+                                    <div class="badge-container" style="background:rgba(255,255,255,0.1);padding:4px 8px;border-radius:4px;font-size:11px;cursor:default;">
+                                        Finance Analyst
                                     </div>
-                                    <div class="badge-container">
-                                        <img src="assets/partner.gif" alt="FP&A" class="badge">
-                                        <span class="tooltip">FP&A Expert</span>
+                                    <div class="badge-container" style="background:rgba(255,255,255,0.1);padding:4px 8px;border-radius:4px;font-size:11px;cursor:default;">
+                                        FP&A Expert
                                     </div>
-                                    <div class="badge-container">
-                                        <img src="assets/developer.png" alt="PowerBI" class="badge">
-                                        <span class="tooltip">PowerBI Expert</span>
+                                    <div class="badge-container" style="background:rgba(255,255,255,0.1);padding:4px 8px;border-radius:4px;font-size:11px;cursor:default;">
+                                        PowerBI Expert
                                     </div>
                                 </div>
                             </div>
@@ -912,18 +904,10 @@
             <div class="profile-footer">
 
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/inakmm" target="_blank">
-                        <img src="assets/discord.png" alt="LinkedIn" class="social-icon">
-                    </a>
-                    <a href="https://github.com/inakm" target="_blank">
-                        <img src="assets/github.png" alt="GitHub" class="social-icon">
-                    </a>
-                    <a href="https://inakm.github.io" target="_blank">
-                        <img src="assets/youtube.png" alt="Portfolio" class="social-icon">
-                    </a>
-                    <a href="mailto:inakm@proton.me" target="_blank">
-                        <img src="assets/tiktok.png" alt="Email" class="social-icon">
-                    </a>
+                    <a href="https://linkedin.com/in/inakmm" target="_blank" style="color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.1);padding:6px 10px;border-radius:6px;transition:0.3s;">IN</a>
+                    <a href="https://github.com/inakm" target="_blank" style="color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.1);padding:6px 10px;border-radius:6px;transition:0.3s;">GH</a>
+                    <a href="https://inakm.github.io" target="_blank" style="color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.1);padding:6px 10px;border-radius:6px;transition:0.3s;">PF</a>
+                    <a href="mailto:inakm@proton.me" target="_blank" style="color:#fff;text-decoration:none;font-size:13px;background:rgba(255,255,255,0.1);padding:6px 10px;border-radius:6px;transition:0.3s;">EM</a>
                 </div>
 
 
@@ -943,7 +927,7 @@
             <h2 class="skills-title">Technical Skills</h2>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/python.png" alt="Financial Modeling" class="skill-icon">
+                    <span style="font-size:18px;">📊</span>
                     <span>Financial Modeling & DCF</span>
                     <span>90%</span>
                 </div>
@@ -953,7 +937,7 @@
             </div>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/cpp.png" alt="PowerBI" class="skill-icon">
+                    <span style="font-size:18px;">📈</span>
                     <span>PowerBI & DAX</span>
                     <span>85%</span>
                 </div>
@@ -963,7 +947,7 @@
             </div>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/csharp.png" alt="Excel" class="skill-icon">
+                    <span style="font-size:18px;">📗</span>
                     <span>Advanced Excel & VBA</span>
                     <span>80%</span>
                 </div>
@@ -990,12 +974,6 @@
 
 
         <div class="top-controls">
-            <div class="volume-control">
-                <svg id="volume-icon" class="volume-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
-                </svg>
-                <input id="volume-slider" class="slider" type="range" min="0" max="1" step="0.01" value="0.3">
-            </div>
             <div class="transparency-control">
                 <svg class="transparency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -1007,21 +985,7 @@
     </div>
 
 
-    <audio id="background-music" loop>
-        <source src="assets/background_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="hacker-music" loop muted>
-        <source src="assets/hacker_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="rain-music" loop muted>
-        <source src="assets/rain_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="anime-music" loop muted>
-        <source src="assets/anime_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="car-music" loop muted>
-        <source src="assets/car_music.mp3" type="audio/mp3">
-    </audio>
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

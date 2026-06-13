@@ -45,6 +45,12 @@ Allow: /llms.txt
 Disallow: /v0/
 Disallow: /testdata/
 
+# Bing Webmaster Guidelines - explicit rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /v0/
+Disallow: /testdata/
+
 # Allow archive.org to cache resources
 User-agent: ia_archiver
 Allow: /
