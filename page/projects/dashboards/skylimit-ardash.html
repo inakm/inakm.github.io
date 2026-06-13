@@ -628,6 +628,16 @@
       letter-spacing: 0.08em;
       color: #a0a0a0;
     }
+    .featured-logos a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-logos img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
   </style>
     <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="../../../view-transitions.css">
@@ -4128,11 +4138,34 @@
     init();
   </script>
 
-  <footer class="text-center text-xs text-white/40 pb-6 space-y-3">
+  <footer class="text-center text-xs text-white/40 pb-6 space-y-6">
     <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> &middot; Built by <a href="https://f9xr.github.io" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
-    <p>
-      <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" width="200" height="43" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000" class="mx-auto"></a>
-    </p>
+
+    <div class="max-w-4xl mx-auto pt-4 border-t border-white/10">
+      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-5">Featured on</p>
+      <div class="flex flex-wrap items-center justify-center gap-4 featured-logos">
+        <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000"></a>
+        <a href="https://directoryhunt.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
+          <img src="https://directoryhunt.org/assets/Badges/featured-dark.svg" alt="Featured on DirectoryHunt.org" style="display: block;" />
+        </a>
+        <a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-dark.png" alt="Featured on DodoDirectory" /></a>
+        <a href="https://neeed.directory/products/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+          <img src="https://neeed.directory/badges/neeed-badge-dark.svg" alt="Featured on neeed.directory" />
+        </a>
+        <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-dark.svg" alt="Featured on Twelve Tools"></a>
+        <a href="https://www.tinystartups.com/startup/skylimit-ar-aging-dashboard" target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);color:#fff">
+          <svg width="56" height="56" viewBox="0 0 100 100">
+            <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="#ffffff"/>
+          </svg>
+          <span style="display:flex;flex-direction:column;line-height:1.15">
+            <span style="font-family:monospace;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Launched on</span>
+            <span style="font-size:22px;font-weight:800;letter-spacing:-0.025em;color:#fff">Tiny Startups</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:4px">tinystartups.com</span>
+          </span>
+        </a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
