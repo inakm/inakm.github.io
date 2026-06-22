@@ -32,6 +32,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
     <link rel="mask-icon" href="/favicon.svg" color="#222222">
 
+    <!-- Link headers for agent discovery (RFC 8288) -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml">
+    <link rel="describedby" type="text/plain" href="/llms.txt">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inakm.github.io/">
     <meta property="og:title" content="Anjani Kumar Mishra | Financial Modeling, PowerBI & Analytics">
@@ -3096,6 +3101,93 @@
                 if (e.key === 'Enter') handleSend();
             });
         });
+    </script>
+
+    <!-- Service Worker for Markdown content negotiation (RFC 8288) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
+    </script>
+
+    <!-- WebMCP: expose site tools to AI agents (early preview) -->
+    <script>
+        (() => {
+            const api = navigator.modelContext;
+            if (!api || typeof api.registerTool !== 'function') return;
+
+            const ac = new AbortController();
+
+            async function fetchMarkdown(url) {
+                const r = await fetch(url, { headers: { Accept: 'text/markdown' } });
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return { text: await r.text(), tokens: r.headers.get('x-markdown-tokens') || '' };
+            }
+
+            api.registerTool({
+                name: 'get-page-content',
+                description: 'Fetch any page on this site as formatted markdown',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        path: { type: 'string', description: 'URL path, e.g. /index.html or /page/projects/' }
+                    },
+                    required: ['path']
+                },
+                execute: async ({ path }) => {
+                    try {
+                        const { text, tokens } = await fetchMarkdown(path);
+                        return { content: [{ type: 'text', text }], meta: { tokens } };
+                    } catch (e) {
+                        return { content: [{ type: 'text', text: 'Error: ' + e.message }] };
+                    }
+                }
+            }, { signal: ac.signal });
+
+            api.registerTool({
+                name: 'list-projects',
+                description: 'List all portfolio project categories and their pages',
+                inputSchema: {
+                    type: 'object',
+                    properties: {}
+                },
+                execute: async () => {
+                    try {
+                        const { text } = await fetchMarkdown('/page/projects/');
+                        return { content: [{ type: 'text', text }] };
+                    } catch (e) {
+                        return { content: [{ type: 'text', text: 'Error: ' + e.message }] };
+                    }
+                }
+            }, { signal: ac.signal });
+
+            api.registerTool({
+                name: 'get-agent-skills',
+                description: 'List all agent skills available on this site',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        name: { type: 'string', description: 'Optional skill name to filter by' }
+                    }
+                },
+                execute: async ({ name }) => {
+                    try {
+                        const idx = await (await fetch('/.well-known/agent-skills/index.json')).json();
+                        const skills = name
+                            ? idx.skills.filter(s => s.name === name)
+                            : idx.skills;
+                        return { content: [{ type: 'text', text: JSON.stringify(skills, null, 2) }] };
+                    } catch (e) {
+                        return { content: [{ type: 'text', text: 'Error: ' + e.message }] };
+                    }
+                }
+            }, { signal: ac.signal });
+
+            // Unregister tools on page unload
+            window.addEventListener('beforeunload', () => ac.abort());
+        })();
     </script>
 </body>
 

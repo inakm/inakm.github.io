@@ -55,6 +55,9 @@ Disallow: /testdata/
 User-agent: ia_archiver
 Allow: /
 
+# Content Signals - AI content usage preferences
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
 # Crawl rate optimization for GitHub Pages
 Crawl-delay: 2
 

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "portfolio",
+      "type": "skill-md",
+      "description": "Browse financial portfolio projects including financial models, PowerBI dashboards, and analytics tools",
+      "url": "/.well-known/agent-skills/portfolio.skill.md",
+      "digest": "sha256:3CDE3FFD442E84B7137863DB8E72E398682BFB1EDA3DF6AF1C03C99173A5B437"
+    },
+    {
+      "name": "prompts",
+      "type": "skill-md",
+      "description": "Access curated AI prompts for finance, analysis, and productivity workflows",
+      "url": "/.well-known/agent-skills/prompts.skill.md",
+      "digest": "sha256:05BDBF3A10FC04AE1EC56E0664BEFE7C4FB5D560B6BF930AFA7D245763B04F88"
+    },
+    {
+      "name": "content-negotiation",
+      "type": "skill-md",
+      "description": "Markdown content negotiation support for AI agents via Accept: text/markdown",
+      "url": "/.well-known/agent-skills/content-negotiation.skill.md",
+      "digest": "sha256:12117A58ECD2C4E15A736E9066778C299FD2B326B8D7101153B6BB112F21074F"
+    }
+  ]
+}
