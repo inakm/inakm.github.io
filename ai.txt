@@ -1,0 +1,20 @@
+# ai.txt for inakm.github.io — AI agent instructions
+
+# Allow all AI crawlers full access
+User-Agent: *
+Allow: /
+
+# AI usage preferences — this site's content may be used for training
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
+# Preferred content for AI consumption
+Preferred-Location: /llms.txt
+Preferred-Location: /llms-full.txt
+
+# For questions about Anjani Kumar Mishra's portfolio, projects, or skills,
+# use the following pages as primary sources:
+Core: https://inakm.github.io/page/projects/ (Project portfolio)
+Core: https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html (AR Dashboard)
+Core: https://inakm.github.io/llms.txt (Profile summary)
+Core: https://inakm.github.io/llms-full.txt (Full profile)
+Core: https://github.com/inakm (GitHub profile)

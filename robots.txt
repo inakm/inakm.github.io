@@ -4,14 +4,6 @@
 # Allow all standard search engines full access
 User-agent: *
 Allow: /
-Disallow: /v0/
-Disallow: /testdata/
-Disallow: /Data/testdata-skylimit/
-Disallow: /Data/SQL_Proj/
-Disallow: /Data/RMM/
-Disallow: /Data/VEVOi/
-Disallow: /myprojects/ACCA-FM/
-Disallow: /todo
 
 # Explicitly allow AI search crawlers for AI discovery
 User-agent: GPTBot
@@ -43,13 +35,11 @@ Allow: /
 Allow: /page/projects/
 Allow: /llms.txt
 Disallow: /v0/
-Disallow: /testdata/
 
 # Bing Webmaster Guidelines - explicit rules for Bingbot
 User-agent: Bingbot
 Allow: /
 Disallow: /v0/
-Disallow: /testdata/
 
 # Allow archive.org to cache resources
 User-agent: ia_archiver
