@@ -663,6 +663,10 @@
             <button onclick="showUploadModal('master'); closeDropdown('inputDropdown')"><i class="fa-solid fa-book text-white/60" style="width:18px"></i> Master Report</button>
             <button onclick="showUploadModal('payment'); closeDropdown('inputDropdown')"><i class="fa-solid fa-money-bill-wave text-white/60" style="width:18px"></i> Payment Logs</button>
             <button onclick="showUploadModal('calling'); closeDropdown('inputDropdown')"><i class="fa-solid fa-phone text-white/60" style="width:18px"></i> Calling List</button>
+            <div class="h-px bg-white/10 my-1"></div>
+            <button onclick="replaceData('master'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Master Report</button>
+            <button onclick="replaceData('payment'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Payment Logs</button>
+            <button onclick="replaceData('calling'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Calling List</button>
           </div>
         </div>
         <!-- Output Dropdown -->
@@ -694,6 +698,10 @@
         <button onclick="showUploadModal('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-book w-5 text-white/60"></i> Master Report</button>
         <button onclick="showUploadModal('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-money-bill-wave w-5 text-white/60"></i> Payment Logs</button>
         <button onclick="showUploadModal('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-white/60"></i> Calling List</button>
+        <div class="text-xs font-bold uppercase tracking-widest text-red-400/60 px-3 pt-2 pb-1">Replace</div>
+        <button onclick="replaceData('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Master Report</button>
+        <button onclick="replaceData('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Payment Logs</button>
+        <button onclick="replaceData('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Calling List</button>
         <hr class="border-white/10 my-1">
         <!-- Output group -->
         <div class="text-xs font-bold uppercase tracking-widest text-white/60/60 px-3 pt-1 pb-1">Output</div>
@@ -1298,6 +1306,23 @@
       <div class="flex justify-end gap-2">
         <button onclick="closeModal('clearModal')" class="btn-secondary text-xs">Cancel</button>
         <button id="deleteConfirmBtn" class="btn-danger text-xs" disabled onclick="executeClearDB()"><i class="fa-solid fa-trash-can mr-1"></i> Purge All Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPLACE DATA MODAL -->
+  <div class="modal-overlay" id="replaceModal">
+    <div class="modal-box">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold uppercase tracking-wider text-brand-highlight" id="replaceModalTitle"><i class="fa-solid fa-rotate mr-2"></i>Replace</h3>
+        <button onclick="closeModal('replaceModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
+      </div>
+      <p class="text-sm text-white/60/70 mb-4" id="replaceModalDesc">This will delete all existing data for this type and let you upload a new file.</p>
+      <p class="text-sm text-white/60 mb-2 font-medium">Type <strong class="text-red-600">REPLACE</strong> to confirm:</p>
+      <input type="text" id="replaceConfirmInput" placeholder="Type REPLACE here..." oninput="document.getElementById('replaceConfirmBtn').disabled = this.value !== 'REPLACE'" class="w-full mb-4">
+      <div class="flex justify-end gap-2">
+        <button onclick="closeModal('replaceModal')" class="btn-secondary text-xs">Cancel</button>
+        <button id="replaceConfirmBtn" class="btn-danger text-xs" disabled onclick="executeReplace()"><i class="fa-solid fa-rotate mr-1"></i> Replace &amp; Upload</button>
       </div>
     </div>
   </div>
@@ -2004,6 +2029,54 @@
       document.getElementById('clearModal').classList.add('active');
     }
 
+    let replaceMode = null;
+
+    function replaceData(mode) {
+      replaceMode = mode;
+      let labels = { master: 'Master Report', payment: 'Payment Logs', calling: 'Calling List' };
+      let descs = {
+        master: 'This will DELETE all invoice records from the dashboard. Your current ledger, aging data, and KPIs will be cleared. You can then upload a new Master Report.',
+        payment: 'This will DELETE all payment records from the dashboard. Payment history and collected totals will be reset. You can then upload new Payment Logs.',
+        calling: 'This will DELETE all calling list records. Call statuses and remarks for all parties will be cleared. You can then upload a new Calling List.'
+      };
+      document.getElementById('replaceModalTitle').textContent = 'Replace ' + (labels[mode] || 'Data');
+      document.getElementById('replaceModalDesc').textContent = descs[mode] || '';
+      document.getElementById('replaceConfirmInput').value = '';
+      document.getElementById('replaceConfirmBtn').disabled = true;
+      document.getElementById('replaceModal').classList.add('active');
+    }
+
+    async function executeReplace() {
+      if (!replaceMode) return;
+      closeModal('replaceModal');
+      try {
+        if (replaceMode === 'master') {
+          await dbClear(STORES.invoices);
+          await dbClear(STORES.callLogs);
+          showToast('All invoice & call records cleared. Now upload a new Master Report.');
+        } else if (replaceMode === 'payment') {
+          await dbClear(STORES.payments);
+          // Recalculate all invoices to reset paid statuses
+          let invoices = await dbReadAll(STORES.invoices);
+          for (let inv of invoices) {
+            inv.pendingAmount = inv.initialPendingAmount || inv.originalAmount;
+            inv.status = 'Unpaid';
+            inv.isManuallyPaid = false;
+            await dbWrite(STORES.invoices, inv);
+          }
+          showToast('All payment records cleared. Now upload new Payment Logs.');
+        } else if (replaceMode === 'calling') {
+          await dbClear(STORES.callLogs);
+          showToast('All calling records cleared. Now upload a new Calling List.');
+        }
+        await refreshDashboard();
+        setTimeout(() => showUploadModal(replaceMode), 600);
+      } catch (err) {
+        showToast('Error replacing data: ' + err.message, true);
+      }
+      replaceMode = null;
+    }
+
     // ============================================================
     // FILE PREVIEW MODAL
     // ============================================================
@@ -2691,17 +2764,24 @@
     async function exportPaymentLogsExcel() {
       let payments = await dbReadAll(STORES.payments);
       let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
-      let rows = [['Date', 'Party Name', 'Amount', 'Remark', 'Invoice']];
-      sorted.forEach((p, idx) => {
-          let d = p.date ? fmtDate(p.date) : '';
+      let rows = [['Date', 'Party Name', 'Invoice No', 'Amount (₹)', 'Remark']];
+      sorted.forEach((p) => {
+        let d = p.date ? new Date(p.date) : null;
         let amt = p.amount || 0;
-        let amtStr = Number.isInteger(amt) ? amt.toString() : amt.toFixed(2);
-        rows.push([d, p.partyName || '', amtStr, p.remark || '', p.invoiceNo || '']);
+        rows.push([d, p.partyName || '', p.invoiceNo || '', amt, p.remark || '']);
       });
       let wb = XLSX.utils.book_new();
       let ws = XLSX.utils.aoa_to_sheet(rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'Sheet 1');
-      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      for (let i = 2; i <= rows.length; i++) {
+        // Date column (A)
+        let ref = XLSX.utils.encode_cell({ r: i - 1, c: 0 });
+        if (ws[ref] && ws[ref].t === 'n') ws[ref].z = 'dd-mmm-yy';
+        // Amount column (D)
+        ref = XLSX.utils.encode_cell({ r: i - 1, c: 3 });
+        if (ws[ref] && ws[ref].t === 'n') ws[ref].z = '#,##0.00';
+      }
+      XLSX.utils.book_append_sheet(wb, ws, 'Payment Logs');
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array', cellDates: true });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
@@ -2718,30 +2798,48 @@
       let callLogs = await getCallLogs();
       let paid = invoices.filter(inv => inv.status === 'Paid');
       let unpaid = invoices.filter(inv => inv.status === 'Unpaid');
-      let header = ['Party Name', 'Invoice No', 'Group', 'Invoice Date', 'Due Date', 'Original (₹)', 'Pending (₹)', 'Status', 'Aging Bucket', 'Overdue Days', 'Call Status'];
+      let header = ['Party Name', 'Invoice No', 'Group', 'Invoice Date', 'Due Date', 'Original (₹)', 'Pending (₹)', 'Paid (₹)', 'Status', 'Aging Bucket', 'Overdue Days', 'Call Status'];
 
       let toRows = (list) => list.map(inv => {
-        let invPayments = allPayments.filter(p => p.invoiceNo === inv.invoiceNo);
-        let d1 = inv.invoiceDate ? fmtDate(inv.invoiceDate) : '';
-        let d2 = inv.dueDate ? fmtDate(inv.dueDate) : '';
-        let oa = Number.isInteger(inv.originalAmount) ? inv.originalAmount.toString() : (inv.originalAmount || 0).toFixed(2);
-        let pa = Number.isInteger(inv.pendingAmount) ? inv.pendingAmount.toString() : (inv.pendingAmount || 0).toFixed(2);
+        let d1 = inv.invoiceDate ? new Date(inv.invoiceDate) : null;
+        let d2 = inv.dueDate ? new Date(inv.dueDate) : null;
+        let paidAmt = Math.max(0, inv.originalAmount - inv.pendingAmount);
         let l = callLogs.find(c => c.partyName === inv.partyName);
         let callStatus = l ? l.currentStatus : 'Not Called';
-        return [inv.partyName, inv.invoiceNo, inv.groupName, d1, d2, oa, pa, inv.status, inv._agingBucket || '', inv._overdueDays || 0, callStatus];
+        return [inv.partyName, inv.invoiceNo, inv.groupName, d1, d2, inv.originalAmount, inv.pendingAmount, paidAmt, inv.status, inv._agingBucket || '', inv._overdueDays || 0, callStatus];
       });
 
       let wb = XLSX.utils.book_new();
 
       let unpaidRows = [header, ...toRows(unpaid)];
       let wsUnpaid = XLSX.utils.aoa_to_sheet(unpaidRows);
+      for (let i = 2; i <= unpaidRows.length; i++) {
+        for (let c of [3, 4]) { // D (Invoice Date), E (Due Date)
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (wsUnpaid[ref] && wsUnpaid[ref].t === 'n') wsUnpaid[ref].z = 'dd-mmm-yy';
+        }
+        for (let c of [5, 6, 7]) { // F (Original), G (Pending), H (Paid)
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (wsUnpaid[ref] && wsUnpaid[ref].t === 'n') wsUnpaid[ref].z = '#,##0.00';
+        }
+      }
       XLSX.utils.book_append_sheet(wb, wsUnpaid, 'Unpaid Invoices');
 
       let paidRows = [header, ...toRows(paid)];
       let wsPaid = XLSX.utils.aoa_to_sheet(paidRows);
+      for (let i = 2; i <= paidRows.length; i++) {
+        for (let c of [3, 4]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (wsPaid[ref] && wsPaid[ref].t === 'n') wsPaid[ref].z = 'dd-mmm-yy';
+        }
+        for (let c of [5, 6, 7]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (wsPaid[ref] && wsPaid[ref].t === 'n') wsPaid[ref].z = '#,##0.00';
+        }
+      }
       XLSX.utils.book_append_sheet(wb, wsPaid, 'Paid Invoices');
 
-      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array', cellDates: true });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
@@ -3486,30 +3584,27 @@
         if (va > vb) return callingSortAsc ? 1 : -1;
         return 0;
       });
-      let rows = [['S.No', 'Source Sheet', 'Date', 'Invoice No', 'Invoice Amount', 'Customer Name', 'Pending Amount', 'Due Date', 'Paid Amount', 'Outstanding Amount', 'Days Overdue', 'Calling Status', 'Previous Remarks', 'New Remarks']];
+      let rows = [['S.No', 'Source Sheet', 'Invoice Date', 'Invoice No', 'Customer Name', 'Invoice Amount (₹)', 'Pending Amount (₹)', 'Paid Amount (₹)', 'Due Date', 'Days Overdue', 'Aging Bucket', 'Calling Status', 'Previous Remarks', 'New Remarks']];
       items.forEach((inv, idx) => {
         let log = callLogs.find(c => c.partyName === inv.partyName);
         let rawStatus = log ? log.currentStatus : 'Not Called';
         let callStatus = rawStatus === 'Spoke to Client' || rawStatus === 'PTP - Promise to Pay' ? 'Completed' : rawStatus;
         let lastRemark = log && log.remarksHistory && log.remarksHistory.length > 0 ? log.remarksHistory[log.remarksHistory.length - 1].Text : '';
-        let invPayments = allPayments.filter(p => p.invoiceNo === inv.invoiceNo);
-        let totalPaid = invPayments.reduce((s, p) => s + p.amount, 0);
-        let paidAmt = inv.originalAmount - inv.pendingAmount;
-        if (paidAmt < 0) paidAmt = 0;
-        let invDateStr = inv.invoiceDate ? fmtDate(inv.invoiceDate) : '';
-        let dueDateStr = inv.dueDate ? fmtDate(inv.dueDate) : '';
+        let paidAmt = Math.max(0, inv.originalAmount - inv.pendingAmount);
+        let invDate = inv.invoiceDate ? new Date(inv.invoiceDate) : null;
+        let dueDate = inv.dueDate ? new Date(inv.dueDate) : null;
         rows.push([
           idx + 1,
           inv.groupName || 'General',
-          invDateStr,
+          invDate,
           inv.invoiceNo,
-          inv.originalAmount,
           inv.partyName,
+          inv.originalAmount,
           inv.pendingAmount,
-          dueDateStr,
           paidAmt,
-          inv.pendingAmount,
+          dueDate,
           inv._overdueDays,
+          inv._agingBucket || '',
           callStatus,
           lastRemark,
           ''
@@ -3517,8 +3612,20 @@
       });
       let wb = XLSX.utils.book_new();
       let ws = XLSX.utils.aoa_to_sheet(rows);
+      for (let i = 2; i <= rows.length; i++) {
+        // Date columns: C (Invoice Date), I (Due Date)
+        for (let c of [2, 8]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (ws[ref] && ws[ref].t === 'n') ws[ref].z = 'dd-mmm-yy';
+        }
+        // Amount columns: F (Invoice Amount), G (Pending Amount), H (Paid Amount)
+        for (let c of [5, 6, 7]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (ws[ref] && ws[ref].t === 'n') ws[ref].z = '#,##0.00';
+        }
+      }
       XLSX.utils.book_append_sheet(wb, ws, 'Calling List');
-      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array', cellDates: true });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
@@ -3536,7 +3643,7 @@
       showToast('Generating Invoice Aging Report...');
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
-      let rows = [['S.No', 'Source Sheet', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Original Amount', 'Pending Amount', 'Paid Amount', 'Days Overdue', 'Aging Bucket', 'Status', 'Call Status']];
+      let rows = [['S.No', 'Source Sheet', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Original Amount (₹)', 'Pending Amount (₹)', 'Paid Amount (₹)', 'Days Overdue', 'Aging Bucket', 'Status', 'Call Status']];
       invoices.forEach((inv, idx) => {
         let log = callLogs.find(c => c.partyName === inv.partyName);
         let raw = log ? log.currentStatus : 'Not Called';
@@ -3547,8 +3654,8 @@
           inv.groupName || 'General',
           inv.partyName,
           inv.invoiceNo,
-          inv.invoiceDate ? fmtDate(inv.invoiceDate) : '',
-          inv.dueDate ? fmtDate(inv.dueDate) : '',
+          inv.invoiceDate ? new Date(inv.invoiceDate) : null,
+          inv.dueDate ? new Date(inv.dueDate) : null,
           inv.originalAmount,
           inv.pendingAmount,
           paidAmt,
@@ -3560,8 +3667,20 @@
       });
       let wb = XLSX.utils.book_new();
       let ws = XLSX.utils.aoa_to_sheet(rows);
+      for (let i = 2; i <= rows.length; i++) {
+        // Date columns: E (Invoice Date), F (Due Date)
+        for (let c of [4, 5]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (ws[ref] && ws[ref].t === 'n') ws[ref].z = 'dd-mmm-yy';
+        }
+        // Amount columns: G (Original), H (Pending), I (Paid)
+        for (let c of [6, 7, 8]) {
+          let ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (ws[ref] && ws[ref].t === 'n') ws[ref].z = '#,##0.00';
+        }
+      }
       XLSX.utils.book_append_sheet(wb, ws, 'Invoice Aging');
-      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array', cellDates: true });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
@@ -3593,14 +3712,28 @@
       let header = ['S.No', 'Party Name', 'Total Paid (₹)', 'Invoice Count', 'Last Payment Date', ...allMonths];
       let rows = [header];
       Object.values(groupBy).sort((a, b) => b.total - a.total).forEach((g, idx) => {
-        let row = [idx + 1, g.party, g.total, g.count, g.lastDate ? fmtDate(g.lastDate) : ''];
+        let row = [idx + 1, g.party, g.total, g.count, g.lastDate ? new Date(g.lastDate) : null];
         allMonths.forEach(m => row.push(g.months[m] || 0));
         rows.push(row);
       });
       let wb = XLSX.utils.book_new();
       let ws = XLSX.utils.aoa_to_sheet(rows);
+      let monthColCount = allMonths.length;
+      for (let i = 2; i <= rows.length; i++) {
+        // Last payment date column (E, index 4)
+        let ref = XLSX.utils.encode_cell({ r: i - 1, c: 4 });
+        if (ws[ref] && ws[ref].t === 'n') ws[ref].z = 'dd-mmm-yy';
+        // Total Paid column (C, index 2)
+        ref = XLSX.utils.encode_cell({ r: i - 1, c: 2 });
+        if (ws[ref] && ws[ref].t === 'n') ws[ref].z = '#,##0.00';
+        // Monthly amount columns (starting at index 5)
+        for (let c = 5; c < 5 + monthColCount; c++) {
+          ref = XLSX.utils.encode_cell({ r: i - 1, c });
+          if (ws[ref] && ws[ref].t === 'n') ws[ref].z = '#,##0.00';
+        }
+      }
       XLSX.utils.book_append_sheet(wb, ws, 'Payment Trends');
-      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+      let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array', cellDates: true });
       let blob = new Blob([wbout], { type: 'application/octet-stream' });
       let url = URL.createObjectURL(blob);
       let a = document.createElement('a');
@@ -4172,6 +4305,7 @@
         <a href="https://findly.tools/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
           <img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" width="175" height="55" />
         </a>
+        <a href="https://www.ontoplist.com/financial-investment-websites/" target="_blank"><img src="https://www.ontoplist.com/images/ontoplist32.png?id=6a3cdf8d47cd7" alt="Finance &amp; Investment - OnToplist.com" border="0" /></a>
       </div>
     </details>
   </footer>
