@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -118,6 +118,17 @@
   <link rel="stylesheet" href="../../view-transitions.css">
 </head>
 <body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace">
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 
     <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
         <div class="bg-brand-deepSpace/90 backdrop-blur-xl border border-white/20 rounded-full px-4 md:px-6 py-3 md:py-4 flex justify-between items-center shadow-2xl shadow-brand-charcoal/50">
@@ -220,7 +231,7 @@
                         </label>
                         <p class="text-xs font-mono text-gray-400 mb-3">Where should the agent look?</p>
                         <textarea id="inpDatabases" rows="3" class="input-field" oninput="updatePrompt()">- LinkedIn Jobs (Priority: Verified Companies)
-- Internshala (Priority: Stipend >= ₹10,000/mo)
+- Internshala (Priority: Stipend >= â‚¹10,000/mo)
 - Direct Careers Pages (Big 4, FinTech unicorns)</textarea>
                     </div>
 
@@ -300,26 +311,26 @@
 Your directive is to execute a deep, multi-source query and return EXACTLY 20 highly vetted, active job opportunities targeting the requested profile.
 
 ---
-### 👤 TARGET CANDIDATE PROFILE:
+### ðŸ‘¤ TARGET CANDIDATE PROFILE:
 ${candidate}
 
 ---
-### ⚙️ STRICT SEARCH CONSTRAINTS:
+### âš™ï¸ STRICT SEARCH CONSTRAINTS:
 ${constraints}
 
 ---
-### 🌍 TARGET DATABASES TO SCAN:
+### ðŸŒ TARGET DATABASES TO SCAN:
 ${databases}
 
 ---
-### 📊 OUTPUT FORMATTING (MARKDOWN TABLE ONLY):
+### ðŸ“Š OUTPUT FORMATTING (MARKDOWN TABLE ONLY):
 Generate a fully responsive Markdown table containing the following headers:
 | Company | Role Title | Location | Posted Date | Duration/Type | Stipend/Salary (Est) | Direct App Link | Fit Rationale |
 
 *After the table, output a structured JSON array representing the top 3 high-impact opportunities for easy programmatic parsing.*
 
 ---
-### 🚫 NEGATIVE CONSTRAINTS (DO NOT INCLUDE):
+### ðŸš« NEGATIVE CONSTRAINTS (DO NOT INCLUDE):
 ${negative}
 
 Execute the intelligence gathering strictly conforming to the parameters above. Do not hallucinate URLs.`;
@@ -348,5 +359,9 @@ Execute the intelligence gathering strictly conforming to the parameters above. 
         // Initialize mapping on load
         document.addEventListener('DOMContentLoaded', updatePrompt);
     </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 </html>
+
+

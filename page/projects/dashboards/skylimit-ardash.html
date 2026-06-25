@@ -638,6 +638,36 @@
       width: auto;
       object-fit: contain;
     }
+
+    /* ============================================================
+       SKELETON LOADING
+       ============================================================ */
+    .sk { position: relative; }
+    .sk-active .sk-placeholder { display: block; }
+    .sk-active > :not(.sk-placeholder) { display: none; }
+    .sk-placeholder { display: none; }
+
+    .sk-shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.03) 75%);
+      background-size: 200% 100%;
+      animation: sk-shimmer 1.8s ease-in-out infinite;
+      border-radius: 0.75rem;
+    }
+    @keyframes sk-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .sk-card { height: 100px; border-radius: 0.75rem; }
+    .sk-chart { height: 360px; border-radius: 0.75rem; }
+    .sk-overline { height: 12px; width: 60%; margin-bottom: 8px; border-radius: 4px; }
+    .sk-title { height: 20px; width: 40%; margin-bottom: 12px; border-radius: 4px; }
+    .sk-row { height: 36px; margin-bottom: 4px; border-radius: 6px; }
+    .sk-text { height: 14px; border-radius: 4px; }
+    .sk-text-sm { height: 10px; width: 35%; border-radius: 4px; }
+    .sk-badge { height: 22px; width: 70px; border-radius: 9999px; }
+    .sk-tab { height: 42px; border-radius: 0.75rem; margin-bottom: 14px; }
+    .sk-pill { height: 28px; width: 90px; border-radius: 9999px; }
   </style>
     <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="../../../view-transitions.css">
@@ -764,7 +794,23 @@
     </section>
 
     <!-- KPI CARDS -->
-    <section id="kpiSection" class="mb-6 space-y-3 md:space-y-4">
+    <section id="kpiSection" class="mb-6 space-y-3 md:space-y-4 sk">
+      <div class="sk-placeholder">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 kpi-grid">
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 kpi-grid mt-3">
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+          <div class="sk-shimmer sk-card"></div>
+        </div>
+      </div>
+      <div class="sk-target">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 kpi-grid">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
@@ -805,11 +851,24 @@
           <p class="kpi-value" id="kpiCallingList">0</p>
         </div>
       </div>
+      </div>
     </section>
 
     <div id="dashboardContent">
     <!-- AGING BUCKET SUMMARY -->
-    <section class="mb-6" id="agingBucketSection">
+    <section class="mb-6 sk" id="agingBucketSection">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
+          <div class="sk-shimmer sk-overline"></div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="sk-shimmer sk-card"></div>
+            <div class="sk-shimmer sk-card"></div>
+            <div class="sk-shimmer sk-card"></div>
+            <div class="sk-shimmer sk-card"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sk-target">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
           <p class="text-xs uppercase tracking-widest text-white/60/70 font-bold">Aging Bucket Summary</p>
@@ -822,6 +881,7 @@
           </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="agingBucketGrid"></div>
+      </div>
       </div>
     </section>
 
@@ -858,28 +918,44 @@
     </section>
 
     <!-- CHARTS -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 chart-grid" id="chartGrid">
-      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 sk" id="chartGrid">
+      <div class="sk-placeholder" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div class="sk-shimmer sk-chart"></div>
+        <div class="sk-shimmer sk-chart"></div>
+        <div class="sk-shimmer sk-chart"></div>
+        <div class="sk-shimmer sk-chart"></div>
+      </div>
+      <div class="sk-target liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Aging Bucket Distribution</p>
         <canvas id="chartAging"></canvas>
       </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
+      <div class="sk-target liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Outstanding by Group</p>
         <canvas id="chartOutstandingByCollector"></canvas>
       </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
+      <div class="sk-target liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">90+ Days by Group</p>
         <canvas id="chartHighRiskByCollector"></canvas>
       </div>
-      <div class="liquid-glass border border-white/10 rounded-xl p-5 chart-box">
+      <div class="sk-target liquid-glass border border-white/10 rounded-xl p-5 chart-box">
         <p class="chart-title mb-3 text-center">Call Status Summary</p>
         <canvas id="chartCallStatus"></canvas>
       </div>
     </section>
 
     <!-- TOP 10 OVERDUE PARTIES -->
-    <section class="mb-8" id="topOverdueSection">
-      <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
+    <section class="mb-8 sk" id="topOverdueSection">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4">
+          <div class="sk-shimmer sk-overline"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="sk-target liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
           <p class="text-xs uppercase tracking-widest text-white/60/70 font-bold">TOP OVERDUE PARTIES</p>
           <div class="flex items-center gap-2">
@@ -912,16 +988,38 @@
     </section>
 
     <!-- TABS -->
-    <section class="mb-4">
+    <section class="mb-4 sk" id="tabSection">
+      <div class="sk-placeholder">
+        <div class="sk-shimmer sk-tab"></div>
+      </div>
+      <div class="sk-target">
       <div class="flex border-b border-white/10">
         <button class="tab-btn active" onclick="switchTab('ledger')" id="tabLedger"><i class="fa-solid fa-book mr-2"></i> Master Ledger <span id="badgeLedger" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-brand-highlight text-black ml-1"></span></button>
         <button class="tab-btn" onclick="switchTab('payment')" id="tabPayment"><i class="fa-solid fa-money-bill mr-2"></i> Payment Desk <span id="badgePayment" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-white/10 text-white/70 ml-1"></span></button>
         <button class="tab-btn" onclick="switchTab('calling')" id="tabCalling"><i class="fa-solid fa-phone mr-2"></i> Calling List <span id="badgeCalling" class="hidden text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-red-600 text-white ml-1"></span></button>
       </div>
+      </div>
     </section>
 
     <!-- TAB: MASTER LEDGER -->
-    <div id="panelLedger" class="tab-panel">
+    <div id="panelLedger" class="tab-panel sk">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
+          <div class="grid grid-cols-5 gap-2 mb-4">
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+          </div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="sk-target">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
           <div class="input-wrapper search-enhanced flex-1 min-w-[200px]">
@@ -969,10 +1067,24 @@
           </table>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- TAB: PAYMENT DESK -->
-    <div id="panelPayment" class="tab-panel" style="display:none">
+    <div id="panelPayment" class="tab-panel sk" style="display:none">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
+          <div class="sk-shimmer sk-overline"></div>
+          <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="sk-shimmer" style="height:60px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:60px;border-radius:0.5rem;"></div>
+          </div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="sk-target">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <p class="text-sm uppercase tracking-widest text-white/60/70 mb-4"><i class="fa-solid fa-money-bill-wave mr-2"></i>Log Payment Received</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1021,10 +1133,30 @@
           </table>
         </div>
       </div>
+      </div>
     </div>
 
     <!-- TAB: CALLING LIST -->
-    <div id="panelCalling" class="tab-panel" style="display:none">
+    <div id="panelCalling" class="tab-panel sk" style="display:none">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+            <div class="sk-shimmer" style="height:38px;border-radius:0.5rem;"></div>
+          </div>
+          <div class="flex gap-1.5 mb-4">
+            <div class="sk-shimmer sk-pill"></div>
+            <div class="sk-shimmer sk-pill"></div>
+            <div class="sk-shimmer sk-pill"></div>
+          </div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+          <div class="sk-shimmer sk-row" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="sk-target">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
         <div class="tab-search-bar">
           <div class="input-wrapper search-enhanced flex-1 min-w-[200px]">
@@ -1069,6 +1201,7 @@
           </table>
         </div>
         <p class="text-center text-white/60/50 text-sm mt-4" id="callingEmptyMsg">No overdue items. All caught up!</p>
+      </div>
       </div>
     </div>
 
@@ -4096,7 +4229,17 @@
     // ============================================================
     // REFRESH DASHBOARD
     // ============================================================
+    function showSkeletons() {
+      document.querySelectorAll('.sk').forEach(el => el.classList.add('sk-active'));
+    }
+    function hideSkeletons() {
+      document.querySelectorAll('.sk').forEach(el => el.classList.remove('sk-active'));
+    }
+
     async function refreshDashboard() {
+      showSkeletons();
+      // microtask to let browser paint skeletons before blocking on DB
+      await new Promise(r => setTimeout(r, 20));
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
       let payments = await dbReadAll(STORES.payments);
@@ -4118,6 +4261,8 @@
       document.getElementById('kpiSection').style.display = hasData ? 'block' : 'none';
       document.getElementById('dashboardContent').style.display = hasData ? 'block' : 'none';
       document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
+
+      hideSkeletons();
 
       // KPI
       let agg = computeAggregations(filtered);
@@ -4268,7 +4413,10 @@
         <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000"></a>
         <a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-dark.png" alt="Featured on DodoDirectory" /></a>
         <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-dark.svg" alt="Featured on Twelve Tools"></a>
-        <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge0-dark.svg" alt="Featured on Wired Business"></a>
+        <a href="https://earlyhunt.com/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+          <img src="https://earlyhunt.com/badges/earlyhunt-badge-dark.svg" alt="Featured on EarlyHunt" width="265" height="58" />
+        </a>
+        <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge2-dark.svg" alt="Featured on Wired Business" width="200" height="54"></a>
         <a href="https://www.tinystartups.com/startup/skylimit-ar-aging-dashboard" target="_blank" rel="noopener"
            style="display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);color:#fff">
           <svg width="56" height="56" viewBox="0 0 100 100">
@@ -4282,6 +4430,9 @@
         </a>
         <a href="https://turbo0.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
           <img src="https://img.turbo0.com/badge-listed-dark.svg" alt="Listed on Turbo0" style="height: 54px; width: auto;" />
+        </a>
+        <a href="https://saasfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+          <img src="https://saasfame.com/badge-dark.svg" alt="Featured on saasfame.com" style="height: 54px; width: auto;" />
         </a>
         <a href="https://startupfa.me/s/akmportfolio?utm_source=inakm.github.io" target="_blank"><img src="https://startupfa.me/badges/featured/dark-small-rounded.webp" alt="AR Aging Dashboard - Featured on Startup Fame" width="240" height="37" /></a>
         <a href="https://findly.tools/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">

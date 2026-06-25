@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -75,6 +75,17 @@ a:hover { text-decoration: underline; }
 </head>
 
 <body class="antialiased">
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
 <div class="bg-blobs"><div class="bg-gradient"></div><div class="blob-1"></div></div>
@@ -164,21 +175,21 @@ a:hover { text-decoration: underline; }
     <!-- MODULE 3 -->
     <div class="module active" id="m0">
         <div class="mod-header">
-            <div class="mod-title">Module III — External Environment & Competitive Strategy</div>
+            <div class="mod-title">Module III â€” External Environment & Competitive Strategy</div>
             <div class="mod-sub">Unit 7: External Analysis + Five Forces | Unit 8: Life Cycle + Strategic Groups | Unit
                 9: Generic Strategies + Value Chain</div>
         </div>
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 7 — External Environment & Porter's Five Forces</span>
+                <span class="sec-title">Unit 7 â€” External Environment & Porter's Five Forces</span>
                 <span class="sec-badge">High Priority</span>
             </div>
             <div class="sec-body open">
                 <div class="topic">
                     <div class="topic-title">8 External Environmental Factors (PEST + 4 more)</div>
                     <span class="tag tag-tip">Tip</span><span class="tag tag-imp">Essay Q</span>
-                    <div class="mnemonic">Mnemonic: <strong>D-E-P-G-L-S-T-N</strong> → <strong>D</strong>emographic,
+                    <div class="mnemonic">Mnemonic: <strong>D-E-P-G-L-S-T-N</strong> â†’ <strong>D</strong>emographic,
                         <strong>E</strong>conomic, <strong>P</strong>olitical, <strong>G</strong>overnment,
                         <strong>L</strong>egal, <strong>S</strong>ocio-Cultural, <strong>T</strong>echnological,
                         <strong>N</strong>atural</div>
@@ -209,7 +220,7 @@ a:hover { text-decoration: underline; }
                         </div>
                         <div class="mini-card">
                             <div class="mini-card-title">Socio-Cultural</div>
-                            <div class="mini-card-body">Beliefs, values, norms, core cultural traits → hard for
+                            <div class="mini-card-body">Beliefs, values, norms, core cultural traits â†’ hard for
                                 marketers to change</div>
                         </div>
                         <div class="mini-card">
@@ -224,7 +235,7 @@ a:hover { text-decoration: underline; }
                         </div>
                     </div>
                     <div class="highlight">Key point: External factors are <strong>beyond the control</strong> of
-                        enterprises and are <strong>dynamic</strong> — they keep changing. They can create opportunities
+                        enterprises and are <strong>dynamic</strong> â€” they keep changing. They can create opportunities
                         OR threats for industries.</div>
                 </div>
 
@@ -244,7 +255,7 @@ a:hover { text-decoration: underline; }
 
                 <div class="topic">
                     <div class="topic-title">Porter's Five Forces Model</div>
-                    <span class="tag tag-imp">Essay Q — Draw the diagram!</span>
+                    <span class="tag tag-imp">Essay Q â€” Draw the diagram!</span>
                     <div class="topic-body">Assesses competitiveness and attractiveness of an industry. Five competitive
                         pressures:</div>
                     <div class="force-grid">
@@ -275,15 +286,15 @@ a:hover { text-decoration: underline; }
                         <div class="force-card" style="grid-column:1/-1">
                             <div class="force-num">5</div>
                             <div class="force-name">Threat of Substitutes</div>
-                            <div class="force-factors">Price/quality advantage of substitutes, durability, performance —
+                            <div class="force-factors">Price/quality advantage of substitutes, durability, performance â€”
                                 where heavy R&D is happening, substitutes are likely</div>
                         </div>
                     </div>
                     <div class="topic-body"><strong>3-Step Application:</strong> (1) Identify competitive pressures for
-                        each force → (2) Evaluate strength of each (fierce/strong/moderate/weak) → (3) Determine
+                        each force â†’ (2) Evaluate strength of each (fierce/strong/moderate/weak) â†’ (3) Determine
                         collective strength for profit potential</div>
                     <div class="highlight"><strong>Criticism of Five Forces:</strong> Developed in the 1980s (stable
-                        markets, slow tech change). Today's "hypercompetitive" environment is too dynamic and unstable —
+                        markets, slow tech change). Today's "hypercompetitive" environment is too dynamic and unstable â€”
                         the model is too inflexible to anticipate future competitive advantage.</div>
                 </div>
             </div>
@@ -291,7 +302,7 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 8 — Strategic Groups & Industry Life Cycle</span>
+                <span class="sec-title">Unit 8 â€” Strategic Groups & Industry Life Cycle</span>
                 <span class="sec-badge">Medium Priority</span>
             </div>
             <div class="sec-body">
@@ -312,7 +323,7 @@ a:hover { text-decoration: underline; }
                     </ul>
                 </div>
                 <div class="topic">
-                    <div class="topic-title">Strategic Group Mapping — 4 Steps</div>
+                    <div class="topic-title">Strategic Group Mapping â€” 4 Steps</div>
                     <span class="tag tag-tip">Short Answer Q</span>
                     <ul>
                         <li><strong>Step 1:</strong> Identify competitive characteristics that differentiate firms</li>
@@ -327,9 +338,9 @@ a:hover { text-decoration: underline; }
                         breadth, Distribution channels</div>
                 </div>
                 <div class="topic">
-                    <div class="topic-title">Industry Life Cycle — 5 Stages</div>
+                    <div class="topic-title">Industry Life Cycle â€” 5 Stages</div>
                     <span class="tag tag-imp">Essay Q</span>
-                    <div class="mnemonic">Mnemonic: <strong>E-G-S-M-D</strong> → Embryonic, Growth, Shakeout, Maturity,
+                    <div class="mnemonic">Mnemonic: <strong>E-G-S-M-D</strong> â†’ Embryonic, Growth, Shakeout, Maturity,
                         Decline</div>
                     <table>
                         <tr>
@@ -340,12 +351,12 @@ a:hover { text-decoration: underline; }
                         <tr>
                             <td><strong>Embryonic/Intro</strong></td>
                             <td>Low demand, limited awareness, no complementary products, heavy investment</td>
-                            <td>Negative — investing heavily</td>
+                            <td>Negative â€” investing heavily</td>
                         </tr>
                         <tr>
                             <td><strong>Growth</strong></td>
                             <td>Larger market, improved profitability, lower prices, rising revenues</td>
-                            <td>Positive — surpassing break-even</td>
+                            <td>Positive â€” surpassing break-even</td>
                         </tr>
                         <tr>
                             <td><strong>Shakeout</strong></td>
@@ -360,7 +371,7 @@ a:hover { text-decoration: underline; }
                         <tr>
                             <td><strong>Decline</strong></td>
                             <td>Reduced demand, increased competition, exit barriers, divestment</td>
-                            <td>Falling — consider divestment</td>
+                            <td>Falling â€” consider divestment</td>
                         </tr>
                     </table>
                     <div class="topic-body"><strong>Uses of ILC Model:</strong> Better strategic planning | Improved
@@ -371,15 +382,15 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 9 — Generic Strategies & Value Chain</span>
+                <span class="sec-title">Unit 9 â€” Generic Strategies & Value Chain</span>
                 <span class="sec-badge">High Priority</span>
             </div>
             <div class="sec-body">
                 <div class="topic">
                     <div class="topic-title">Porter's Generic Strategies</div>
-                    <span class="tag tag-imp">Essay Q — All 3 in detail!</span>
-                    <div class="highlight">The 2×2 matrix: Competitive Advantage (Low Cost vs Differentiated) ×
-                        Competitive Scope (Broad vs Narrow) = 4 cells → Cost Leadership, Differentiation, Focused Cost
+                    <span class="tag tag-imp">Essay Q â€” All 3 in detail!</span>
+                    <div class="highlight">The 2Ã—2 matrix: Competitive Advantage (Low Cost vs Differentiated) Ã—
+                        Competitive Scope (Broad vs Narrow) = 4 cells â†’ Cost Leadership, Differentiation, Focused Cost
                         Leadership, Focused Differentiation</div>
                     <table>
                         <tr>
@@ -417,7 +428,7 @@ a:hover { text-decoration: underline; }
                 </div>
                 <div class="topic">
                     <div class="topic-title">Value Chain Analysis</div>
-                    <span class="tag tag-imp">Essay Q — Draw the diagram!</span>
+                    <span class="tag tag-imp">Essay Q â€” Draw the diagram!</span>
                     <span class="tag tag-def">Definition</span>
                     <div class="topic-body">Developed by Porter. A firm identifies its primary and support activities
                         that add value, then analyzes them to <strong>reduce costs or increase differentiation</strong>
@@ -425,25 +436,25 @@ a:hover { text-decoration: underline; }
                     <br>
                     <div class="topic-title">5 Primary Activities (must know all 5):</div>
                     <ul>
-                        <li><strong>1. Inbound Logistics</strong> — Transporting, receiving, storing, distributing
+                        <li><strong>1. Inbound Logistics</strong> â€” Transporting, receiving, storing, distributing
                             materials, inventory control</li>
-                        <li><strong>2. Operations</strong> — Transforming inputs → outputs: assembly, testing, packaging
+                        <li><strong>2. Operations</strong> â€” Transforming inputs â†’ outputs: assembly, testing, packaging
                         </li>
-                        <li><strong>3. Outbound Logistics</strong> — Collection, storage, physical distribution of
+                        <li><strong>3. Outbound Logistics</strong> â€” Collection, storage, physical distribution of
                             finished goods to customers</li>
-                        <li><strong>4. Marketing & Sales</strong> — Advertising, selling, sales administration</li>
-                        <li><strong>5. Service</strong> — Installation, training, repair — enhances/maintains product
+                        <li><strong>4. Marketing & Sales</strong> â€” Advertising, selling, sales administration</li>
+                        <li><strong>5. Service</strong> â€” Installation, training, repair â€” enhances/maintains product
                             value</li>
                     </ul>
                     <br>
                     <div class="topic-title">4 Support Activities:</div>
                     <ul>
-                        <li><strong>1. Firm Infrastructure</strong> — General management, finance/accounting, strategic
+                        <li><strong>1. Firm Infrastructure</strong> â€” General management, finance/accounting, strategic
                             planning</li>
-                        <li><strong>2. Human Resource Management</strong> — Recruitment, training, compensation</li>
-                        <li><strong>3. Technology Development</strong> — R&D, product/process innovation, tech adoption
+                        <li><strong>2. Human Resource Management</strong> â€” Recruitment, training, compensation</li>
+                        <li><strong>3. Technology Development</strong> â€” R&D, product/process innovation, tech adoption
                         </li>
-                        <li><strong>4. Procurement</strong> — Purchasing materials, machines, supplies for all
+                        <li><strong>4. Procurement</strong> â€” Purchasing materials, machines, supplies for all
                             activities</li>
                     </ul>
                     <div class="mnemonic">Primary: <strong>I-O-O-M-S</strong> (Inbound, Operations, Outbound, Marketing,
@@ -456,7 +467,7 @@ a:hover { text-decoration: underline; }
     <!-- MODULE 4 -->
     <div class="module" id="m1">
         <div class="mod-header">
-            <div class="mod-title">Module IV — Corporate Strategy & Growth Strategies</div>
+            <div class="mod-title">Module IV â€” Corporate Strategy & Growth Strategies</div>
             <div class="mod-sub">Unit 10: Corporate Strategy + 5 Expansion Strategies</div>
         </div>
 
@@ -469,7 +480,7 @@ a:hover { text-decoration: underline; }
                 <div class="topic">
                     <div class="topic-title">4 Types of Corporate Strategy (Glueck & Jauch)</div>
                     <span class="tag tag-imp">Essay Q</span>
-                    <div class="mnemonic">Mnemonic: <strong>S-E-R-C</strong> → Stability, Expansion, Retrenchment,
+                    <div class="mnemonic">Mnemonic: <strong>S-E-R-C</strong> â†’ Stability, Expansion, Retrenchment,
                         Combination</div>
                     <table>
                         <tr>
@@ -484,8 +495,8 @@ a:hover { text-decoration: underline; }
                         </tr>
                         <tr>
                             <td><strong>Expansion</strong></td>
-                            <td>Significant growth — related or unrelated new businesses</td>
-                            <td>Tata group: Steel → Automobiles → IT → Retail</td>
+                            <td>Significant growth â€” related or unrelated new businesses</td>
+                            <td>Tata group: Steel â†’ Automobiles â†’ IT â†’ Retail</td>
                         </tr>
                         <tr>
                             <td><strong>Retrenchment</strong></td>
@@ -500,12 +511,12 @@ a:hover { text-decoration: underline; }
                     </table>
                     <div class="topic-title" style="margin-top:10px">Importance of Corporate Strategy</div>
                     <ul>
-                        <li><strong>Allocates resources</strong> — directs resources to best investment opportunities
+                        <li><strong>Allocates resources</strong> â€” directs resources to best investment opportunities
                         </li>
-                        <li><strong>Establishes expectations</strong> — for internal/external stakeholders</li>
-                        <li><strong>Improves competitive position</strong> — determines which businesses to compete in
+                        <li><strong>Establishes expectations</strong> â€” for internal/external stakeholders</li>
+                        <li><strong>Improves competitive position</strong> â€” determines which businesses to compete in
                         </li>
-                        <li><strong>Adds shareholder value</strong> — beyond sum of physical/intellectual assets</li>
+                        <li><strong>Adds shareholder value</strong> â€” beyond sum of physical/intellectual assets</li>
                     </ul>
                 </div>
             </div>
@@ -523,11 +534,11 @@ a:hover { text-decoration: underline; }
                     <div class="topic-body">Investing resources in existing product line, market, and technology. Three
                         approaches:</div>
                     <ul>
-                        <li><strong>Market Penetration</strong> — Increase sales with existing products in existing
+                        <li><strong>Market Penetration</strong> â€” Increase sales with existing products in existing
                             markets (also called market concentration)</li>
-                        <li><strong>Market Development</strong> — Existing products in new markets (new distribution
+                        <li><strong>Market Development</strong> â€” Existing products in new markets (new distribution
                             channels or new ad content)</li>
-                        <li><strong>Product Development</strong> — New/modified products for existing customers through
+                        <li><strong>Product Development</strong> â€” New/modified products for existing customers through
                             established channels</li>
                     </ul>
                 </div>
@@ -535,9 +546,9 @@ a:hover { text-decoration: underline; }
                     <div class="topic-title">2. Diversification</div>
                     <div class="topic-body">Entering new product markets different from current ones. Two types:</div>
                     <ul>
-                        <li><strong>Concentric (Related)</strong> — New products closely related to existing offerings.
+                        <li><strong>Concentric (Related)</strong> â€” New products closely related to existing offerings.
                             E.g. shoe manufacturer acquires leather company</li>
-                        <li><strong>Conglomerate (Unrelated)</strong> — Entirely unrelated activities. E.g. Tata Group:
+                        <li><strong>Conglomerate (Unrelated)</strong> â€” Entirely unrelated activities. E.g. Tata Group:
                             automobiles + airlines + chemicals + defence + FMCG + IT + steel...</li>
                     </ul>
                 </div>
@@ -546,23 +557,23 @@ a:hover { text-decoration: underline; }
                     <div class="topic-body">Merging business operations without altering customer groups, using the
                         value chain:</div>
                     <ul>
-                        <li><strong>Vertical (Forward)</strong> — Move closer to customer. E.g. manufacturer opens own
+                        <li><strong>Vertical (Forward)</strong> â€” Move closer to customer. E.g. manufacturer opens own
                             retail store</li>
-                        <li><strong>Vertical (Backward)</strong> — Move toward raw material source. E.g. shoe
+                        <li><strong>Vertical (Backward)</strong> â€” Move toward raw material source. E.g. shoe
                             manufacturer produces own leather</li>
-                        <li><strong>Horizontal</strong> — Acquire/merge with competitor at same level. E.g. automobile
+                        <li><strong>Horizontal</strong> â€” Acquire/merge with competitor at same level. E.g. automobile
                             company acquires rival automobile firm</li>
                     </ul>
                 </div>
                 <div class="topic">
                     <div class="topic-title">4. Cooperation</div>
                     <ul>
-                        <li><strong>Merger</strong> — Two+ firms combine into a new entity; both dissolve</li>
-                        <li><strong>Takeover/Acquisition</strong> — One firm acquires another, assumes full
+                        <li><strong>Merger</strong> â€” Two+ firms combine into a new entity; both dissolve</li>
+                        <li><strong>Takeover/Acquisition</strong> â€” One firm acquires another, assumes full
                             responsibility</li>
-                        <li><strong>Joint Venture</strong> — Two firms work together on a specific project; ends when
+                        <li><strong>Joint Venture</strong> â€” Two firms work together on a specific project; ends when
                             project completes</li>
-                        <li><strong>Strategic Alliance</strong> — Firms collaborate but remain independent; no new legal
+                        <li><strong>Strategic Alliance</strong> â€” Firms collaborate but remain independent; no new legal
                             entity</li>
                     </ul>
                 </div>
@@ -571,10 +582,10 @@ a:hover { text-decoration: underline; }
                     <div class="topic-body">Expanding beyond domestic market when domestic growth opportunities are
                         exhausted. Four strategies:</div>
                     <ul>
-                        <li><strong>International</strong> — Same value proposition abroad, no changes</li>
-                        <li><strong>Multi-Domestic</strong> — Customize/adapt product for each foreign market</li>
-                        <li><strong>Global</strong> — Standardized value proposition, low cost delivery</li>
-                        <li><strong>Transnational</strong> — Combines global + multi-domestic; adapt product while
+                        <li><strong>International</strong> â€” Same value proposition abroad, no changes</li>
+                        <li><strong>Multi-Domestic</strong> â€” Customize/adapt product for each foreign market</li>
+                        <li><strong>Global</strong> â€” Standardized value proposition, low cost delivery</li>
+                        <li><strong>Transnational</strong> â€” Combines global + multi-domestic; adapt product while
                             maintaining cost efficiency</li>
                     </ul>
                 </div>
@@ -585,8 +596,8 @@ a:hover { text-decoration: underline; }
     <!-- MODULE 4B -->
     <div class="module" id="m2">
         <div class="mod-header">
-            <div class="mod-title">Module IV — Diversification, Integration, Alliances, JVs, M&A</div>
-            <div class="mod-sub">Unit 11 — Detailed coverage of all growth cooperation mechanisms</div>
+            <div class="mod-title">Module IV â€” Diversification, Integration, Alliances, JVs, M&A</div>
+            <div class="mod-sub">Unit 11 â€” Detailed coverage of all growth cooperation mechanisms</div>
         </div>
 
         <div class="section">
@@ -600,16 +611,16 @@ a:hover { text-decoration: underline; }
                     <div class="topic-body">Moving into a new industry with <strong>important similarities</strong> to
                         existing industry. Often exploits a <strong>core competency</strong> (a skill difficult for
                         competitors to imitate).<br><br><span class="tag tag-eg">Example</span> Honda: started in
-                        motorcycles → leveraged engine-building skill → automobiles, ATVs, lawnmowers, boat motors.
+                        motorcycles â†’ leveraged engine-building skill â†’ automobiles, ATVs, lawnmowers, boat motors.
                         Disney buying ABC (both entertainment).</div>
                     <div class="grid2">
                         <div class="mini-card">
-                            <div class="mini-card-title">✓ Advantages</div>
+                            <div class="mini-card-title">âœ“ Advantages</div>
                             <div class="mini-card-body">Share resources across areas; economies of scale; create new
                                 products; share distribution channels</div>
                         </div>
                         <div class="mini-card">
-                            <div class="mini-card-title">✗ Disadvantages</div>
+                            <div class="mini-card-title">âœ— Disadvantages</div>
                             <div class="mini-card-body">Synergy may not exist; implementation problems; antitrust/MRTP
                                 law violations; integration failures</div>
                         </div>
@@ -623,12 +634,12 @@ a:hover { text-decoration: underline; }
                     </div>
                     <div class="grid2">
                         <div class="mini-card">
-                            <div class="mini-card-title">✓ Advantages</div>
+                            <div class="mini-card-title">âœ“ Advantages</div>
                             <div class="mini-card-body">Spreads risk across sectors; secures cash during slowdowns;
                                 potential high financial returns if well-managed</div>
                         </div>
                         <div class="mini-card">
-                            <div class="mini-card-title">✗ Disadvantages</div>
+                            <div class="mini-card-title">âœ— Disadvantages</div>
                             <div class="mini-card-body">Requires excellent management; performance may not exceed
                                 individual activities; demands heavy financial and human resources</div>
                         </div>
@@ -636,7 +647,7 @@ a:hover { text-decoration: underline; }
                 </div>
                 <div class="topic">
                     <div class="topic-title">5 Motives for Diversification</div>
-                    <div class="mnemonic">Mnemonic: <strong>G-R-S-E-V</strong> → Growth, Risk Reduction, Survival,
+                    <div class="mnemonic">Mnemonic: <strong>G-R-S-E-V</strong> â†’ Growth, Risk Reduction, Survival,
                         Exploitation of Synergies, Value Creation</div>
                 </div>
             </div>
@@ -654,12 +665,12 @@ a:hover { text-decoration: underline; }
                         similar/different industries.</div>
                     <div class="grid2">
                         <div class="mini-card">
-                            <div class="mini-card-title">✓ Advantages</div>
+                            <div class="mini-card-title">âœ“ Advantages</div>
                             <div class="mini-card-body">Economies of scale; increased differentiation; increased market
                                 power; entry into new markets</div>
                         </div>
                         <div class="mini-card">
-                            <div class="mini-card-title">✗ Disadvantages</div>
+                            <div class="mini-card-title">âœ— Disadvantages</div>
                             <div class="mini-card-body">No synergy benefits if resources don't match; rigidity/loss of
                                 flexibility; legal issues (monopoly/antitrust)</div>
                         </div>
@@ -708,12 +719,12 @@ a:hover { text-decoration: underline; }
                             separate</strong>.</div>
                     <div class="grid2">
                         <div class="mini-card">
-                            <div class="mini-card-title">✓ Advantages</div>
+                            <div class="mini-card-title">âœ“ Advantages</div>
                             <div class="mini-card-body">Organizational learning; economies of scale; rivals can
                                 cooperate; access to new technology/markets; political entry into foreign markets</div>
                         </div>
                         <div class="mini-card">
-                            <div class="mini-card-title">✗ Disadvantages</div>
+                            <div class="mini-card-title">âœ— Disadvantages</div>
                             <div class="mini-card-body">Sharing of resources/profits/secrets; loss of control; trust
                                 issues; partner may become a future competitor; may fail if partners don't commit</div>
                         </div>
@@ -732,19 +743,19 @@ a:hover { text-decoration: underline; }
                     </ul>
                     <div class="grid2">
                         <div class="mini-card">
-                            <div class="mini-card-title">✓ Advantages</div>
+                            <div class="mini-card-title">âœ“ Advantages</div>
                             <div class="mini-card-body">Access to new markets; shared risk/costs; new knowledge &
                                 expertise; access to technology/finance</div>
                         </div>
                         <div class="mini-card">
-                            <div class="mini-card-title">✗ Disadvantages</div>
+                            <div class="mini-card-title">âœ— Disadvantages</div>
                             <div class="mini-card-body">Different expectations; expertise mismatch; unequal resource
                                 distribution; cultural/management barriers; contractual limitations</div>
                         </div>
                     </div>
                 </div>
                 <div class="topic">
-                    <div class="topic-title">JV vs Strategic Alliance — Comparison Table</div>
+                    <div class="topic-title">JV vs Strategic Alliance â€” Comparison Table</div>
                     <span class="tag tag-imp">Short Answer Q</span>
                     <table>
                         <tr>
@@ -779,7 +790,7 @@ a:hover { text-decoration: underline; }
                         </tr>
                         <tr>
                             <td>Duration</td>
-                            <td>Short-term (1–5 years)</td>
+                            <td>Short-term (1â€“5 years)</td>
                             <td>Short or long-term</td>
                         </tr>
                         <tr>
@@ -797,13 +808,13 @@ a:hover { text-decoration: underline; }
                     </div>
                     <div class="topic-title" style="margin-top:8px">4 Types of Mergers:</div>
                     <ul>
-                        <li><strong>Horizontal</strong> — Same industry, direct competitor. Aim: economies of scale,
-                            reduce competition. E.g. Brook Bond + Lipton India → Brook Bond Lipton India Ltd.</li>
-                        <li><strong>Vertical</strong> — Same industry, different production stage. Backward or forward
+                        <li><strong>Horizontal</strong> â€” Same industry, direct competitor. Aim: economies of scale,
+                            reduce competition. E.g. Brook Bond + Lipton India â†’ Brook Bond Lipton India Ltd.</li>
+                        <li><strong>Vertical</strong> â€” Same industry, different production stage. Backward or forward
                             integration. Creates supply advantage.</li>
-                        <li><strong>Co-generic</strong> — Associated by production processes/markets/technology. Extend
+                        <li><strong>Co-generic</strong> â€” Associated by production processes/markets/technology. Extend
                             product lines. E.g. refrigerator company merging with kitchen appliance company.</li>
-                        <li><strong>Conglomerate</strong> — Completely unrelated companies. No common customer
+                        <li><strong>Conglomerate</strong> â€” Completely unrelated companies. No common customer
                             groups/functions/technology.</li>
                     </ul>
                 </div>
@@ -814,7 +825,7 @@ a:hover { text-decoration: underline; }
     <!-- MODULE 4C - Portfolio -->
     <div class="module" id="m3">
         <div class="mod-header">
-            <div class="mod-title">Module IV — Business Portfolio Analysis</div>
+            <div class="mod-title">Module IV â€” Business Portfolio Analysis</div>
             <div class="mod-sub">Unit 12: BCG Matrix & GE Matrix</div>
         </div>
 
@@ -831,40 +842,40 @@ a:hover { text-decoration: underline; }
                         4 categories:</div>
                     <div class="bcg-grid">
                         <div class="bcg-star">
-                            <div class="bcg-label">⭐ Stars (High Growth, High Share)</div>
+                            <div class="bcg-label">â­ Stars (High Growth, High Share)</div>
                             <div class="bcg-desc">Generate high cash flows but need heavy investment. Best scope for
-                                expansion. Long-run → become Cash Cows. Strategy: BUILD</div>
+                                expansion. Long-run â†’ become Cash Cows. Strategy: BUILD</div>
                         </div>
                         <div class="bcg-qm">
-                            <div class="bcg-label">❓ Question Marks (High Growth, Low Share)</div>
+                            <div class="bcg-label">â“ Question Marks (High Growth, Low Share)</div>
                             <div class="bcg-desc">Heavy investment needed, low cash generation. Potential to become
                                 Stars by increasing market share. Also called "Wild Cats" or "Problem Children".
                                 Strategy: BUILD or DIVEST</div>
                         </div>
                         <div class="bcg-cash">
-                            <div class="bcg-label">🐄 Cash Cows (Low Growth, High Share)</div>
+                            <div class="bcg-label">ðŸ„ Cash Cows (Low Growth, High Share)</div>
                             <div class="bcg-desc">Low investment, generate high cash flows. Mature markets. Use cash to
                                 fund Stars/Question Marks. Strategy: HOLD or HARVEST</div>
                         </div>
                         <div class="bcg-dog">
-                            <div class="bcg-label">🐕 Dogs (Low Growth, Low Share)</div>
+                            <div class="bcg-label">ðŸ• Dogs (Low Growth, Low Share)</div>
                             <div class="bcg-desc">Just survive. Less attractive markets with low market share. Consider
                                 divestment or liquidation. Strategy: DIVEST or HARVEST</div>
                         </div>
                     </div>
                     <div class="topic-title" style="margin-top:10px">4 Strategic Choices after BCG Analysis:</div>
                     <ul>
-                        <li><strong>Build</strong> — Invest and expand to build large market share (Stars, promising
+                        <li><strong>Build</strong> â€” Invest and expand to build large market share (Stars, promising
                             Question Marks)</li>
-                        <li><strong>Hold</strong> — Preserve market share (Cash Cows)</li>
-                        <li><strong>Harvest</strong> — Maximize short-term cash flows regardless of long-term (weak Cash
+                        <li><strong>Hold</strong> â€” Preserve market share (Cash Cows)</li>
+                        <li><strong>Harvest</strong> â€” Maximize short-term cash flows regardless of long-term (weak Cash
                             Cows, Dogs)</li>
-                        <li><strong>Divest</strong> — Sell/liquidate so resources can be better used elsewhere (Dogs,
+                        <li><strong>Divest</strong> â€” Sell/liquidate so resources can be better used elsewhere (Dogs,
                             weak Question Marks)</li>
                     </ul>
                     <div class="highlight"><strong>Problems with BCG Matrix:</strong> Difficult, time-consuming, costly
                         to implement | Difficulty defining SBUs and measuring market share/growth | Too much emphasis on
-                        market-share growth → can cause unwise expansion or abandoning good units prematurely</div>
+                        market-share growth â†’ can cause unwise expansion or abandoning good units prematurely</div>
                 </div>
             </div>
         </div>
@@ -878,7 +889,7 @@ a:hover { text-decoration: underline; }
                 <div class="topic">
                     <div class="topic-title">Framework</div>
                     <div class="topic-body">Developed by General Electric + McKinsey. Uses <strong>Market
-                            Attractiveness</strong> (Y-axis) vs <strong>Business Strength</strong> (X-axis). 3×3 = 9
+                            Attractiveness</strong> (Y-axis) vs <strong>Business Strength</strong> (X-axis). 3Ã—3 = 9
                         cells, coded like traffic lights:</div>
                     <table>
                         <tr>
@@ -887,19 +898,19 @@ a:hover { text-decoration: underline; }
                             <th>Strategy</th>
                         </tr>
                         <tr>
-                            <td><strong>🟢 Green</strong></td>
+                            <td><strong>ðŸŸ¢ Green</strong></td>
                             <td>High Market Attractiveness + Strong Business</td>
-                            <td>Invest/Expand — go aggressively</td>
+                            <td>Invest/Expand â€” go aggressively</td>
                         </tr>
                         <tr>
-                            <td><strong>🟡 Yellow/Amber</strong></td>
+                            <td><strong>ðŸŸ¡ Yellow/Amber</strong></td>
                             <td>Medium attractiveness or strength</td>
-                            <td>Select/Earn — caution, managerial discretion needed</td>
+                            <td>Select/Earn â€” caution, managerial discretion needed</td>
                         </tr>
                         <tr>
-                            <td><strong>🔴 Red</strong></td>
+                            <td><strong>ðŸ”´ Red</strong></td>
                             <td>Low Market Attractiveness + Weak Business</td>
-                            <td>Harvest/Divest — retrenchment or liquidation</td>
+                            <td>Harvest/Divest â€” retrenchment or liquidation</td>
                         </tr>
                     </table>
                     <div class="grid2">
@@ -926,36 +937,36 @@ a:hover { text-decoration: underline; }
     <!-- MODULE 5 -->
     <div class="module" id="m4">
         <div class="mod-header">
-            <div class="mod-title">Module V — Strategy Implementation</div>
+            <div class="mod-title">Module V â€” Strategy Implementation</div>
             <div class="mod-sub">Unit 13: Implementation Process | Unit 14: Organizational Structure | Unit 15: 7S,
                 Strategic Control, Corporate Governance</div>
         </div>
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 13 — Strategy Implementation</span>
+                <span class="sec-title">Unit 13 â€” Strategy Implementation</span>
                 <span class="sec-badge">Essay Q</span>
             </div>
             <div class="sec-body open">
                 <div class="topic">
                     <div class="topic-title">8 Sequential Issues in Strategic Implementation</div>
                     <span class="tag tag-tip">Short Answer Q</span>
-                    <div class="mnemonic">Mnemonic: <strong>PP-R-SL-B-FO</strong> → Project, Procedural, Resource,
+                    <div class="mnemonic">Mnemonic: <strong>PP-R-SL-B-FO</strong> â†’ Project, Procedural, Resource,
                         Structural, Leadership, Behavioural, Functional, Operational</div>
                     <ul>
-                        <li><strong>Project Implementation</strong> — Define project boundaries with time and cost
+                        <li><strong>Project Implementation</strong> â€” Define project boundaries with time and cost
                             schedules</li>
-                        <li><strong>Procedural Implementation</strong> — Specify sequence of steps to be undertaken</li>
-                        <li><strong>Resource Allocation</strong> — Plan mobilization and provision of resources</li>
-                        <li><strong>Structural Implementation</strong> — Design/modify organizational structure with
+                        <li><strong>Procedural Implementation</strong> â€” Specify sequence of steps to be undertaken</li>
+                        <li><strong>Resource Allocation</strong> â€” Plan mobilization and provision of resources</li>
+                        <li><strong>Structural Implementation</strong> â€” Design/modify organizational structure with
                             proper span and delegation</li>
-                        <li><strong>Leadership Implementation</strong> — Leadership that facilitates change or
+                        <li><strong>Leadership Implementation</strong> â€” Leadership that facilitates change or
                             restructures org per vision</li>
-                        <li><strong>Behavioural Implementation</strong> — Change mindsets, values, beliefs, attitudes of
+                        <li><strong>Behavioural Implementation</strong> â€” Change mindsets, values, beliefs, attitudes of
                             employees</li>
-                        <li><strong>Functional Implementation</strong> — Formulate and implement functional-level
+                        <li><strong>Functional Implementation</strong> â€” Formulate and implement functional-level
                             strategies</li>
-                        <li><strong>Operational Implementation</strong> — Approach to achieve operational effectiveness
+                        <li><strong>Operational Implementation</strong> â€” Approach to achieve operational effectiveness
                         </li>
                     </ul>
                     <div class="highlight">Note: These steps are NOT necessarily performed one after another. Many can
@@ -981,15 +992,15 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 14 — Organizational Structures (6 Types)</span>
+                <span class="sec-title">Unit 14 â€” Organizational Structures (6 Types)</span>
                 <span class="sec-badge">High Priority</span>
             </div>
             <div class="sec-body">
                 <div class="topic">
-                    <div class="topic-title">Strategy–Structure Relationship</div>
+                    <div class="topic-title">Strategyâ€“Structure Relationship</div>
                     <div class="topic-body">When a firm changes strategy, the existing structure may become ineffective
-                        → structural changes needed. Key cycle: New strategy → New admin problems → Performance declines
-                        → New structure established → Performance improves.</div>
+                        â†’ structural changes needed. Key cycle: New strategy â†’ New admin problems â†’ Performance declines
+                        â†’ New structure established â†’ Performance improves.</div>
                     <div class="highlight">Important: "Changes in structure FACILITATE implementation, but structural
                         changes cannot make a bad strategy good."</div>
                 </div>
@@ -1050,14 +1061,14 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 15 — McKinsey 7S Framework</span>
+                <span class="sec-title">Unit 15 â€” McKinsey 7S Framework</span>
                 <span class="sec-badge">Essay Q</span>
             </div>
             <div class="sec-body">
                 <div class="topic">
                     <div class="topic-title">The 7 Elements</div>
                     <div class="topic-body">Used to evaluate a company's organizational design. All elements are
-                        interrelated — a change in one requires adjustments in others. Categorized into Hard Ss and Soft
+                        interrelated â€” a change in one requires adjustments in others. Categorized into Hard Ss and Soft
                         Ss.</div>
                     <div class="s7-grid">
                         <div class="s7-hard">
@@ -1090,7 +1101,7 @@ a:hover { text-decoration: underline; }
                                 leadership.</div>
                         </div>
                         <div class="s7-center">
-                            <div class="s7-name">Shared Values (Central — the "core")</div>
+                            <div class="s7-name">Shared Values (Central â€” the "core")</div>
                             <div class="s7-desc">Core principles, beliefs, and standards guiding employee behaviour.
                                 Foundation of the organization. Central to the model.</div>
                         </div>
@@ -1101,12 +1112,12 @@ a:hover { text-decoration: underline; }
                 <div class="topic">
                     <div class="topic-title">5 Steps to Apply 7S Framework</div>
                     <ul>
-                        <li><strong>Step 1:</strong> Identify misalignments — examine all 7 elements for
+                        <li><strong>Step 1:</strong> Identify misalignments â€” examine all 7 elements for
                             gaps/inconsistencies</li>
                         <li><strong>Step 2:</strong> Define optimal organizational design with top management input</li>
-                        <li><strong>Step 3:</strong> Identify and plan necessary changes — detailed action plan</li>
+                        <li><strong>Step 3:</strong> Identify and plan necessary changes â€” detailed action plan</li>
                         <li><strong>Step 4:</strong> Implement the changes with right personnel/consultants</li>
-                        <li><strong>Step 5:</strong> Continuously monitor and adjust — elements are dynamic</li>
+                        <li><strong>Step 5:</strong> Continuously monitor and adjust â€” elements are dynamic</li>
                     </ul>
                 </div>
             </div>
@@ -1114,25 +1125,25 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 15 — Strategic Control (4 Types)</span>
+                <span class="sec-title">Unit 15 â€” Strategic Control (4 Types)</span>
                 <span class="sec-badge">Essay Q</span>
             </div>
             <div class="sec-body">
                 <div class="topic">
                     <div class="topic-title">3 Levels of Organizational Control</div>
                     <ul>
-                        <li><strong>Operational Control</strong> — Individual tasks/transactions. E.g. stock control,
+                        <li><strong>Operational Control</strong> â€” Individual tasks/transactions. E.g. stock control,
                             production control, quality control, cost control, budgetary control</li>
-                        <li><strong>Management Control</strong> — Complete department/division/org. Focus: achieving
+                        <li><strong>Management Control</strong> â€” Complete department/division/org. Focus: achieving
                             enterprise goals efficiently</li>
-                        <li><strong>Strategic Control</strong> — Is the strategy being implemented as planned? Are
+                        <li><strong>Strategic Control</strong> â€” Is the strategy being implemented as planned? Are
                             results those intended?</li>
                     </ul>
                 </div>
                 <div class="topic">
                     <div class="topic-title">4 Types of Strategic Control</div>
                     <span class="tag tag-imp">Essay Q</span>
-                    <div class="mnemonic">Mnemonic: <strong>P-S-S-I</strong> → Premise, Surveillance, Special Alert,
+                    <div class="mnemonic">Mnemonic: <strong>P-S-S-I</strong> â†’ Premise, Surveillance, Special Alert,
                         Implementation</div>
                     <table>
                         <tr>
@@ -1171,7 +1182,7 @@ a:hover { text-decoration: underline; }
 
         <div class="section">
             <div class="sec-header" onclick="tog(this)">
-                <span class="sec-title">Unit 15 — Corporate Governance</span>
+                <span class="sec-title">Unit 15 â€” Corporate Governance</span>
                 <span class="sec-badge">Essay Q</span>
             </div>
             <div class="sec-body">
@@ -1210,7 +1221,7 @@ a:hover { text-decoration: underline; }
                         </div>
                     </div>
                     <div class="highlight">Link to Strategy: Strategic management should be under the preview and
-                        control of corporate governance — because strategy sometimes maximizes org interest at the cost
+                        control of corporate governance â€” because strategy sometimes maximizes org interest at the cost
                         of competitors, customers, employees, or society. Corporate governance balances all
                         stakeholders' interests.</div>
                 </div>
@@ -1252,5 +1263,9 @@ document.querySelectorAll('a').forEach(el => {
     el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active'));
 });
 </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 </html>
+
+

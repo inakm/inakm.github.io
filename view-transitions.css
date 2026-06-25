@@ -4,12 +4,24 @@
 
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(root) {
-    animation: 250ms ease-out both fadeOut;
+    animation: 300ms ease-out both crossFadeOut;
   }
   ::view-transition-new(root) {
-    animation: 350ms 100ms ease-out both fadeIn;
+    animation: 400ms 150ms ease-out both crossFadeIn;
   }
 }
 
-@keyframes fadeOut { to { opacity: 0; } }
-@keyframes fadeIn { from { opacity: 0; } }
+@keyframes crossFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(2px);
+  }
+}
+@keyframes crossFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(4px);
+  }
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -225,6 +225,17 @@
 
 <body
     class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace">
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 
     <nav class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
         <div
@@ -430,19 +441,19 @@
             return `I will upload my resume. Act as an elite AI Recruiter and Job Hunting Machine. Analyze my resume in depth to identify the most suitable ${vol || 20} roles I should target.
 
 ---
-### 👤 TARGET EXPERIENCE LEVEL:
+### ðŸ‘¤ TARGET EXPERIENCE LEVEL:
 ${exp}
 
 ---
-### 🌍 TARGET GEOGRAPHY:
+### ðŸŒ TARGET GEOGRAPHY:
 ${geo}
 
 ---
-### 🏢 TARGET SECTORS:
+### ðŸ¢ TARGET SECTORS:
 ${sec}
 
 ---
-### 📊 OUTPUT FORMATTING & REQUIREMENTS:
+### ðŸ“Š OUTPUT FORMATTING & REQUIREMENTS:
 1. Find real companies currently hiring across the specified sectors.
 2. Provide verified application links for each opportunity.
 3. Match every job with my profile and give a fit score out of 100.
@@ -476,6 +487,10 @@ Do not hallucinate links. Curate a final structured Markdown table representing 
 
         document.addEventListener('DOMContentLoaded', updatePrompt);
     </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 
 </html>
+
+

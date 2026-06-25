@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -87,6 +87,17 @@ footer a:hover { color: #c9a227; }
 </head>
 
 <body class="antialiased selection:bg-brand-primary selection:text-white">
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
 <div class="bg-blobs"><div class="bg-gradient"></div><div class="blob-1"></div></div>
@@ -115,9 +126,9 @@ footer a:hover { color: #c9a227; }
 <div class="section">
     <div class="section-title"><span class="section-num">01</span>Sustainability (ESG)</div>
     <ul>
-        <li><strong>E</strong>nvironmental – climate, emissions, waste</li>
-        <li><strong>S</strong>ocial – workforce, community</li>
-        <li><strong>G</strong>overnance – board, ethics</li>
+        <li><strong>E</strong>nvironmental â€“ climate, emissions, waste</li>
+        <li><strong>S</strong>ocial â€“ workforce, community</li>
+        <li><strong>G</strong>overnance â€“ board, ethics</li>
     </ul>
     <div class="callout callout-tip">
         <div class="callout-label">Key Point</div>
@@ -150,9 +161,9 @@ footer a:hover { color: #c9a227; }
 <div class="section">
     <div class="section-title"><span class="section-num">01</span>Types of Winding Up</div>
     <ul>
-        <li><strong>Compulsory</strong> – Court ordered (petition by creditor/member)</li>
-        <li><strong>Members' Voluntary (MVL)</strong> – Solvent company, declaration of solvency</li>
-        <li><strong>Creditors' Voluntary (CVL)</strong> – Insolvent company, no solvency declaration</li>
+        <li><strong>Compulsory</strong> â€“ Court ordered (petition by creditor/member)</li>
+        <li><strong>Members' Voluntary (MVL)</strong> â€“ Solvent company, declaration of solvency</li>
+        <li><strong>Creditors' Voluntary (CVL)</strong> â€“ Insolvent company, no solvency declaration</li>
     </ul>
 </div>
 
@@ -164,7 +175,7 @@ footer a:hover { color: #c9a227; }
     </div>
     <div class="callout callout-tip">
         <div class="callout-label">Key Difference</div>
-        <p>In CVL, creditors' nominee prevails if there's a dispute. Liquidation committee possible (up to 5 creditors) – not available in MVL.</p>
+        <p>In CVL, creditors' nominee prevails if there's a dispute. Liquidation committee possible (up to 5 creditors) â€“ not available in MVL.</p>
     </div>
 </div>
 
@@ -179,5 +190,9 @@ const cursorDot = document.getElementById('cursor-dot'), cursorOutline = documen
 document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; });
 document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active')); el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active')); });
 </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 </html>
+
+

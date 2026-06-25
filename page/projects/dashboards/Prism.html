@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -1206,6 +1206,17 @@
 </head>
 
 <body>
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
@@ -1234,13 +1245,13 @@
           </button>
           <div class="nav-dropdown-menu" id="prism-nav-tools">
             <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-excel" style="font-size:13px;opacity:0.6;"></i> Excel → JSON
+              <i class="fa-solid fa-file-excel" style="font-size:13px;opacity:0.6;"></i> Excel â†’ JSON
             </a>
             <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-exchange-alt" style="font-size:13px;opacity:0.6;"></i> CSV / JSON Converter
             </a>
             <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-code" style="font-size:13px;opacity:0.6;"></i> CSV / TSV → JSON
+              <i class="fa-solid fa-file-code" style="font-size:13px;opacity:0.6;"></i> CSV / TSV â†’ JSON
             </a>
           </div>
         </div>
@@ -1291,13 +1302,13 @@
           </button>
           <div class="hero-dropdown-menu" id="prism-hero-tools">
             <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-excel" style="font-size:14px;opacity:0.6;"></i> Excel → JSON
+              <i class="fa-solid fa-file-excel" style="font-size:14px;opacity:0.6;"></i> Excel â†’ JSON
             </a>
             <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-exchange-alt" style="font-size:14px;opacity:0.6;"></i> CSV / JSON Converter
             </a>
             <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-code" style="font-size:14px;opacity:0.6;"></i> CSV / TSV → JSON
+              <i class="fa-solid fa-file-code" style="font-size:14px;opacity:0.6;"></i> CSV / TSV â†’ JSON
             </a>
           </div>
         </div>
@@ -1400,7 +1411,7 @@
           <span class="kpi-label">Total Sales</span>
           <div class="kpi-icon kpi-icon-highlight"><i class="fa-solid fa-coins"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-sales">—</div>
+        <div class="kpi-value" id="kpi-sales">â€”</div>
         <div class="kpi-sub">Gross sales across all orders</div>
       </div>
       <div class="kpi-card kpi-positive fade-up d3">
@@ -1408,7 +1419,7 @@
           <span class="kpi-label">Total Profit</span>
           <div class="kpi-icon kpi-icon-positive"><i class="fa-solid fa-chart-line"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-profit">—</div>
+        <div class="kpi-value" id="kpi-profit">â€”</div>
         <div class="kpi-sub">Net profit margin</div>
       </div>
       <div class="kpi-card kpi-blue fade-up d4">
@@ -1416,7 +1427,7 @@
           <span class="kpi-label">Total Orders</span>
           <div class="kpi-icon kpi-icon-blue"><i class="fa-solid fa-receipt"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-orders">—</div>
+        <div class="kpi-value" id="kpi-orders">â€”</div>
         <div class="kpi-sub">Number of transactions</div>
       </div>
       <div class="kpi-card kpi-lavender fade-up d5">
@@ -1424,7 +1435,7 @@
           <span class="kpi-label">Avg Profit Margin</span>
           <div class="kpi-icon kpi-icon-lavender"><i class="fa-solid fa-bullseye"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-margin">—</div>
+        <div class="kpi-value" id="kpi-margin">â€”</div>
         <div class="kpi-sub">Profit as % of sales</div>
       </div>
     </div>
@@ -1438,7 +1449,7 @@
       </div>
       <div class="chart-card fade-up d7">
         <div class="chart-title">Sales &amp; Profit by Region</div>
-        <div class="chart-sub">Grouped bar — blue = Sales, green = Profit</div>
+        <div class="chart-sub">Grouped bar â€” blue = Sales, green = Profit</div>
         <div class="chart-inner-lg" id="chart-region"></div>
       </div>
     </div>
@@ -1447,7 +1458,7 @@
     <div class="chart-row row-1">
       <div class="chart-card fade-up d8">
         <div class="chart-title">Monthly Sales Trend</div>
-        <div class="chart-sub">Spline area — revenue over time</div>
+        <div class="chart-sub">Spline area â€” revenue over time</div>
         <div class="chart-inner-lg" id="chart-trend"></div>
       </div>
     </div>
@@ -1469,12 +1480,12 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> — Powered by
+    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> â€” Powered by
       Plotly.js</p>
   </footer>
 
   <script>
-    // ── Dropdown Toggle ───────────────────────────────────────────────────
+    // â”€â”€ Dropdown Toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function toggleDropdown(id) {
       const menu = document.getElementById(id);
       const isOpen = menu.classList.contains('open');
@@ -1487,7 +1498,7 @@
       }
     });
 
-    // ── Tab Switching ──────────────────────────────────────────────────────
+    // â”€â”€ Tab Switching â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function switchTab(tab) {
       document.querySelectorAll('.upload-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.upload-panel').forEach(p => p.classList.remove('active'));
@@ -1520,7 +1531,7 @@
       }
     }
 
-    // ── Custom Cursor ─────────────────────────────────────────────────────
+    // â”€â”€ Custom Cursor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
     if (!isTouch) {
       const cursorDot = document.getElementById('cursor-dot');
@@ -1559,7 +1570,7 @@
       });
     }
 
-    // ── Helpers ──────────────────────────────────────────────────────────
+    // â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function parseMoney(v) {
       if (typeof v === 'number') return v;
       return parseFloat(String(v).replace(/[$, ]/g, '')) || 0;
@@ -1597,7 +1608,7 @@
       return n.toString();
     }
 
-    // ── Chart defaults (DARK THEME) ──────────────────────────────────────
+    // â”€â”€ Chart defaults (DARK THEME) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const DARK_BG = 'rgba(0,0,0,0)';
     const GRID_COLOR_DARK = 'rgba(255,255,255,0.08)';
     const FONT_DARK = { family: 'Manrope, sans-serif', size: 11, color: 'rgba(255,255,255,0.45)' };
@@ -1615,7 +1626,7 @@
     }
     const CFG = { displayModeBar: false, responsive: true };
 
-    // ── Upload / Drag ────────────────────────────────────────────────────
+    // â”€â”€ Upload / Drag â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
     const chooseBtn = document.getElementById('choose-file-btn');
@@ -1649,7 +1660,7 @@
         .forEach(id => Plotly.purge(id));
     }
 
-    // ── Main ─────────────────────────────────────────────────────────────
+    // â”€â”€ Main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function buildDashboard(raw) {
       const data = raw.map(r => ({
         sales: parseMoney(r['Sales'] || 0),
@@ -1681,7 +1692,7 @@
       drawSegment(data);
     }
 
-    // ── Category Bar ───────────────────────────────────────────────────
+    // â”€â”€ Category Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function drawCategory(data) {
       const cat = {};
       data.forEach(r => { cat[r.category] = (cat[r.category] || 0) + r.sales });
@@ -1701,7 +1712,7 @@
       Plotly.newPlot('chart-category', [trace], layout, CFG);
     }
 
-    // ── Region Grouped Bar ─────────────────────────────────────────────
+    // â”€â”€ Region Grouped Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function drawRegion(data) {
       const reg = {};
       data.forEach(r => {
@@ -1729,7 +1740,7 @@
       Plotly.newPlot('chart-region', [traceSales, traceProfit], layout, CFG);
     }
 
-    // ── Trend Line ─────────────────────────────────────────────────────
+    // â”€â”€ Trend Line â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function drawTrend(data) {
       const monthly = {};
       data.forEach(r => {
@@ -1757,7 +1768,7 @@
       Plotly.newPlot('chart-trend', [trace], layout, CFG);
     }
 
-    // ── Payment Pie ────────────────────────────────────────────────────
+    // â”€â”€ Payment Pie â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function drawPayment(data) {
       const pay = {};
       data.forEach(r => { pay[r.paymentMode] = (pay[r.paymentMode] || 0) + 1 });
@@ -1780,7 +1791,7 @@
       Plotly.newPlot('chart-payment', [trace], layout, CFG);
     }
 
-    // ── Segment Donut ──────────────────────────────────────────────────
+    // â”€â”€ Segment Donut â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function drawSegment(data) {
       const seg = {};
       data.forEach(r => { seg[r.segment] = (seg[r.segment] || 0) + r.sales });
@@ -1813,6 +1824,10 @@
   <script id="sample-data" type="application/json">
 [{"Sales":"544","Profit":"67","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"08/12/2024"},{"Sales":"97","Profit":"1","Category":"Office Supplies","Region":"South","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"10/06/2024"},{"Sales":"2154","Profit":"254","Category":"Furniture","Region":"West","Payment Mode":"Credit Card","Segment":"Home Office","Order Date":"07/02/2024"},{"Sales":"47","Profit":"10","Category":"Office Supplies","Region":"East","Payment Mode":"Cash","Segment":"Consumer","Order Date":"05/03/2024"},{"Sales":"1022","Profit":"204","Category":"Technology","Region":"Canada","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"07/11/2024"},{"Sales":"1540","Profit":"324","Category":"Furniture","Region":"Central","Payment Mode":"Debit Card","Segment":"Home Office","Order Date":"17/03/2024"},{"Sales":"260","Profit":"7","Category":"Office Supplies","Region":"West","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"22/04/2024"},{"Sales":"732","Profit":"183","Category":"Technology","Region":"South","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"15/05/2024"},{"Sales":"198","Profit":"45","Category":"Office Supplies","Region":"East","Payment Mode":"Cash","Segment":"Consumer","Order Date":"03/06/2024"},{"Sales":"850","Profit":"170","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Home Office","Order Date":"28/07/2024"},{"Sales":"120","Profit":"24","Category":"Office Supplies","Region":"West","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"11/08/2024"},{"Sales":"3200","Profit":"480","Category":"Furniture","Region":"South","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"19/09/2024"},{"Sales":"450","Profit":"90","Category":"Technology","Region":"East","Payment Mode":"Cash","Segment":"Home Office","Order Date":"02/10/2024"},{"Sales":"85","Profit":"12","Category":"Office Supplies","Region":"Central","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"25/10/2024"},{"Sales":"1800","Profit":"360","Category":"Furniture","Region":"West","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"14/11/2024"},{"Sales":"320","Profit":"64","Category":"Technology","Region":"South","Payment Mode":"Cash","Segment":"Home Office","Order Date":"30/11/2024"},{"Sales":"150","Profit":"30","Category":"Office Supplies","Region":"East","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"05/12/2024"},{"Sales":"950","Profit":"190","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"18/12/2024"},{"Sales":"2800","Profit":"420","Category":"Furniture","Region":"West","Payment Mode":"Cash","Segment":"Home Office","Order Date":"22/01/2025"},{"Sales":"210","Profit":"42","Category":"Office Supplies","Region":"South","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"09/02/2025"}]
   </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 
 </html>
+
+

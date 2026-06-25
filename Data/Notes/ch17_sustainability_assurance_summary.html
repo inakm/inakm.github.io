@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -99,6 +99,17 @@ footer a:hover { color: #f3c623; }
 </head>
 
 <body class="antialiased selection:bg-brand-primary selection:text-white">
+<div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
+  <div style="width:80%;max-width:640px">
+    <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:16px;width:70%;margin-bottom:24px;border-radius:8px"></div>
+    <div class="sk-shimmer" style="height:180px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
+    <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
+  </div>
+  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+</div>
+
 <div class="cursor-dot" id="cursor-dot"></div>
 <div class="cursor-outline" id="cursor-outline"></div>
 <div class="bg-blobs"><div class="bg-gradient"></div><div class="blob-1"></div></div>
@@ -114,7 +125,7 @@ footer a:hover { color: #f3c623; }
 
 <main class="page">
 <div class="hero-strip animate-fade-rise">
-    <h1>Chapter 17 – Sustainability Assurance</h1>
+    <h1>Chapter 17 â€“ Sustainability Assurance</h1>
     <p>ESG Reporting, ISSA 5000, and Assurance Beyond Financial Statements</p>
 </div>
 
@@ -124,28 +135,28 @@ footer a:hover { color: #f3c623; }
         <div class="topic-title">ESG = Environmental, Social, Governance</div>
         <div class="topic-body">
             <ul>
-                <li><strong>Environmental</strong> – climate change, emissions, waste, resource use</li>
-                <li><strong>Social</strong> – workforce, health & safety, community, human rights</li>
-                <li><strong>Governance</strong> – board structure, ethics, transparency, risk management</li>
+                <li><strong>Environmental</strong> â€“ climate change, emissions, waste, resource use</li>
+                <li><strong>Social</strong> â€“ workforce, health & safety, community, human rights</li>
+                <li><strong>Governance</strong> â€“ board structure, ethics, transparency, risk management</li>
             </ul>
         </div>
     </div>
     <div class="topic">
         <div class="topic-title">EER = Electronic Expenditure Reporting</div>
-        <div class="topic-body">Reports that go beyond traditional financial statements – sustainability reports, integrated reports, narrative reports.</div>
+        <div class="topic-body">Reports that go beyond traditional financial statements â€“ sustainability reports, integrated reports, narrative reports.</div>
     </div>
 </div>
 
 <div class="section">
     <div class="section-title"><span class="section-num">02</span>Assurance Standards</div>
-    <div class="card"><strong>ISSA 5000</strong> – International Standard on Sustainability Assurances<p style="color:#aaa;margin-top:6px;">Governs sustainability assurance engagements. Replaces ISAE 3000 (Revised) for EER assurance.</p></div>
+    <div class="card"><strong>ISSA 5000</strong> â€“ International Standard on Sustainability Assurances<p style="color:#aaa;margin-top:6px;">Governs sustainability assurance engagements. Replaces ISAE 3000 (Revised) for EER assurance.</p></div>
 </div>
 
 <div class="section">
     <div class="section-title"><span class="section-num">03</span>Level of Assurance</div>
     <ul>
-        <li><span class="pill amber">Reasonable</span> – Provides an <strong>opinion</strong> (like audit)</li>
-        <li><span class="pill green">Limited</span> – Provides a <strong>conclusion</strong> (like review)</li>
+        <li><span class="pill amber">Reasonable</span> â€“ Provides an <strong>opinion</strong> (like audit)</li>
+        <li><span class="pill green">Limited</span> â€“ Provides a <strong>conclusion</strong> (like review)</li>
     </ul>
     <div class="highlight-box warning"><strong>Key Message:</strong> It was decided NOT to create a new specific EER standard. ISAE 3000 (Revised) was considered sufficient.</div>
 </div>
@@ -182,5 +193,9 @@ const cursorDot = document.getElementById('cursor-dot'), cursorOutline = documen
 document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursorOutline.style.left = e.clientX + 'px'; cursorOutline.style.top = e.clientY + 'px'; });
 document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-active')); el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-active')); });
 </script>
+
+<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 </body>
 </html>
+
+
