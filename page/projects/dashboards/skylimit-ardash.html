@@ -664,9 +664,7 @@
             <button onclick="showUploadModal('payment'); closeDropdown('inputDropdown')"><i class="fa-solid fa-money-bill-wave text-white/60" style="width:18px"></i> Payment Logs</button>
             <button onclick="showUploadModal('calling'); closeDropdown('inputDropdown')"><i class="fa-solid fa-phone text-white/60" style="width:18px"></i> Calling List</button>
             <div class="h-px bg-white/10 my-1"></div>
-            <button onclick="replaceData('master'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Master Report</button>
-            <button onclick="replaceData('payment'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Payment Logs</button>
-            <button onclick="replaceData('calling'); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-rotate text-white/60" style="width:18px"></i> Replace Calling List</button>
+            <button onclick="showDeleteDataModal(); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash-can text-white/60" style="width:18px"></i> Delete Data</button>
           </div>
         </div>
         <!-- Output Dropdown -->
@@ -698,10 +696,6 @@
         <button onclick="showUploadModal('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-book w-5 text-white/60"></i> Master Report</button>
         <button onclick="showUploadModal('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-money-bill-wave w-5 text-white/60"></i> Payment Logs</button>
         <button onclick="showUploadModal('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-white/60"></i> Calling List</button>
-        <div class="text-xs font-bold uppercase tracking-widest text-red-400/60 px-3 pt-2 pb-1">Replace</div>
-        <button onclick="replaceData('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Master Report</button>
-        <button onclick="replaceData('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Payment Logs</button>
-        <button onclick="replaceData('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3 text-red-400"><i class="fa-solid fa-rotate w-5 text-white/60"></i> Calling List</button>
         <hr class="border-white/10 my-1">
         <!-- Output group -->
         <div class="text-xs font-bold uppercase tracking-widest text-white/60/60 px-3 pt-1 pb-1">Output</div>
@@ -1310,19 +1304,20 @@
     </div>
   </div>
 
-  <!-- REPLACE DATA MODAL -->
-  <div class="modal-overlay" id="replaceModal">
-    <div class="modal-box">
+  <!-- DELETE DATA MODAL -->
+  <div class="modal-overlay" id="deleteDataModal">
+    <div class="modal-box" style="max-width:400px">
       <div class="flex justify-between items-center mb-4">
-        <h3 class="text-lg font-bold uppercase tracking-wider text-brand-highlight" id="replaceModalTitle"><i class="fa-solid fa-rotate mr-2"></i>Replace</h3>
-        <button onclick="closeModal('replaceModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
+        <h3 class="text-lg font-bold uppercase tracking-wider text-red-600"><i class="fa-solid fa-trash-can mr-2"></i>Delete Data</h3>
+        <button onclick="closeModal('deleteDataModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">&times;</button>
       </div>
-      <p class="text-sm text-white/60/70 mb-4" id="replaceModalDesc">This will delete all existing data for this type and let you upload a new file.</p>
-      <p class="text-sm text-white/60 mb-2 font-medium">Type <strong class="text-red-600">REPLACE</strong> to confirm:</p>
-      <input type="text" id="replaceConfirmInput" placeholder="Type REPLACE here..." oninput="document.getElementById('replaceConfirmBtn').disabled = this.value !== 'REPLACE'" class="w-full mb-4">
-      <div class="flex justify-end gap-2">
-        <button onclick="closeModal('replaceModal')" class="btn-secondary text-xs">Cancel</button>
-        <button id="replaceConfirmBtn" class="btn-danger text-xs" disabled onclick="executeReplace()"><i class="fa-solid fa-rotate mr-1"></i> Replace &amp; Upload</button>
+      <p class="text-sm text-white/60/70 mb-4">Choose which data to delete:</p>
+      <div class="flex flex-col gap-2">
+        <button onclick="executeDelete('master'); closeModal('deleteDataModal')" class="btn-secondary text-sm w-full justify-start flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5"><i class="fa-solid fa-book text-white/60 w-5"></i> Master Report <span class="text-xs text-white/40 ml-auto">Clears all invoices</span></button>
+        <button onclick="executeDelete('payment'); closeModal('deleteDataModal')" class="btn-secondary text-sm w-full justify-start flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5"><i class="fa-solid fa-money-bill-wave text-white/60 w-5"></i> Payment Logs <span class="text-xs text-white/40 ml-auto">Resets collections</span></button>
+        <button onclick="executeDelete('calling'); closeModal('deleteDataModal')" class="btn-secondary text-sm w-full justify-start flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5"><i class="fa-solid fa-phone text-white/60 w-5"></i> Calling List <span class="text-xs text-white/40 ml-auto">Clears call statuses</span></button>
+        <hr class="border-white/10 my-1">
+        <button onclick="executeDelete('all'); closeModal('deleteDataModal')" class="btn-danger text-sm w-full justify-start flex items-center gap-3 px-4 py-3 rounded-xl"><i class="fa-solid fa-bomb w-5"></i> Clear Whole Dashboard <span class="text-xs text-white/60 ml-auto">Deletes everything</span></button>
       </div>
     </div>
   </div>
@@ -2029,34 +2024,23 @@
       document.getElementById('clearModal').classList.add('active');
     }
 
-    let replaceMode = null;
-
-    function replaceData(mode) {
-      replaceMode = mode;
-      let labels = { master: 'Master Report', payment: 'Payment Logs', calling: 'Calling List' };
-      let descs = {
-        master: 'This will DELETE all invoice records from the dashboard. Your current ledger, aging data, and KPIs will be cleared. You can then upload a new Master Report.',
-        payment: 'This will DELETE all payment records from the dashboard. Payment history and collected totals will be reset. You can then upload new Payment Logs.',
-        calling: 'This will DELETE all calling list records. Call statuses and remarks for all parties will be cleared. You can then upload a new Calling List.'
-      };
-      document.getElementById('replaceModalTitle').textContent = 'Replace ' + (labels[mode] || 'Data');
-      document.getElementById('replaceModalDesc').textContent = descs[mode] || '';
-      document.getElementById('replaceConfirmInput').value = '';
-      document.getElementById('replaceConfirmBtn').disabled = true;
-      document.getElementById('replaceModal').classList.add('active');
+    function showDeleteDataModal() {
+      document.getElementById('deleteDataModal').classList.add('active');
     }
 
-    async function executeReplace() {
-      if (!replaceMode) return;
-      closeModal('replaceModal');
+    async function executeDelete(mode) {
       try {
-        if (replaceMode === 'master') {
+        if (mode === 'all') {
           await dbClear(STORES.invoices);
           await dbClear(STORES.callLogs);
-          showToast('All invoice & call records cleared. Now upload a new Master Report.');
-        } else if (replaceMode === 'payment') {
           await dbClear(STORES.payments);
-          // Recalculate all invoices to reset paid statuses
+          showToast('All dashboard data cleared.');
+        } else if (mode === 'master') {
+          await dbClear(STORES.invoices);
+          await dbClear(STORES.callLogs);
+          showToast('Master Report & call records cleared.');
+        } else if (mode === 'payment') {
+          await dbClear(STORES.payments);
           let invoices = await dbReadAll(STORES.invoices);
           for (let inv of invoices) {
             inv.pendingAmount = inv.initialPendingAmount || inv.originalAmount;
@@ -2064,17 +2048,15 @@
             inv.isManuallyPaid = false;
             await dbWrite(STORES.invoices, inv);
           }
-          showToast('All payment records cleared. Now upload new Payment Logs.');
-        } else if (replaceMode === 'calling') {
+          showToast('Payment records cleared.');
+        } else if (mode === 'calling') {
           await dbClear(STORES.callLogs);
-          showToast('All calling records cleared. Now upload a new Calling List.');
+          showToast('Calling list cleared.');
         }
         await refreshDashboard();
-        setTimeout(() => showUploadModal(replaceMode), 600);
       } catch (err) {
-        showToast('Error replacing data: ' + err.message, true);
+        showToast('Error deleting data: ' + err.message, true);
       }
-      replaceMode = null;
     }
 
     // ============================================================
@@ -4306,6 +4288,7 @@
           <img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" width="175" height="55" />
         </a>
         <a href="https://www.ontoplist.com/financial-investment-websites/" target="_blank"><img src="https://www.ontoplist.com/images/ontoplist32.png?id=6a3cdf8d47cd7" alt="Finance &amp; Investment - OnToplist.com" border="0" /></a>
+        <a href="https://nicklaunches.com/products/skylimit-ar-aging-dashboard/?utm_source=inakm.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener"><img src="https://nicklaunches.com/badges/featured-dark.png" alt="Skylimit AR Aging Dashboard on Nick Launches" width="244" height="56" /></a>
       </div>
     </details>
   </footer>
