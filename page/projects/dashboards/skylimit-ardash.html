@@ -628,15 +628,30 @@
       letter-spacing: 0.08em;
       color: #a0a0a0;
     }
-    .featured-logos a {
+    .featured-marquee {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
+    .featured-marquee-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: marquee-scroll 50s linear infinite;
+    }
+    .featured-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .featured-marquee-track a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-    }
-    .featured-logos img {
-      height: 32px;
-      width: auto;
-      object-fit: contain;
+      flex-shrink: 0;
     }
 
     /* ============================================================
@@ -796,13 +811,13 @@
     <!-- KPI CARDS -->
     <section id="kpiSection" class="mb-6 space-y-3 md:space-y-4 sk">
       <div class="sk-placeholder">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 kpi-grid">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 kpi-grid">
           <div class="sk-shimmer sk-card"></div>
           <div class="sk-shimmer sk-card"></div>
           <div class="sk-shimmer sk-card"></div>
           <div class="sk-shimmer sk-card"></div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 kpi-grid mt-3">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-6 kpi-grid mt-3">
           <div class="sk-shimmer sk-card"></div>
           <div class="sk-shimmer sk-card"></div>
           <div class="sk-shimmer sk-card"></div>
@@ -811,7 +826,7 @@
         </div>
       </div>
       <div class="sk-target">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 kpi-grid">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 kpi-grid">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
           <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
@@ -829,7 +844,7 @@
           <p class="kpi-value text-green-600" id="kpiTodayCollected">₹0</p>
         </div>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 kpi-grid">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-6 kpi-grid">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Parties</p>
           <p class="kpi-value text-white" id="kpiTotalParties">0</p>
@@ -984,6 +999,34 @@
           </table>
         </div>
         <p class="text-xs text-white/60/50 text-center mt-3" id="topOverdueEmpty">No overdue data</p>
+      </div>
+    </section>
+
+    <!-- AI ANALYSIS -->
+    <section class="mb-8 sk" id="aiAnalysisSection">
+      <div class="sk-placeholder">
+        <div class="liquid-glass border border-white/10 rounded-2xl p-6 md:p-8">
+          <div class="sk-shimmer" style="height:80px;width:80px;border-radius:1rem;margin:0 auto 1rem;"></div>
+          <div class="sk-shimmer sk-title" style="margin:0 auto 0.75rem;"></div>
+          <div class="sk-shimmer sk-text" style="width:65%;margin:0 auto 1rem;"></div>
+          <div class="sk-shimmer sk-pill" style="margin:0 auto;"></div>
+        </div>
+      </div>
+      <div class="sk-target">
+        <div class="liquid-glass border border-white/10 rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 bg-brand-highlight/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+          <div class="relative z-10">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-brand-highlight/20 to-purple-500/20 border border-brand-highlight/20 flex items-center justify-center">
+              <i class="fa-solid fa-robot text-2xl text-brand-highlight"></i>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold text-white mb-2">AI-Powered Insights</h3>
+            <p class="text-sm text-white/60/70 max-w-md mx-auto mb-4">Smart analysis of payment patterns, risk predictions, and automated recommendations — powered by AI.</p>
+            <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[10px] font-bold uppercase tracking-widest">
+              <i class="fa-solid fa-hourglass-half"></i> Coming Soon
+            </span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -4238,67 +4281,72 @@
 
     async function refreshDashboard() {
       showSkeletons();
-      // microtask to let browser paint skeletons before blocking on DB
-      await new Promise(r => setTimeout(r, 20));
-      let invoices = await getEnrichedInvoices();
-      let callLogs = await getCallLogs();
-      let payments = await dbReadAll(STORES.payments);
+      try {
+        // microtask to let browser paint skeletons before blocking on DB
+        await new Promise(r => setTimeout(r, 20));
+        let invoices = await getEnrichedInvoices();
+        let callLogs = await getCallLogs();
+        let payments = await dbReadAll(STORES.payments);
 
-      // Update group filter
-      let groups = [...new Set(invoices.map(i => i.groupName))].sort();
-      let groupSel = document.getElementById('filterGroup');
-      let currentGroupVal = groupSel.value;
-      groupSel.innerHTML = '<option value="__all">All Groups</option>' +
-        groups.map(g => `<option value="${g}">${g}</option>`).join('');
-      groupSel.value = currentGroupVal;
+        // Update group filter
+        let groups = [...new Set(invoices.map(i => i.groupName))].sort();
+        let groupSel = document.getElementById('filterGroup');
+        let currentGroupVal = groupSel.value;
+        groupSel.innerHTML = '<option value="__all">All Groups</option>' +
+          groups.map(g => `<option value="${g}">${g}</option>`).join('');
+        groupSel.value = currentGroupVal;
 
-      // Apply filters
-      let filtered = filterData(invoices, callLogs);
+        // Apply filters
+        let filtered = filterData(invoices, callLogs);
 
-      // Toggle zero-state
-      let hasData = invoices.length > 0 || payments.length > 0;
-      document.getElementById('zeroState').style.display = hasData ? 'none' : 'block';
-      document.getElementById('kpiSection').style.display = hasData ? 'block' : 'none';
-      document.getElementById('dashboardContent').style.display = hasData ? 'block' : 'none';
-      document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
+        // Toggle zero-state
+        let hasData = invoices.length > 0 || payments.length > 0;
+        document.getElementById('zeroState').style.display = hasData ? 'none' : 'block';
+        document.getElementById('kpiSection').style.display = hasData ? 'block' : 'none';
+        document.getElementById('dashboardContent').style.display = hasData ? 'block' : 'none';
+        document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
 
-      hideSkeletons();
+        // KPI
+        let agg = computeAggregations(filtered);
+        // Override callingListCount to match inclusive filter (disputed/imported invoices too)
+        agg.callingListCount = filtered.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0).filter(i => {
+          let hasLog = callLogs.some(c => c.partyName === i.partyName && c.currentStatus !== 'Not Called');
+          return i._overdueDays > 30 || hasLog;
+        }).length;
+        let today = new Date();
+        agg.todayCollected = payments
+          .filter(p => {
+            let pd = new Date(p.date || p.createdAt);
+            return pd.getFullYear() === today.getFullYear() && pd.getMonth() === today.getMonth() && pd.getDate() === today.getDate();
+          })
+          .reduce((s, p) => s + p.amount, 0);
+        renderKPI(agg);
 
-      // KPI
-      let agg = computeAggregations(filtered);
-      // Override callingListCount to match inclusive filter (disputed/imported invoices too)
-      agg.callingListCount = filtered.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0).filter(i => {
-        let hasLog = callLogs.some(c => c.partyName === i.partyName && c.currentStatus !== 'Not Called');
-        return i._overdueDays > 30 || hasLog;
-      }).length;
-      let today = new Date();
-      agg.todayCollected = payments
-        .filter(p => {
-          let pd = new Date(p.date || p.createdAt);
-          return pd.getFullYear() === today.getFullYear() && pd.getMonth() === today.getMonth() && pd.getDate() === today.getDate();
-        })
-        .reduce((s, p) => s + p.amount, 0);
-      renderKPI(agg);
+        // Aging Bucket Summary (uses filtered data to stay consistent with KPIs)
+        renderAgingBucketSummary(filtered);
 
-      // Aging Bucket Summary (uses filtered data to stay consistent with KPIs)
-      renderAgingBucketSummary(filtered);
+        // Record count
+        document.getElementById('recordCount').textContent = filtered.length + ' records';
 
-      // Record count
-      document.getElementById('recordCount').textContent = filtered.length + ' records';
+        // Charts
+        renderCharts(agg, filtered, callLogs);
 
-      // Charts
-      renderCharts(agg, filtered, callLogs);
+        // Re-render active tab
+        let activeTab = document.querySelector('.tab-btn.active');
+        if (activeTab) {
+          let tabName = activeTab.id.replace('tab', '').toLowerCase();
+          if (tabName === 'calling') renderCallingList();
+          else if (tabName === 'ledger') renderLedger();
+          else if (tabName === 'payment') renderPaymentLog();
+        }
 
-      // Re-render active tab
-      let activeTab = document.querySelector('.tab-btn.active');
-      if (activeTab) {
-        let tabName = activeTab.id.replace('tab', '').toLowerCase();
-        if (tabName === 'calling') renderCallingList();
-        else if (tabName === 'ledger') renderLedger();
-        else if (tabName === 'payment') renderPaymentLog();
+        updateTabBadges();
+      } catch (err) {
+        console.error('refreshDashboard error:', err);
+        showToast('Error refreshing dashboard: ' + err.message, true);
+      } finally {
+        hideSkeletons();
       }
-
-      updateTabBadges();
     }
 
     // ============================================================
@@ -4406,58 +4454,122 @@
         <span>Featured on</span>
         <i class="fa-solid fa-chevron-down text-xs text-white/30"></i>
       </summary>
-      <div class="flex flex-nowrap items-center justify-start gap-4 featured-logos overflow-x-auto pb-2">
-        <a href="https://toolfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
-          <img src="https://toolfame.com/badge-dark.svg" alt="Featured on toolfame.com" style="height: 54px; width: auto;" />
-        </a>
-        <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000"></a>
-        <a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-dark.png" alt="Featured on DodoDirectory" /></a>
-        <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-dark.svg" alt="Featured on Twelve Tools"></a>
-        <a href="https://earlyhunt.com/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
-          <img src="https://earlyhunt.com/badges/earlyhunt-badge-dark.svg" alt="Featured on EarlyHunt" width="265" height="58" />
-        </a>
-        <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge2-dark.svg" alt="Featured on Wired Business" width="200" height="54"></a>
-        <a href="https://www.tinystartups.com/startup/skylimit-ar-aging-dashboard" target="_blank" rel="noopener"
-           style="display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);color:#fff">
-          <svg width="56" height="56" viewBox="0 0 100 100">
-            <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="#ffffff"/>
-          </svg>
-          <span style="display:flex;flex-direction:column;line-height:1.15">
-            <span style="font-family:monospace;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Launched on</span>
-            <span style="font-size:22px;font-weight:800;letter-spacing:-0.025em;color:#fff">Tiny Startups</span>
-            <span style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:4px">tinystartups.com</span>
-          </span>
-        </a>
-        <a href="https://turbo0.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.turbo0.com/badge-listed-dark.svg" alt="Listed on Turbo0" style="height: 54px; width: auto;" />
-        </a>
-        <a href="https://saasfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
-          <img src="https://saasfame.com/badge-dark.svg" alt="Featured on saasfame.com" style="height: 54px; width: auto;" />
-        </a>
-        <a href="https://startupfa.me/s/akmportfolio?utm_source=inakm.github.io" target="_blank"><img src="https://startupfa.me/badges/featured/dark-small-rounded.webp" alt="AR Aging Dashboard - Featured on Startup Fame" width="240" height="37" /></a>
-        <a href="https://findly.tools/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
-          <img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" width="175" height="55" />
-        </a>
-        <a href="https://www.ontoplist.com/financial-investment-websites/" target="_blank"><img src="https://www.ontoplist.com/images/ontoplist32.png?id=6a3cdf8d47cd7" alt="Finance &amp; Investment - OnToplist.com" border="0" /></a>
-        <a href="https://nicklaunches.com/products/skylimit-ar-aging-dashboard/?utm_source=inakm.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener"><img src="https://nicklaunches.com/badges/featured-dark.png" alt="Skylimit AR Aging Dashboard on Nick Launches" width="244" height="56" /></a>
-        <a href="https://dofollow.tools" target="_blank"><img src="https://dofollow.tools/badge/badge_dark.svg" alt="Featured on Dofollow.Tools" width="200" height="54" /></a>
-        <a href="https://auraplusplus.com/projects/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
-          <img src="https://auraplusplus.com/images/badges/featured-on-dark.svg" alt="Featured on Aura++" width="265" height="58" />
-        </a>
-        <a href="https://toolfio.com" target="_blank" rel="dofollow"><img src="https://toolfio.com/toolfio-dark-badge.png" alt="Featured on Toolfio" width="200" height="54" /></a>
-        <a href="https://www.toolpilot.ai/" target="_blank" rel="noopener"><img src="https://www.toolpilot.ai/cdn/shop/files/f-b_690x151_crop_center.png?v=1695882701" alt="Featured on Toolpilot" style="height: 54px; width: auto;" /></a>
-        <a href="https://sidehunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
-          <img src="https://sidehunt.io/badges/sidehunt-badge-dark.svg" alt="Featured on Sidehunt" width="200" height="60" />
-        </a>
-        <a href="https://uno.directory" target="_blank" rel="noopener">
-          <img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" width="120" height="30" />
-        </a>
-        <a href="https://makerhunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
-          <img src="https://makerhunt.io/badges/makerhunt-badge-dark.svg" alt="Featured on MakerHunt" width="200" height="60" />
-        </a>
-        <a href="https://www.foundrlist.com/product/skylimitaragingdashboard?utm_source=badge&amp;utm_medium=embed" target="_blank" rel="noopener">
-          <img src="https://www.foundrlist.com/api/badge/skylimitaragingdashboard" alt="Featured on FoundrList" width="150" height="48" />
-        </a>
+      <div class="featured-marquee">
+        <div class="featured-marquee-track">
+          <a href="https://toolfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://toolfame.com/badge-dark.svg" alt="Featured on toolfame.com" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000" style="height:54px;width:auto;"></a>
+          <a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-dark.png" alt="Featured on DodoDirectory" style="height:54px;width:auto;" /></a>
+          <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-dark.svg" alt="Featured on Twelve Tools" style="height:54px;width:auto;"></a>
+          <a href="https://earlyhunt.com/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://earlyhunt.com/badges/earlyhunt-badge-dark.svg" alt="Featured on EarlyHunt" style="height:58px;width:auto;" />
+          </a>
+          <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge2-dark.svg" alt="Featured on Wired Business" style="height:54px;width:auto;"></a>
+          <a href="https://www.tinystartups.com/startup/skylimit-ar-aging-dashboard" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);color:#fff">
+            <svg width="56" height="56" viewBox="0 0 100 100">
+              <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="#ffffff"/>
+            </svg>
+            <span style="display:flex;flex-direction:column;line-height:1.15">
+              <span style="font-family:monospace;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Launched on</span>
+              <span style="font-size:22px;font-weight:800;letter-spacing:-0.025em;color:#fff">Tiny Startups</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:4px">tinystartups.com</span>
+            </span>
+          </a>
+          <a href="https://turbo0.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.turbo0.com/badge-listed-dark.svg" alt="Listed on Turbo0" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://saasfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://saasfame.com/badge-dark.svg" alt="Featured on saasfame.com" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://startupfa.me/s/akmportfolio?utm_source=inakm.github.io" target="_blank"><img src="https://startupfa.me/badges/featured/dark-small-rounded.webp" alt="AR Aging Dashboard - Featured on Startup Fame" style="height:37px;width:auto;" /></a>
+          <a href="https://findly.tools/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" style="height:55px;width:auto;" />
+          </a>
+          <a href="https://www.ontoplist.com/financial-investment-websites/" target="_blank"><img src="https://www.ontoplist.com/images/ontoplist32.png?id=6a3cdf8d47cd7" alt="Finance &amp; Investment - OnToplist.com" style="height:54px;width:auto;" /></a>
+          <a href="https://nicklaunches.com/products/skylimit-ar-aging-dashboard/?utm_source=inakm.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener"><img src="https://nicklaunches.com/badges/featured-dark.png" alt="Skylimit AR Aging Dashboard on Nick Launches" style="height:56px;width:auto;" /></a>
+          <a href="https://dofollow.tools" target="_blank"><img src="https://dofollow.tools/badge/badge_dark.svg" alt="Featured on Dofollow.Tools" style="height:54px;width:auto;" /></a>
+          <a href="https://auraplusplus.com/projects/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://auraplusplus.com/images/badges/featured-on-dark.svg" alt="Featured on Aura++" style="height:58px;width:auto;" />
+          </a>
+          <a href="https://toolfio.com" target="_blank" rel="dofollow"><img src="https://toolfio.com/toolfio-dark-badge.png" alt="Featured on Toolfio" style="height:54px;width:auto;" /></a>
+          <a href="https://www.toolpilot.ai/" target="_blank" rel="noopener"><img src="https://www.toolpilot.ai/cdn/shop/files/f-b_690x151_crop_center.png?v=1695882701" alt="Featured on Toolpilot" style="height: 54px; width: auto;" /></a>
+          <a href="https://sidehunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://sidehunt.io/badges/sidehunt-badge-dark.svg" alt="Featured on Sidehunt" style="height:60px;width:auto;" />
+          </a>
+          <a href="https://uno.directory" target="_blank" rel="noopener">
+            <img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" style="height:30px;width:auto;" />
+          </a>
+          <a href="https://makerhunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://makerhunt.io/badges/makerhunt-badge-dark.svg" alt="Featured on MakerHunt" style="height:60px;width:auto;" />
+          </a>
+          <a href="https://www.foundrlist.com/product/skylimitaragingdashboard?utm_source=badge&amp;utm_medium=embed" target="_blank" rel="noopener">
+            <img src="https://www.foundrlist.com/api/badge/skylimitaragingdashboard" alt="Featured on FoundrList" style="height:48px;width:auto;" />
+          </a>
+          <a href="https://deeplaunch.io" target="_blank"><img src="https://deeplaunch.io/badge/badge_dark.svg" alt="Featured on DeepLaunch.io" style="height:54px;width:auto;" /></a>
+          <a href="https://dang.ai" target="_blank" rel="dofollow noopener" style="display:inline-flex;text-decoration:none;align-items:center;"><img src="https://assets.dang.ai/badges/dang-verified-dark.png" alt="Verified on DANG!" style="height:94px;width:auto;max-width:260px;border:0;outline:none;text-decoration:none;" /></a>
+          <a href="https://open-launch.com/projects/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://open-launch.com/api/badge/cde13f8d-7098-4b7b-85a9-37de9095e0fa/featured-dark.svg" alt="Featured on Open-Launch" style="height:50px;width:auto;" />
+          </a>
+          <!-- Duplicate for seamless marquee -->
+          <a href="https://toolfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://toolfame.com/badge-dark.svg" alt="Featured on toolfame.com" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://www.producthunt.com/products/skylimit-ar-aging-dashboard?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer"><img alt="SkyLimit AR Aging Dashboard - Secure, client-side AR aging analytics without cloud uploads | Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1169493&amp;theme=light&amp;t=1781197723000" style="height:54px;width:auto;"></a>
+          <a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-dark.png" alt="Featured on DodoDirectory" style="height:54px;width:auto;" /></a>
+          <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-dark.svg" alt="Featured on Twelve Tools" style="height:54px;width:auto;"></a>
+          <a href="https://earlyhunt.com/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://earlyhunt.com/badges/earlyhunt-badge-dark.svg" alt="Featured on EarlyHunt" style="height:58px;width:auto;" />
+          </a>
+          <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge2-dark.svg" alt="Featured on Wired Business" style="height:54px;width:auto;"></a>
+          <a href="https://www.tinystartups.com/startup/skylimit-ar-aging-dashboard" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);color:#fff">
+            <svg width="56" height="56" viewBox="0 0 100 100">
+              <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="#ffffff"/>
+            </svg>
+            <span style="display:flex;flex-direction:column;line-height:1.15">
+              <span style="font-family:monospace;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Launched on</span>
+              <span style="font-size:22px;font-weight:800;letter-spacing:-0.025em;color:#fff">Tiny Startups</span>
+              <span style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:4px">tinystartups.com</span>
+            </span>
+          </a>
+          <a href="https://turbo0.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.turbo0.com/badge-listed-dark.svg" alt="Listed on Turbo0" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://saasfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://saasfame.com/badge-dark.svg" alt="Featured on saasfame.com" style="height: 54px; width: auto;" />
+          </a>
+          <a href="https://startupfa.me/s/akmportfolio?utm_source=inakm.github.io" target="_blank"><img src="https://startupfa.me/badges/featured/dark-small-rounded.webp" alt="AR Aging Dashboard - Featured on Startup Fame" style="height:37px;width:auto;" /></a>
+          <a href="https://findly.tools/skylimit-ar-aging-dashboard?utm_source=skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
+            <img src="https://findly.tools/badges/findly-tools-badge-dark.svg" alt="Featured on Findly.tools" style="height:55px;width:auto;" />
+          </a>
+          <a href="https://www.ontoplist.com/financial-investment-websites/" target="_blank"><img src="https://www.ontoplist.com/images/ontoplist32.png?id=6a3cdf8d47cd7" alt="Finance &amp; Investment - OnToplist.com" style="height:54px;width:auto;" /></a>
+          <a href="https://nicklaunches.com/products/skylimit-ar-aging-dashboard/?utm_source=inakm.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener"><img src="https://nicklaunches.com/badges/featured-dark.png" alt="Skylimit AR Aging Dashboard on Nick Launches" style="height:56px;width:auto;" /></a>
+          <a href="https://dofollow.tools" target="_blank"><img src="https://dofollow.tools/badge/badge_dark.svg" alt="Featured on Dofollow.Tools" style="height:54px;width:auto;" /></a>
+          <a href="https://auraplusplus.com/projects/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://auraplusplus.com/images/badges/featured-on-dark.svg" alt="Featured on Aura++" style="height:58px;width:auto;" />
+          </a>
+          <a href="https://toolfio.com" target="_blank" rel="dofollow"><img src="https://toolfio.com/toolfio-dark-badge.png" alt="Featured on Toolfio" style="height:54px;width:auto;" /></a>
+          <a href="https://www.toolpilot.ai/" target="_blank" rel="noopener"><img src="https://www.toolpilot.ai/cdn/shop/files/f-b_690x151_crop_center.png?v=1695882701" alt="Featured on Toolpilot" style="height: 54px; width: auto;" /></a>
+          <a href="https://sidehunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://sidehunt.io/badges/sidehunt-badge-dark.svg" alt="Featured on Sidehunt" style="height:60px;width:auto;" />
+          </a>
+          <a href="https://uno.directory" target="_blank" rel="noopener">
+            <img src="https://uno.directory/uno-directory.svg" alt="Listed on Uno Directory" style="height:30px;width:auto;" />
+          </a>
+          <a href="https://makerhunt.io/project/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://makerhunt.io/badges/makerhunt-badge-dark.svg" alt="Featured on MakerHunt" style="height:60px;width:auto;" />
+          </a>
+          <a href="https://www.foundrlist.com/product/skylimitaragingdashboard?utm_source=badge&amp;utm_medium=embed" target="_blank" rel="noopener">
+            <img src="https://www.foundrlist.com/api/badge/skylimitaragingdashboard" alt="Featured on FoundrList" style="height:48px;width:auto;" />
+          </a>
+          <a href="https://deeplaunch.io" target="_blank"><img src="https://deeplaunch.io/badge/badge_dark.svg" alt="Featured on DeepLaunch.io" style="height:54px;width:auto;" /></a>
+          <a href="https://dang.ai" target="_blank" rel="dofollow noopener" style="display:inline-flex;text-decoration:none;align-items:center;"><img src="https://assets.dang.ai/badges/dang-verified-dark.png" alt="Verified on DANG!" style="height:94px;width:auto;max-width:260px;border:0;outline:none;text-decoration:none;" /></a>
+          <a href="https://open-launch.com/projects/skylimit-ar-aging-dashboard" target="_blank" rel="noopener">
+            <img src="https://open-launch.com/api/badge/cde13f8d-7098-4b7b-85a9-37de9095e0fa/featured-dark.svg" alt="Featured on Open-Launch" style="height:50px;width:auto;" />
+          </a>
+        </div>
       </div>
     </details>
   </footer>
