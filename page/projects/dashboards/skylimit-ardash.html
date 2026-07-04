@@ -645,6 +645,11 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .featured-marquee-track {
+        animation: none;
+      }
+    }
     .featured-marquee-track a {
       display: inline-flex;
       align-items: center;
@@ -682,7 +687,6 @@
     .sk-tab { height: 42px; border-radius: 0.75rem; margin-bottom: 14px; }
     .sk-pill { height: 28px; width: 90px; border-radius: 9999px; }
   </style>
-    <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="../../../view-transitions.css">
 </head>
 <body class="antialiased relative font-sans selection:bg-brand-highlight selection:text-black" style="color-scheme: dark;"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>
@@ -2032,7 +2036,7 @@
     // ============================================================
     // AGGREGATIONS
     // ============================================================
-    function computeAggregations(invoices) {
+    function computeAggregations(invoices, payments) {
       let totalOutstanding = 0;
       let totalOriginalAmount = 0;
       let totalCollected = 0;
@@ -2089,6 +2093,9 @@
         .map(([name, amt]) => ({ name, amount: amt, maxDays: partyOverdueDays[name] || 0, count: partyInvoiceCount[name] || 1 }))
         .sort((a, b) => b.amount - a.amount);
 
+      if (payments && payments.length > 0) {
+        totalCollected = payments.reduce((s, p) => s + (p.amount || 0), 0);
+      }
       return {
         totalOutstanding,
         totalOriginalAmount,
@@ -3111,11 +3118,11 @@
     function filterCallingSub(filter) {
       currentCallingSubFilter = filter;
       // Update button active states
-      document.querySelectorAll('[id^="callSub"]').forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('btn-secondary'); });
+      document.querySelectorAll('[id^="callSub"]').forEach(b => { b.classList.remove('bg-brand-highlight', 'text-black'); b.classList.add('btn-secondary'); });
       let map = { __all: 'callSubAll', 'Not Called': 'callSubPending', 'Completed': 'callSubCompleted',
         'Follow-up': 'callSubFollowup', 'Disputed Bill': 'callSubDisputed', 'Unreachable': 'callSubUnreachable' };
       let btn = document.getElementById(map[filter]);
-      if (btn) { btn.classList.remove('btn-secondary'); btn.classList.add('bg-brand-primary', 'text-white'); }
+      if (btn) { btn.classList.remove('btn-secondary'); btn.classList.add('bg-brand-highlight', 'text-black'); }
       renderCallingList();
     }
 
@@ -4035,7 +4042,8 @@
       let doc = new jsPDF('landscape', 'mm', 'a4');
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
-      let agg = computeAggregations(invoices);
+      let payments = await dbReadAll(STORES.payments);
+      let agg = computeAggregations(invoices, payments);
 
       const PAGE_W = doc.internal.pageSize.getWidth();
       const PAGE_H = doc.internal.pageSize.getHeight();
@@ -4282,9 +4290,11 @@
       try {
         // microtask to let browser paint skeletons before blocking on DB
         await new Promise(r => setTimeout(r, 20));
-        let invoices = await getEnrichedInvoices();
-        let callLogs = await getCallLogs();
-        let payments = await dbReadAll(STORES.payments);
+        let [invoices, callLogs, payments] = await Promise.all([
+          getEnrichedInvoices(),
+          getCallLogs(),
+          dbReadAll(STORES.payments)
+        ]);
 
         // Update group filter
         let groups = [...new Set(invoices.map(i => i.groupName))].sort();
@@ -4305,7 +4315,7 @@
         document.getElementById('advancedMetricsSection').style.display = hasData ? 'grid' : 'none';
 
         // KPI
-        let agg = computeAggregations(filtered);
+        let agg = computeAggregations(filtered, payments);
         // Override callingListCount to match inclusive filter (disputed/imported invoices too)
         agg.callingListCount = filtered.filter(i => i.status === 'Unpaid' && i.pendingAmount > 0).filter(i => {
           let hasLog = callLogs.some(c => c.partyName === i.partyName && c.currentStatus !== 'Not Called');
@@ -4552,6 +4562,15 @@
             <img src="https://saasdb.net/badge/featured-dark.svg" alt="Featured on SaasDB" style="height:54px;width:auto;">
           </a>
           <a href="https://hicyou.com" style="display:inline-flex;"><img src="https://hicyou.com/badge/featured-dark.svg" alt="Featured" style="height:54px;width:auto;"></a>
+          <a href="https://saasbison.com" target="_blank" rel="dofollow"><img src="https://saasbison.com/badge.png" alt="Featured on SaaSBison" style="height:54px;width:auto;"></a>
+          <a href="https://shipstry.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://shipstry.com/badges/featured.svg" alt="Featured on Shipstry" style="height:52px;width:auto;">
+          </a>
+          <a target="_blank" href="https://www.llmrelevance.com" aria-label="LLM Relevance - AI & SEO Tools for Small Business" style="display:inline-flex;"><img src="https://www.llmrelevance.com/ft-llm-relevance.png" alt="LLM Relevance" style="height:54px;width:auto;"></a>
+          <a href="https://startupfa.st" target="_blank" title="Powered by Startup Fast" style="display:inline-flex;">
+            <img src="https://startupfa.st/images/badges/powered-by-dark.svg" alt="Powered by Startup Fast" style="height:44px;width:auto;">
+          </a>
+          <a href="https://aijet.cc" target="_blank"><img src="https://aijet.cc/badge/badge_dark.svg" alt="Featured on AI Jet" style="height:55px;width:auto;"></a>
           <!-- Duplicate for seamless marquee -->
           <a href="https://toolfame.com/item/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
             <img src="https://toolfame.com/badge-dark.svg" alt="Featured on toolfame.com" style="height: 54px; width: auto;">
@@ -4651,6 +4670,15 @@
             <img src="https://saasdb.net/badge/featured-dark.svg" alt="Featured on SaasDB" style="height:54px;width:auto;">
           </a>
           <a href="https://hicyou.com" style="display:inline-flex;"><img src="https://hicyou.com/badge/featured-dark.svg" alt="Featured" style="height:54px;width:auto;"></a>
+          <a href="https://saasbison.com" target="_blank" rel="dofollow"><img src="https://saasbison.com/badge.png" alt="Featured on SaaSBison" style="height:54px;width:auto;"></a>
+          <a href="https://shipstry.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://shipstry.com/badges/featured.svg" alt="Featured on Shipstry" style="height:52px;width:auto;">
+          </a>
+          <a target="_blank" href="https://www.llmrelevance.com" aria-label="LLM Relevance - AI & SEO Tools for Small Business" style="display:inline-flex;"><img src="https://www.llmrelevance.com/ft-llm-relevance.png" alt="LLM Relevance" style="height:54px;width:auto;"></a>
+          <a href="https://startupfa.st" target="_blank" title="Powered by Startup Fast" style="display:inline-flex;">
+            <img src="https://startupfa.st/images/badges/powered-by-dark.svg" alt="Powered by Startup Fast" style="height:44px;width:auto;">
+          </a>
+          <a href="https://aijet.cc" target="_blank"><img src="https://aijet.cc/badge/badge_dark.svg" alt="Featured on AI Jet" style="height:55px;width:auto;"></a>
         </div>
       </div>
     </details>
