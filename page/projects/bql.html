@@ -1,17 +1,26 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth"><head>    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inakm.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://inakm.github.io/page/projects/index.html" },
+    { "@type": "ListItem", "position": 3, "name": "BQL", "item": "https://inakm.github.io/page/projects/bql.html" }
+  ]
+}
+</script>
+</head><body class="antialiased selection:bg-brand-bql selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>﻿
 
-<head>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BQL Analysis | Bloomberg Query Language Projects | Anjani Kumar Mishra</title>
 
     <link rel="canonical" href="https://inakm.github.io/page/projects/bql.html">
 
-    <meta name="description"
-        content="Explore Bloomberg Query Language (BQL) projects for financial analysis: sector performance, economic indicators, equity screening, bond analysis, and ESG data. Built with Bloomberg's powerful data analytics platform.">
-    <meta name="keywords"
-        content="BQL, Bloomberg Query Language, financial analysis, Bloomberg terminal, sector performance, equity screening, bond screening, economic calendar, financial data science, Bloomberg Excel, AAPL ESG, Anjani Kumar Mishra">
+    <meta name="description" content="Explore Bloomberg Query Language (BQL) projects for financial analysis: sector performance, economic indicators, equity screening, bond analysis, and ESG data. Built with Bloomberg's powerful data analytics platform.">
+    <meta name="keywords" content="BQL, Bloomberg Query Language, financial analysis, Bloomberg terminal, sector performance, equity screening, bond screening, economic calendar, financial data science, Bloomberg Excel, AAPL ESG, Anjani Kumar Mishra">
     <meta name="author" content="Anjani Kumar Mishra">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -24,8 +33,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inakm.github.io/page/projects/bql.html">
     <meta property="og:title" content="BQL Analysis | Bloomberg Query Language Projects">
-    <meta property="og:description"
-        content="BQL projects: sector performance, economic indicators, equity screening, bond analysis, and ESG data analysis.">
+    <meta property="og:description" content="BQL projects: sector performance, economic indicators, equity screening, bond analysis, and ESG data analysis.">
     <meta property="og:image" content="https://inakm.github.io/myprojects/BQL/EQS%20Function.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -36,8 +44,7 @@
     <meta name="twitter:site" content="@inakmm">
     <meta name="twitter:creator" content="@inakmm">
     <meta name="twitter:title" content="BQL Analysis | Bloomberg Query Language Projects">
-    <meta name="twitter:description"
-        content="BQL projects: sector performance, economic indicators, equity screening, bond analysis, and ESG data.">
+    <meta name="twitter:description" content="BQL projects: sector performance, economic indicators, equity screening, bond analysis, and ESG data.">
     <meta name="twitter:image" content="https://inakm.github.io/myprojects/BQL/EQS%20Function.jpeg">
 
     <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
@@ -184,9 +191,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -333,9 +339,9 @@
     </style>
     <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="../../view-transitions.css">
-</head>
 
-<body class="antialiased selection:bg-brand-bql selection:text-white">
+
+
 <div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
   <div style="width:80%;max-width:640px">
     <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
@@ -354,16 +360,11 @@
     <div class="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none overflow-hidden">
         <div class="absolute inset-0 bg-[#0a0a0a]"></div>
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-bql/20 rounded-full blur-[120px] animate-float"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-bql/10 rounded-full blur-[100px] animate-float"
-            style="animation-delay: -3s;"></div>
-        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-brand-bql/15 rounded-full blur-[80px] animate-float"
-            style="animation-delay: -1.5s;"></div>
-        <div class="absolute top-1/3 right-1/4 w-48 h-48 bg-brand-highlight/10 rounded-full blur-[60px] animate-float"
-            style="animation-delay: -4.5s;"></div>
-        <div class="absolute bottom-1/3 left-1/3 w-40 h-40 bg-brand-bql/5 rounded-full blur-[50px] animate-float"
-            style="animation-delay: -2s;"></div>
-        <div
-            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTEwIDB2NDAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] opacity-50">
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-bql/10 rounded-full blur-[100px] animate-float" style="animation-delay: -3s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-brand-bql/15 rounded-full blur-[80px] animate-float" style="animation-delay: -1.5s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-48 h-48 bg-brand-highlight/10 rounded-full blur-[60px] animate-float" style="animation-delay: -4.5s;"></div>
+        <div class="absolute bottom-1/3 left-1/3 w-40 h-40 bg-brand-bql/5 rounded-full blur-[50px] animate-float" style="animation-delay: -2s;"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTEwIDB2NDAiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] opacity-50">
         </div>
     </div>
 
@@ -375,8 +376,7 @@
                 </div>
             </a>
             <a href="../../index.html" class="magnetic-wrap">
-                <div
-                    class="magnetic-inner liquid-glass px-5 py-2 rounded-full text-white/80 font-medium text-sm flex items-center gap-2 hover:bg-white/10 hover:text-white transition-colors">
+                <div class="magnetic-inner liquid-glass px-5 py-2 rounded-full text-white/80 font-medium text-sm flex items-center gap-2 hover:bg-white/10 hover:text-white transition-colors">
                     <i class="fa-solid fa-arrow-left"></i> Back to Homepage
                 </div>
             </a>
@@ -391,8 +391,7 @@
 
                 <div class="liquid-glass rounded-[2rem] p-6">
                     <div class="flex items-center gap-3 mb-5">
-                        <img src="../../mypfpf.png" alt="Anjani Kumar Mishra"
-                            class="w-14 h-14 rounded-full object-cover border-2 border-white/10">
+                        <img src="../../mypfpf.png" alt="Anjani Kumar Mishra" class="w-14 h-14 rounded-full object-cover border-2 border-white/10">
                         <div>
                             <h2 class="text-base font-bold text-white leading-tight">Anjani Kumar Mishra</h2>
                             <p class="text-xs text-brand-bql font-medium">Finance Analyst</p>
@@ -402,21 +401,17 @@
                         Detail-oriented Finance Analyst and ACCA candidate specializing in Bloomberg data analytics, financial modeling, and business intelligence.
                     </p>
                     <div class="flex gap-2 mb-5">
-                        <a href="https://linkedin.com/in/inakmm" target="_blank" rel="noopener noreferrer"
-                            class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+                        <a href="https://linkedin.com/in/inakmm" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                             <i class="fa-brands fa-linkedin-in text-sm"></i>
                         </a>
-                        <a href="https://github.com/inakm" target="_blank" rel="noopener noreferrer"
-                            class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+                        <a href="https://github.com/inakm" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                             <i class="fa-brands fa-github text-sm"></i>
                         </a>
-                        <a href="mailto:inakm@proton.me"
-                            class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+                        <a href="mailto:inakm@proton.me" class="w-9 h-9 rounded-full liquid-glass flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
                             <i class="fa-solid fa-envelope text-sm"></i>
                         </a>
                     </div>
-                    <a href="../../page/contact.html"
-                        class="block w-full text-center bg-white text-black font-bold py-2.5 rounded-full text-xs uppercase tracking-widest hover:bg-brand-highlight transition-colors">
+                    <a href="../../page/contact.html" class="block w-full text-center bg-white text-black font-bold py-2.5 rounded-full text-xs uppercase tracking-widest hover:bg-brand-highlight transition-colors">
                         Get in touch
                     </a>
                 </div>
@@ -424,36 +419,28 @@
                 <div class="liquid-glass rounded-[2rem] p-5">
                     <h3 class="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-3 px-2">Project Spaces</h3>
                     <nav class="flex flex-col gap-0.5">
-                        <a href="bql.html"
-                            class="nav-link active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all">
+                        <a href="bql.html" class="nav-link active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-bold transition-all">
                             <div class="w-6 flex justify-center text-brand-bql"><i class="fa-solid fa-terminal text-xs"></i></div> BQL Analysis
                         </a>
-                        <a href="citi-forage.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="citi-forage.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-building-columns text-xs"></i></div> Citi Forage
                         </a>
-                        <a href="excelproj.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="excelproj.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-file-excel text-xs"></i></div> Excel Projects
                         </a>
-                        <a href="fhel.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="fhel.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-truck text-xs"></i></div> FHEL
                         </a>
-                        <a href="gatigo.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="gatigo.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-route text-xs"></i></div> GatiGo
                         </a>
-                        <a href="gujtlrm.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="gujtlrm.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-industry text-xs"></i></div> Gujarat Toolroom
                         </a>
-                        <a href="powerbi.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="powerbi.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-chart-pie text-xs"></i></div> PowerBI
                         </a>
-                        <a href="rvnl.html"
-                            class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                        <a href="rvnl.html" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                             <div class="w-6 flex justify-center"><i class="fa-solid fa-train text-xs"></i></div> RVNL
                         </a>
                     </nav>
@@ -463,22 +450,21 @@
 
             <div class="flex-1 w-full">
 
-                <div class="mb-12">
-                    <h1
-                        class="text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-brand-bql via-white to-white/50 mb-4">
+                <header class="mb-12">
+                    <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-brand-bql via-white to-white/50 mb-4">
                         BQL Analysis Projects
                     </h1>
                     <p class="text-lg text-white/60 max-w-2xl">
                         A comprehensive collection of Bloomberg Query Language (BQL) projects demonstrating financial data analysis, equity screening, economic research, and investment strategy development.
                     </p>
-                </div>
+                </header>
 
-                <section aria-label="BQL Financial Analysis Projects">
-                    <h2 class="sr-only">Bloomberg Query Language Projects</h2>
+                <section aria-labelledby="section-0">
+                    <h2 class="sr-only" id="section-0">Bloomberg Query Language Projects</h2>
 
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -528,14 +514,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Analyzing Historical Forecasted Sector Performance.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Analyzing Historical Forecasted Sector Performance.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -585,14 +570,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Analyzing Mia's Results GB US CA AU.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Analyzing Mia's Results GB US CA AU.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -626,7 +610,7 @@
                                     <span class="font-mono text-[10px] font-bold text-brand-bql border border-brand-bql/30 px-2 py-0.5 rounded bg-brand-bql/10">ECONOMICS</span>
                                     <i class="fa-solid fa-file-excel text-green-500 text-lg ml-auto"></i>
                                 </div>
-                                <h3 class="text-xl font-bold text-white mb-2">Inflation & Unemployment</h3>
+                                <h3 class="text-xl font-bold text-white mb-2">Inflation &amp; Unemployment</h3>
                                 <p class="text-white/70 text-sm mb-4 flex-1 bg-black/20 p-3 rounded-lg backdrop-blur-sm border border-white/5">
                                     Assessing the correlation between inflation and unemployment rates using real-time Bloomberg data and BQL analytics.</p>
                                 <div class="mb-4">
@@ -642,14 +626,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Assessing Inflation and Unemployment.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Assessing Inflation and Unemployment.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -699,14 +682,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Economic Calendar (1).xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Economic Calendar (1).xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -756,14 +738,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Identify Companies with Strong Revenue Growth - Modify the Query.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Identify Companies with Strong Revenue Growth - Modify the Query.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -813,14 +794,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Identifying Undervalued Stocks.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Identifying Undervalued Stocks.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -870,14 +850,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Modify the Query for Historical Revenue Growth.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Modify the Query for Historical Revenue Growth.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -927,14 +906,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 1 Refining Investment Screening with BQL.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 1 Refining Investment Screening with BQL.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -984,14 +962,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 3 Adapting BQL Queries for Different Strategies.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 3 Adapting BQL Queries for Different Strategies.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1041,14 +1018,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 1 Refine Igor's Bond Screening Query.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 1 Refine Igor's Bond Screening Query.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1098,14 +1074,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 2 Assessing Industry Debt Trends Modified Query v2.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 2 Assessing Industry Debt Trends Modified Query v2.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1155,14 +1130,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 2 Assessing Industry Debt Trends v2.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 2 Assessing Industry Debt Trends v2.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1212,14 +1186,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 3 Apply Alternative Bond Screening Strategies v2.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 3 Apply Alternative Bond Screening Strategies v2.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1269,14 +1242,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 3 Comparing Conservative and Aggresive Strategies v2.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 3 Comparing Conservative and Aggresive Strategies v2.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1326,14 +1298,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/Task 3 Hands-On Query Modification.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/Task 3 Hands-On Query Modification.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
-                        <div class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
+                        <article class="liquid-glass rounded-2xl mac-window overflow-hidden flex flex-col h-full group border border-white/5 hover:border-brand-bql/50">
                             <div class="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 justify-between">
                                 <div class="flex gap-2">
                                     <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -1383,12 +1354,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="../../myprojects/BQL/AAPL_ESG%20SCore.xlsx" download
-                                    class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
+                                <a href="../../myprojects/BQL/AAPL_ESG%20SCore.xlsx" download="" class="w-full py-3 rounded-xl bg-brand-bql/20 text-brand-bql hover:bg-brand-bql hover:text-white border border-brand-bql/30 font-bold text-center transition-all text-sm backdrop-blur-md">
                                     <i class="fa-solid fa-download mr-2"></i> Download XLSX
                                 </a>
                             </div>
-                        </div>
+                        </article>
 
                     </div>
 
@@ -1415,16 +1385,14 @@
                         used as a basis for real-world financial decisions.
                     </p>
                     <p class="text-xs text-white/50 leading-relaxed">
-                        Designed & Developed by <a href="https://inakm.github.io"
-                            class="text-brand-bql hover:text-white font-bold transition-colors">@inAKM</a>.
+                        Designed &amp; Developed by <a href="https://inakm.github.io" class="text-brand-bql hover:text-white font-bold transition-colors">@inAKM</a>.
                     </p>
                 </div>
             </div>
         </div>
     </aside>
 
-    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-6 right-6 z-40 w-10 h-10 rounded-full bg-brand-bql text-white flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-white hover:text-brand-bql">
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-40 w-10 h-10 rounded-full bg-brand-bql text-white flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-white hover:text-brand-bql">
         <i class="fa-solid fa-arrow-up text-sm"></i>
     </button>
 
@@ -1605,9 +1573,10 @@
     </script>
 
 <script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
-</body>
-
-</html>
 
 
 
+
+
+
+</body></html>

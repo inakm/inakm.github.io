@@ -1,6 +1,18 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
+<html lang="en" class="scroll-smooth"><head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://inakm.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Prompts", "item": "https://inakm.github.io/page/prompts/index.html" },
+    { "@type": "ListItem", "position": 3, "name": "Equity Research", "item": "https://inakm.github.io/page/prompts/equityresrch.html" }
+  ]
+}
+</script>
+</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>﻿
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equity Research Prompt | Anjani Kumar Mishra</title>
@@ -28,8 +40,8 @@
     <meta name="twitter:image" content="https://inakm.github.io/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -116,8 +128,8 @@
     </style>
     <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="../../view-transitions.css">
-</head>
-<body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-highlight selection:text-brand-deepSpace">
+
+
 <div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
   <div style="width:80%;max-width:640px">
     <div class="sk-shimmer" style="height:32px;width:40%;margin-bottom:16px;border-radius:8px"></div>
@@ -210,7 +222,7 @@
                             <i class="fa-solid fa-chart-line mr-2"></i>Target Asset
                         </label>
                         <p class="text-xs font-mono text-gray-400 mb-3">Company name and stock ticker symbol.</p>
-                        <input id="inpCompany" class="input-field mb-2" oninput="updatePrompt()" value="Apple Inc. (AAPL)"/>
+                        <input id="inpCompany" class="input-field mb-2" oninput="updatePrompt()" value="Apple Inc. (AAPL)">
                     </div>
 
                     <div class="card-3d p-6 rounded-xl border border-white/10">
@@ -220,7 +232,7 @@
                         <p class="text-xs font-mono text-gray-400 mb-3">Historical timeline to review financial performance.</p>
                         <select id="inpYears" class="input-field mb-2" onchange="updatePrompt()">
                             <option value="last 3 years">3 Years</option>
-                            <option value="last 5 years" selected>5 Years</option>
+                            <option value="last 5 years" selected="">5 Years</option>
                             <option value="last 10 years">10 Years</option>
                         </select>
                     </div>
@@ -232,7 +244,7 @@
                         <p class="text-xs font-mono text-gray-400 mb-3">Con calls required to summarize management sentiment.</p>
                         <select id="inpCalls" class="input-field mb-2" onchange="updatePrompt()">
                             <option value="last two">Last Two Calls (TTM half)</option>
-                            <option value="last four" selected>Last Four Calls (1 Year)</option>
+                            <option value="last four" selected="">Last Four Calls (1 Year)</option>
                             <option value="last eight">Last Eight Calls (2 Years)</option>
                         </select>
                     </div>
@@ -276,7 +288,7 @@
                 <a href="mailto:inakm@proton.me" class="text-gray-400 hover:text-brand-highlight transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <div class="border-t border-gray-800 pt-8 text-xs font-mono text-gray-500">
-                <p>&copy; 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
+                <p>© 2026 Anjani Kumar Mishra. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -356,7 +368,8 @@ Finally, summarize the **${calls}** company earnings calls. Extract:
     </script>
 
 <script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
-</body>
-</html>
 
 
+
+
+</body></html>
