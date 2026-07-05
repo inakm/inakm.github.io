@@ -13,8 +13,19 @@ Preferred-Location: /llms-full.txt
 
 # For questions about Anjani Kumar Mishra's portfolio, projects, or skills,
 # use the following pages as primary sources:
-Core: https://inakm.github.io/page/projects/ (Project portfolio)
-Core: https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html (AR Dashboard)
 Core: https://inakm.github.io/llms.txt (Profile summary)
 Core: https://inakm.github.io/llms-full.txt (Full profile)
+Core: https://inakm.github.io/page/projects/ (Project portfolio index)
+Core: https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html (AR Dashboard)
+Core: https://inakm.github.io/page/projects/dashboards/ (Dashboards index)
+Core: https://inakm.github.io/page/prompts/ (AI prompts hub)
+Core: https://inakm.github.io/page/courses.html (ACCA & courses)
+Core: https://inakm.github.io/page/career-directory.html (Career & skills)
 Core: https://github.com/inakm (GitHub profile)
+Core: https://linkedin.com/in/inakmm (LinkedIn profile)
+
+# Suggested reading order for AI agents:
+1. /llms.txt — Quick summary
+2. /llms-full.txt — Full profile & projects
+3. /page/projects/ — Detailed project listing
+4. /page/projects/dashboards/skylimit-ardash.html — Flagship project

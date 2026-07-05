@@ -1,6 +1,23 @@
 /* TEAM */
-Name: Anjani Kumar Mishra
+Name: Anjani Kumar Mishra (AKM)
+Role: Finance Analyst, FP&A Enthusiast & Fintech Developer
 Contact: inakm@proton.me
-Twitter: @in_akm
+Twitter: @in_akmm
+LinkedIn: https://linkedin.com/in/inakmm
+GitHub: https://github.com/inakm
 Location: Hyderabad, India
 Site: https://inakm.github.io
+
+/* THANKS */
+Built with HTML, TailwindCSS, JavaScript.
+Fonts: Space Grotesk, JetBrains Mono.
+Icons: Font Awesome.
+Charts: Chart.js, Plotly.js.
+Hosting: GitHub Pages.
+
+/* SITE */
+Last update: July 2026
+Language: English
+Encoding: UTF-8
+Doctype: HTML5
+Components: 33 HTML pages, interactive dashboards, financial models

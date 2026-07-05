@@ -2,145 +2,199 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://inakm.github.io/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/sitemap.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/career-directory.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/contact.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/courses.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/index.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/privacy.html</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/resources.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/support.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/terms.html</loc>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/acca-fm.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/bql.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/citi-forage.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/excelproj.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/fhel.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/gatigo.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/gujtlrm.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/index.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/powerbi.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/rvnl.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/projects/stanzatrainings.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/CarLIMIT_SalesDash.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/index.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/Prism.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/RMM.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/skylimit-ardash.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/page/projects/dashboards/VEVOi.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/prompts/bmodel-analysis.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/prompts/cvfindjob.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/prompts/equityresrch.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/prompts/index.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://inakm.github.io/page/prompts/job-scaraper.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://inakm.github.io/me/index.html</loc>
+    <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

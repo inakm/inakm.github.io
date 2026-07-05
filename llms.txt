@@ -1,23 +1,31 @@
-# AKM Portfolio
+# AKM Portfolio — LLM Context
+
 Anjani Kumar Mishra (AKM) is a Finance Analyst, FP&A Enthusiast & Fintech Developer based in Hyderabad, India.
-He specializes in ACCA (13 papers, Applied Skills completed), Financial Modeling (DCF, 3-Statement, Sensitivity Analysis), Bloomberg Query Language (BQL), and AI-powered Fintech development.
+ACCA trainee (13 papers), BCom (Hons) at GITAM University.
 
-## Expertise
-- **Core Finance:** Financial Analysis, DCF Modeling, IFRS, Variance Analysis, Ratio Analysis, Risk Management, Audit Readiness
-- **Fintech & Data:** BQL in Excel, Crypto/DeFi, Client-Side BI Dashboards, Excel Power Query
-- **Tech Stack:** HTML/CSS/Tailwind/JS, Chart.js, IndexedDB, PapaParse, PowerBI, Bloomberg Terminal
-- **AI:** Generative AI Prompt Engineering, NotebookLM, AI-Assisted Financial Modeling
+## Core Expertise
+- **Finance:** Financial Modeling (DCF, 3-Statement), IFRS, Variance Analysis, Ratio Analysis, Risk Management
+- **Fintech:** BQL in Excel, Crypto/DeFi, Client-Side BI Dashboards, IndexedDB, Chart.js
+- **Tech:** HTML/CSS/JS, TailwindCSS, Chart.js, Plotly.js, PowerBI, Bloomberg Terminal
+- **AI:** Prompt Engineering, NotebookLM, AI-Assisted Financial Modeling
 
-## Key Projects
-- **Skylimit AR Aging Dashboard** — Full-featured Accounts Receivable dashboard with XLSX import, IndexedDB local storage, Chart.js visualizations, automated client messaging, DSO/CEI/ADD KPI tracking, multi-agent sync
-- **GatiGo** — 3-year DCF model for a tech-driven carpooling startup with sensitivity analysis, CVP break-even, pricing strategy, investor pitch
-- **RVNL Equity Research** — Comprehensive 3-statement financial model, DCF valuation, ratio analysis, audit summary for Rail Vikas Nigam Ltd
-- **BQL Analysis Hub** — Bloomberg Query Language projects: bond screening, ESG scoring, revenue growth analysis, industry debt trends
-- **Citi FP&A Virtual Experience** — RWA analysis, YE'22 financial model, corporate reporting slide decks via Forage
-- **Interactive Dashboards** — Prism Sales (Plotly.js), RMM Regional Analytics (Chart.js), VEVOi Video Analytics, CarLIMIT Sales Performance, and PowerBI portfolio (Prism Store, FM Power, CarLIMIT, Billionaires Statistics)
+## Key Projects (with links)
+| Project | Description | URL |
+|---|---|---|
+| Skylimit AR Dashboard | AR aging, DSO/CEI/ADD KPIs, IndexedDB | /page/projects/dashboards/skylimit-ardash.html |
+| GatiGo DCF Model | 3-yr DCF, sensitivity, CVP break-even | /page/projects/gatigo.html |
+| RVNL Equity Research | 3-statement model, DCF, ratio analysis | /page/projects/rvnl.html |
+| BQL Analysis Hub | Bond screening, ESG, revenue trends | /page/projects/bql.html |
+| Citi FP&A Forage | RWA, financial modeling, slide decks | /page/projects/citi-forage.html |
+| Excel Projects | 31K transactions, AR aging, inventory cleaning | /page/projects/excelproj.html |
+| PowerBI Portfolio | 7 dashboards: Prism, CarLIMIT, Vrinda, etc. | /page/projects/powerbi.html |
+| Interactive Dashboards | Prism, RMM, VEVOi, CarLIMIT (Chart.js/Plotly) | /page/projects/dashboards/ |
 
-## Contact
-- Portfolio: https://inakm.github.io
-- LinkedIn: https://linkedin.com/in/inakmm
+## Quick Links
+- Full profile: /llms-full.txt
+- Project index: /page/projects/
+- AI prompts: /page/prompts/
+- Resume: /resume.md
 - GitHub: https://github.com/inakm
+- LinkedIn: https://linkedin.com/in/inakmm
 - Email: inakm@proton.me
