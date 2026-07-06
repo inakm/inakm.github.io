@@ -12,7 +12,7 @@
       gtag('config', 'G-H33DSQYB78');
     </script>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; connect-src 'self' https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anjani Kumar Mishra | Financial Modeling, PowerBI &amp; Analytics</title>
 
@@ -449,6 +449,7 @@
             }
         }
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         body {
@@ -607,6 +608,71 @@
             background: #ffd666;
         }
 
+        /* Insights iframe responsive height */
+        .insight-iframe {
+            height: 400px;
+        }
+        @media (max-width: 640px) {
+            .insight-iframe {
+                height: 250px;
+            }
+        }
+
+        /* Small screen responsive fixes */
+        @media (max-width: 420px) {
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero h1 span {
+                font-size: 1.375rem;
+            }
+            #hero .liquid-glass {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                font-size: 0.75rem;
+            }
+            .hero-cta-btn {
+                font-size: 0.65rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            #hero h1 {
+                font-size: 1.75rem;
+            }
+            #hero h1 span {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-heading {
+                font-size: 2.5rem;
+            }
+            .nav-pill {
+                gap: 0.125rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            .nav-pill a {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                font-size: 0.65rem;
+            }
+            .mega-menu {
+                max-width: 85vw;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Hide scrollbars */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -714,6 +780,102 @@
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
             background-size: 80px 80px;
         }
+
+        /* Missing Tailwind Utility Classes (brand colors, fonts, etc.) */
+        :root {
+            --brand-primary: #222222;
+            --brand-secondary: #7B7B7B;
+            --brand-tertiary: #F8F8F8;
+            --brand-highlight: #f3c623;
+        }
+        .font-sans { font-family: 'Manrope', sans-serif; }
+        .font-mono { font-family: 'Courier New', monospace; }
+        .font-thin { font-weight: 100; }
+        .font-extralight { font-weight: 200; }
+        .font-light { font-weight: 300; }
+        .font-normal { font-weight: 400; }
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+        .font-black { font-weight: 900; }
+        .tracking-tighter { letter-spacing: -0.05em; }
+        .tracking-tight { letter-spacing: -0.025em; }
+        .tracking-normal { letter-spacing: 0; }
+        .tracking-wide { letter-spacing: 0.025em; }
+        .tracking-wider { letter-spacing: 0.05em; }
+        .tracking-widest { letter-spacing: 0.1em; }
+        .leading-tight { line-height: 1.25; }
+        .leading-snug { line-height: 1.375; }
+        .leading-normal { line-height: 1.5; }
+        .leading-relaxed { line-height: 1.625; }
+        .leading-loose { line-height: 2; }
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .text-5xl { font-size: 3rem; line-height: 1; }
+        .text-6xl { font-size: 3.75rem; line-height: 1; }
+        .text-7xl { font-size: 4.5rem; line-height: 1; }
+        .text-8xl { font-size: 6rem; line-height: 1; }
+        .text-9xl { font-size: 8rem; line-height: 1; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-base { font-size: 1rem; line-height: 1.5rem; }
+        .drop-shadow-2xl { filter: drop-shadow(0 25px 25px rgba(0,0,0,0.15)); }
+        .drop-shadow-xl { filter: drop-shadow(0 20px 13px rgba(0,0,0,0.03)) drop-shadow(0 8px 5px rgba(0,0,0,0.08)); }
+
+        /* Brand color utility classes */
+        .bg-brand-primary { background-color: var(--brand-primary); }
+        .bg-brand-secondary { background-color: var(--brand-secondary); }
+        .bg-brand-secondary\/20 { background-color: rgba(123, 123, 123, 0.2); }
+        .bg-brand-tertiary { background-color: var(--brand-tertiary); }
+        .bg-brand-tertiary\/30 { background-color: rgba(248, 248, 248, 0.3); }
+        .bg-brand-tertiary\/50 { background-color: rgba(248, 248, 248, 0.5); }
+        .bg-brand-highlight { background-color: var(--brand-highlight); }
+        .bg-brand-highlight\/30 { background-color: rgba(243, 198, 35, 0.3); }
+        .bg-brand-highlight\/50 { background-color: rgba(243, 198, 35, 0.5); }
+        .text-brand-primary { color: var(--brand-primary); }
+        .text-brand-primary\/5 { color: rgba(34, 34, 34, 0.05); }
+        .text-brand-secondary { color: var(--brand-secondary); }
+        .text-brand-secondary\/30 { color: rgba(123, 123, 123, 0.3); }
+        .text-brand-secondary\/70 { color: rgba(123, 123, 123, 0.7); }
+        .text-brand-highlight { color: var(--brand-highlight); }
+        .border-brand-primary { border-color: var(--brand-primary); }
+        .border-brand-secondary\/20 { border-color: rgba(123, 123, 123, 0.2); }
+        .border-brand-highlight { border-color: var(--brand-highlight); }
+        .border-t-brand-primary { border-top-color: var(--brand-primary); }
+        .via-brand-secondary\/20 { --tw-gradient-via: rgba(123, 123, 123, 0.2); }
+        .placeholder\:text-brand-secondary\/70::placeholder { color: rgba(123, 123, 123, 0.7); }
+        .selection\:bg-brand-primary ::selection { background-color: var(--brand-primary); }
+        .selection\:text-white ::selection { color: #fff; }
+        ::selection { background-color: var(--brand-primary); color: #fff; }
+
+        @media (hover: hover) {
+            .hover\:bg-brand-primary:hover { background-color: var(--brand-primary); }
+            .hover\:bg-brand-secondary:hover { background-color: var(--brand-secondary); }
+            .hover\:bg-brand-tertiary:hover { background-color: var(--brand-tertiary); }
+            .hover\:text-brand-primary:hover { color: var(--brand-primary); }
+            .hover\:text-brand-secondary:hover { color: var(--brand-secondary); }
+            .hover\:text-brand-highlight:hover { color: var(--brand-highlight); }
+            .hover\:border-brand-primary:hover { border-color: var(--brand-primary); }
+            .hover\:border-brand-secondary:hover { border-color: var(--brand-secondary); }
+            .group-hover\:bg-brand-primary:is(:where(.group):hover *) { background-color: var(--brand-primary); }
+            .group-hover\:bg-brand-secondary:is(:where(.group):hover *) { background-color: var(--brand-secondary); }
+            .group-hover\:text-brand-primary:is(:where(.group):hover *) { color: var(--brand-primary); }
+            .group-hover\:text-brand-secondary:is(:where(.group):hover *) { color: var(--brand-secondary); }
+            .group-hover\:text-brand-highlight:is(:where(.group):hover *) { color: var(--brand-highlight); }
+            .group-hover\:border-brand-primary:is(:where(.group):hover *) { border-color: var(--brand-primary); }
+            .group-hover\:border-brand-secondary:is(:where(.group):hover *) { border-color: var(--brand-secondary); }
+            .group-hover\/link\:bg-brand-primary:is(:where(.group\/link):hover *) { background-color: var(--brand-primary); }
+            .hover\:shadow-xl:hover { --tw-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); }
+            .hover\:shadow-2xl:hover { --tw-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); }
+            .hover\:-translate-y-1:hover { --tw-translate-y: -0.25rem; translate: var(--tw-translate-x) var(--tw-translate-y); }
+            .hover\:-translate-y-2:hover { --tw-translate-y: -0.5rem; translate: var(--tw-translate-x) var(--tw-translate-y); }
+        }
+        .focus\:border-brand-primary:focus { border-color: var(--brand-primary); }
+        .focus\:border-brand-highlight:focus { border-color: var(--brand-highlight); }
     </style>
     <script src="https://js.puter.com/v2/" defer=""></script>
   <link rel="stylesheet" href="./assets/css/view-transitions.css">
@@ -771,7 +933,7 @@
                     </a>
 
 
-                    <div class="mega-menu w-[650px] p-5">
+                    <div class="mega-menu w-[650px] max-w-[90vw] p-5">
                         <div class="grid grid-cols-5 gap-6">
 
                             <div class="col-span-2 border-r border-black/5 pr-6">
@@ -836,7 +998,7 @@
                         Prompts <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
                     </a>
 
-                    <div class="mega-menu w-[280px] p-4">
+                    <div class="mega-menu w-[280px] max-w-[90vw] p-4">
                         <h2 class="text-[10px] font-bold uppercase tracking-widest text-brand-secondary mb-3 flex items-center gap-2">
                             <i class="fa-solid fa-terminal"></i> AI Prompts
                         </h2>
@@ -872,7 +1034,7 @@
                         Other <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
                     </a>
 
-                    <div class="mega-menu w-[220px] p-3">
+                    <div class="mega-menu w-[220px] max-w-[90vw] p-3">
                         <ul class="space-y-1">
                             <li><a href="page/career-directory.html" class="block p-2.5 rounded-lg hover:bg-black/5 transition-colors">
                                     <div class="text-[13px] font-bold text-brand-primary flex items-center gap-2"><i class="fa-solid fa-briefcase text-brand-secondary/70"></i> Career Directory
@@ -956,12 +1118,12 @@
             </p>
             <div class="flex flex-col sm:flex-row items-start justify-start gap-4 sm:gap-6 animate-fade-rise-delay-2 w-full max-w-md sm:max-w-none">
                 <a href="https://linkedin.com/in/inakmm" target="_blank" rel="noopener noreferrer" class="magnetic-wrap w-full sm:w-auto">
-                    <div class="magnetic-inner liquid-glass rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-[#0a66c2]/80 transition-colors gap-3">
+                    <div class="magnetic-inner hero-cta-btn liquid-glass rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-[#0a66c2]/80 transition-colors gap-3">
                         <i class="fa-brands fa-linkedin text-xl"></i> Connect with Me
                     </div>
                 </a>
                 <a href="Mishra_AnjaniKr_2026.pdf" target="_blank" rel="noopener noreferrer" class="magnetic-wrap w-full sm:w-auto">
-                    <div class="magnetic-inner border border-white/30 rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white hover:text-black transition-all backdrop-blur-sm gap-3">
+                    <div class="magnetic-inner hero-cta-btn border border-white/30 rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white hover:text-black transition-all backdrop-blur-sm gap-3">
                         <i class="fa-solid fa-file-pdf text-xl"></i> Download My CV
                     </div>
                 </a>
@@ -1394,7 +1556,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
+                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 min-h-[240px] md:h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
                             <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3">
                                 <i class="fa-solid fa-chart-pie text-brand-highlight text-xl"></i> PowerBI Dashboards
@@ -1427,7 +1589,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
+                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 min-h-[240px] md:h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
                             <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3">
                                 <i class="fa-solid fa-calculator text-brand-highlight text-xl"></i> Financial Models
@@ -1460,7 +1622,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
+                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 min-h-[240px] md:h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
                             <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3">
                                 <i class="fa-solid fa-chart-column text-brand-highlight text-xl"></i> Data Visualization
@@ -1493,7 +1655,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
+                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 min-h-[240px] md:h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
                             <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3">
                                 <i class="fa-solid fa-file-excel text-brand-highlight text-xl"></i> Excel Projects
@@ -1526,7 +1688,7 @@
                         </div>
                     </div>
 
-                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 h-[360px] flex flex-col">
+                    <div class="bg-brand-secondary/20 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-xl border border-white/10 min-h-[240px] md:h-[360px] flex flex-col">
                         <div class="p-6 md:p-8 z-10">
                             <h3 class="text-2xl font-bold tracking-tighter text-white drop-shadow-md flex items-center gap-3">
                                 <i class="fa-solid fa-database text-brand-highlight text-xl"></i> BQL Analysis
@@ -1559,9 +1721,9 @@
                         </div>
                     </div>
 
-                    <div class="bg-[#C7F131] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-[0_20px_40px_rgba(199,241,49,0.2)] h-[360px] flex flex-col items-center justify-center cursor-pointer p-8" onclick="window.location.href='page/projects/index.html'">
-                        <i class="fa-solid fa-arrow-right text-6xl text-black/40 mb-6 group-hover:translate-x-4 transition-transform duration-500"></i>
-                        <h3 class="text-4xl md:text-5xl font-bold tracking-tighter text-black z-10 text-center leading-tight">
+                    <div class="bg-[#C7F131] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-[0_20px_40px_rgba(199,241,49,0.2)] min-h-[200px] md:h-[360px] flex flex-col items-center justify-center cursor-pointer p-8" onclick="window.location.href='page/projects/index.html'">
+                        <i class="fa-solid fa-arrow-right text-4xl md:text-6xl text-black/40 mb-4 md:mb-6 group-hover:translate-x-4 transition-transform duration-500"></i>
+                        <h3 class="text-2xl md:text-5xl font-bold tracking-tighter text-black z-10 text-center leading-tight">
                             View All<br>Builds</h3>
                         <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
                         </div>
@@ -1583,21 +1745,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-file-pdf mr-2 text-brand-secondary"></i> SBI Governance Report</h3>
-                    <iframe title="SBI Governance Report" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/938426949/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-ljMTtn2fTvaE1QJD2lKk" data-auto-height="true" data-aspect-ratio="0.708" scrolling="no" height="400" frameborder="0"></iframe>
+                    <iframe title="SBI Governance Report" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/938426949/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-ljMTtn2fTvaE1QJD2lKk" data-auto-height="true" data-aspect-ratio="0.708" scrolling="no" frameborder="0"></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-file-pdf mr-2 text-brand-secondary"></i> Adani Power PM Study</h3>
-                    <iframe title="Adani Power PM Study" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/781726442/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-oKnBfqJwvqAB2yjieGqt" data-auto-height="true" data-aspect-ratio="0.772" scrolling="no" height="400" frameborder="0"></iframe>
+                    <iframe title="Adani Power PM Study" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/781726442/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-oKnBfqJwvqAB2yjieGqt" data-auto-height="true" data-aspect-ratio="0.772" scrolling="no" frameborder="0"></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-file-pdf mr-2 text-brand-secondary"></i> Business Takeovers (AFM)</h3>
-                    <iframe title="Business Takeovers (AFM)" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/841061934/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-c1p51l6KtuDQK3LylSMH" data-auto-height="true" data-aspect-ratio="1.779" scrolling="no" height="400" frameborder="0"></iframe>
+                    <iframe title="Business Takeovers (AFM)" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" src="https://www.scribd.com/embeds/841061934/content?start_page=1&amp;view_mode=slideshow&amp;access_key=key-c1p51l6KtuDQK3LylSMH" data-auto-height="true" data-aspect-ratio="1.779" scrolling="no" frameborder="0"></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-person-chalkboard mr-2 text-brand-secondary"></i> Goods &amp; Services Tax
                         (GST)
                     </h3>
-                    <iframe title="Goods &amp; Services Tax (GST) Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/Bs1rQzjQ8u6TuE" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
+                    <iframe title="Goods &amp; Services Tax (GST) Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/Bs1rQzjQ8u6TuE" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
                 </div>
             </div>
 
@@ -1607,23 +1769,23 @@
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-person-chalkboard mr-2 text-brand-secondary"></i> Adani Power PM
                         Presentation
                     </h3>
-                    <iframe title="Adani Power PM Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/hSkEJevuhNTW9P" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
+                    <iframe title="Adani Power PM Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/hSkEJevuhNTW9P" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-person-chalkboard mr-2 text-brand-secondary"></i> SBI Governance (Public
                         Sector)</h3>
-                    <iframe title="SBI Governance (Public Sector) Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/1smeLqDIyaNrP1" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
+                    <iframe title="SBI Governance (Public Sector) Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/1smeLqDIyaNrP1" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-person-chalkboard mr-2 text-brand-secondary"></i> Advocacy Threat in
                         Auditing
                     </h3>
-                    <iframe title="Advocacy Threat in Auditing Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/qdhpbT9hN5y804" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
+                    <iframe title="Advocacy Threat in Auditing Presentation" src="https://www.slideshare.net/slideshow/embed_code/key/qdhpbT9hN5y804" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
                 </div>
                 <div class="bg-brand-tertiary p-8 rounded-[2rem] border border-[#E5E5E5] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                     <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6"><i class="fa-solid fa-person-chalkboard mr-2 text-brand-secondary"></i> Audit Planning (AA
                         Presentation)</h3>
-                    <iframe title="Audit Planning (AA Presentation)" src="https://www.slideshare.net/slideshow/embed_code/key/1pl1Jmj1Egb5kS" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
+                    <iframe title="Audit Planning (AA Presentation)" src="https://www.slideshare.net/slideshow/embed_code/key/1pl1Jmj1Egb5kS" width="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="insight-iframe rounded-xl border border-[#E5E5E5] w-full bg-white shadow-sm" allowfullscreen=""></iframe>
                 </div>
             </div>
 
@@ -1878,7 +2040,7 @@
                     <div class="relative group">
                         <label for="articleSearch" class="sr-only">Search articles</label>
                         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-secondary"></i>
-                        <input type="text" id="articleSearch" oninput="applyFilters()" placeholder="Search articles..." class="bg-brand-tertiary border border-[#E5E5E5] rounded-full py-3 pl-12 pr-6 text-brand-primary font-medium text-sm focus:border-brand-primary focus:outline-none transition-all w-64">
+                        <input type="text" id="articleSearch" oninput="applyFilters()" placeholder="Search articles..." class="bg-brand-tertiary border border-[#E5E5E5] rounded-full py-3 pl-12 pr-6 text-brand-primary font-medium text-sm focus:border-brand-primary focus:outline-none transition-all w-full md:w-64">
                     </div>
                 </div>
             </div>
@@ -1942,7 +2104,7 @@
 
 
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-24 gap-12">
-                <h2 class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9]">Let's
+                <h2 class="footer-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9]">Let's
                     Connect!</h2>
                 <a href="page/contact.html" class="magnetic-wrap shrink-0">
                     <div class="magnetic-inner bg-white/5 hover:bg-white hover:text-black transition-colors duration-300 text-white rounded-full px-8 py-5 flex items-center gap-4 border border-white/10 shadow-2xl">
@@ -2631,7 +2793,7 @@
     </script>
     <!-- AI Assistant Widget -->
     <div id="ai-widget" class="fixed bottom-6 left-6 z-50 flex flex-col items-start">
-        <div id="ai-chat-window" class="hidden w-80 sm:w-96 mb-4 bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl shadow-2xl overflow-hidden flex-col transition-all transform origin-bottom-left">
+        <div id="ai-chat-window" class="hidden w-[calc(100vw-2.5rem)] sm:w-96 mb-4 bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl shadow-2xl overflow-hidden flex-col transition-all transform origin-bottom-left">
             <div class="bg-brand-primary p-4 flex justify-between items-center text-white">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-robot text-brand-highlight"></i>
