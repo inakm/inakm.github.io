@@ -14,12 +14,13 @@
 
 
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:; frame-src https: scribd.com www.scribd.com slideshare.net www.slideshare.net linkedin.com www.linkedin.com youtube.com www.youtube.com;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prompts Hub | Anjani Kumar Mishra</title>
+    <title>AI Prompts Hub — Prompts by Anjani Kumar Mishra</title>
 
     <link rel="canonical" href="https://inakm.github.io/page/prompts/">
 
-    <meta name="description" content="AI-powered prompt engines for business model analysis, equity research, job scraping, and CV optimization â€” built by Anjani Kumar Mishra.">
+    <meta name="description" content="AI-powered prompt engines for business model analysis, equity research, job scraping, and CV optimization &mdash; built by Anjani Kumar Mishra.">
     <meta name="keywords" content="AI prompts, business model analysis, equity research, job scraper, CV optimizer, prompt engineering, finance AI, Anjani Kumar Mishra">
     <meta name="author" content="Anjani Kumar Mishra">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -35,7 +36,7 @@
     <meta property="og:url" content="https://inakm.github.io/page/prompts/">
     <meta property="og:title" content="AI Prompts Hub | Anjani Kumar Mishra">
     <meta property="og:description" content="AI-powered prompt engines built for finance, research, and recruitment workflows.">
-    <meta property="og:image" content="https://inakm.github.io/og-image.webp">
+    <meta property="og:image" content="https://inakm.github.io/assets/images/og-image.webp">
     <meta property="og:locale" content="en_IN">
     <meta property="og:site_name" content="Anjani Kumar Mishra Portfolio">
 
@@ -44,7 +45,7 @@
     <meta name="twitter:creator" content="@in_akmm">
     <meta name="twitter:title" content="AI Prompts Hub | Anjani Kumar Mishra">
     <meta name="twitter:description" content="AI-powered prompt engines built for finance, research, and recruitment workflows.">
-    <meta name="twitter:image" content="https://inakm.github.io/og-image.webp">
+    <meta name="twitter:image" content="https://inakm.github.io/assets/images/og-image.webp">
 
     <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
 
@@ -52,7 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -230,7 +231,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(243, 198, 35, 0.3);
         }
     </style>
-    <script src="https://js.puter.com/v2/"></script>
+    <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="../../assets/css/view-transitions.css">
 
 
@@ -561,10 +562,6 @@
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brand-primary text-white shadow-[0_10px_25px_rgba(0,0,0,0.2)] flex items-center justify-center hover:scale-105 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none z-40 border border-white/10">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
@@ -655,21 +652,7 @@
                 lastScrollY = currentScrollY;
             });
 
-            const backToTop = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    backToTop.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
-                    backToTop.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                } else {
-                    backToTop.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
-                    backToTop.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                }
-            });
-
-            if (backToTop) {
-                backToTop.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
+            );
             }
 
             const revealElements = document.querySelectorAll('.reveal');

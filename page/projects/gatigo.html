@@ -15,21 +15,24 @@
 
 
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:; frame-src https: scribd.com www.scribd.com slideshare.net www.slideshare.net linkedin.com www.linkedin.com youtube.com www.youtube.com;">
+    <link rel="canonical" href="https://inakm.github.io/page/projects/gatigo.html">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GatiGo Showcase | Anjani Kumar Mishra</title>
+    <title>GatiGo - Carpooling Platform Design &amp; Finance | Anjani Kumar Mishra</title>
 
     
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     
-    <meta name="description" content="GatiGo tech-driven carpooling platform design concept and financial models by Anjani Kumar Mishra.">
+    <meta name="description" content="GatiGo tech-driven carpooling platform — design concept, financial models, unit economics, and market analysis for a sustainable urban mobility startup by Anjani Kumar Mishra.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inakm.github.io/page/projects/gatigo.html">
-    <meta property="og:title" content="GatiGo Showcase | Anjani Kumar Mishra">
-    <meta property="og:description" content="GatiGo tech-driven carpooling platform design concept and financial models by Anjani Kumar Mishra.">
-    <meta property="og:image" content="https://inakm.github.io/og-image.webp">
+    <meta property="og:title" content="GatiGo - Carpooling Platform Design &amp; Finance | Anjani Kumar Mishra">
+    <meta property="og:description" content="GatiGo tech-driven carpooling platform — design concept, financial models, unit economics, and market analysis for a sustainable urban mobility startup by Anjani Kumar Mishra.">
+    <meta property="og:image" content="https://inakm.github.io/assets/images/og-image.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_IN">
@@ -39,9 +42,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@in_akmm">
     <meta name="twitter:creator" content="@in_akmm">
-    <meta name="twitter:title" content="GatiGo Showcase | Anjani Kumar Mishra">
-    <meta name="twitter:description" content="GatiGo tech-driven carpooling platform design concept and financial models by Anjani Kumar Mishra.">
-    <meta name="twitter:image" content="https://inakm.github.io/og-image.webp">
+    <meta name="twitter:title" content="GatiGo - Carpooling Platform Design &amp; Finance | Anjani Kumar Mishra">
+    <meta name="twitter:description" content="GatiGo tech-driven carpooling platform — design concept, financial models, unit economics, and market analysis for a sustainable urban mobility startup by Anjani Kumar Mishra.">
+    <meta name="twitter:image" content="https://inakm.github.io/assets/images/og-image.webp">
 
     <meta name="keywords" content="GatiGo, Carpooling, Financial Analyst, Dashboards, Excel, Anjani Kumar Mishra, AKM">
     <meta name="author" content="Anjani Kumar Mishra">
@@ -52,7 +55,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
 
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -143,23 +146,6 @@
             border-radius: 4px;
         }
 
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 60;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateY(20px);
-        }
-
-        #backToTop.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
         /* Dropdown Styles */
         .dropdown {
             position: relative;
@@ -221,7 +207,7 @@
         .hamburger-icon.open span:nth-child(2) { opacity: 0; }
         .hamburger-icon.open span:nth-child(3) { transform: rotate(-45deg); }
     </style>
-    <script src="https://js.puter.com/v2/"></script>
+    <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="../../assets/css/view-transitions.css">
 
 
@@ -341,12 +327,12 @@
                     <div>
                         <h4 class="text-xl font-bold text-white mb-4 border-b-2 border-brand-stormy inline-block pb-1">The Problem</h4>
                         <p class="text-gray-300 font-body leading-relaxed mb-8 text-justify">
-                            Urban India is grappling with three interlinked crises: traffic congestion that adds hours to daily commutes, commuting costs that drain household budgets, and vehicle emissions accelerating urban pollution. In Hyderabad alone, over 3 million personal vehicles clog roads every day â€” yet most carry only one passenger.
+                            Urban India is grappling with three interlinked crises: traffic congestion that adds hours to daily commutes, commuting costs that drain household budgets, and vehicle emissions accelerating urban pollution. In Hyderabad alone, over 3 million personal vehicles clog roads every day &mdash; yet most carry only one passenger.
                         </p>
 
                         <h4 class="text-xl font-bold text-white mb-4 border-b-2 border-brand-stormy inline-block pb-1">The Origin Story</h4>
                         <p class="text-gray-300 font-body leading-relaxed text-justify">
-                            The idea for GatiGo was born at Rajiv Gandhi International Airport, Hyderabad. After a long flight, a founder noticed that cab prices were prohibitively high â€” and that most fellow passengers were traveling to nearby destinations. A spontaneous shared cab turned into an insight: there is a massive, unmet demand for structured, trusted carpooling in Indian cities.
+                            The idea for GatiGo was born at Rajiv Gandhi International Airport, Hyderabad. After a long flight, a founder noticed that cab prices were prohibitively high &mdash; and that most fellow passengers were traveling to nearby destinations. A spontaneous shared cab turned into an insight: there is a massive, unmet demand for structured, trusted carpooling in Indian cities.
                         </p>
                     </div>
 
@@ -358,14 +344,14 @@
 
                         <h4 class="text-xl font-bold text-white mb-4 border-b-2 border-brand-stormy inline-block pb-1">Core Features</h4>
                         <ul class="text-gray-300 font-body leading-relaxed space-y-2 list-disc list-inside marker:text-brand-highlight">
-                            <li><strong class="text-white">Smart Ride Matching</strong> â€” AI-powered matching of drivers and riders</li>
-                            <li><strong class="text-white">Real-Time GPS Tracking</strong> â€” Live location sharing for safety</li>
-                            <li><strong class="text-white">In-App SOS Alerts</strong> â€” Emergency button connected to contacts</li>
-                            <li><strong class="text-white">Verified Profiles</strong> â€” Government ID and background checks</li>
-                            <li><strong class="text-white">Flexible Scheduling</strong> â€” On-demand or recurring rides</li>
-                            <li><strong class="text-white">Intercity Carpooling</strong> â€” Long-distance shared rides</li>
-                            <li><strong class="text-white">Corporate Programs</strong> â€” White-label solutions for employees</li>
-                            <li><strong class="text-white">Secure Digital Payments</strong> â€” UPI, cards, and wallet support</li>
+                            <li><strong class="text-white">Smart Ride Matching</strong> &mdash; AI-powered matching of drivers and riders</li>
+                            <li><strong class="text-white">Real-Time GPS Tracking</strong> &mdash; Live location sharing for safety</li>
+                            <li><strong class="text-white">In-App SOS Alerts</strong> &mdash; Emergency button connected to contacts</li>
+                            <li><strong class="text-white">Verified Profiles</strong> &mdash; Government ID and background checks</li>
+                            <li><strong class="text-white">Flexible Scheduling</strong> &mdash; On-demand or recurring rides</li>
+                            <li><strong class="text-white">Intercity Carpooling</strong> &mdash; Long-distance shared rides</li>
+                            <li><strong class="text-white">Corporate Programs</strong> &mdash; White-label solutions for employees</li>
+                            <li><strong class="text-white">Secure Digital Payments</strong> &mdash; UPI, cards, and wallet support</li>
                         </ul>
                     </div>
                 </div>
@@ -376,7 +362,7 @@
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-stormy/20 rounded-full blur-3xl"></div>
                     <h4 class="text-xl font-bold text-brand-highlight mb-6">GatiGo's Unfair Advantages</h4>
                     <ul class="text-gray-300 font-body leading-relaxed space-y-4 list-none">
-                        <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-highlight mt-1 text-lg"></i> <span>Dedicated urban carpooling focus â€” not a feature bolted onto a ride-hailing app</span></li>
+                        <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-highlight mt-1 text-lg"></i> <span>Dedicated urban carpooling focus &mdash; not a feature bolted onto a ride-hailing app</span></li>
                         <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-highlight mt-1 text-lg"></i> <span>Corporate B2B channel provides predictable, recurring revenue from Day 1</span></li>
                         <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-highlight mt-1 text-lg"></i> <span>Superior safety stack: verified drivers, in-app SOS, live tracking</span></li>
                         <li class="flex items-start gap-4"><i class="fa-solid fa-check text-brand-highlight mt-1 text-lg"></i> <span>Eco-friendly positioning resonates with Hyderabad's growing green-conscious tech workforce</span></li>
@@ -385,9 +371,9 @@
                 </div>
                 
                 <div class="bg-gradient-to-br from-brand-charcoal to-brand-indigo p-8 border border-brand-stormy rounded-xl flex flex-col justify-center shadow-[inset_0_0_20px_rgba(0,100,102,0.3)]">
-                    <h4 class="text-3xl font-display uppercase text-white mb-6">GatiGo is not just an app â€” it's an urban mobility movement.</h4>
+                    <h4 class="text-3xl font-display uppercase text-white mb-6">GatiGo is not just an app &mdash; it's an urban mobility movement.</h4>
                     <p class="text-gray-300 font-body leading-loose text-justify">
-                        We are addressing a â‚¹20 billion annual market with a proven model, clear revenue streams, a path to profitability by Year 3, and a team driven by purpose. With seed funding of â‚¹1.5â€“2 Cr, GatiGo will achieve product-market fit in Hyderabad, demonstrate scalability, and set the stage for a Series A expansion across India's top metro cities.
+                        We are addressing a â‚¹20 billion annual market with a proven model, clear revenue streams, a path to profitability by Year 3, and a team driven by purpose. With seed funding of â‚¹1.5&ndash;2 Cr, GatiGo will achieve product-market fit in Hyderabad, demonstrate scalability, and set the stage for a Series A expansion across India's top metro cities.
                     </p>
                 </div>
             </div>
@@ -438,7 +424,7 @@
                         <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
                     </div>
                     <div class="mb-6 z-10 relative h-48 overflow-hidden rounded border border-white/10">
-                        <img src="../../assets/images/projects/GatiGo/BvsA/images/1.webp" alt="Dashboard Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" src="../../assets/images/projects/GatiGo/BvsA/images/1.webp" alt="Dashboard Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight z-10 relative">
                         KPI Dashboard</h3>
@@ -456,7 +442,7 @@
                         <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
                     </div>
                     <div class="mb-6 z-10 relative h-48 overflow-hidden rounded border border-white/10">
-                        <img src="../../assets/images/projects/GatiGo/BvsA/images/2.webp" alt="Dashboard Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" src="../../assets/images/projects/GatiGo/BvsA/images/2.webp" alt="Dashboard Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight z-10 relative">
                         Analyst Dashboard</h3>
@@ -474,7 +460,7 @@
                         <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
                     </div>
                     <div class="mb-6 z-10 relative h-48 overflow-hidden rounded border border-white/10">
-                        <img src="../../assets/images/projects/GatiGo/BvsA/images/4.webp" alt="Model Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" src="../../assets/images/projects/GatiGo/BvsA/images/4.webp" alt="Model Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight z-10 relative">
                         Budget vs Actual</h3>
@@ -492,7 +478,7 @@
                         <i class="fa-solid fa-file-excel text-green-500 text-2xl"></i>
                     </div>
                     <div class="mb-6 z-10 relative h-48 overflow-hidden rounded border border-white/10">
-                        <img src="../../assets/images/projects/GatiGo/BvsA/images/3.webp" alt="Model Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img loading="lazy" src="../../assets/images/projects/GatiGo/BvsA/images/3.webp" alt="Model Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <h3 class="text-2xl font-display uppercase mb-4 text-white group-hover:text-brand-highlight transition-colors tracking-tight z-10 relative">
                         Q1 Budget &amp; P&amp;L</h3>
@@ -566,7 +552,7 @@
 
         
         <section class="mb-8 card-3d p-6 border-l-4 border-l-brand-highlight bg-brand-indigo/60">
-            <h4 class="text-brand-highlight font-mono text-sm tracking-widest uppercase font-bold mb-3">Academic Project Disclaimer</h4>
+            <h3 class="text-brand-highlight font-mono text-sm tracking-widest uppercase font-bold mb-3">Academic Project Disclaimer</h3>
             <p class="text-white font-body text-base leading-relaxed mb-2 font-medium">
                 This is not an actual startup. All figures are hypothetical for educational purposes only.
             </p>
@@ -602,25 +588,8 @@
     </footer>
 
     
-    <button id="backToTop" onclick="scrollToTop()" class="bg-brand-highlight text-brand-deepSpace w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-white hover:-translate-y-1 transition-all border-2 border-brand-deepSpace" aria-label="Back to top">
-        <i class="fa-solid fa-chevron-up text-xl"></i>
-    </button>
-
     <script>
-        // Scroll Logic
-        const btt = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                btt.classList.add('show');
-            } else {
-                btt.classList.remove('show');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+        </script>
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');

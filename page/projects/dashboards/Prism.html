@@ -4,6 +4,7 @@
 
 
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:; frame-src https: scribd.com www.scribd.com slideshare.net www.slideshare.net linkedin.com www.linkedin.com youtube.com www.youtube.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prism Sales Dashboard | Anjani Kumar Mishra</title>
 
@@ -25,7 +26,7 @@
   <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/Prism.html">
   <meta property="og:title" content="Prism Sales Dashboard | Anjani Kumar Mishra">
   <meta property="og:description" content="Interactive Prism Sales Dashboard. Upload order data to explore revenue, profit, category, region, payment mode, and segment insights with Plotly.js visualizations.">
-  <meta property="og:image" content="https://inakm.github.io/og-image.webp">
+  <meta property="og:image" content="https://inakm.github.io/assets/images/og-image.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_IN">
@@ -36,7 +37,7 @@
   <meta name="twitter:creator" content="@in_akmm">
   <meta name="twitter:title" content="Prism Sales Dashboard | Anjani Kumar Mishra">
   <meta name="twitter:description" content="Interactive Prism Sales Dashboard with revenue, profit, category, region, payment mode, and segment analytics powered by Plotly.js.">
-  <meta name="twitter:image" content="https://inakm.github.io/og-image.webp">
+  <meta name="twitter:image" content="https://inakm.github.io/assets/images/og-image.webp">
 
   <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
 
@@ -48,7 +49,7 @@
     "name": "Prism Sales Dashboard",
     "description": "Interactive sales analytics dashboard with revenue, profit, category, region, payment mode, and segment visualizations.",
     "url": "https://inakm.github.io/page/projects/dashboards/Prism.html",
-    "image": "https://inakm.github.io/og-image.webp",
+    "image": "https://inakm.github.io/assets/images/og-image.webp",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web Browser",
     "author": {
@@ -82,7 +83,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <style>
     *,
@@ -1197,7 +1198,7 @@
       }
     }
   </style>
-    <script src="https://js.puter.com/v2/"></script>
+    <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="../../../assets/css/view-transitions.css">
 
 
@@ -1241,13 +1242,13 @@
           </button>
           <div class="nav-dropdown-menu" id="prism-nav-tools">
             <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-excel" style="font-size:13px;opacity:0.6;"></i> Excel â†’ JSON
+              <i class="fa-solid fa-file-excel" style="font-size:13px;opacity:0.6;"></i> Excel &rarr; JSON
             </a>
             <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-exchange-alt" style="font-size:13px;opacity:0.6;"></i> CSV / JSON Converter
             </a>
             <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-code" style="font-size:13px;opacity:0.6;"></i> CSV / TSV â†’ JSON
+              <i class="fa-solid fa-file-code" style="font-size:13px;opacity:0.6;"></i> CSV / TSV &rarr; JSON
             </a>
           </div>
         </div>
@@ -1292,13 +1293,13 @@
           </button>
           <div class="hero-dropdown-menu" id="prism-hero-tools">
             <a href="https://tontuftools.blogspot.com/2026/05/excel-to-json.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-excel" style="font-size:14px;opacity:0.6;"></i> Excel â†’ JSON
+              <i class="fa-solid fa-file-excel" style="font-size:14px;opacity:0.6;"></i> Excel &rarr; JSON
             </a>
             <a href="https://tontuftools.blogspot.com/2025/02/csv-to-json-json-to-csv-converter-tool.html" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-exchange-alt" style="font-size:14px;opacity:0.6;"></i> CSV / JSON Converter
             </a>
             <a href="https://tontuftools.blogspot.com/2026/05/csv-or-tsv-to-json-converter.html" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-file-code" style="font-size:14px;opacity:0.6;"></i> CSV / TSV â†’ JSON
+              <i class="fa-solid fa-file-code" style="font-size:14px;opacity:0.6;"></i> CSV / TSV &rarr; JSON
             </a>
           </div>
         </div>
@@ -1399,7 +1400,7 @@
           <span class="kpi-label">Total Sales</span>
           <div class="kpi-icon kpi-icon-highlight"><i class="fa-solid fa-coins"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-sales">â€”</div>
+        <div class="kpi-value" id="kpi-sales">&mdash;</div>
         <div class="kpi-sub">Gross sales across all orders</div>
       </div>
       <div class="kpi-card kpi-positive fade-up d3">
@@ -1407,7 +1408,7 @@
           <span class="kpi-label">Total Profit</span>
           <div class="kpi-icon kpi-icon-positive"><i class="fa-solid fa-chart-line"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-profit">â€”</div>
+        <div class="kpi-value" id="kpi-profit">&mdash;</div>
         <div class="kpi-sub">Net profit margin</div>
       </div>
       <div class="kpi-card kpi-blue fade-up d4">
@@ -1415,7 +1416,7 @@
           <span class="kpi-label">Total Orders</span>
           <div class="kpi-icon kpi-icon-blue"><i class="fa-solid fa-receipt"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-orders">â€”</div>
+        <div class="kpi-value" id="kpi-orders">&mdash;</div>
         <div class="kpi-sub">Number of transactions</div>
       </div>
       <div class="kpi-card kpi-lavender fade-up d5">
@@ -1423,7 +1424,7 @@
           <span class="kpi-label">Avg Profit Margin</span>
           <div class="kpi-icon kpi-icon-lavender"><i class="fa-solid fa-bullseye"></i></div>
         </div>
-        <div class="kpi-value" id="kpi-margin">â€”</div>
+        <div class="kpi-value" id="kpi-margin">&mdash;</div>
         <div class="kpi-sub">Profit as % of sales</div>
       </div>
     </div>
@@ -1437,7 +1438,7 @@
       </div>
       <div class="chart-card fade-up d7">
         <div class="chart-title">Sales &amp; Profit by Region</div>
-        <div class="chart-sub">Grouped bar â€” blue = Sales, green = Profit</div>
+        <div class="chart-sub">Grouped bar &mdash; blue = Sales, green = Profit</div>
         <div class="chart-inner-lg" id="chart-region"></div>
       </div>
     </div>
@@ -1446,7 +1447,7 @@
     <div class="chart-row row-1">
       <div class="chart-card fade-up d8">
         <div class="chart-title">Monthly Sales Trend</div>
-        <div class="chart-sub">Spline area â€” revenue over time</div>
+        <div class="chart-sub">Spline area &mdash; revenue over time</div>
         <div class="chart-inner-lg" id="chart-trend"></div>
       </div>
     </div>
@@ -1468,7 +1469,7 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> â€” Powered by
+    <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> &mdash; Powered by
       Plotly.js</p>
   </footer>
 
