@@ -64,10 +64,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-<script src="https://cdn.tailwindcss.com" defer>
-</script>
+    <link rel="stylesheet" href="../../assets/css/tailwind-compiled.css">
 <script>
         tailwind.config = {            theme: {                extend: {                    fontFamily: {                        display: ['Bebas Neue', 'sans-serif'],                        sans: ['DM Sans', 'sans-serif'],                        mono: ['JetBrains Mono', 'monospace'],                    },                    colors: {                        brand: {                            primary: '#05080f',                            amber: '#f59e0b',                            teal: '#06b6d4',                            rose: '#f43f5e',                            slate: '#1e293b',                            gray: '#94a3b8',                            light: '#f1f5f9',                        }
 },                    keyframes: {                        revealUp: {                            '0%': { opacity: '0', transform: 'translateY(30px)' },                            '100%': { opacity: '1', transform: 'translateY(0)' },                        },                        shimmer: {                            '0%': { backgroundPosition: '-200% center' },                            '100%': { backgroundPosition: '200% center' },                        }

@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:; frame-src https: scribd.com www.scribd.com slideshare.net www.slideshare.net linkedin.com www.linkedin.com youtube.com www.youtube.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skylimit AR Aging Dashboard | Receivables Analytics | Anjani Kumar Mishra</title>
-  <meta name="description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging â€” built by Anjani Kumar Mishra for AR management.">
+  <meta name="description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging — built by Anjani Kumar Mishra for AR management.">
   <meta name="author" content="Anjani Kumar Mishra">
   <meta name="keywords" content="AR aging, accounts receivable, Tally ERP, dashboard, Skylimit, risk assessment, invoice tracking, payment collection, Anjani Kumar Mishra, ACCA, finance, analytics">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yo.directory/directory/ar-aging-dashboard-inakmgithubio">
   <meta property="og:title" content="Skylimit AR Aging Dashboard | Anjani Kumar Mishra">
-  <meta property="og:description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging â€” built by Anjani Kumar Mishra for AR management.">
+  <meta property="og:description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging — built by Anjani Kumar Mishra for AR management.">
   <meta property="og:image" content="../../../assets/images/projects/SkyLimit_AR_Mockup.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -30,7 +30,7 @@
   <meta name="twitter:site" content="@in_akmm">
   <meta name="twitter:creator" content="@in_akmm">
   <meta name="twitter:title" content="Skylimit AR Aging Dashboard | Anjani Kumar Mishra">
-  <meta name="twitter:description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging â€” built by Anjani Kumar Mishra for AR management.">
+  <meta name="twitter:description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging — built by Anjani Kumar Mishra for AR management.">
   <meta name="twitter:image" content="../../../assets/images/projects/SkyLimit_AR_Mockup.webp">
 
     <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
@@ -73,36 +73,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-  <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="stylesheet" href="../../../assets/css/tailwind-compiled.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.3/dist/jspdf.plugin.autotable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Manrope', 'sans-serif'],
-            mono: ['Courier New', 'monospace'],
-          },
-          colors: {
-            brand: {
-              primary: '#222222',
-              secondary: '#7B7B7B',
-              tertiary: '#F8F8F8',
-              white: '#ffffff',
-              highlight: '#f3c623'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.3/dist/jspdf.plugin.autotable.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
   <style>
     *,
     *::before,
@@ -800,17 +779,17 @@
           <div class="bg-white/5 rounded-xl p-4 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">1</span></div>
             <p class="text-xs font-bold text-white uppercase tracking-wide">Export from Tally</p>
-            <p class="text-xs text-white/60/60 mt-1">From Tally ERP, go to <strong>Display â†’ Statement of Accounts â†’ Outstanding</strong> and export as Excel.</p>
+            <p class="text-xs text-white/60/60 mt-1">From Tally ERP, go to <strong>Display → Statement of Accounts → Outstanding</strong> and export as Excel.</p>
           </div>
           <div class="bg-white/5 rounded-xl p-4 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">2</span></div>
             <p class="text-xs font-bold text-white uppercase tracking-wide">Upload Master Report</p>
-            <p class="text-xs text-white/60/60 mt-1">Click <strong>Input â†’ Master Report</strong> in the nav bar and select your exported Excel file.</p>
+            <p class="text-xs text-white/60/60 mt-1">Click <strong>Input → Master Report</strong> in the nav bar and select your exported Excel file.</p>
           </div>
           <div class="bg-white/5 rounded-xl p-4 border border-white/5">
             <div class="w-8 h-8 rounded-full bg-brand-highlight/20 flex items-center justify-center mb-2"><span class="text-brand-highlight font-bold text-sm">3</span></div>
             <p class="text-xs font-bold text-white uppercase tracking-wide">Track &amp; Collect</p>
-            <p class="text-xs text-white/60/60 mt-1">View aging, log payments, update call statuses, and export reports â€” all in your browser.</p>
+            <p class="text-xs text-white/60/60 mt-1">View aging, log payments, update call statuses, and export reports — all in your browser.</p>
           </div>
         </div>
         <button onclick="showUploadModal('master')" class="btn-primary text-sm"><i class="fa-solid fa-upload mr-2"></i> Upload Master Report Now</button>
@@ -838,19 +817,19 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 kpi-grid">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Outstanding</p>
-          <p class="kpi-value text-brand-highlight" id="kpiOutstanding">â‚¹0</p>
+          <p class="kpi-value text-brand-highlight" id="kpiOutstanding">₹0</p>
         </div>
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Total Collected</p>
-          <p class="kpi-value text-green-600" id="kpiCollected">â‚¹0</p>
+          <p class="kpi-value text-green-600" id="kpiCollected">₹0</p>
         </div>
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">90+ Days Aging</p>
-          <p class="kpi-value text-red-600" id="kpiHighRiskAmount">â‚¹0</p>
+          <p class="kpi-value text-red-600" id="kpiHighRiskAmount">₹0</p>
         </div>
         <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
           <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Today Collected</p>
-          <p class="kpi-value text-green-600" id="kpiTodayCollected">â‚¹0</p>
+          <p class="kpi-value text-green-600" id="kpiTodayCollected">₹0</p>
         </div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-5 md:gap-6 kpi-grid">
@@ -998,7 +977,7 @@
               <tr>
                 <th>#</th>
                 <th>Party Name</th>
-                <th>Outstanding (â‚¹)</th>
+                <th>Outstanding (₹)</th>
                 <th>Max Overdue (Days)</th>
                 <th>Aging Bucket</th>
                 <th>Invoices</th>
@@ -1030,7 +1009,7 @@
               <i class="fa-solid fa-robot text-2xl text-brand-highlight"></i>
             </div>
             <h3 class="text-lg md:text-xl font-bold text-white mb-2">AI-Powered Insights</h3>
-            <p class="text-sm text-white/60/70 max-w-md mx-auto mb-4">Smart analysis of payment patterns, risk predictions, and automated recommendations â€” powered by AI.</p>
+            <p class="text-sm text-white/60/70 max-w-md mx-auto mb-4">Smart analysis of payment patterns, risk predictions, and automated recommendations — powered by AI.</p>
             <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[10px] font-bold uppercase tracking-widest">
               <i class="fa-solid fa-hourglass-half"></i> Coming Soon
             </span>
@@ -1109,8 +1088,8 @@
                 <th>Due Date</th>
                 <th>Aging Bucket <button class="col-filter-btn" data-col="agingBucket" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Overdue</th>
-                <th>Original (â‚¹)</th>
-                <th>Pending (â‚¹)</th>
+                <th>Original (₹)</th>
+                <th>Pending (₹)</th>
                 <th>Status <button class="col-filter-btn" data-col="status" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Call Status <button class="col-filter-btn" data-col="callStatus" data-table="ledger" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
               </tr>
@@ -1154,7 +1133,7 @@
             <select id="paymentInvoice" class="w-full"><option value="">-- Select customer first --</option></select>
           </div>
           <div>
-            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount Received (â‚¹)</label>
+            <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount Received (₹)</label>
             <input type="number" id="paymentAmount" placeholder="0.00" min="0" step="0.01" class="w-full">
           </div>
           <div>
@@ -1179,7 +1158,7 @@
         <div class="overflow-x-auto max-h-[400px] overflow-y-auto">
           <table>
             <thead>
-              <tr><th>Date</th><th>Party Name</th><th>Invoice No</th><th>Amount (â‚¹)</th><th>Remark</th><th>Actions</th></tr>
+              <tr><th>Date</th><th>Party Name</th><th>Invoice No</th><th>Amount (₹)</th><th>Remark</th><th>Actions</th></tr>
             </thead>
             <tbody id="paymentLogBody"></tbody>
           </table>
@@ -1244,7 +1223,7 @@
                 <th>Due Date</th>
                 <th>Overdue Days</th>
                 <th>Aging Bucket <button class="col-filter-btn" data-col="agingBucket" data-table="calling" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
-                <th>Pending (â‚¹)</th>
+                <th>Pending (₹)</th>
                 <th>Call Status <button class="col-filter-btn" data-col="callStatus" data-table="calling" onclick="toggleColFilter(event)"><i class="fa-solid fa-filter text-[9px]"></i></button></th>
                 <th>Actions</th>
               </tr>
@@ -1276,8 +1255,8 @@
         <p class="kpi-value text-red-600" id="kpiDelRatio">0%</p>
       </div>
       <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
-        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Bad Debt Risk (â‚¹)</p>
-        <p class="kpi-value text-red-600" id="kpiBadDebt">â‚¹0</p>
+        <p class="text-xs uppercase tracking-widest text-white/60/70 mb-1">Bad Debt Risk (₹)</p>
+        <p class="kpi-value text-red-600" id="kpiBadDebt">₹0</p>
       </div>
     </section>
 
@@ -1293,22 +1272,22 @@
         <p><strong class="text-white">What is Accounts Receivable (AR) Aging?</strong> AR aging categorizes unpaid invoices by how long they've been outstanding. It helps you identify which customers are paying on time and which ones need follow-up.</p>
         <p><strong class="text-white">How to use this dashboard:</strong></p>
         <ol class="list-decimal pl-5 space-y-1">
-          <li><strong class="text-white">Upload</strong> your Master Report from Tally ERP (Input â†’ Master Report) to populate the ledger with all invoices.</li>
-          <li><strong class="text-white">Upload</strong> Payment Logs (Input â†’ Payment Logs) or log payments manually in the Payment Desk tab to track what's been collected.</li>
-          <li><strong class="text-white">Upload</strong> a Calling List (Input â†’ Calling List) to sync call statuses and remarks from your collection team.</li>
+          <li><strong class="text-white">Upload</strong> your Master Report from Tally ERP (Input → Master Report) to populate the ledger with all invoices.</li>
+          <li><strong class="text-white">Upload</strong> Payment Logs (Input → Payment Logs) or log payments manually in the Payment Desk tab to track what's been collected.</li>
+          <li><strong class="text-white">Upload</strong> a Calling List (Input → Calling List) to sync call statuses and remarks from your collection team.</li>
           <li><strong class="text-white">Use the Calling List tab</strong> to prioritize follow-ups on invoices overdue &gt;30 days. Update call statuses after each interaction.</li>
-          <li><strong class="text-white">Export reports</strong> (Output â†’ CSV/PDF/Sync JSON) to share with stakeholders or archive daily snapshots.</li>
+          <li><strong class="text-white">Export reports</strong> (Output → CSV/PDF/Sync JSON) to share with stakeholders or archive daily snapshots.</li>
         </ol>
         <div class="py-6 flex justify-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/295dqkFoz-g?si=i8eOkjt9-Z30KCVl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" class="max-w-full rounded-xl"></iframe>
         </div>
         <p><strong class="text-white">Tips for better cash flow:</strong></p>
         <ul class="list-disc pl-5 space-y-1">
-          <li>Focus on <strong class="text-red-400">90+ Day</strong> aging items first â€” these have the highest risk of becoming bad debt.</li>
+          <li>Focus on <strong class="text-red-400">90+ Day</strong> aging items first — these have the highest risk of becoming bad debt.</li>
           <li>Use WhatsApp/Email buttons in the Calling List to send quick payment reminders.</li>
           <li>Track the <strong class="text-brand-highlight">Today Collected</strong> KPI daily to measure collection team performance.</li>
           <li>Log all payments promptly to keep the DSO (Days Sales Outstanding) metric accurate.</li>
-          <li>Export and backup your data via Sync JSON regularly â€” all data is stored only in your browser.</li>
+          <li>Export and backup your data via Sync JSON regularly — all data is stored only in your browser.</li>
         </ul>
         <div class="pt-3">
           <p class="text-xs font-bold text-white uppercase tracking-wider mb-3"><i class="fa-solid fa-file-arrow-down mr-1 text-brand-highlight"></i> Sample Files &amp; Expected Format</p>
@@ -1382,7 +1361,7 @@
             </div>
           </div>
         </div>
-        <p class="text-white/50 text-xs pt-2 border-t border-white/5">Data source: Tally ERP. All processing happens locally in your browser â€” nothing is uploaded to any server.</p>
+        <p class="text-white/50 text-xs pt-2 border-t border-white/5">Data source: Tally ERP. All processing happens locally in your browser — nothing is uploaded to any server.</p>
       </div>
     </details>
 
@@ -1393,7 +1372,7 @@
       </div>
       <div class="text-xs md:text-sm text-white/60 leading-relaxed">
         <strong class="text-white">Your data stays on your device.</strong>
-        All records â€” invoices, payments, call logs â€” are stored locally in your browser's IndexedDB using the Tally ERP data you upload. Nothing is transmitted to any server, collected, or shared. You retain full control and may clear or export your data at any time.
+        All records — invoices, payments, call logs — are stored locally in your browser's IndexedDB using the Tally ERP data you upload. Nothing is transmitted to any server, collected, or shared. You retain full control and may clear or export your data at any time.
       </div>
     </div>
 
@@ -1404,7 +1383,7 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider">Edit Payment</h3>
-        <button onclick="closeModal('editPaymentModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">Ã—</button>
+        <button onclick="closeModal('editPaymentModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">×</button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -1420,7 +1399,7 @@
           <input type="text" id="editPaymentInvoice" class="w-full" readonly="">
         </div>
         <div>
-          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount (â‚¹)</label>
+          <label class="text-xs font-bold uppercase tracking-widest text-white/60 mb-1.5">Amount (₹)</label>
           <input type="number" id="editPaymentAmount" step="0.01" min="0" class="w-full">
         </div>
         <div class="md:col-span-2">
@@ -1440,7 +1419,7 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider" id="uploadModalTitle">Upload File</h3>
-        <button onclick="closeModal('uploadModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">Ã—</button>
+        <button onclick="closeModal('uploadModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">×</button>
       </div>
       <p class="text-sm text-white/60/70 mb-4" id="uploadModalDesc">Select a CSV file to upload.</p>
       <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
@@ -1462,7 +1441,7 @@
     <div class="modal-box" style="max-width:720px">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider" id="previewModalTitle">File Preview</h3>
-        <button onclick="closePreviewModal()" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">Ã—</button>
+        <button onclick="closePreviewModal()" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">×</button>
       </div>
       <div id="previewContent"></div>
       <div class="mt-4 flex justify-end gap-2">
@@ -1477,7 +1456,7 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider text-red-600"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Destroy Database</h3>
-        <button onclick="closeModal('clearModal')" class="text-white/60/70 hover:text-white text-xl">Ã—</button>
+        <button onclick="closeModal('clearModal')" class="text-white/60/70 hover:text-white text-xl">×</button>
       </div>
       <p class="text-sm text-white/60/70 mb-4">This action will permanently delete ALL data including invoice records, call logs, and payment history. This cannot be undone.</p>
       <p class="text-sm text-white/60 mb-2 font-medium">Type <strong class="text-red-600">DELETE</strong> to confirm:</p>
@@ -1494,7 +1473,7 @@
     <div class="modal-box" style="max-width:400px">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider text-red-600"><i class="fa-solid fa-trash-can mr-2"></i>Delete Data</h3>
-        <button onclick="closeModal('deleteDataModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">Ã—</button>
+        <button onclick="closeModal('deleteDataModal')" class="text-white/60/70 hover:text-white text-xl transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/5">×</button>
       </div>
       <p class="text-sm text-white/60/70 mb-4">Choose which data to delete:</p>
       <div class="flex flex-col gap-2">
@@ -1512,7 +1491,7 @@
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-bold uppercase tracking-wider">Update Call Status</h3>
-        <button onclick="closeModal('statusChangeModal')" class="text-white/60/70 hover:text-white text-xl">Ã—</button>
+        <button onclick="closeModal('statusChangeModal')" class="text-white/60/70 hover:text-white text-xl">×</button>
       </div>
       <p class="text-sm text-white/60 mb-3 font-medium" id="statusChangeParty">Party:</p>
       <div class="mb-3">
@@ -1698,13 +1677,13 @@
       // Remove Dr/Cr suffix
       s = s.replace(/\s*(Dr|Cr)\s*$/i, '');
       // Remove commas, spaces, currency symbols
-      s = s.replace(/[â‚¹,\s]/g, '');
+      s = s.replace(/[₹,\s]/g, '');
       let v = parseFloat(s);
       return isNaN(v) ? 0 : Math.abs(v);
     }
 
     function fmtCurrency(v) {
-      return 'â‚¹' + Number(v).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return '₹' + Number(v).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     function calcOverdueDays(dueDate) {
@@ -1953,11 +1932,11 @@
         let plain = allRemCols.find(r => !r.isPrev && !r.isNew);
         if (plain) iPrevRem = plain.idx;
       } else if (iPrevRem === -1) {
-        // Has New but no Previous â€” try plain "Remarks" that isn't New
+        // Has New but no Previous — try plain "Remarks" that isn't New
         let plain = allRemCols.find(r => !r.isPrev && !r.isNew && r.idx !== iNewRem);
         if (plain) iPrevRem = plain.idx;
       } else if (iNewRem === -1) {
-        // Has Previous but no New â€” try plain "Remarks" that isn't Previous
+        // Has Previous but no New — try plain "Remarks" that isn't Previous
         let plain = allRemCols.find(r => !r.isPrev && !r.isNew && r.idx !== iPrevRem);
         if (plain) iNewRem = plain.idx;
       }
@@ -2187,15 +2166,15 @@
 
       if (mode === 'master') {
         title.textContent = 'Upload Master Report';
-        desc.textContent = 'Upload the MASTER_REPORT.xlsx â€” reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Pending Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Remarks, Status.';
+        desc.textContent = 'Upload the MASTER_REPORT.xlsx — reads columns: S.No, Source Sheet, Date, Invoice No, CUSTOMER NAME, Invoice Amount, Pending Amount, Due Date, Paid Amount, Outstanding Amount, Days Overdue, Aging Bucket, Remarks, Status.';
         hint.textContent = 'Supports .xlsx files (Master Report)';
       } else if (mode === 'payment') {
         title.textContent = 'Upload Payment Logs';
-        desc.textContent = 'Upload the PAYMENTS_LOGS.xlsx â€” reads columns: Date, Party Name, Amount, Remark, Invoice. Paid invoices are marked PAID in the ledger and removed from the Calling List.';
+        desc.textContent = 'Upload the PAYMENTS_LOGS.xlsx — reads columns: Date, Party Name, Amount, Remark, Invoice. Paid invoices are marked PAID in the ledger and removed from the Calling List.';
         hint.textContent = 'Supports .xlsx files (Payment Logs)';
       } else if (mode === 'calling') {
         title.textContent = 'Upload Calling List';
-        desc.textContent = 'Upload the CALLING_LIST.xlsx â€” reads columns from the data header row: S.No, Customer Name, Invoice No, Invoice Date, Due Date, Pending Amount, Days Overdue, Calling Status, Previous Remarks, New Remarks.';
+        desc.textContent = 'Upload the CALLING_LIST.xlsx — reads columns from the data header row: S.No, Customer Name, Invoice No, Invoice Date, Due Date, Pending Amount, Days Overdue, Calling Status, Previous Remarks, New Remarks.';
         hint.textContent = 'Supports .xlsx files (Calling List)';
       } else if (mode === 'sync') {
         title.textContent = 'Import Sync File';
@@ -2299,7 +2278,7 @@
           remarkInfo = `<div class="text-xs text-white/70 mt-2 p-2 rounded bg-white/5 border border-white/10">
             <i class="fa-solid fa-circle-info text-brand-highlight mr-1"></i>
             <strong>${remCols.length}</strong> remark column(s) detected: ${remCols.map(r => `<code class="text-brand-highlight">${htmlEscape(r)}</code>`).join(', ')}
-            ${remCols.length > 1 ? '<span class="text-green-500 ml-1">â€” Both will be preserved</span>' : ''}
+            ${remCols.length > 1 ? '<span class="text-green-500 ml-1">— Both will be preserved</span>' : ''}
           </div>`;
         }
       }
@@ -2345,7 +2324,7 @@
                 raw.sampleRows.map(row =>
                   `<tr>${raw.headers.map((h, ci) => `<td class="px-3 py-1.5 whitespace-nowrap max-w-[200px] truncate">${htmlEscape(String(row[ci] !== undefined ? row[ci] : ''))}</td>`).join('')}</tr>`
                 ).join('')}
-              ${raw.totalRows > raw.sampleRows.length ? `<tr><td colspan="${hCount}" class="text-center text-white/40 px-3 py-3 italic border-t border-white/5">â€¦ ${raw.totalRows - raw.sampleRows.length} more row(s) â€” only preview shown</td></tr>` : ''}
+              ${raw.totalRows > raw.sampleRows.length ? `<tr><td colspan="${hCount}" class="text-center text-white/40 px-3 py-3 italic border-t border-white/5">… ${raw.totalRows - raw.sampleRows.length} more row(s) — only preview shown</td></tr>` : ''}
             </tbody>
           </table>
         </div>`;
@@ -2934,7 +2913,7 @@
     async function exportPaymentLogsExcel() {
       let payments = await dbReadAll(STORES.payments);
       let sorted = payments.slice().sort((a, b) => new Date(b.date || b.createdAt) - new Date(a.date || a.createdAt));
-      let rows = [['Date', 'Party Name', 'Invoice No', 'Amount (â‚¹)', 'Remark']];
+      let rows = [['Date', 'Party Name', 'Invoice No', 'Amount (₹)', 'Remark']];
       sorted.forEach((p) => {
         let d = p.date ? new Date(p.date) : null;
         let amt = p.amount || 0;
@@ -2968,7 +2947,7 @@
       let callLogs = await getCallLogs();
       let paid = invoices.filter(inv => inv.status === 'Paid');
       let unpaid = invoices.filter(inv => inv.status === 'Unpaid');
-      let header = ['Party Name', 'Invoice No', 'Group', 'Invoice Date', 'Due Date', 'Original (â‚¹)', 'Pending (â‚¹)', 'Paid (â‚¹)', 'Status', 'Aging Bucket', 'Overdue Days', 'Call Status'];
+      let header = ['Party Name', 'Invoice No', 'Group', 'Invoice Date', 'Due Date', 'Original (₹)', 'Pending (₹)', 'Paid (₹)', 'Status', 'Aging Bucket', 'Overdue Days', 'Call Status'];
 
       let toRows = (list) => list.map(inv => {
         let d1 = inv.invoiceDate ? new Date(inv.invoiceDate) : null;
@@ -3316,7 +3295,7 @@
               formatter: (v) => {
                 if (total === 0) return '';
                 let pct = (v / total * 100).toFixed(1);
-                return pct + '%\nâ‚¹' + (v / 1000).toFixed(0) + 'K';
+                return pct + '%\n₹' + (v / 1000).toFixed(0) + 'K';
               },
               textAlign: 'center',
               offset: 0,
@@ -3331,7 +3310,7 @@
                 label: (ctx2) => {
                   let val = ctx2.parsed;
                   let pct = total > 0 ? (val / total * 100).toFixed(1) : 0;
-                  return ' â‚¹' + Number(val).toLocaleString('en-IN') + '  (' + pct + '%)';
+                  return ' ₹' + Number(val).toLocaleString('en-IN') + '  (' + pct + '%)';
                 }
               }
             }
@@ -3362,7 +3341,7 @@
         data: {
           labels,
           datasets: [{
-            label: 'Outstanding (â‚¹)',
+            label: 'Outstanding (₹)',
             data: values,
             backgroundColor: barColors.map(c => c + 'CC'),
             borderColor: barColors,
@@ -3385,7 +3364,7 @@
               align: 'end',
               color: '#d0d0d0',
               font: { size: 11, weight: '700' },
-              formatter: v => 'â‚¹' + Number(v).toLocaleString('en-IN')
+              formatter: v => '₹' + Number(v).toLocaleString('en-IN')
             },
             tooltip: {
               backgroundColor: '#222222',
@@ -3394,13 +3373,13 @@
               padding: 12,
               cornerRadius: 8,
               callbacks: {
-                label: (ctx2) => ' â‚¹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
+                label: (ctx2) => ' ₹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
               }
             }
           },
           scales: {
             x: {
-              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => 'â‚¹' + Number(v).toLocaleString('en-IN') },
+              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
               grid: { color: 'rgba(255,255,255,0.06)', drawBorder: false },
               border: { display: false }
             },
@@ -3428,7 +3407,7 @@
         data: {
           labels,
           datasets: [{
-            label: '90+ Days (â‚¹)',
+            label: '90+ Days (₹)',
             data: values,
             backgroundColor: barColors.map(c => c + 'CC'),
             borderColor: barColors,
@@ -3451,7 +3430,7 @@
               align: 'end',
               color: '#d0d0d0',
               font: { size: 11, weight: '700' },
-              formatter: v => 'â‚¹' + Number(v).toLocaleString('en-IN')
+              formatter: v => '₹' + Number(v).toLocaleString('en-IN')
             },
             tooltip: {
               backgroundColor: '#222222',
@@ -3460,13 +3439,13 @@
               padding: 12,
               cornerRadius: 8,
               callbacks: {
-                label: (ctx2) => ' â‚¹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
+                label: (ctx2) => ' ₹' + Number(ctx2.parsed.x).toLocaleString('en-IN')
               }
             }
           },
           scales: {
             x: {
-              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => 'â‚¹' + Number(v).toLocaleString('en-IN') },
+              ticks: { color: '#b0b0b0', font: { size: 10, weight: '600' }, callback: v => '₹' + Number(v).toLocaleString('en-IN') },
               grid: { color: 'rgba(255,255,255,0.06)', drawBorder: false },
               border: { display: false }
             },
@@ -3754,7 +3733,7 @@
         if (va > vb) return callingSortAsc ? 1 : -1;
         return 0;
       });
-      let rows = [['S.No', 'Source Sheet', 'Invoice Date', 'Invoice No', 'Customer Name', 'Invoice Amount (â‚¹)', 'Pending Amount (â‚¹)', 'Paid Amount (â‚¹)', 'Due Date', 'Days Overdue', 'Aging Bucket', 'Calling Status', 'Previous Remarks', 'New Remarks']];
+      let rows = [['S.No', 'Source Sheet', 'Invoice Date', 'Invoice No', 'Customer Name', 'Invoice Amount (₹)', 'Pending Amount (₹)', 'Paid Amount (₹)', 'Due Date', 'Days Overdue', 'Aging Bucket', 'Calling Status', 'Previous Remarks', 'New Remarks']];
       items.forEach((inv, idx) => {
         let log = callLogs.find(c => c.partyName === inv.partyName);
         let rawStatus = log ? log.currentStatus : 'Not Called';
@@ -3813,7 +3792,7 @@
       showToast('Generating Invoice Aging Report...');
       let invoices = await getEnrichedInvoices();
       let callLogs = await getCallLogs();
-      let rows = [['S.No', 'Source Sheet', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Original Amount (â‚¹)', 'Pending Amount (â‚¹)', 'Paid Amount (â‚¹)', 'Days Overdue', 'Aging Bucket', 'Status', 'Call Status']];
+      let rows = [['S.No', 'Source Sheet', 'Customer Name', 'Invoice No', 'Invoice Date', 'Due Date', 'Original Amount (₹)', 'Pending Amount (₹)', 'Paid Amount (₹)', 'Days Overdue', 'Aging Bucket', 'Status', 'Call Status']];
       invoices.forEach((inv, idx) => {
         let log = callLogs.find(c => c.partyName === inv.partyName);
         let raw = log ? log.currentStatus : 'Not Called';
@@ -3879,7 +3858,7 @@
         if (!groupBy[key].lastDate || d > groupBy[key].lastDate) groupBy[key].lastDate = d;
       }
       let allMonths = [...new Set(Object.values(groupBy).flatMap(g => Object.keys(g.months)))].sort();
-      let header = ['S.No', 'Party Name', 'Total Paid (â‚¹)', 'Invoice Count', 'Last Payment Date', ...allMonths];
+      let header = ['S.No', 'Party Name', 'Total Paid (₹)', 'Invoice Count', 'Last Payment Date', ...allMonths];
       let rows = [header];
       Object.values(groupBy).sort((a, b) => b.total - a.total).forEach((g, idx) => {
         let row = [idx + 1, g.party, g.total, g.count, g.lastDate ? new Date(g.lastDate) : null];
@@ -3992,8 +3971,8 @@
           <td><span class="text-xs">${gName}</span></td>
           <td class="text-sm">${inv.invoiceDate ? fmtDate(inv.invoiceDate) : 'N/A'}</td>
           <td class="text-sm">${inv.dueDate ? fmtDate(inv.dueDate) : 'N/A'}</td>
-          <td>${inv.status === 'Paid' ? '<span class="text-white/30">â€”</span>' : `<span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span>`}</td>
-          <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv.status === 'Paid' ? 'â€”' : inv._overdueDays + 'd'}</td>
+          <td>${inv.status === 'Paid' ? '<span class="text-white/30">—</span>' : `<span class="text-xs font-bold px-2 py-0.5 rounded" style="background:${bucketColor}22;color:${bucketColor}">${inv._agingBucket}</span>`}</td>
+          <td class="text-center ${inv._overdueDays > 90 ? 'text-red-600 font-bold' : ''}">${inv.status === 'Paid' ? '—' : inv._overdueDays + 'd'}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.originalAmount)}</td>
           <td class="font-mono text-sm">${fmtCurrency(inv.pendingAmount)}</td>
           <td><span class="badge-${inv.status === 'Paid' ? 'paid' : 'unpaid'} px-2 py-0.5 rounded text-xs font-bold">${inv.status}</span></td>
@@ -4064,7 +4043,7 @@
           doc.setPage(i);
           doc.setFontSize(7);
           doc.setTextColor(...COLORS.gray);
-          doc.text('Skylimit AR Aging Dashboard â€” Generated ' + nowStr(), MARGIN, PAGE_H - 10);
+          doc.text('Skylimit AR Aging Dashboard — Generated ' + nowStr(), MARGIN, PAGE_H - 10);
           doc.text('Page ' + i + ' of ' + pageCount, PAGE_W - MARGIN, PAGE_H - 10, { align: 'right' });
         }
       };
@@ -4139,7 +4118,7 @@
         body: bucketRows,
         columns: [
           { header: 'Aging Bucket', dataKey: 0 },
-          { header: 'Outstanding (â‚¹)', dataKey: 1 },
+          { header: 'Outstanding (₹)', dataKey: 1 },
           { header: '% of Total', dataKey: 2 },
         ],
         theme: 'grid',
@@ -4172,11 +4151,11 @@
 
       doc.autoTable({
         startY: y,
-        body: top10Rows.length > 0 ? top10Rows : [['â€”', 'No overdue data', 'â€”', 'â€”', 'â€”', 'â€”']],
+        body: top10Rows.length > 0 ? top10Rows : [['—', 'No overdue data', '—', '—', '—', '—']],
         columns: [
           { header: '#', dataKey: 0 },
           { header: 'Party Name', dataKey: 1 },
-          { header: 'Outstanding (â‚¹)', dataKey: 2 },
+          { header: 'Outstanding (₹)', dataKey: 2 },
           { header: 'Max Overdue', dataKey: 3 },
           { header: 'Aging Bucket', dataKey: 4 },
           { header: 'Invoices', dataKey: 5 },
@@ -4219,7 +4198,7 @@
 
         doc.autoTable({
           startY: y,
-          head: [['Party Name', 'Invoice No', 'Overdue', 'Aging Bucket', 'Pending (â‚¹)', 'Status', 'Call Status']],
+          head: [['Party Name', 'Invoice No', 'Overdue', 'Aging Bucket', 'Pending (₹)', 'Status', 'Call Status']],
           body: tableData,
           theme: 'grid',
           headStyles: { fillColor: [...COLORS.dark], textColor: [...COLORS.white], fontSize: 7, fontStyle: 'bold' },
@@ -4462,7 +4441,7 @@
   </script>
 
   <footer class="text-center text-xs text-white/40 pb-6 space-y-6">
-    <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> Â· Built by <a href="https://f9xr.github.io" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
+    <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> · Built by <a href="https://f9xr.github.io" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
 
     <details open="" class="max-w-4xl mx-auto pt-4 border-t border-white/10">
       <summary class="cursor-pointer flex items-center justify-between gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-5 hover:text-white/60 transition-colors list-none [&amp;::-webkit-details-marker]:hidden">

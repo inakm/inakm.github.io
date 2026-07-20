@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth"><head>
 <script type="application/ld+json">
 {
@@ -12,7 +12,7 @@
   ]
 }
 </script>
-</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>ï»¿
+</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>﻿
 
 
     <meta charset="UTF-8">
@@ -24,13 +24,13 @@
     <link rel="alternate" hreflang="en" href="https://inakm.github.io/page/projects/dashboards/RMM.html">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta name="description" content="RMM Executive Interactive Dashboard â€” executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
+    <meta name="description" content="RMM Executive Interactive Dashboard — executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
     <meta name="author" content="Anjani Kumar Mishra">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/RMM.html">
     <meta property="og:title" content="RMM Executive Dashboard | Anjani Kumar Mishra">
-    <meta property="og:description" content="RMM Executive Interactive Dashboard â€” executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
+    <meta property="og:description" content="RMM Executive Interactive Dashboard — executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
     <meta property="og:image" content="https://inakm.github.io/assets/images/og-image.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,45 +41,24 @@
     <meta name="twitter:site" content="@in_akmm">
     <meta name="twitter:creator" content="@in_akmm">
     <meta name="twitter:title" content="RMM Executive Dashboard | Anjani Kumar Mishra">
-    <meta name="twitter:description" content="RMM Executive Interactive Dashboard â€” executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
+    <meta name="twitter:description" content="RMM Executive Interactive Dashboard — executive analytics with revenue tracking, KPI monitoring, and operational insights powered by CSV data uploads.">
     <meta name="twitter:image" content="https://inakm.github.io/assets/images/og-image.webp">
 
     <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="stylesheet" href="../../../assets/css/tailwind-compiled.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Anton', 'sans-serif'],
-                        body: ['Manrope', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
-                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
-                            white: '#ffffff', highlight: '#FF4500', pbi: '#F2C811', positive: '#00FA9A', negative: '#FF6347'
-                        }
-                    },
-                    backgroundImage: {
-                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
+        :root {
+            --color-brand-highlight: #FF4500;
+        }
         body {
             background-color: #1a1a1d;
             background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
@@ -175,11 +154,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-brand-highlight">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Revenue</span>
-                    <span class="text-3xl font-display text-white" id="kpi-amount">Ã¢â€šÂ¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-amount">â‚¹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#00FA9A]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Net Profit</span>
-                    <span class="text-3xl font-display text-white" id="kpi-profit">Ã¢â€šÂ¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-profit">â‚¹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#48cae4]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Units Sold</span>
@@ -382,8 +361,8 @@
             });
 
             // Set KPIs
-            document.getElementById('kpi-amount').innerText = 'Ã¢â€šÂ¹' + totalAmount.toLocaleString(undefined, {maximumFractionDigits: 0});
-            document.getElementById('kpi-profit').innerText = 'Ã¢â€šÂ¹' + totalProfit.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('kpi-amount').innerText = 'â‚¹' + totalAmount.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('kpi-profit').innerText = 'â‚¹' + totalProfit.toLocaleString(undefined, {maximumFractionDigits: 0});
             document.getElementById('kpi-orders').innerText = totalQuantity.toLocaleString();
             document.getElementById('kpi-margin').innerText = totalAmount > 0 ? ((totalProfit / totalAmount) * 100).toFixed(1) + '%' : '0%';
 
@@ -425,20 +404,20 @@
             drawChart('quarterChart', 'bar', {
                 labels: qLabels,
                 datasets: [
-                    { label: 'Revenue (Ã¢â€šÂ¹)', data: qRev, backgroundColor: 'rgba(255, 69, 0, 0.75)', borderRadius: 4 },
-                    { label: 'Profit (Ã¢â€šÂ¹)', data: qProf, backgroundColor: 'rgba(0, 250, 154, 0.75)', borderRadius: 4 }
+                    { label: 'Revenue (â‚¹)', data: qRev, backgroundColor: 'rgba(255, 69, 0, 0.75)', borderRadius: 4 },
+                    { label: 'Profit (â‚¹)', data: qProf, backgroundColor: 'rgba(0, 250, 154, 0.75)', borderRadius: 4 }
                 ]
             }, { plugins: { datalabels: { display: false } }});
 
             drawChart('topStatesChart', 'bar', {
                 labels: top5States,
-                datasets: [{ label: 'Revenue (Ã¢â€šÂ¹)', data: stRev, backgroundColor: '#48cae4', borderRadius: 4 }]
+                datasets: [{ label: 'Revenue (â‚¹)', data: stRev, backgroundColor: '#48cae4', borderRadius: 4 }]
             }, { indexAxis: 'y', plugins: { legend: { display:false }, datalabels: { display: false } } });
 
             drawChart('monthlyProfitChart', 'line', {
                 labels: moLabels,
                 datasets: [{ 
-                    label: 'Net Profit (Ã¢â€šÂ¹)', data: moProfData, 
+                    label: 'Net Profit (â‚¹)', data: moProfData, 
                     borderColor: '#00FA9A', backgroundColor: 'rgba(0, 250, 154, 0.1)', 
                     fill: true, tension: 0.3, pointBackgroundColor: '#00FA9A' 
                 }]
@@ -446,14 +425,14 @@
 
             drawChart('topCustomersChart', 'bar', {
                 labels: top5Custs,
-                datasets: [{ label: 'Revenue (Ã¢â€šÂ¹)', data: cuRev, backgroundColor: '#f3c623', borderRadius: 4 }]
+                datasets: [{ label: 'Revenue (â‚¹)', data: cuRev, backgroundColor: '#f3c623', borderRadius: 4 }]
             }, { indexAxis: 'y', plugins: { legend: { display:false }, datalabels: { display: false } } });
 
             drawChart('categoryChart', 'bar', {
                 labels: catLabels,
                 datasets: [
-                    { label: 'Revenue (Ã¢â€šÂ¹)', data: caRev, backgroundColor: 'rgba(255, 69, 0, 0.7)', borderRadius: 2 },
-                    { label: 'Profit (Ã¢â€šÂ¹)', data: caProf, backgroundColor: 'rgba(72, 202, 228, 0.7)', borderRadius: 2 }
+                    { label: 'Revenue (â‚¹)', data: caRev, backgroundColor: 'rgba(255, 69, 0, 0.7)', borderRadius: 2 },
+                    { label: 'Profit (â‚¹)', data: caProf, backgroundColor: 'rgba(72, 202, 228, 0.7)', borderRadius: 2 }
                 ]
             }, { plugins: { datalabels: { display: false } }});
 
@@ -482,7 +461,7 @@
                                 if (label) label += ': ';
                                 if (context.parsed !== null && payTotal > 0) {
                                     let percentage = (context.parsed * 100 / payTotal).toFixed(1) + "%";
-                                    label += `Ã¢â€šÂ¹${context.parsed.toLocaleString()} (${percentage})`;
+                                    label += `â‚¹${context.parsed.toLocaleString()} (${percentage})`;
                                 }
                                 return label;
                             }

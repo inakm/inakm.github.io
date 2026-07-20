@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth"><head>
 <script type="application/ld+json">
 {
@@ -12,7 +12,7 @@
   ]
 }
 </script>
-</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>ï»¿
+</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>﻿
 
 
     <meta charset="UTF-8">
@@ -24,13 +24,13 @@
     <link rel="alternate" hreflang="en" href="https://inakm.github.io/page/projects/dashboards/VEVOi.html">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <meta name="description" content="VEVOi Sales Interactive Dashboard â€” explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
+    <meta name="description" content="VEVOi Sales Interactive Dashboard — explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
     <meta name="author" content="Anjani Kumar Mishra">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://inakm.github.io/page/projects/dashboards/VEVOi.html">
     <meta property="og:title" content="VEVOi Dashboard | Anjani Kumar Mishra">
-    <meta property="og:description" content="VEVOi Sales Interactive Dashboard â€” explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
+    <meta property="og:description" content="VEVOi Sales Interactive Dashboard — explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
     <meta property="og:image" content="https://inakm.github.io/assets/images/og-image.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -41,44 +41,25 @@
     <meta name="twitter:site" content="@in_akmm">
     <meta name="twitter:creator" content="@in_akmm">
     <meta name="twitter:title" content="VEVOi Dashboard | Anjani Kumar Mishra">
-    <meta name="twitter:description" content="VEVOi Sales Interactive Dashboard â€” explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
+    <meta name="twitter:description" content="VEVOi Sales Interactive Dashboard — explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
     <meta name="twitter:image" content="https://inakm.github.io/assets/images/og-image.webp">
 
     <meta name="linkedin:owner" content="https://linkedin.com/in/inakmm">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="stylesheet" href="../../../assets/css/tailwind-compiled.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ['Anton', 'sans-serif'],
-                        body: ['Manrope', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            stormy: '#006466', darkTeal: '#065a60', charcoal: '#1b3a4b', deepSpace: '#212f45',
-                            indigo: '#272640', midnight: '#312244', deepPurple: '#4d194d', lavender: '#d5cfe1',
-                            white: '#ffffff', highlight: '#9d4edd', pbi: '#F2C811', positive: '#48cae4', negative: '#e91e24'
-                        }
-                    },
-                    backgroundImage: {
-                        'ledger-pattern': 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
+        :root {
+            --color-brand-highlight: #9d4edd;
+            --color-brand-positive: #48cae4;
+            --color-brand-negative: #e91e24;
+        }
         body {
             background-color: #1a1a1d;
             background-image: linear-gradient(135deg, #1b3a4b 0%, #212f45 50%, #312244 100%);
@@ -152,11 +133,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-brand-highlight">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Revenue</span>
-                    <span class="text-3xl font-display text-white" id="kpi-amount">Ã¢â€šÂ¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-amount">â‚¹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#48cae4]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Profit</span>
-                    <span class="text-3xl font-display text-white" id="kpi-profit">Ã¢â€šÂ¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-profit">â‚¹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#006466]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Units Sold</span>
@@ -257,8 +238,8 @@
             });
 
             // Update KPIs
-            document.getElementById('kpi-amount').innerText = 'Ã¢â€šÂ¹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('kpi-profit').innerText = 'Ã¢â€šÂ¹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-amount').innerText = 'â‚¹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-profit').innerText = 'â‚¹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
             document.getElementById('kpi-orders').innerText = totalQuantity.toLocaleString();
             let margin = totalAmount > 0 ? (totalProfit / totalAmount) * 100 : 0;
             document.getElementById('kpi-margin').innerText = margin.toFixed(1) + '%';
@@ -297,7 +278,7 @@
                 data: {
                     labels: subCatLabels,
                     datasets: [{
-                        label: 'Profit (Ã¢â€šÂ¹)',
+                        label: 'Profit (â‚¹)',
                         data: subCatData,
                         backgroundColor: subCatData.map(v => v >= 0 ? 'rgba(72, 202, 228, 0.6)' : 'rgba(233, 30, 36, 0.6)'),
                         borderColor: subCatData.map(v => v >= 0 ? '#48cae4' : '#e91e24'),
