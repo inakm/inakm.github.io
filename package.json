@@ -2,9 +2,9 @@
   "name": "inakm.github.io",
   "version": "1.0.0",
   "description": "Welcome to the official central repository for my Finance, Fintech, and Analytics portfolio. This repository hosts diverse projects spanning interactive client-side BI dashboards, corporate finance models, and AI workflow tools.",
-  "main": "sw.js",
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i tailwind_input.css -o assets/css/tailwind-compiled.css --minify",
+    "build:css": "npx @tailwindcss/cli -i assets/css/tailwind_input.css -o assets/css/tailwind-compiled.css --minify",
+    "sitemap": "node tools/generate-sitemap.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/inakm/inakm.github.io.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anjani Kumar Mishra",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
@@ -20,9 +20,7 @@
   },
   "homepage": "https://github.com/inakm/inakm.github.io#readme",
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "tailwindcss": "^4.3.1"
-  },
-  "dependencies": {
-    "cheerio": "^1.2.0"
   }
 }

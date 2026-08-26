@@ -1,25 +1,10 @@
 # https://inakm.github.io/robots.txt
 User-agent: *
 Allow: /
-Allow: /*.md$
-Disallow: /node_modules/
 Disallow: /testdata/
-Disallow: /todo/
 Disallow: /*.xlsx$
 Disallow: /*.pbix$
 Disallow: /*.pdf$
-
-# Core Search Bot Rules
-User-agent: Googlebot
-Allow: /
-Allow: /page/
-Allow: /myprojects/
-Allow: /assets/images/
-Allow: /*.md$
-
-User-agent: Bingbot
-Allow: /
-Allow: /assets/images/
 
 # AI Crawler Rules
 User-agent: GPTBot

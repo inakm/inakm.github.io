@@ -1,7 +1,6 @@
 let hasUserInteracted = false;
 
 function initMedia() {
-  console.log("initMedia called");
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function initializeVisitorCounter() {
     let totalVisitors = localStorage.getItem('totalVisitorCount');
     if (!totalVisitors) {
-      totalVisitors = 921234;
+      totalVisitors = 0;
       localStorage.setItem('totalVisitorCount', totalVisitors);
     } else {
       totalVisitors = parseInt(totalVisitors);
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
           size: 8,
           speed: 0.2
         });
-        console.log("Cursor trail initialized");
       } catch (err) {
         console.error("Failed to initialize cursor trail effect:", err);
       }
@@ -116,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
           size: 8,
           speed: 0.2
         });
-        console.log("Cursor trail initialized");
       } catch (err) {
         console.error("Failed to initialize cursor trail effect:", err);
       }

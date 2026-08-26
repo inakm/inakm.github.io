@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth"><head>
 <script type="application/ld+json">
 {
@@ -12,18 +12,18 @@
   ]
 }
 </script>
-</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white"><noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>﻿
 
-
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https:; frame-src https: scribd.com www.scribd.com slideshare.net www.slideshare.net linkedin.com www.linkedin.com youtube.com www.youtube.com;">
+<meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.puter.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.plot.ly https://cdn-static.trendlyne.com https://cdn.apitiny.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src 'self'; connect-src 'self' https://api.puter.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://trendlyne.com; frame-src https://www.youtube.com https://www.scribd.com https://www.slideshare.net https://www.linkedin.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VEVOi Dashboard | Video Intelligence &amp; Analytics | Anjani Kumar Mishra</title>
     <link rel="canonical" href="https://inakm.github.io/page/projects/dashboards/VEVOi.html">
+    <link rel="me" href="https://linkedin.com/in/inakmm">
+    <link rel="me" href="https://twitter.com/in_akmm">
     <link rel="alternate" hreflang="x-default" href="https://inakm.github.io/page/projects/dashboards/VEVOi.html">
     <link rel="alternate" hreflang="en" href="https://inakm.github.io/page/projects/dashboards/VEVOi.html">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
     <meta name="description" content="VEVOi Sales Interactive Dashboard — explore revenue trends, regional performance metrics, and sales analytics powered by CSV data upload with dynamic visualizations.">
     <meta name="author" content="Anjani Kumar Mishra">
 
@@ -51,10 +51,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../../../assets/css/tailwind-compiled.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H33DSQYB78"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-H33DSQYB78');</script>
+</head><body class="antialiased relative font-body bg-grid bg-ledger-pattern selection:bg-brand-stormy selection:text-white">
+<noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <style>
+    <style>:root { color-scheme: dark; }
+
         :root {
             --color-brand-highlight: #9d4edd;
             --color-brand-positive: #48cae4;
@@ -93,7 +99,8 @@
     <div class="sk-shimmer" style="height:60px;margin-bottom:16px;border-radius:12px"></div>
     <div class="sk-shimmer" style="height:48px;width:60%;border-radius:8px"></div>
   </div>
-  <style nonce="sk">.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
+  
+.sk-shimmer{background:linear-gradient(90deg,rgba(255,255,255,.03) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.03) 75%);background-size:200% 100%;animation:sk-shimmer 1.8s ease-in-out infinite}@keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}</style>
 </div>
 
 
@@ -133,11 +140,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-brand-highlight">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Revenue</span>
-                    <span class="text-3xl font-display text-white" id="kpi-amount">â‚¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-amount">₹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#48cae4]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Total Profit</span>
-                    <span class="text-3xl font-display text-white" id="kpi-profit">â‚¹0</span>
+                    <span class="text-3xl font-display text-white" id="kpi-profit">₹0</span>
                 </div>
                 <div class="card-3d p-6 rounded-lg flex flex-col border-l-4 border-l-[#006466]">
                     <span class="font-mono text-xs text-gray-400 uppercase tracking-widest mb-1">Units Sold</span>
@@ -238,8 +245,8 @@
             });
 
             // Update KPIs
-            document.getElementById('kpi-amount').innerText = 'â‚¹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('kpi-profit').innerText = 'â‚¹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-amount').innerText = '₹' + totalAmount.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('kpi-profit').innerText = '₹' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
             document.getElementById('kpi-orders').innerText = totalQuantity.toLocaleString();
             let margin = totalAmount > 0 ? (totalProfit / totalAmount) * 100 : 0;
             document.getElementById('kpi-margin').innerText = margin.toFixed(1) + '%';
@@ -278,7 +285,7 @@
                 data: {
                     labels: subCatLabels,
                     datasets: [{
-                        label: 'Profit (â‚¹)',
+                        label: 'Profit (₹)',
                         data: subCatData,
                         backgroundColor: subCatData.map(v => v >= 0 ? 'rgba(72, 202, 228, 0.6)' : 'rgba(233, 30, 36, 0.6)'),
                         borderColor: subCatData.map(v => v >= 0 ? '#48cae4' : '#e91e24'),
@@ -314,7 +321,7 @@
         }
     </script>
 
-<script nonce="sk">document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
+<script>document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){var e=document.getElementById('sk-overlay');if(e){e.style.opacity='0';setTimeout(function(){e.style.display='none'},400)}},800)});</script>
 
 
 

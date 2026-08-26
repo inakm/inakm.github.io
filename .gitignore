@@ -1,1 +1,22 @@
 _xlsxtemp*.js
+
+# Office lock/temp files
+~$*
+
+# Dependencies
+node_modules/
+
+# Sensitive / personal data - never publish
+May_ARAgingReport_AKM.xlsx
+
+# Local-only artifacts (kept on disk, not deployed)
+/v0/
+/seo_audit_report.csv
+/seo_audit_report.md
+/all-urls.txt
+/todo
+/og-image.png
+/og-image.webp
+
+# Duplicate og-image (webp is canonical)
+/assets/images/og-image.png
