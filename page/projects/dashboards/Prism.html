@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prism Sales Dashboard | Performance Analytics &amp; Insights | Anjani Kumar Mishra</title>
 
-  <meta name="description" content="Interactive Prism Sales Dashboard by Anjani Kumar Mishra. Upload your sales data to explore revenue, profit, category, region, payment mode, and segment analytics using Plotly.js.">
+  <meta name="description" content="Interactive Prism Sales Dashboard - upload sales data to explore revenue, profit, category, region, payment mode, and segment analytics with Plotly.js.">
   <meta name="keywords" content="sales dashboard, analytics, revenue tracking, profit analysis, Plotly.js, interactive charts, data visualization, Anjani Kumar Mishra, Prism, sales performance, category analytics">
   <meta name="author" content="Anjani Kumar Mishra">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -1206,6 +1206,7 @@
   </style>
     <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="../../../assets/css/view-transitions.css">
+  <link rel="stylesheet" href="../../../assets/css/premium-nav.css">
 
 
 
@@ -1225,7 +1226,7 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
 
-  <!-- NAV -->
+  
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="https://inakm.github.io/" class="nav-brand" rel="noopener noreferrer">
@@ -1268,7 +1269,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  
   <section class="hero-section">
     <div class="hero-bg">
       <video autoplay="" loop="" muted="" playsinline="" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
@@ -1314,7 +1315,7 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  
   <div class="marquee-section">
     <div class="marquee-inner animate-marquee">
       <span class="marquee-item">/// REVENUE TRACKING</span>
@@ -1336,7 +1337,7 @@
     </div>
   </div>
 
-  <!-- UPLOAD SCREEN -->
+  
   <section id="upload-screen">
     <div class="upload-card">
       <div class="upload-tabs">
@@ -1348,7 +1349,7 @@
         </button>
       </div>
 
-      <!-- FILE TAB -->
+      
       <div class="upload-panel active" id="panel-file">
         <div class="drop-zone-inner" id="drop-zone">
           <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
@@ -1362,7 +1363,7 @@
         </div>
       </div>
 
-      <!-- PASTE TAB -->
+      
       <div class="upload-panel" id="panel-paste">
         <div class="upload-heading" style="margin-bottom:6px;">Paste your JSON data</div>
         <div class="upload-desc" style="margin-bottom:16px;">Paste a JSON array directly below. Same format as the file
@@ -1388,7 +1389,7 @@
     </div>
   </section>
 
-  <!-- DASHBOARD -->
+  
   <section id="dashboard">
     <div class="status-bar fade-up d1">
       <div class="record-pill">
@@ -1400,7 +1401,7 @@
       </button>
     </div>
 
-    <!-- KPI CARDS -->
+    
     <div class="kpi-grid">
       <div class="kpi-card kpi-highlight fade-up d2">
         <div class="kpi-top">
@@ -1436,7 +1437,7 @@
       </div>
     </div>
 
-    <!-- ROW 1: Category Bar + Region Bar -->
+    
     <div class="chart-row row-2">
       <div class="chart-card fade-up d6">
         <div class="chart-title">Sales by Category</div>
@@ -1450,7 +1451,7 @@
       </div>
     </div>
 
-    <!-- ROW 2: Monthly Trend -->
+    
     <div class="chart-row row-1">
       <div class="chart-card fade-up d8">
         <div class="chart-title">Monthly Sales Trend</div>
@@ -1459,7 +1460,7 @@
       </div>
     </div>
 
-    <!-- ROW 3: Payment Pie + Segment Donut -->
+    
     <div class="chart-row row-2">
       <div class="chart-card fade-up d9">
         <div class="chart-title">Payment Mode Preference</div>
@@ -1474,7 +1475,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  
   <footer class="site-footer">
     <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> &mdash; Powered by
       Plotly.js</p>
@@ -1816,7 +1817,7 @@
     });
   </script>
 
-  <!-- Demo: auto-load the dataset provided in context -->
+  
   <script id="sample-data" type="application/json">
 [{"Sales":"544","Profit":"67","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"08/12/2024"},{"Sales":"97","Profit":"1","Category":"Office Supplies","Region":"South","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"10/06/2024"},{"Sales":"2154","Profit":"254","Category":"Furniture","Region":"West","Payment Mode":"Credit Card","Segment":"Home Office","Order Date":"07/02/2024"},{"Sales":"47","Profit":"10","Category":"Office Supplies","Region":"East","Payment Mode":"Cash","Segment":"Consumer","Order Date":"05/03/2024"},{"Sales":"1022","Profit":"204","Category":"Technology","Region":"Canada","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"07/11/2024"},{"Sales":"1540","Profit":"324","Category":"Furniture","Region":"Central","Payment Mode":"Debit Card","Segment":"Home Office","Order Date":"17/03/2024"},{"Sales":"260","Profit":"7","Category":"Office Supplies","Region":"West","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"22/04/2024"},{"Sales":"732","Profit":"183","Category":"Technology","Region":"South","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"15/05/2024"},{"Sales":"198","Profit":"45","Category":"Office Supplies","Region":"East","Payment Mode":"Cash","Segment":"Consumer","Order Date":"03/06/2024"},{"Sales":"850","Profit":"170","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Home Office","Order Date":"28/07/2024"},{"Sales":"120","Profit":"24","Category":"Office Supplies","Region":"West","Payment Mode":"Debit Card","Segment":"Corporate","Order Date":"11/08/2024"},{"Sales":"3200","Profit":"480","Category":"Furniture","Region":"South","Payment Mode":"Credit Card","Segment":"Consumer","Order Date":"19/09/2024"},{"Sales":"450","Profit":"90","Category":"Technology","Region":"East","Payment Mode":"Cash","Segment":"Home Office","Order Date":"02/10/2024"},{"Sales":"85","Profit":"12","Category":"Office Supplies","Region":"Central","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"25/10/2024"},{"Sales":"1800","Profit":"360","Category":"Furniture","Region":"West","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"14/11/2024"},{"Sales":"320","Profit":"64","Category":"Technology","Region":"South","Payment Mode":"Cash","Segment":"Home Office","Order Date":"30/11/2024"},{"Sales":"150","Profit":"30","Category":"Office Supplies","Region":"East","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"05/12/2024"},{"Sales":"950","Profit":"190","Category":"Technology","Region":"Central","Payment Mode":"Credit Card","Segment":"Corporate","Order Date":"18/12/2024"},{"Sales":"2800","Profit":"420","Category":"Furniture","Region":"West","Payment Mode":"Cash","Segment":"Home Office","Order Date":"22/01/2025"},{"Sales":"210","Profit":"42","Category":"Office Supplies","Region":"South","Payment Mode":"Debit Card","Segment":"Consumer","Order Date":"09/02/2025"}]
   </script>

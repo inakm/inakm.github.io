@@ -12,7 +12,7 @@
       gtag('config', 'G-H33DSQYB78');
     </script>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.puter.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.plot.ly https://cdn-static.trendlyne.com https://cdn.apitiny.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src 'self'; connect-src 'self' https://api.puter.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://trendlyne.com; frame-src https://www.youtube.com https://www.scribd.com https://www.slideshare.net https://www.linkedin.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.puter.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.plot.ly https://cdn-static.trendlyne.com https://cdn.apitiny.net https://*.blogspot.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src 'self'; connect-src 'self' https://api.puter.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://trendlyne.com; frame-src https://www.youtube.com https://www.scribd.com https://www.slideshare.net https://www.linkedin.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anjani Kumar Mishra | Financial Modeling, PowerBI &amp; Analytics</title>
 
@@ -88,12 +88,13 @@
             {
                 "@type": "Organization",
                 "name": "F9XR Team",
-                "url": "https://f9xr.github.io"
+                "url": "https://f9xr.org"
             }
         ],
         "sameAs": [
             "https://linkedin.com/in/inakmm",
             "https://github.com/inakm",
+            "https://twitter.com/in_akmm",
             "https://www.instagram.com/in_akmm",
             "https://www.reddit.com/user/in_akm"
         ],
@@ -139,8 +140,7 @@
             "addressRegion": "Telangana",
             "addressCountry": "IN"
         },
-        "email": "anjani.mishra.2004@gmail.com",
-        
+        "email": "inakm@proton.me",
         "nationality": "Indian",
         "birthPlace": {
             "@type": "City",
@@ -226,7 +226,7 @@
         "@id": "https://inakm.github.io/#profilepage",
         "url": "https://inakm.github.io/",
         "name": "Anjani Kumar Mishra - Finance & Analytics Portfolio",
-        "description": "Professional portfolio of Anjani Kumar Mishra, ACCA-qualified Financial Analyst in Hyderabad specializing in Financial Modeling, Bloomberg BQL, PowerBI, and AI automation.",
+        "description": "Professional portfolio of Anjani Kumar Mishra, ACCA Part-Qualified Financial Analyst in Hyderabad specializing in Financial Modeling, Bloomberg BQL, PowerBI, and AI automation.",
         "about": {
             "@id": "https://inakm.github.io/#person"
         },
@@ -257,31 +257,6 @@
             },
             "query-input": "required name=search_term_string"
         }
-    },
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "@id": "https://inakm.github.io/#breadcrumb",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://inakm.github.io/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Projects",
-                "item": "https://inakm.github.io/page/projects/index.html"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Contact",
-                "item": "https://inakm.github.io/page/contact.html"
-            }
-        ]
     },
     {
         "@context": "https://schema.org",
@@ -322,9 +297,7 @@
         "isPartOf": {
             "@id": "https://inakm.github.io/#website"
         },
-        "teaches": ["DCF Valuation", "M&A Deal Structuring", "Sports Franchise Analysis", "Revenue Synergy Modeling"],
-        "educationalLevel": "Advanced",
-        "competencyRequired": ["Financial Modeling", "Excel", "Accounting"]
+        "about": "DCF valuation, M&A deal structuring, sports-franchise analysis, and revenue-synergy modeling of the RCB acquisition."
     },
     {
         "@context": "https://schema.org",
@@ -590,14 +563,25 @@
             background: #ffd666;
         }
 
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 200;
+            background: #222222;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 0 0 8px 8px;
+        }
+        .skip-link:focus {
+            left: 0;
+        }
+
         /* Insights iframe responsive height */
         .insight-iframe {
             height: 400px;
-        }
-        @media (max-width: 640px) {
-            .insight-iframe {
-                height: 250px;
-            }
         }
 
         /* Small screen responsive fixes */
@@ -632,6 +616,9 @@
         }
 
         @media (max-width: 640px) {
+            .insight-iframe {
+                height: 250px;
+            }
             .footer-heading {
                 font-size: 2.5rem;
             }
@@ -766,7 +753,7 @@
         /* Missing Tailwind Utility Classes (brand colors, fonts, etc.) */
         :root {
             --brand-primary: #222222;
-            --brand-secondary: #7B7B7B;
+            --brand-secondary: #6A6A6A;
             --brand-tertiary: #F8F8F8;
             --brand-highlight: #f3c623;
         }
@@ -861,8 +848,10 @@
     </style>
     <script src="https://js.puter.com/v2/" defer=""></script>
   <link rel="stylesheet" href="./assets/css/view-transitions.css">
+  <link rel="stylesheet" href="./assets/css/premium-nav.css">
 </head>
 <body class="antialiased selection:bg-brand-primary selection:text-white">
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <noscript><div style="padding: 20px; background: #222; color: white; text-align: center;">This portfolio requires JavaScript to load interactive elements. Please enable JavaScript or view the static text summaries below.</div></noscript>
 
 <div id="sk-overlay" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .4s">
@@ -1101,12 +1090,12 @@
             </p>
             <div class="flex flex-col sm:flex-row items-start justify-start gap-4 sm:gap-6 animate-fade-rise-delay-2 w-full max-w-md sm:max-w-none">
                 <a href="https://linkedin.com/in/inakmm" target="_blank" rel="noopener noreferrer" class="magnetic-wrap w-full sm:w-auto">
-                    <div class="magnetic-inner hero-cta-btn liquid-glass rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-[#0a66c2]/80 transition-colors gap-3">
+                    <div class="magnetic-inner hero-cta-btn liquid-glass rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-[#0a66c2]/80 transition-colors gap-3 w-full">
                         <i class="fa-brands fa-linkedin text-xl"></i> Connect with Me
                     </div>
                 </a>
                 <a href="Mishra_AnjaniKr_2026.pdf" target="_blank" rel="noopener noreferrer" class="magnetic-wrap w-full sm:w-auto">
-                    <div class="magnetic-inner hero-cta-btn border border-white/30 rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white hover:text-black transition-all backdrop-blur-sm gap-3">
+                    <div class="magnetic-inner hero-cta-btn border border-white/30 rounded-full px-8 py-4 text-white font-bold tracking-wide flex justify-center items-center hover:bg-white hover:text-black transition-all backdrop-blur-sm gap-3 w-full">
                         <i class="fa-solid fa-file-pdf text-xl"></i> Download My CV
                     </div>
                 </a>
@@ -1265,7 +1254,7 @@
                             <div>
                                 <h3 class="text-3xl font-bold tracking-tighter text-brand-primary mb-1 flex items-center gap-3">
                                     Founding Member
-                                    <a href="https://f9xr.github.io" target="_blank" rel="noopener noreferrer" aria-label="Visit F9XR Team website" class="text-sm text-brand-secondary hover:text-[#0a66c2] transition-colors"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                    <a href="https://f9xr.org" target="_blank" rel="noopener noreferrer" aria-label="Visit F9XR Team website" class="text-sm text-brand-secondary hover:text-[#0a66c2] transition-colors"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                                 </h3>
                                 <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary">F9XR Team
                                 </p>
@@ -1704,13 +1693,13 @@
                         </div>
                     </div>
 
-                    <div class="bg-[#C7F131] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-[0_20px_40px_rgba(199,241,49,0.2)] min-h-[200px] md:h-[360px] flex flex-col items-center justify-center cursor-pointer p-8" onclick="window.location.href='page/projects/index.html'">
+                    <a href="page/projects/index.html" aria-label="View all projects" class="bg-[#C7F131] rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 shadow-[0_20px_40px_rgba(199,241,49,0.2)] min-h-[200px] md:h-[360px] flex flex-col items-center justify-center cursor-pointer p-8">
                         <i class="fa-solid fa-arrow-right text-4xl md:text-6xl text-black/40 mb-4 md:mb-6 group-hover:translate-x-4 transition-transform duration-500"></i>
                         <h3 class="text-2xl md:text-5xl font-bold tracking-tighter text-black z-10 text-center leading-tight">
                             View All<br>Builds</h3>
                         <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
@@ -2205,7 +2194,7 @@
 
 
             <div class="border-t border-[#333333] mt-16 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold font-mono text-[#7B7B7B] uppercase tracking-widest">
-                <p>© 2026 Anjani Kumar Mishra. All rights reserved. | Website Powered by <a href="https://f9xr.github.io" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-highlight transition-colors">F9XR Team</a></p>
+                <p>© 2026 Anjani Kumar Mishra. All rights reserved. | Website Powered by <a href="https://f9xr.org" target="_blank" rel="noopener noreferrer" class="text-white hover:text-brand-highlight transition-colors">F9XR Team</a></p>
                 <p>Open Source on <a href="https://github.com/inakm/inakm.github.io" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#7B7B7B] transition-colors underline decoration-white/30 underline-offset-4">GitHub</a>
                 </p>
             </div>
@@ -2313,9 +2302,6 @@
                     if (isFinePointer && cursorOutline) cursorOutline.classList.remove('hover-active');
                 });
             });
-
-            );
-            }
 
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries) => {
@@ -2437,7 +2423,6 @@
             rawData: [],
             filteredData: [],
             watchlist: JSON.parse(localStorage.getItem('akm_article_watchlist')) || [],
-            activeTag: 'all',
             limit: CONFIG.itemsPerLoad
         };
 
@@ -2480,6 +2465,14 @@
                     tags: entry.category ? entry.category.map(c => c.term) : ['Finance']
                 };
             } catch (e) { return null; }
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+        }
+
+        function escapeJs(str) {
+            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
         }
 
         async function initArticles() {
@@ -2533,8 +2526,8 @@
                 html += `
                     <div class="${colSpan} bg-brand-tertiary border border-[#E5E5E5] rounded-[2rem] p-8 flex flex-col group hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                         <div class="flex justify-between items-start mb-6">
-                            <span class="text-[10px] font-bold text-brand-primary bg-white border border-[#E5E5E5] px-3 py-1 rounded-full uppercase tracking-widest">${article.source}</span>
-                            <button onclick="toggleSave('${article.id}')" class="text-xl ${state.watchlist.some(w => w.id === article.id) ? 'text-brand-primary' : 'text-[#E5E5E5] hover:text-brand-secondary'} transition-colors">
+                            <span class="text-[10px] font-bold text-brand-primary bg-white border border-[#E5E5E5] px-3 py-1 rounded-full uppercase tracking-widest">${escapeHtml(article.source)}</span>
+                            <button onclick="toggleSave('${escapeJs(article.id)}')" class="text-xl ${state.watchlist.some(w => w.id === article.id) ? 'text-brand-primary' : 'text-[#E5E5E5] hover:text-brand-secondary'} transition-colors">
                                 <i class="fa-solid fa-bookmark"></i>
                             </button>
                         </div>
@@ -2545,20 +2538,19 @@
                             </div>
                         ` : ''}
 
-                        <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="block mb-4">
+                        <a href="${escapeHtml(article.url)}" target="_blank" rel="noopener noreferrer" class="block mb-4">
                             <h3 class="${isFeatured ? 'text-3xl' : 'text-xl'} font-bold tracking-tighter text-brand-primary group-hover:text-[#0a66c2] transition-colors leading-tight">
-                                ${article.title}
+                                ${escapeHtml(article.title)}
                             </h3>
                         </a>
 
-                            <div class="mt-auto pt-4 flex items-center text-brand-highlight text-sm font-bold uppercase tracking-widest group-hover:gap-2 transition-all">
-                                Read Insight <i class="fa-solid fa-arrow-right ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
-                            </div>
+                        <div class="mt-auto pt-4 flex items-center text-brand-highlight text-sm font-bold uppercase tracking-widest group-hover:gap-2 transition-all">
+                            Read Insight <i class="fa-solid fa-arrow-right ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"></i>
                         </div>
                     </div>
                 `;
-                grid.innerHTML = html;
             });
+            grid.innerHTML = html;
 
             const loadBtn = document.getElementById('loadMoreArticles');
             if (state.limit < state.filteredData.length) loadBtn.classList.remove('hidden');
@@ -2682,7 +2674,7 @@
             document.getElementById('cursor-outline')?.remove();
         }
 
-        const heroVideo = document.querySelector('#white-canvas').previousElementSibling.querySelector('video');
+        const heroVideo = document.querySelector('video');
         if (heroVideo) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2714,7 +2706,7 @@
             if (results.length === 0) {
                 searchResults.innerHTML = `
                     <div class="p-6 text-center text-brand-secondary">
-                        <p class="text-sm">No results found for "<strong>${query}</strong>"</p>
+                        <p class="text-sm">No results found for "<strong>${escapeHtml(query)}</strong>"</p>
                     </div>`;
                 return;
             }
@@ -2723,17 +2715,17 @@
             results.forEach(item => {
                 html += `
                     <li>
-                        <a href="${item.url}" class="flex items-center justify-between p-3 rounded-lg hover:bg-black/5 transition-colors group">
+                        <a href="${escapeHtml(item.url)}" class="flex items-center justify-between p-3 rounded-lg hover:bg-black/5 transition-colors group">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-md bg-white/50 border border-black/5 flex items-center justify-center text-brand-secondary group-hover:bg-white group-hover:text-brand-primary group-hover:shadow-sm transition-all">
                                     <i class="${getIconForCategory(item.category)} text-xs"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-brand-primary text-[13px]">${item.title}</h4>
-                                    <p class="text-[9px] text-brand-secondary mt-0.5 font-mono">${item.url}</p>
+                                    <h4 class="font-bold text-brand-primary text-[13px]">${escapeHtml(item.title)}</h4>
+                                    <p class="text-[9px] text-brand-secondary mt-0.5 font-mono">${escapeHtml(item.url)}</p>
                                 </div>
                             </div>
-                            <span class="text-[9px] font-bold tracking-widest uppercase bg-white/50 px-1.5 py-0.5 rounded border border-black/5 text-brand-primary transition-all">${item.category}</span>
+                            <span class="text-[9px] font-bold tracking-widest uppercase bg-white/50 px-1.5 py-0.5 rounded border border-black/5 text-brand-primary transition-all">${escapeHtml(item.category)}</span>
                         </a>
                     </li>
                 `;
@@ -2750,8 +2742,17 @@
                 default: return 'fa-solid fa-file';
             }
         }
+
+        (function () {
+            const s = new URLSearchParams(window.location.search).get('s');
+            if (s) {
+                searchInput.value = s;
+                openSearch();
+                renderSearchResults(s);
+            }
+        })();
     </script>
-    <!-- AI Assistant Widget -->
+    
     <div id="ai-widget" class="fixed bottom-6 left-6 z-50 flex flex-col items-start">
         <div id="ai-chat-window" class="hidden w-[calc(100vw-2.5rem)] sm:w-96 mb-4 bg-white/90 backdrop-blur-xl border border-[#E5E5E5] rounded-2xl shadow-2xl overflow-hidden flex-col transition-all transform origin-bottom-left">
             <div class="bg-brand-primary p-4 flex justify-between items-center text-white">
@@ -2861,7 +2862,7 @@
         }
     </script>
 
-    <!-- WebMCP: expose site tools to AI agents (early preview) -->
+    
     <script>
         (() => {
             const api = navigator.modelContext;

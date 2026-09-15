@@ -4,7 +4,6 @@ Allow: /
 Disallow: /testdata/
 Disallow: /*.xlsx$
 Disallow: /*.pbix$
-Disallow: /*.pdf$
 
 # AI Crawler Rules
 User-agent: GPTBot

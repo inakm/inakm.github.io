@@ -3,6 +3,60 @@ let hasUserInteracted = false;
 function initMedia() {
 }
 
+class cursorTrailEffect {
+  constructor(options = {}) {
+    this.length = options.length || 10;
+    this.size = options.size || 8;
+    this.speed = options.speed || 0.2;
+    this.points = [];
+    this.init();
+  }
+
+  init() {
+    this.trail = document.createElement('div');
+    this.trail.className = 'cursor-trail';
+    for (let i = 0; i < this.length; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'cursor-trail-dot';
+      dot.style.width = `${this.size}px`;
+      dot.style.height = `${this.size}px`;
+      this.trail.appendChild(dot);
+      this.points.push({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    }
+    document.body.appendChild(this.trail);
+    if (this.points[0]) {
+      this.points[0].x = window.innerWidth / 2;
+      this.points[0].y = window.innerHeight / 2;
+    }
+    window.addEventListener('mousemove', (e) => {
+      this.points[0].x = e.clientX;
+      this.points[0].y = e.clientY;
+    });
+    this.animate();
+  }
+
+  animate() {
+    const dots = this.trail.children;
+    const head = dots[0];
+    if (head) {
+      head.style.left = `${this.points[0].x}px`;
+      head.style.top = `${this.points[0].y}px`;
+    }
+    for (let i = 1; i < this.points.length; i++) {
+      const prev = this.points[i - 1];
+      const curr = this.points[i];
+      curr.x += (prev.x - curr.x) * this.speed;
+      curr.y += (prev.y - curr.y) * this.speed;
+      const dot = dots[i];
+      if (dot) {
+        dot.style.left = `${curr.x}px`;
+        dot.style.top = `${curr.y}px`;
+      }
+    }
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const startScreen = document.getElementById('start-screen');
   const startText = document.getElementById('start-text');

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CarLIMIT Sales Performance Dashboard | Anjani Kumar Mishra</title>
 
-  <meta name="description" content="Interactive Sales Performance Dashboard by Anjani Kumar Mishra. Upload your order data to explore revenue, profit, segment insights, US state choropleth, and shipping mode analytics using Plotly.js.">
+  <meta name="description" content="Interactive sales dashboard - upload order data to explore revenue, profit, segment insights, US state choropleth, and shipping analytics with Plotly.js.">
   <meta name="keywords" content="sales dashboard, analytics, revenue tracking, profit analysis, Plotly.js, interactive charts, choropleth map, donut chart, data visualization, Anjani Kumar Mishra, CarLIMIT, sales performance, order analytics">
   <meta name="author" content="Anjani Kumar Mishra">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -1191,6 +1191,7 @@
   </style>
     <script src="https://js.puter.com/v2/" defer></script>
   <link rel="stylesheet" href="../../../assets/css/view-transitions.css">
+  <link rel="stylesheet" href="../../../assets/css/premium-nav.css">
 
 
 
@@ -1210,7 +1211,7 @@
   <div class="cursor-dot" id="cursor-dot"></div>
   <div class="cursor-outline" id="cursor-outline"></div>
 
-  <!-- NAV -->
+  
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="https://inakm.github.io/" class="nav-brand" rel="noopener noreferrer">
@@ -1253,7 +1254,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  
   <section class="hero-section">
     <div class="hero-bg">
       <video autoplay="" loop="" muted="" playsinline="" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'%3E%3Crect fill='%23000'/%3E%3C/svg%3E">
@@ -1299,7 +1300,7 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  
   <div class="marquee-section">
     <div class="marquee-inner animate-marquee">
       <span class="marquee-item">/// REVENUE TRACKING</span>
@@ -1321,7 +1322,7 @@
     </div>
   </div>
 
-  <!-- UPLOAD SCREEN -->
+  
   <section id="upload-screen">
     <div class="upload-card">
       <div class="upload-tabs">
@@ -1333,7 +1334,7 @@
         </button>
       </div>
 
-      <!-- FILE TAB -->
+      
       <div class="upload-panel active" id="panel-file">
         <div class="drop-zone-inner" id="drop-zone">
           <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
@@ -1348,7 +1349,7 @@
         </div>
       </div>
 
-      <!-- PASTE TAB -->
+      
       <div class="upload-panel" id="panel-paste">
         <div class="upload-heading" style="margin-bottom:6px;">Paste your JSON data</div>
         <div class="upload-desc" style="margin-bottom:16px;">Paste a JSON array directly below. Same format as the file
@@ -1374,7 +1375,7 @@
     </div>
   </section>
 
-  <!-- DASHBOARD -->
+  
   <section id="dashboard">
     <div class="status-bar fade-up d1">
       <div class="record-pill">
@@ -1386,7 +1387,7 @@
       </button>
     </div>
 
-    <!-- KPI CARDS -->
+    
     <div class="kpi-grid">
       <div class="kpi-card kpi-blue fade-up d2">
         <div class="kpi-top">
@@ -1422,7 +1423,7 @@
       </div>
     </div>
 
-    <!-- ROW 1: Line + Donut -->
+    
     <div class="chart-row row-2">
       <div class="chart-card fade-up d6">
         <div class="chart-title">Monthly Sales &amp; Profit Trend</div>
@@ -1436,7 +1437,7 @@
       </div>
     </div>
 
-    <!-- ROW 2: Choropleth + Bar -->
+    
     <div class="chart-row row-2">
       <div class="chart-card fade-up d8">
         <div class="chart-title">Sales by US State</div>
@@ -1450,7 +1451,7 @@
       </div>
     </div>
 
-    <!-- ROW 3: Three Ship Mode Donuts -->
+    
     <div class="chart-row row-3">
       <div class="chart-card fade-up d10">
         <div class="chart-title">Profit Share by Ship Mode</div>
@@ -1470,7 +1471,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  
   <footer class="site-footer">
     <p>Built by <a href="https://inakm.github.io/" rel="noopener noreferrer">Anjani Kumar Mishra</a> &mdash; Powered by
       Plotly.js</p>
@@ -1835,7 +1836,7 @@
     })();
   </script>
 
-  <!-- Demo: auto-load the dataset provided in context -->
+  
   <script id="sample-data" type="application/json">
 [{"Order ID":"ORD-2024-10001","Order Date":"08/12/2024","Ship Date":"09/12/2024","Ship Mode":"Same Day","Customer ID":"CUST-1001","Customer Name":"Ken Brennan","Segment":"Consumer","Country":"United States","City":"Houston","State":"Texas","Region":"Central","Product Name":"Fellowes Laminator","Category":"Technology","Sales":" $544 ","Quantity":"6"," Profit ":" $67 "},{"Order ID":"ORD-2024-10002","Order Date":"10/06/2024","Ship Date":"14/06/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1002","Customer Name":"John Smith","Segment":"Corporate","Country":"United States","City":"Atlanta","State":"Georgia","Region":"South","Product Name":"Pilot G2 Pen Pack","Category":"Office Supplies","Sales":" $97 ","Quantity":"7"," Profit ":" $1 "},{"Order ID":"ORD-2024-10003","Order Date":"07/02/2024","Ship Date":"11/02/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1003","Customer Name":"Maria Johnson","Segment":"Home Office","Country":"United States","City":"Phoenix","State":"Arizona","Region":"West","Product Name":"Reception Desk","Category":"Furniture","Sales":" $2,154 ","Quantity":"3"," Profit ":" $254 "},{"Order ID":"ORD-2024-10004","Order Date":"05/03/2024","Ship Date":"09/03/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1004","Customer Name":"Alicia Turner","Segment":"Consumer","Country":"United States","City":"Philadelphia","State":"Pennsylvania","Region":"East","Product Name":"Staples Multipurpose Paper","Category":"Office Supplies","Sales":" $47 ","Quantity":"7"," Profit ":" $10 "},{"Order ID":"ORD-2024-10005","Order Date":"07/11/2024","Ship Date":"11/11/2024","Ship Mode":"Standard Class","Customer ID":"CUST-1005","Customer Name":"David Lee","Segment":"Corporate","Country":"Canada","City":"Toronto","State":"Ontario","Region":"Canada","Product Name":"Canon ImageClass Printer","Category":"Technology","Sales":" $1,022 ","Quantity":"5"," Profit ":" $204 "},{"Order ID":"ORD-2024-10006","Order Date":"17/03/2024","Ship Date":"20/03/2024","Ship Mode":"Sta... (line truncated to 2000 chars)
 </script>

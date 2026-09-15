@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.puter.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.plot.ly https://cdn-static.trendlyne.com https://cdn.apitiny.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; media-src 'self'; connect-src 'self' https://api.puter.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://trendlyne.com; frame-src https://www.youtube.com https://www.scribd.com https://www.slideshare.net https://www.linkedin.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skylimit AR Aging Dashboard | Receivables Analytics | Anjani Kumar Mishra</title>
-  <meta name="description" content="Accounts Receivable aging dashboard with Tally ERP integration, multi-agent sync, dynamic risk assessment, and automated client messaging — built by Anjani Kumar Mishra for AR management.">
+  <meta name="description" content="Accounts receivable aging dashboard with Tally ERP integration, dynamic risk assessment, and automated client messaging - built by Anjani Kumar Mishra.">
   <meta name="author" content="Anjani Kumar Mishra">
   <meta name="keywords" content="AR aging, accounts receivable, Tally ERP, dashboard, Skylimit, risk assessment, invoice tracking, payment collection, Anjani Kumar Mishra, ACCA, finance, analytics">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -676,6 +676,7 @@
     .sk-pill { height: 28px; width: 90px; border-radius: 9999px; }
   </style>
   <link rel="stylesheet" href="../../../assets/css/view-transitions.css">
+  <link rel="stylesheet" href="../../../assets/css/premium-nav.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H33DSQYB78"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-H33DSQYB78');</script>
 </head>
@@ -683,17 +684,17 @@
 
   <div id="toast" class="toast"></div>
 
-  <!-- NAV -->
+  
   <nav id="mainNav" class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl">
     <div class="bg-black/40 backdrop-blur-xl border border-white/10 rounded-full px-4 md:px-5 py-3 md:py-3.5 flex justify-between items-center shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
-      <!-- Skylimit logo + brand -->
+      
       <a href="#hero" class="flex items-center gap-2.5 shrink-0">
         <img src="../../../assets/images/projects/SkyLimit_AR_Logo.png" alt="Skylimit" class="h-7 md:h-8 w-auto">
         <span class="hidden sm:block text-[13px] font-extrabold uppercase tracking-wider text-white leading-tight">AR<span class="text-white/60"> / </span>Dashboard</span>
       </a>
-      <!-- Desktop right side -->
+      
       <div class="hidden md:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-white/60">
-        <!-- Input Dropdown -->
+        
         <div class="relative nav-dropdown-wrap" id="inputDropdownWrap">
           <button onclick="toggleDropdown('inputDropdown')" class="hover:text-white transition-colors px-2.5 py-1.5 rounded-full hover:bg-white/5 flex items-center gap-1 whitespace-nowrap"><i class="fa-solid fa-upload mr-1"></i> Input <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
           <div class="nav-dropdown" id="inputDropdown">
@@ -704,7 +705,7 @@
             <button onclick="showDeleteDataModal(); closeDropdown('inputDropdown')" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash-can text-white/60" style="width:18px"></i> Delete Data</button>
           </div>
         </div>
-        <!-- Output Dropdown -->
+        
         <div class="relative nav-dropdown-wrap" id="outputDropdownWrap">
           <button onclick="toggleDropdown('outputDropdown')" class="hover:text-white transition-colors px-2.5 py-1.5 rounded-full hover:bg-white/5 flex items-center gap-1 whitespace-nowrap"><i class="fa-solid fa-download mr-1"></i> Output <i class="fa-solid fa-chevron-down text-[8px]"></i></button>
           <div class="nav-dropdown" id="outputDropdown">
@@ -721,20 +722,20 @@
         <span class="w-px h-5 bg-white/10 mx-1"></span>
         <button onclick="showClearModal()" class="hover:text-red-600 transition-colors px-2.5 py-1.5 rounded-full hover:bg-red-50"><i class="fa-solid fa-trash-can mr-1"></i> Clear</button>
       </div>
-      <!-- mobile menu toggle -->
+      
       <div class="md:hidden flex gap-1.5">
         <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="text-white text-lg p-1"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
     <div id="mobileMenu" class="hidden md:hidden mt-2 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl px-4 py-4 shadow-lg">
       <div class="flex flex-col gap-1 text-sm font-medium text-white">
-        <!-- Input group -->
+        
         <div class="text-xs font-bold uppercase tracking-widest text-white/60 px-3 pt-1 pb-1">Input</div>
         <button onclick="showUploadModal('master'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-book w-5 text-white/60"></i> Master Report</button>
         <button onclick="showUploadModal('payment'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-money-bill-wave w-5 text-white/60"></i> Payment Logs</button>
         <button onclick="showUploadModal('calling'); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-phone w-5 text-white/60"></i> Calling List</button>
         <hr class="border-white/10 my-1">
-        <!-- Output group -->
+        
         <div class="text-xs font-bold uppercase tracking-widest text-white/60 px-3 pt-1 pb-1">Output</div>
         <button onclick="exportSyncFile(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-cloud-arrow-up w-5 text-white/60"></i> Sync JSON</button>
         <button onclick="exportCSV(); document.getElementById('mobileMenu').classList.add('hidden')" class="hover:bg-white/5 px-3 py-2.5 rounded-xl text-left flex items-center gap-3"><i class="fa-solid fa-file-csv w-5 text-white/60"></i> CSV Report</button>
@@ -748,7 +749,7 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  
   <header id="hero" class="relative pt-20 pb-10 md:pt-24 md:pb-12 flex flex-col justify-center items-center px-4 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black to-black pointer-events-none"></div>
     <div class="absolute top-0 left-1/3 w-72 h-72 bg-brand-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -771,7 +772,7 @@
 
   <main class="max-w-7xl mx-auto px-4 md:px-6 pb-20 relative z-10">
 
-    <!-- ZERO-STATE GUIDANCE -->
+    
     <section id="zeroState" class="liquid-glass border border-white/10 rounded-2xl p-8 md:p-12 mb-6 text-center">
       <div class="max-w-lg mx-auto">
         <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-brand-highlight/10 border border-brand-highlight/20 flex items-center justify-center">
@@ -800,7 +801,7 @@
       </div>
     </section>
 
-    <!-- KPI CARDS -->
+    
     <section id="kpiSection" class="mb-6 space-y-3 md:space-y-4 sk">
       <div class="sk-placeholder">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 kpi-grid">
@@ -862,7 +863,7 @@
     </section>
 
     <div id="dashboardContent">
-    <!-- AGING BUCKET SUMMARY -->
+    
     <section class="mb-6 sk" id="agingBucketSection">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-5">
@@ -892,7 +893,7 @@
       </div>
     </section>
 
-    <!-- FILTERS -->
+    
     <section class="flex flex-wrap items-center gap-3 mb-6 p-4 bg-white/5 rounded-2xl border border-white/10">
       <div class="flex items-center gap-2">
         <label class="text-[11px] font-bold uppercase tracking-widest text-white/60">Group:</label>
@@ -924,7 +925,7 @@
       <span class="text-xs text-white/50 ml-auto whitespace-nowrap" id="recordCount">0 records</span>
     </section>
 
-    <!-- CHARTS -->
+    
     <section class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8 sk" id="chartGrid">
       <div class="sk-placeholder" style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
         <div class="sk-shimmer sk-chart"></div>
@@ -950,7 +951,7 @@
       </div>
     </section>
 
-    <!-- TOP 10 OVERDUE PARTIES -->
+    
     <section class="mb-8 sk" id="topOverdueSection">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-xl p-4">
@@ -994,7 +995,7 @@
       </div>
     </section>
 
-    <!-- AI ANALYSIS -->
+    
     <section class="mb-8 sk" id="aiAnalysisSection">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-2xl p-6 md:p-8">
@@ -1022,7 +1023,7 @@
       </div>
     </section>
 
-    <!-- TABS -->
+    
     <section class="mb-4 sk" id="tabSection">
       <div class="sk-placeholder">
         <div class="sk-shimmer sk-tab"></div>
@@ -1036,7 +1037,7 @@
       </div>
     </section>
 
-    <!-- TAB: MASTER LEDGER -->
+    
     <div id="panelLedger" class="tab-panel sk">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
@@ -1105,7 +1106,7 @@
       </div>
     </div>
 
-    <!-- TAB: PAYMENT DESK -->
+    
     <div id="panelPayment" class="tab-panel sk" style="display:none">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
@@ -1171,7 +1172,7 @@
       </div>
     </div>
 
-    <!-- TAB: CALLING LIST -->
+    
     <div id="panelCalling" class="tab-panel sk" style="display:none">
       <div class="sk-placeholder">
         <div class="liquid-glass border border-white/10 rounded-xl p-4 md:p-6">
@@ -1240,7 +1241,7 @@
       </div>
     </div>
 
-    <!-- ADVANCED METRICS -->
+    
     <section class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-6 mt-10" id="advancedMetricsSection">
       <div class="liquid-glass border border-white/10 rounded-xl p-4 text-center">
         <p class="text-xs uppercase tracking-widest text-white/70 mb-1">DSO (Days)</p>
@@ -1264,9 +1265,9 @@
       </div>
     </section>
 
-    </div><!-- /dashboardContent -->
+    </div>
 
-    <!-- GUIDE SECTION -->
+    
     <details class="mt-10 mb-4 liquid-glass border border-white/10 rounded-2xl overflow-hidden" id="guideSection">
       <summary class="p-4 md:p-5 cursor-pointer flex items-center justify-between text-sm font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors">
         <span><i class="fa-solid fa-circle-question mr-2 text-brand-highlight"></i> How This Dashboard Works</span>
@@ -1369,7 +1370,7 @@
       </div>
     </details>
 
-    <!-- PRIVACY NOTICE -->
+    
     <div class="mt-10 flex items-start gap-3 p-4 rounded-2xl border border-white/10 bg-white/5">
       <div class="w-9 h-9 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 mt-0.5">
         <i class="fa-solid fa-shield-halved text-blue-500 text-sm"></i>
@@ -1382,7 +1383,7 @@
 
   </main>
 
-  <!-- EDIT PAYMENT MODAL -->
+  
   <div id="editPaymentModal" class="modal-overlay">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
@@ -1418,7 +1419,7 @@
     </div>
   </div>
 
-  <!-- UPLOAD MODAL -->
+  
   <div class="modal-overlay" id="uploadModal">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
@@ -1440,7 +1441,7 @@
     </div>
   </div>
 
-  <!-- FILE PREVIEW MODAL -->
+  
   <div class="modal-overlay" id="previewModal">
     <div class="modal-box" style="max-width:720px">
       <div class="flex justify-between items-center mb-4">
@@ -1455,7 +1456,7 @@
     </div>
   </div>
 
-  <!-- CLEAR DB MODAL -->
+  
   <div class="modal-overlay" id="clearModal">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
@@ -1472,7 +1473,7 @@
     </div>
   </div>
 
-  <!-- DELETE DATA MODAL -->
+  
   <div class="modal-overlay" id="deleteDataModal">
     <div class="modal-box" style="max-width:400px">
       <div class="flex justify-between items-center mb-4">
@@ -1490,7 +1491,7 @@
     </div>
   </div>
 
-  <!-- STATUS SLIDER BUTTON (Not Called / etc) -->
+  
   <div id="statusChangeModal" class="modal-overlay">
     <div class="modal-box">
       <div class="flex justify-between items-center mb-4">
@@ -4465,7 +4466,7 @@
   </script>
 
   <footer class="text-center text-xs text-white/40 pb-6 space-y-6">
-    <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> · Built by <a href="https://f9xr.github.io" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
+    <p>This Dashboard is maintained by <a href="https://www.linkedin.com/in/inakmm" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">Anjani Kumar Mishra</a> · Built by <a href="https://f9xr.org" class="text-brand-highlight hover:underline" target="_blank" rel="noopener">F9XR Team</a></p>
 
     <details open="" class="max-w-4xl mx-auto pt-4 border-t border-white/10">
       <summary class="cursor-pointer flex items-center justify-between gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-5 hover:text-white/60 transition-colors list-none [&amp;::-webkit-details-marker]:hidden">
@@ -4479,12 +4480,12 @@
             <img loading="lazy" src="https://www.aat.ee/images/badges/featured-badge-dark.svg" alt="Featured on aat.ee" width="200" height="54" class="hidden dark:block" />
           </a>
           <a href="https://qoo.im/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://qoo.im/brand/qoo/badge-dark.svg" alt="Featured on Qoo.IM" width="172" height="40" /></a> 
-          <!-- productburst-badge-start -->
+          
           <a href="https://productburst.com/product/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
             <img loading="lazy" src="https://3188a5210b07f4ad511bbcdc967bc67b.cdn.bubble.io/f1747782156422x193143061268857820/pB-Badge-dark.png" 
                  alt="Featured on ProductBurst" width="160" />
           </a>
-          <!-- productburst-badge-end --> 
+           
           <a href="https://blackhawkegames.com/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://blackhawkegames.com/brand/blackhawkegames/badge-dark.svg" alt="Featured on BlackHawkGame" width="172" height="40" /></a> 
           <a href="https://xemvip.com/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://xemvip.com/brand/xemvip/badge-dark.svg" alt="Featured on XemVIP" width="172" height="40" /></a> 
           <a href="https://upperstory.io/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://upperstory.io/brand/upperstory/badge-dark.svg" alt="Featured on Upperstory" width="172" height="40" /></a> 
@@ -4622,18 +4623,18 @@
           <a href="https://www.webprojectlist.com/" target="_blank" rel="noopener"><img loading="lazy" src="https://www.webprojectlist.com/static/backlink/webprojectlist_border_color.40c960ac26bd.webp" alt="WebProjectList Badge" width="200" height="60" /></a>
           <a href="https://www.showmysites.com" target="_blank" rel="noopener"><img loading="lazy" src="https://www.showmysites.com/static/backlink/blue_border.webp" alt="ShowMySites Badge" width="200" height="60" /></a>
           <a href="https://www.findgreatsites.com/" target="_blank" rel="noopener"><img loading="lazy" src="https://www.findgreatsites.com/static/backlink/findgreatsites_border_color.f77643a92859.webp" alt="FindGreatSites Badge" width="200" height="60" /></a>
-          <!-- Duplicate for seamless marquee -->
+          
           <a href="https://www.aat.ee/?ref=badge" target="_blank" rel="noopener" title="Featured on aat.ee">
             <img loading="lazy" src="https://www.aat.ee/images/badges/featured-badge-light.svg" alt="Featured on aat.ee" width="200" height="54" class="block dark:hidden" />
             <img loading="lazy" src="https://www.aat.ee/images/badges/featured-badge-dark.svg" alt="Featured on aat.ee" width="200" height="54" class="hidden dark:block" />
           </a>
           <a href="https://qoo.im/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://qoo.im/brand/qoo/badge-dark.svg" alt="Featured on Qoo.IM" width="172" height="40" /></a> 
-          <!-- productburst-badge-start -->
+          
           <a href="https://productburst.com/product/skylimit-ar-aging-dashboard" target="_blank" rel="noopener noreferrer">
             <img loading="lazy" src="https://3188a5210b07f4ad511bbcdc967bc67b.cdn.bubble.io/f1747782156422x193143061268857820/pB-Badge-dark.png" 
                  alt="Featured on ProductBurst" width="160" />
           </a>
-          <!-- productburst-badge-end --> 
+           
           <a href="https://blackhawkegames.com/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://blackhawkegames.com/brand/blackhawkegames/badge-dark.svg" alt="Featured on BlackHawkGame" width="172" height="40" /></a> 
           <a href="https://xemvip.com/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://xemvip.com/brand/xemvip/badge-dark.svg" alt="Featured on XemVIP" width="172" height="40" /></a> 
           <a href="https://upperstory.io/?utm_source=badge" target="_blank" rel="noopener"><img loading="lazy" src="https://upperstory.io/brand/upperstory/badge-dark.svg" alt="Featured on Upperstory" width="172" height="40" /></a> 

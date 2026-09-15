@@ -4,24 +4,59 @@
 
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(root) {
-    animation: 300ms ease-out both crossFadeOut;
+    animation: 220ms ease-out both rootOut;
   }
   ::view-transition-new(root) {
-    animation: 400ms 150ms ease-out both crossFadeIn;
+    animation: 480ms 140ms ease-out both rootIn;
+  }
+
+  ::view-transition-old(site-header) {
+    animation: 220ms ease-out both headerOut;
+  }
+  ::view-transition-new(site-header) {
+    animation: 420ms 140ms ease-out both headerIn;
   }
 }
 
-@keyframes crossFadeOut {
+@keyframes rootOut {
   to {
     opacity: 0;
-    transform: scale(0.98);
+    transform: translateY(-10px) scale(0.985);
     filter: blur(2px);
   }
 }
-@keyframes crossFadeIn {
+
+@keyframes rootIn {
   from {
     opacity: 0;
-    transform: scale(1.02);
-    filter: blur(4px);
+    transform: translateY(20px) scale(0.995);
+    filter: blur(6px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes headerOut {
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+@keyframes headerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#mainNav {
+  view-transition-name: site-header;
 }
