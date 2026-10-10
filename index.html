@@ -845,6 +845,44 @@
         }
         .focus\:border-brand-primary:focus { border-color: var(--brand-primary); }
         .focus\:border-brand-highlight:focus { border-color: var(--brand-highlight); }
+
+        /* AI Tools Stack logos: self-hosted SVGs have mixed aspect ratios
+           (square icons vs. wide wordmarks), so normalise them into
+           equal-height boxes with a width cap and object-fit to avoid
+           distortion or overflow on narrow viewports. */
+        #ai-tools .tool-logo {
+            height: 2.5rem;
+            width: auto;
+            max-width: 9rem;
+            object-fit: contain;
+            object-position: center;
+        }
+        @media (min-width: 768px) {
+            #ai-tools .tool-logo { height: 3rem; max-width: 11rem; }
+        }
+
+        /* GitHub activity (05 / Open Source). The contribution heatmap uses a
+           brand-gold intensity scale (GitHub green would clash with the palette)
+           and scrolls horizontally on narrow screens instead of squashing. */
+        #github .gh-heat-scroll { overflow-x: auto; padding-bottom: 4px; }
+        #github .gh-heat-inner { min-width: max-content; }
+        #github .gh-heat-months { display: flex; gap: 3px; margin-bottom: 4px; }
+        #github .gh-heat-month { flex: 0 0 11px; width: 11px; font-size: 10px; line-height: 1; color: var(--brand-secondary); white-space: nowrap; }
+        #github .gh-heat-grid { display: flex; gap: 3px; }
+        #github .gh-heat-week { display: flex; flex-direction: column; gap: 3px; flex: 0 0 11px; }
+        #github .gh-heat-day { width: 11px; height: 11px; border-radius: 2px; background: #ECECEC; }
+        #github .gh-heat-day[data-level="1"] { background: rgba(243, 198, 35, 0.30); }
+        #github .gh-heat-day[data-level="2"] { background: rgba(243, 198, 35, 0.55); }
+        #github .gh-heat-day[data-level="3"] { background: rgba(243, 198, 35, 0.80); }
+        #github .gh-heat-day[data-level="4"] { background: #f3c623; }
+        #github .gh-heat-legend { display: inline-flex; align-items: center; gap: 4px; }
+        #github .gh-heat-legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; background: #ECECEC; }
+        #github .gh-heat-legend i[data-level="1"] { background: rgba(243, 198, 35, 0.30); }
+        #github .gh-heat-legend i[data-level="2"] { background: rgba(243, 198, 35, 0.55); }
+        #github .gh-heat-legend i[data-level="3"] { background: rgba(243, 198, 35, 0.80); }
+        #github .gh-heat-legend i[data-level="4"] { background: #f3c623; }
+        #github .gh-activity-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 9999px; background: #ffffff; border: 1px solid #E5E5E5; color: var(--brand-secondary); }
+        #github .gh-lang-dot { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 9999px; margin-right: 0.375rem; vertical-align: middle; }
     </style>
     <script src="https://js.puter.com/v2/" defer=""></script>
   <link rel="stylesheet" href="./assets/css/view-transitions.css">
@@ -1153,6 +1191,8 @@
                 <span class="w-2 h-2 flex items-center justify-center text-brand-secondary/30 shrink-0"><i class="fa-solid fa-chevron-right text-[5px]"></i></span>
                 <a href="#projects" class="px-2 md:px-3 py-1.5 md:py-1 text-xs md:text-xs font-medium text-brand-secondary hover:text-brand-primary transition-colors whitespace-nowrap">Works</a>
                 <span class="w-2 h-2 flex items-center justify-center text-brand-secondary/30 shrink-0"><i class="fa-solid fa-chevron-right text-[5px]"></i></span>
+                <a href="#github" class="px-2 md:px-3 py-1.5 md:py-1 text-xs md:text-xs font-medium text-brand-secondary hover:text-brand-primary transition-colors whitespace-nowrap">GitHub</a>
+                <span class="w-2 h-2 flex items-center justify-center text-brand-secondary/30 shrink-0"><i class="fa-solid fa-chevron-right text-[5px]"></i></span>
                 <a href="#insights" class="px-2 md:px-3 py-1.5 md:py-1 text-xs md:text-xs font-medium text-brand-secondary hover:text-brand-primary transition-colors whitespace-nowrap">Research</a>
                 <span class="w-2 h-2 flex items-center justify-center text-brand-secondary/30 shrink-0"><i class="fa-solid fa-chevron-right text-[5px]"></i></span>
                 <a href="#credentials" class="px-2 md:px-3 py-1.5 md:py-1 text-xs md:text-xs font-medium text-brand-secondary hover:text-brand-primary transition-colors whitespace-nowrap">Credentials</a>
@@ -1245,6 +1285,161 @@
             </div>
 
             <div class="space-y-0 border-t border-[#E5E5E5]">
+                <details open class="group border-b border-[#E5E5E5] [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex flex-col md:flex-row justify-between items-center py-12 hover:bg-brand-tertiary transition-colors px-6 -mx-6 rounded-2xl cursor-pointer list-none">
+                        <div class="w-full md:w-1/2 flex items-center gap-6">
+                            <div class="w-16 h-16 bg-white border border-[#E5E5E5] rounded-full flex items-center justify-center font-bold text-2xl text-brand-primary shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold tracking-tighter text-brand-primary mb-1">Jr Financial Data
+                                    Analyst</h3>
+                                <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary">SkyLimit
+                                    Group</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 flex justify-between items-center mt-6 md:mt-0">
+                            <p class="text-brand-primary font-medium max-w-xs text-sm">PowerBI &amp; Excel dashboards for cost,
+                                revenue and forecasting insight.</p>
+                            <div class="flex items-center gap-6">
+                                <span class="font-bold text-xl tracking-tighter text-brand-primary">Jul 2026 &mdash;
+                                    Now</span>
+                                <i class="fa-solid fa-chevron-down text-brand-secondary group-open:rotate-180 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-12 -mx-6 animate-fade-rise">
+                        <div class="bg-brand-tertiary p-8 rounded-2xl border border-[#E5E5E5]">
+                            <p class="text-brand-secondary font-medium leading-relaxed mb-6">Transitioned from a Junior
+                                Accountant role to focus heavily on financial data analytics and business insights.
+                                Hyderabad, India.</p>
+                            <ul class="space-y-4 text-brand-secondary font-medium leading-relaxed">
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Analyzed large financial datasets to identify cost savings, revenue trends, and
+                                        key business insights.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Built automated reports and interactive dashboards using Microsoft PowerBI and
+                                        Excel for real-time management visibility.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Partnered with cross-functional teams to assist with financial modeling,
+                                        forecasting, and data-driven budgeting.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="group border-b border-[#E5E5E5] [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex flex-col md:flex-row justify-between items-center py-12 hover:bg-brand-tertiary transition-colors px-6 -mx-6 rounded-2xl cursor-pointer list-none">
+                        <div class="w-full md:w-1/2 flex items-center gap-6">
+                            <div class="w-16 h-16 bg-white border border-[#E5E5E5] rounded-full flex items-center justify-center font-bold text-2xl text-brand-primary shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold tracking-tighter text-brand-primary mb-1 flex items-center gap-3">
+                                    Accounts Receivable Analyst &amp; Jr Accountant
+                                    <a href="page/projects/dashboards/skylimit-ardash.html" aria-label="View the SkyLimit AR Aging Dashboard built in this role" class="text-sm text-brand-secondary hover:text-brand-primary transition-colors"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </h3>
+                                <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary">SkyLimit
+                                    Group</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 flex justify-between items-center mt-6 md:mt-0">
+                            <p class="text-brand-primary font-medium max-w-xs text-sm">AR ledger, DSO tracking, and IFRS
+                                15 billing execution.</p>
+                            <div class="flex items-center gap-6">
+                                <span class="font-bold text-xl tracking-tighter text-brand-primary">May 2026 &mdash; Jul
+                                    2026</span>
+                                <i class="fa-solid fa-chevron-down text-brand-secondary group-open:rotate-180 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-12 -mx-6 animate-fade-rise">
+                        <div class="bg-brand-tertiary p-8 rounded-2xl border border-[#E5E5E5]">
+                            <p class="text-brand-secondary font-medium leading-relaxed mb-6">Owned the receivables cycle
+                                end to end, from ledger reconciliation through cash collection.
+                                Hyderabad, India.</p>
+                            <ul class="space-y-4 text-brand-secondary font-medium leading-relaxed">
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Monitored the AR ledger and executed daily aging analysis to actively track and
+                                        minimize Days Sales Outstanding (DSO).</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Reconciled high-volume customer payments against bank receipts, identifying and
+                                        resolving billing variances to ensure data integrity.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Managed end-to-end billing execution and invoice generation, ensuring strict
+                                        compliance with revenue recognition standards (IFRS 15).</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Collaborated closely with Sales and Customer Success to resolve client payment
+                                        disputes and expedite cash collections.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="group border-b border-[#E5E5E5] [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex flex-col md:flex-row justify-between items-center py-12 hover:bg-brand-tertiary transition-colors px-6 -mx-6 rounded-2xl cursor-pointer list-none">
+                        <div class="w-full md:w-1/2 flex items-center gap-6">
+                            <div class="w-16 h-16 bg-white border border-[#E5E5E5] rounded-full flex items-center justify-center font-bold text-2xl text-brand-primary shadow-sm group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold tracking-tighter text-brand-primary mb-1">Finance Ops
+                                    Intern</h3>
+                                <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary">Mindsparc
+                                    Innovations</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 flex justify-between items-center mt-6 md:mt-0">
+                            <p class="text-brand-primary font-medium max-w-xs text-sm">Data validation, Excel summaries,
+                                and variance analysis ensuring audit readiness.</p>
+                            <div class="flex items-center gap-6">
+                                <span class="font-bold text-xl tracking-tighter text-brand-primary">May 2025 &mdash; Jul
+                                    2025</span>
+                                <i class="fa-solid fa-chevron-down text-brand-secondary group-open:rotate-180 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </summary>
+                    <div class="px-6 pb-12 -mx-6 animate-fade-rise">
+                        <div class="bg-brand-tertiary p-8 rounded-2xl border border-[#E5E5E5]">
+                            <ul class="space-y-4 text-brand-secondary font-medium leading-relaxed">
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Validated 1,000+ transaction-level records ensuring financial accuracy and
+                                        reporting consistency.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Supported monthly variance analysis and internal reporting processes.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Improved reporting accuracy by 15% through structured validation
+                                        checks.</span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
+                                    <span>Maintained documentation aligned with audit and compliance
+                                        requirements.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+
                 <details class="group border-b border-[#E5E5E5] [&amp;_summary::-webkit-details-marker]:hidden">
                     <summary class="flex flex-col md:flex-row justify-between items-center py-12 hover:bg-brand-tertiary transition-colors px-6 -mx-6 rounded-2xl cursor-pointer list-none">
                         <div class="w-full md:w-1/2 flex items-center gap-6">
@@ -1276,55 +1471,6 @@
                                 not just look good. Specialized AI-powered architectures and Local SEO for Salons,
                                 Clinics, and Global Brands.
                             </p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="group border-b border-[#E5E5E5] [&amp;_summary::-webkit-details-marker]:hidden">
-                    <summary class="flex flex-col md:flex-row justify-between items-center py-12 hover:bg-brand-tertiary transition-colors px-6 -mx-6 rounded-2xl cursor-pointer list-none">
-                        <div class="w-full md:w-1/2 flex items-center gap-6">
-                            <div class="w-16 h-16 bg-white border border-[#E5E5E5] rounded-full flex items-center justify-center font-bold text-2xl text-brand-primary shadow-sm group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-building-columns"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-3xl font-bold tracking-tighter text-brand-primary mb-1">Finance Ops
-                                    Intern</h3>
-                                <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary">Mindsparc
-                                    Innovations</p>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-1/2 flex justify-between items-center mt-6 md:mt-0">
-                            <p class="text-brand-primary font-medium max-w-xs text-sm">Data validation, Excel summaries,
-                                and variance analysis ensuring audit readiness.</p>
-                            <div class="flex items-center gap-6">
-                                <span class="font-bold text-xl tracking-tighter text-brand-primary">2025</span>
-                                <i class="fa-solid fa-chevron-down text-brand-secondary group-open:rotate-180 transition-transform duration-300"></i>
-                            </div>
-                        </div>
-                    </summary>
-                    <div class="px-6 pb-12 -mx-6 animate-fade-rise">
-                        <div class="bg-brand-tertiary p-8 rounded-2xl border border-[#E5E5E5]">
-                            <ul class="space-y-4 text-brand-secondary font-medium leading-relaxed">
-                                <li class="flex items-start gap-4">
-                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
-                                    <span>Validated 1,000+ transaction-level records ensuring financial accuracy and
-                                        reporting consistency.</span>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
-                                    <span>Supported monthly variance analysis and internal reporting processes.</span>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
-                                    <span>Improved reporting accuracy by 15% through structured validation
-                                        checks.</span>
-                                </li>
-                                <li class="flex items-start gap-4">
-                                    <i class="fa-solid fa-check text-green-500 mt-1.5 text-xs"></i>
-                                    <span>Maintained documentation aligned with audit and compliance
-                                        requirements.</span>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </details>
@@ -1706,6 +1852,58 @@
         </section>
 
 
+        <section id="github" aria-labelledby="github-heading" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-[#E5E5E5] pb-8 gap-6">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase mb-4 block">05 /
+                        Open Source</span>
+                    <h2 id="github-heading" class="text-5xl md:text-7xl font-bold tracking-tighter leading-none text-brand-primary">Build
+                        Activity</h2>
+                    <p class="text-brand-secondary text-sm md:text-base max-w-xl mt-6 font-medium">Commits, dashboards
+                        and shipping logs pulled straight from GitHub — the same tooling behind this site.</p>
+                </div>
+                <a href="https://github.com/inakm" target="_blank" rel="noopener noreferrer"
+                    class="shrink-0 inline-flex items-center gap-3 bg-brand-primary text-white rounded-full px-6 py-3 text-sm font-bold hover:bg-brand-secondary transition-colors">
+                    <i class="fa-brands fa-github text-lg"></i> View GitHub profile
+                </a>
+            </div>
+
+            <div id="gh-stats" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10"></div>
+
+            <div class="bg-brand-tertiary rounded-[2rem] border border-[#E5E5E5] p-6 md:p-8 mb-10">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
+                    <h3 id="gh-heat-total" class="text-xl md:text-2xl font-bold tracking-tighter text-brand-primary">
+                        Contributions</h3>
+                    <div class="gh-heat-legend text-xs font-medium text-brand-secondary">
+                        <span>Less</span>
+                        <i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i
+                            data-level="4"></i>
+                        <span>More</span>
+                    </div>
+                </div>
+                <div id="gh-heat">
+                    <div class="py-10 text-center text-sm font-bold text-brand-secondary">Loading GitHub activity…
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-brand-tertiary rounded-[2rem] border border-[#E5E5E5] p-6 md:p-8">
+                    <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-bolt text-brand-highlight"></i> Recent activity
+                    </h3>
+                    <ul id="gh-activity" class="space-y-4 text-sm"></ul>
+                </div>
+                <div class="bg-brand-tertiary rounded-[2rem] border border-[#E5E5E5] p-6 md:p-8">
+                    <h3 class="text-xl font-bold tracking-tighter text-brand-primary mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-code-branch text-brand-secondary"></i> Top repositories
+                    </h3>
+                    <ul id="gh-repos" class="space-y-4 text-sm"></ul>
+                </div>
+            </div>
+        </section>
+
+
         <section id="insights" class="max-w-7xl mx-auto px-6 md:px-12 mb-40 reveal">
             <div class="text-center mb-20">
                 <span class="text-xs font-bold tracking-widest text-brand-secondary uppercase mb-4 block">06 /
@@ -1963,10 +2161,45 @@
                 <div class="flex-grow z-10">
                     <span class="text-[10px] font-bold text-red-600 bg-red-100 px-3 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block"><i class="fa-solid fa-fire mr-1"></i> Featured</span>
                     <h3 class="text-2xl md:text-3xl font-bold tracking-tighter text-brand-primary mb-3 leading-tight group-hover:text-brand-secondary transition-colors">
-                        Inside the ₹1.78B RCB Acquisition</h3>
-                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">A Sports M&amp;A Deep Dive as a FP&amp;A
-                    </p>
-                    <a href="https://tontufmoney-news.blogspot.com/2026/03/inside-178b-rcb-acquisition-sports-m.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
+                        Top Accounting Software in the World (2026 Guide)</h3>
+                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">Which accounting software do
+                        businesses use most? See QuickBooks, Xero, Sage, Zoho, Tally and more, with market data and an
+                        auditor&rsquo;s buying checklist.</p>
+                    <a href="https://inakm.github.io/posts/2026/09/28/most-used-accounting-software-in-the-world.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
+                        Read Analysis <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-brand-tertiary p-7 flex flex-col md:flex-row items-center gap-6 rounded-[2.5rem] border border-[#E5E5E5] relative overflow-hidden group hover:shadow-xl transition-all duration-400 mt-5">
+                <div class="absolute -top-10 -right-10 text-8xl text-brand-primary/5 group-hover:scale-105 transition-transform duration-500">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="flex-grow z-10">
+                    <span class="text-[10px] font-bold text-red-600 bg-red-100 px-3 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block"><i class="fa-solid fa-magnifying-glass-chart mr-1"></i> Case Study</span>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tighter text-brand-primary mb-3 leading-tight group-hover:text-brand-secondary transition-colors">
+                        Rajesh Exports Scam: What Auditors Missed</h3>
+                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">Inside the Rajesh Exports scam
+                        through an auditor&rsquo;s lens: the red flags, the failures, and the audit lessons every business
+                        owner should learn from.</p>
+                    <a href="https://inakm.github.io/posts/2026/09/15/rajesh-exports-scam-auditor-perspective.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
+                        Read Analysis <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-brand-tertiary p-7 flex flex-col md:flex-row items-center gap-6 rounded-[2.5rem] border border-[#E5E5E5] relative overflow-hidden group hover:shadow-xl transition-all duration-400 mt-5">
+                <div class="absolute -top-10 -right-10 text-8xl text-brand-primary/5 group-hover:scale-105 transition-transform duration-500">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="flex-grow z-10">
+                    <span class="text-[10px] font-bold text-green-600 bg-green-100 px-3 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block"><i class="fa-solid fa-chart-line mr-1"></i> Guide</span>
+                    <h3 class="text-2xl md:text-3xl font-bold tracking-tighter text-brand-primary mb-3 leading-tight group-hover:text-brand-secondary transition-colors">
+                        Board Committees: The Complete Guide</h3>
+                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">Board committees explained: audit,
+                        nomination and remuneration committees, how they work and are regulated, plus real cases from Enron
+                        to the London Whale.</p>
+                    <a href="https://inakm.github.io/posts/2026/09/13/board-committees-complete-guide.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
                         Read Analysis <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1977,12 +2210,13 @@
                     <i class="fa-solid fa-coins"></i>
                 </div>
                 <div class="flex-grow z-10">
-                    <span class="text-[10px] font-bold text-green-600 bg-green-100 px-3 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block"><i class="fa-solid fa-chart-line mr-1"></i> Guide</span>
+                    <span class="text-[10px] font-bold text-green-600 bg-green-100 px-3 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block"><i class="fa-solid fa-gavel mr-1"></i> Tax Guide</span>
                     <h3 class="text-2xl md:text-3xl font-bold tracking-tighter text-brand-primary mb-3 leading-tight group-hover:text-brand-secondary transition-colors">
-                        Building a Monthly Dividend Stream</h3>
-                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">Top Indian Stocks for Consistent
-                        Cash Flow</p>
-                    <a href="https://tontufmoney-news.blogspot.com/2026/04/building-monthly-dividend-stream-top.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
+                        5 Surprising Rules Hiding in UK Tax Law</h3>
+                    <p class="text-brand-secondary font-medium text-base mb-6 max-w-xl">Five rules hiding in UK tax law:
+                        the line between avoidance and evasion, the employee expense triple lock, company car CO2 tax,
+                        Rent-a-Room and the Marriage Allowance.</p>
+                    <a href="https://inakm.github.io/posts/2026/09/12/five-surprising-uk-tax-rules.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-brand-secondary transition-colors">
                         Read Analysis <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
@@ -2043,21 +2277,21 @@
             </div>
 
             <div class="bg-brand-tertiary p-8 md:p-12 rounded-[3rem] border border-[#E5E5E5] flex flex-wrap justify-center items-center gap-4 md:gap-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                <img src="https://cdn.brandfetch.io/idW5s392j1/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1738315809101" alt="Claude AI assistant for financial analysis" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/claude.svg" alt="Claude AI assistant for financial analysis" loading="lazy" width="48" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/id2pBkns4V/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1766389160288" alt="NotebookLM AI research tool for financial data" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/notebooklm.svg" alt="NotebookLM AI research tool for financial data" loading="lazy" width="48" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/idC_7w82en/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1766410489022" alt="DeepSeek AI for financial modeling" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/deepseek.svg" alt="DeepSeek AI for financial modeling" loading="lazy" width="48" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.worldvectorlogo.com/logos/microsoft-copilot-logo.svg" alt="Microsoft Copilot AI for finance automation" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/copilot.svg" alt="Microsoft Copilot AI for finance automation" loading="lazy" width="176" height="40" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/idN0IKRQcy/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1667654433529" alt="Workiva financial reporting platform" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/n8n.svg" alt="n8n workflow automation for finance processes" loading="lazy" width="48" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/id9_d11aqZ/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1667654409228" alt="Alteryx data analytics for finance teams" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/alteryx.svg" alt="Alteryx data analytics for finance teams" loading="lazy" width="158" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/idNdawywEZ/w/3176/h/800/theme/dark/idQE22oxKf.png?c=1bxid64Mup7aczewSAYMX&amp;t=1754453427391" alt="Perplexity AI search for financial research" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/perplexity.svg" alt="Perplexity AI search for financial research" loading="lazy" width="48" height="48" class="tool-logo">
                 <span class="w-px h-8 bg-[#E5E5E5]"></span>
-                <img src="https://cdn.brandfetch.io/id2UDPob7G/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&amp;t=1754282172596" alt="Mistral AI for natural language finance analysis" loading="lazy" width="120" height="48" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logos/mistral.svg" alt="Mistral AI for natural language finance analysis" loading="lazy" width="48" height="48" class="tool-logo">
             </div>
         </section>
 
@@ -2208,6 +2442,7 @@
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">3</kbd> <span class="text-white">Skills</span></span>
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">4</kbd> <span class="text-white">Education</span></span>
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">5</kbd> <span class="text-white">Works</span></span>
+                    <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">G</kbd> <span class="text-white">GitHub</span></span>
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">6</kbd> <span class="text-white">Research</span></span>
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">7</kbd> <span class="text-white">Credentials</span></span>
                     <span class="bg-white/5 px-3 py-1.5 rounded"><kbd class="bg-white/20 px-1.5 py-0.5 rounded text-white">/</kbd> <span class="text-white">Search</span></span>
@@ -2323,6 +2558,7 @@
                     '3': '#skills',
                     '4': '#education',
                     '5': '#projects',
+                    'g': '#github',
                     '6': '#insights',
                     '7': '#credentials',
                     '/': () => openSearch(),
@@ -2416,6 +2652,12 @@
                 { url: "https://cryptoradarnews.blogspot.com/feeds/posts/default?alt=json-in-script", name: "Crypto Radar News", icon: "fa-bitcoin-sign" },
                 { url: "https://tontufmoney-news.blogspot.com/feeds/posts/default?alt=json-in-script", name: "TONTUF Money", icon: "fa-money-bill-trend-up" }
             ],
+            // Pre-built manifest of the /posts/ blog, generated from its sitemap by
+            // `npm run posts` (tools/generate-posts.js). Kept as a static JSON file
+            // so this section still populates if a third-party feed goes down.
+            staticFeeds: [
+                { url: "assets/data/posts.json", name: "Insights", icon: "fa-pen-to-square" }
+            ],
             itemsPerLoad: 6
         };
 
@@ -2467,6 +2709,21 @@
             } catch (e) { return null; }
         }
 
+        function fetchStaticPosts(src) {
+            return fetch(src.url, { cache: 'no-cache' })
+                .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+                .then(data => (data.posts || []).map(p => ({
+                    id: 'post:' + p.url,
+                    title: p.title,
+                    url: p.url,
+                    date: new Date(p.date),
+                    source: data.label || src.name,
+                    description: p.description || '',
+                    tags: ['Insights']
+                })))
+                .catch(err => { console.warn('Static feed failed (' + src.url + '):', err); return []; });
+        }
+
         function escapeHtml(str) {
             return String(str).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
         }
@@ -2477,10 +2734,25 @@
 
         async function initArticles() {
             try {
-                const results = await Promise.all(CONFIG.feeds.map(f => fetchSource(f.url)));
-                state.rawData = results.flatMap((entries, i) =>
-                    entries ? entries.map(e => processEntry(e, CONFIG.feeds[i].name)).filter(e => e !== null) : []
-                );
+                const [dynamic, statics] = await Promise.all([
+                    Promise.all(CONFIG.feeds.map(f => fetchSource(f.url))).then(results =>
+                        results.flatMap((entries, i) =>
+                            entries ? entries.map(e => processEntry(e, CONFIG.feeds[i].name)).filter(e => e !== null) : []
+                        )
+                    ),
+                    Promise.all(CONFIG.staticFeeds.map(f => fetchStaticPosts(f)))
+                ]);
+
+                const merged = [...statics.flat(), ...dynamic];
+
+                // Guard against the same article arriving from two sources
+                const seen = new Set();
+                state.rawData = merged.filter(a => {
+                    const key = a.url.replace(/\/$/, '');
+                    if (seen.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                });
 
                 if (state.rawData.length > 0) {
                     state.rawData.sort((a, b) => b.date - a.date);
@@ -2501,7 +2773,10 @@
             const search = searchEl.value.toLowerCase();
             const sort = sortEl.value;
 
-            state.filteredData = state.rawData.filter(a => a.title.toLowerCase().includes(search));
+            state.filteredData = state.rawData.filter(a =>
+                a.title.toLowerCase().includes(search) ||
+                (a.description && a.description.toLowerCase().includes(search))
+            );
 
             if (sort === 'oldest') state.filteredData.sort((a, b) => a.date - b.date);
             else state.filteredData.sort((a, b) => b.date - a.date);
@@ -2573,6 +2848,156 @@
         window.applyFilters = applyFilters;
 
         if (document.getElementById('articleGrid')) initArticles();
+
+        /* 05 / Open Source — GitHub activity.
+           Reads the build-time snapshot in assets/data/github.json (generated by
+           tools/generate-github.js, refreshed by .github/workflows/update-github.yml),
+           so the section never depends on a third-party service at runtime. */
+        const GH_ICONS = {
+            PushEvent: 'fa-code-commit',
+            PullRequestEvent: 'fa-code-pull-request',
+            IssuesEvent: 'fa-circle-dot',
+            IssueCommentEvent: 'fa-comment-dots',
+            CreateEvent: 'fa-plus',
+            DeleteEvent: 'fa-trash-can',
+            WatchEvent: 'fa-star',
+            ForkEvent: 'fa-code-fork',
+            ReleaseEvent: 'fa-tag',
+            MemberEvent: 'fa-user-plus',
+            PublicEvent: 'fa-globe',
+            GollumEvent: 'fa-book'
+        };
+
+        const GH_LANG_COLORS = {
+            JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#563d7c',
+            Python: '#3572A5', Shell: '#89e051', Java: '#b07219', Ruby: '#701516',
+            'C++': '#f34b7d', C: '#555555', 'C#': '#178600', Go: '#00ADD8', Rust: '#dea584',
+            PHP: '#4F5D95', 'Jupyter Notebook': '#DA5B0B', Vue: '#41b883', SCSS: '#c6538c'
+        };
+
+        function ghRelative(dateStr) {
+            const then = new Date(dateStr).getTime();
+            if (isNaN(then)) return '';
+            const secs = Math.max(1, Math.floor((Date.now() - then) / 1000));
+            const steps = [[31536000, 'y'], [2592000, 'mo'], [604800, 'w'], [86400, 'd'], [3600, 'h'], [60, 'm']];
+            for (const step of steps) {
+                if (secs >= step[0]) return Math.floor(secs / step[0]) + step[1] + ' ago';
+            }
+            return 'just now';
+        }
+
+        function ghMonthYear(d) {
+            return new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+        }
+
+        function renderGithub(data) {
+            const s = data.stats || {};
+
+            // --- stat chips ---
+            const chips = [
+                { icon: 'fa-book-bookmark', value: s.publicRepos, label: 'Public repos' },
+                { icon: 'fa-star', value: s.totalStars, label: 'Stars earned' },
+                { icon: 'fa-users', value: s.followers, label: 'Followers' },
+                { icon: 'fa-code', value: (s.languages || []).length, label: 'Languages' }
+            ];
+            const statsEl = document.getElementById('gh-stats');
+            if (statsEl) {
+                statsEl.innerHTML = chips.map(c => `
+                    <div class="bg-brand-tertiary rounded-[2rem] border border-[#E5E5E5] p-6">
+                        <i class="fa-solid ${c.icon} text-brand-highlight text-lg"></i>
+                        <p class="text-3xl font-bold tracking-tighter text-brand-primary mt-4">${c.value != null ? escapeHtml(String(c.value)) : '—'}</p>
+                        <p class="text-xs font-bold tracking-widest uppercase text-brand-secondary mt-1">${escapeHtml(c.label)}</p>
+                    </div>`).join('');
+            }
+
+            // --- contribution heatmap ---
+            const c = data.contributions || {};
+            const heatEl = document.getElementById('gh-heat');
+            const heatTotal = document.getElementById('gh-heat-total');
+            if (heatTotal && c.available) {
+                const total = Number(c.total || 0).toLocaleString();
+                heatTotal.textContent = c.source === 'events'
+                    ? `${total} public contributions`
+                    : `${total} contributions in the last year`;
+            }
+            if (heatEl) {
+                if (!c.available || !Array.isArray(c.weeks) || !c.weeks.length) {
+                    heatEl.innerHTML = '<div class="py-10 text-center text-sm font-bold text-brand-secondary">No contribution data yet.</div>';
+                } else {
+                    let lastMonth = '';
+                    const months = c.weeks.map(w => {
+                        const d = new Date(w[0].d + 'T00:00:00Z');
+                        const key = d.getUTCFullYear() + '-' + d.getUTCMonth();
+                        if (key !== lastMonth) {
+                            lastMonth = key;
+                            return `<div class="gh-heat-month">${d.toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' })}</div>`;
+                        }
+                        return '<div class="gh-heat-month"></div>';
+                    }).join('');
+                    const grid = c.weeks.map(w => '<div class="gh-heat-week">' + w.map(day =>
+                        `<span class="gh-heat-day" data-level="${day.l}" title="${Number(day.c).toLocaleString()} contribution${day.c === 1 ? '' : 's'} on ${day.d}"></span>`
+                    ).join('') + '</div>').join('');
+                    const note = c.source === 'events'
+                        ? `Public events only · ${ghMonthYear(c.from)} – ${ghMonthYear(c.to)}`
+                        : `Updated ${new Date(data.generated).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}`;
+                    heatEl.innerHTML = `
+                        <div class="gh-heat-inner">
+                            <div class="gh-heat-months">${months}</div>
+                            <div class="gh-heat-grid">${grid}</div>
+                        </div>
+                        <p class="text-xs text-brand-secondary mt-4">${escapeHtml(note)}</p>`;
+                }
+            }
+
+            // --- recent activity ---
+            const actEl = document.getElementById('gh-activity');
+            if (actEl) {
+                const items = (data.activity || []).slice(0, 8);
+                actEl.innerHTML = items.length ? items.map(a => {
+                    const icon = GH_ICONS[a.type] || 'fa-circle';
+                    const repo = String(a.repo || '').split('/').pop();
+                    return `
+                        <li class="flex items-start gap-3">
+                            <span class="gh-activity-icon"><i class="fa-solid ${icon}"></i></span>
+                            <div class="min-w-0">
+                                <p class="text-brand-primary leading-tight">${escapeHtml(a.text)} <a href="${escapeHtml(a.repoUrl || '#')}" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-[#7B7B7B] transition-colors">${escapeHtml(repo)}</a></p>
+                                ${a.detail ? `<p class="text-brand-secondary truncate mt-1">${escapeHtml(a.detail)}</p>` : ''}
+                                <p class="text-brand-secondary text-xs mt-1">${escapeHtml(ghRelative(a.date))}</p>
+                            </div>
+                        </li>`;
+                }).join('') : '<li class="text-brand-secondary font-medium">No public activity recorded.</li>';
+            }
+
+            // --- top repositories ---
+            const repoEl = document.getElementById('gh-repos');
+            if (repoEl) {
+                const repos = data.repos || [];
+                repoEl.innerHTML = repos.length ? repos.map(r => `
+                    <li class="flex items-start justify-between gap-3">
+                        <div class="min-w-0">
+                            <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer" class="font-bold text-brand-primary hover:text-[#7B7B7B] transition-colors">${escapeHtml(r.name)}</a>
+                            ${r.description ? `<p class="text-brand-secondary truncate mt-1">${escapeHtml(r.description)}</p>` : ''}
+                            <p class="text-xs text-brand-secondary mt-1">${r.language ? `<span class="gh-lang-dot" style="background:${GH_LANG_COLORS[r.language] || '#8b949e'}"></span>${escapeHtml(r.language)} · ` : ''}Updated ${escapeHtml(ghRelative(r.pushedAt))}</p>
+                        </div>
+                        ${r.stars > 0 ? `<span class="shrink-0 text-xs font-bold text-brand-secondary inline-flex items-center gap-1"><i class="fa-solid fa-star text-brand-highlight"></i>${r.stars}</span>` : ''}
+                    </li>`).join('') : '<li class="text-brand-secondary font-medium">No public repositories.</li>';
+            }
+        }
+
+        async function initGithub() {
+            if (!document.getElementById('gh-stats')) return;
+            try {
+                const res = await fetch('assets/data/github.json', { cache: 'no-cache' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                renderGithub(await res.json());
+            } catch (err) {
+                console.warn('GitHub activity failed:', err);
+                const heat = document.getElementById('gh-heat');
+                if (heat) heat.innerHTML = '<div class="py-10 text-center text-sm font-bold text-brand-secondary">GitHub activity is unavailable right now.</div>';
+            }
+        }
+
+        if (document.getElementById('gh-stats')) initGithub();
 
         const searchIndex = [
             { title: "Career Directory", url: "page/career-directory.html", category: "Other" },
