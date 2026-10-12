@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-11T11:27:16.292Z",
+  "generated": "2026-10-12T13:15:11.238Z",
   "username": "inakm",
   "user": {
     "login": "inakm",
@@ -32,7 +32,7 @@
       "language": "HTML",
       "stars": 3,
       "forks": 0,
-      "pushedAt": "2026-10-10T11:15:59Z",
+      "pushedAt": "2026-10-11T11:27:17Z",
       "homepage": "https://inakm.github.io/"
     },
     {
@@ -88,9 +88,17 @@
   ],
   "activity": [
     {
-      "repo": "ttearncrypto/thedesisikka",
-      "repoUrl": "https://github.com/ttearncrypto/thedesisikka",
-      "date": "2026-10-11T11:25:00Z",
+      "repo": "f9xr/articles",
+      "repoUrl": "https://github.com/f9xr/articles",
+      "date": "2026-10-12T08:49:56Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "inakm/inakm.github.io",
+      "repoUrl": "https://github.com/inakm/inakm.github.io",
+      "date": "2026-10-10T11:16:00Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
@@ -98,7 +106,39 @@
     {
       "repo": "f9xr/articles",
       "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-10-09T16:28:02Z",
+      "date": "2026-10-10T16:55:09Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/troolify",
+      "repoUrl": "https://github.com/f9xr/troolify",
+      "date": "2026-10-10T14:11:47Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "ttearncrypto/thedesisikka",
+      "repoUrl": "https://github.com/ttearncrypto/thedesisikka",
+      "date": "2026-10-10T13:08:53Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/resumio",
+      "repoUrl": "https://github.com/f9xr/resumio",
+      "date": "2026-10-11T19:45:33Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/articles",
+      "repoUrl": "https://github.com/f9xr/articles",
+      "date": "2026-10-11T19:27:21Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
@@ -106,7 +146,7 @@
     {
       "repo": "f9xr/dev9b",
       "repoUrl": "https://github.com/f9xr/dev9b",
-      "date": "2026-10-11T09:34:59Z",
+      "date": "2026-10-11T17:51:59Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
@@ -114,23 +154,23 @@
     {
       "repo": "f9xr/articles",
       "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-10-09T18:20:04Z",
+      "date": "2026-10-11T08:48:11Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
     },
     {
-      "repo": "f9xr/XYZ-Associates-CA",
-      "repoUrl": "https://github.com/f9xr/XYZ-Associates-CA",
-      "date": "2026-10-10T18:34:32Z",
+      "repo": "f9xr/f9xr.github.io",
+      "repoUrl": "https://github.com/f9xr/f9xr.github.io",
+      "date": "2026-10-11T16:44:47Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
     },
     {
-      "repo": "f9xr/XYZ-Associates-CA",
-      "repoUrl": "https://github.com/f9xr/XYZ-Associates-CA",
-      "date": "2026-10-10T18:22:23Z",
+      "repo": "f9xr/troolify",
+      "repoUrl": "https://github.com/f9xr/troolify",
+      "date": "2026-10-11T12:45:35Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
@@ -138,49 +178,9 @@
     {
       "repo": "ttearncrypto/thedesisikka",
       "repoUrl": "https://github.com/ttearncrypto/thedesisikka",
-      "date": "2026-10-09T07:09:39Z",
+      "date": "2026-10-11T11:25:00Z",
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/articles",
-      "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-10-10T11:05:14Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/troolify",
-      "repoUrl": "https://github.com/f9xr/troolify",
-      "date": "2026-10-10T13:35:27Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/articles",
-      "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-10-10T13:07:12Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/troolify",
-      "repoUrl": "https://github.com/f9xr/troolify",
-      "date": "2026-10-10T14:22:00Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/books",
-      "repoUrl": "https://github.com/f9xr/books",
-      "date": "2026-10-10T21:06:46Z",
-      "type": "WatchEvent",
-      "text": "Starred",
       "detail": ""
     }
   ],
@@ -189,7 +189,7 @@
     "source": "scrape",
     "label": "Contributions in the last year",
     "from": "2025-10-12",
-    "to": "2026-10-11",
+    "to": "2026-10-12",
     "total": 681,
     "max": 39,
     "weeks": [
