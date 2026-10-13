@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T13:15:11.238Z",
+  "generated": "2026-10-13T12:46:17.982Z",
   "username": "inakm",
   "user": {
     "login": "inakm",
@@ -32,7 +32,7 @@
       "language": "HTML",
       "stars": 3,
       "forks": 0,
-      "pushedAt": "2026-10-11T11:27:17Z",
+      "pushedAt": "2026-10-12T13:15:13Z",
       "homepage": "https://inakm.github.io/"
     },
     {
@@ -87,6 +87,38 @@
     }
   ],
   "activity": [
+    {
+      "repo": "f9xr/articles",
+      "repoUrl": "https://github.com/f9xr/articles",
+      "date": "2026-10-13T10:22:06Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/troolify",
+      "repoUrl": "https://github.com/f9xr/troolify",
+      "date": "2026-10-11T11:32:12Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/articles",
+      "repoUrl": "https://github.com/f9xr/articles",
+      "date": "2026-10-12T08:23:55Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/troolify",
+      "repoUrl": "https://github.com/f9xr/troolify",
+      "date": "2026-10-10T20:51:50Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
     {
       "repo": "f9xr/articles",
       "repoUrl": "https://github.com/f9xr/articles",
@@ -150,38 +182,6 @@
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
-    },
-    {
-      "repo": "f9xr/articles",
-      "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-10-11T08:48:11Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/f9xr.github.io",
-      "repoUrl": "https://github.com/f9xr/f9xr.github.io",
-      "date": "2026-10-11T16:44:47Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/troolify",
-      "repoUrl": "https://github.com/f9xr/troolify",
-      "date": "2026-10-11T12:45:35Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "ttearncrypto/thedesisikka",
-      "repoUrl": "https://github.com/ttearncrypto/thedesisikka",
-      "date": "2026-10-11T11:25:00Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
     }
   ],
   "contributions": {
@@ -189,7 +189,7 @@
     "source": "scrape",
     "label": "Contributions in the last year",
     "from": "2025-10-12",
-    "to": "2026-10-12",
+    "to": "2026-10-13",
     "total": 681,
     "max": 39,
     "weeks": [
