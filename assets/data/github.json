@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T09:36:23.858Z",
+  "generated": "2026-10-25T09:53:33.312Z",
   "username": "inakm",
   "user": {
     "login": "inakm",
@@ -15,7 +15,7 @@
     "publicRepos": 11,
     "totalStars": 3,
     "totalForks": 0,
-    "followers": 9,
+    "followers": 10,
     "following": 8,
     "languages": [
       "CSS",
@@ -32,7 +32,7 @@
       "language": "HTML",
       "stars": 3,
       "forks": 0,
-      "pushedAt": "2026-10-23T10:10:43Z",
+      "pushedAt": "2026-10-24T09:36:25Z",
       "homepage": "https://inakm.github.io/"
     },
     {
@@ -87,6 +87,30 @@
     }
   ],
   "activity": [
+    {
+      "repo": "f9xr/yoprompts",
+      "repoUrl": "https://github.com/f9xr/yoprompts",
+      "date": "2026-10-24T12:34:59Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "f9xr/dev9b",
+      "repoUrl": "https://github.com/f9xr/dev9b",
+      "date": "2026-10-24T10:38:31Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
+    {
+      "repo": "mdahetasham/mdahetasham.github.io",
+      "repoUrl": "https://github.com/mdahetasham/mdahetasham.github.io",
+      "date": "2026-10-24T13:57:49Z",
+      "type": "MemberEvent",
+      "text": "Added a collaborator to",
+      "detail": ""
+    },
     {
       "repo": "f9xr/yoprompts",
       "repoUrl": "https://github.com/f9xr/yoprompts",
@@ -158,78 +182,17 @@
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
-    },
-    {
-      "repo": "f9xr/troolify",
-      "repoUrl": "https://github.com/f9xr/troolify",
-      "date": "2026-10-22T12:45:35Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "f9xr/dev9b",
-      "repoUrl": "https://github.com/f9xr/dev9b",
-      "date": "2026-10-22T11:12:44Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
-    },
-    {
-      "repo": "ttearncrypto/thedesisikka",
-      "repoUrl": "https://github.com/ttearncrypto/thedesisikka",
-      "date": "2026-10-20T20:23:54Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
     }
   ],
   "contributions": {
     "available": true,
     "source": "scrape",
     "label": "Contributions in the last year",
-    "from": "2025-10-19",
-    "to": "2026-10-24",
+    "from": "2025-10-26",
+    "to": "2026-10-25",
     "total": 680,
     "max": 39,
     "weeks": [
-      [
-        {
-          "d": "2025-10-19",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-20",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-21",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-22",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-23",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-24",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-10-25",
-          "c": 0,
-          "l": 0
-        }
-      ],
       [
         {
           "d": "2025-10-26",
@@ -2150,6 +2113,43 @@
         },
         {
           "d": "2026-10-24",
+          "c": 0,
+          "l": 0
+        }
+      ],
+      [
+        {
+          "d": "2026-10-25",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-26",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-27",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-28",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-29",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-30",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-10-31",
           "c": 0,
           "l": 0
         }
