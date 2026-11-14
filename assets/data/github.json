@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13T13:12:10.709Z",
+  "generated": "2026-11-14T12:15:55.654Z",
   "username": "inakm",
   "user": {
     "login": "inakm",
@@ -15,7 +15,7 @@
     "publicRepos": 11,
     "totalStars": 3,
     "totalForks": 0,
-    "followers": 10,
+    "followers": 11,
     "following": 8,
     "languages": [
       "CSS",
@@ -32,7 +32,7 @@
       "language": "HTML",
       "stars": 3,
       "forks": 0,
-      "pushedAt": "2026-11-12T13:49:56Z",
+      "pushedAt": "2026-11-13T13:12:12Z",
       "homepage": "https://inakm.github.io/"
     },
     {
@@ -87,6 +87,14 @@
     }
   ],
   "activity": [
+    {
+      "repo": "f9xr/articles",
+      "repoUrl": "https://github.com/f9xr/articles",
+      "date": "2026-11-12T08:47:40Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
     {
       "repo": "f9xr/articles",
       "repoUrl": "https://github.com/f9xr/articles",
@@ -174,14 +182,6 @@
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
-    },
-    {
-      "repo": "f9xr/yoprompts",
-      "repoUrl": "https://github.com/f9xr/yoprompts",
-      "date": "2026-11-09T15:34:35Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
     }
   ],
   "contributions": {
@@ -189,8 +189,8 @@
     "source": "scrape",
     "label": "Contributions in the last year",
     "from": "2025-11-09",
-    "to": "2026-11-13",
-    "total": 715,
+    "to": "2026-11-14",
+    "total": 716,
     "max": 39,
     "weeks": [
       [
@@ -2150,8 +2150,8 @@
         },
         {
           "d": "2026-11-14",
-          "c": 0,
-          "l": 0
+          "c": 1,
+          "l": 1
         }
       ]
     ]
