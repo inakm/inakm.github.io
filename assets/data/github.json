@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21T13:32:07.716Z",
+  "generated": "2026-11-22T13:25:27.670Z",
   "username": "inakm",
   "user": {
     "login": "inakm",
@@ -32,7 +32,7 @@
       "language": "HTML",
       "stars": 3,
       "forks": 0,
-      "pushedAt": "2026-11-20T14:06:31Z",
+      "pushedAt": "2026-11-21T13:32:08Z",
       "homepage": "https://inakm.github.io/"
     },
     {
@@ -87,6 +87,14 @@
     }
   ],
   "activity": [
+    {
+      "repo": "f9xr/dev9b",
+      "repoUrl": "https://github.com/f9xr/dev9b",
+      "date": "2026-11-19T16:55:56Z",
+      "type": "PushEvent",
+      "text": "Pushed 1 commit to",
+      "detail": ""
+    },
     {
       "repo": "f9xr/dev9b",
       "repoUrl": "https://github.com/f9xr/dev9b",
@@ -174,62 +182,17 @@
       "type": "PushEvent",
       "text": "Pushed 1 commit to",
       "detail": ""
-    },
-    {
-      "repo": "f9xr/articles",
-      "repoUrl": "https://github.com/f9xr/articles",
-      "date": "2026-11-16T15:53:06Z",
-      "type": "PushEvent",
-      "text": "Pushed 1 commit to",
-      "detail": ""
     }
   ],
   "contributions": {
     "available": true,
     "source": "scrape",
     "label": "Contributions in the last year",
-    "from": "2025-11-16",
-    "to": "2026-11-21",
+    "from": "2025-11-23",
+    "to": "2026-11-22",
     "total": 719,
     "max": 39,
     "weeks": [
-      [
-        {
-          "d": "2025-11-16",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-17",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-18",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-19",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-20",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-21",
-          "c": 0,
-          "l": 0
-        },
-        {
-          "d": "2025-11-22",
-          "c": 0,
-          "l": 0
-        }
-      ],
       [
         {
           "d": "2025-11-23",
@@ -2152,6 +2115,43 @@
           "d": "2026-11-21",
           "c": 1,
           "l": 1
+        }
+      ],
+      [
+        {
+          "d": "2026-11-22",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-23",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-24",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-25",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-26",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-27",
+          "c": 0,
+          "l": 0
+        },
+        {
+          "d": "2026-11-28",
+          "c": 0,
+          "l": 0
         }
       ]
     ]
